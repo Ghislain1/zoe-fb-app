@@ -2,17 +2,14 @@
 
 /*  Div for container */
 .gcontainer{
-    margin: 5px;
+    margin: 5px;     
      
-    background-color: gray;
 
 }
 
 /*  Div  container  for header */
 .gheadercontainer{
-    margin: 5px;
-    border-style: solid;
-    border-color: black;
+    margin: 5px;     
     background-color: white;
     align-content: center;
     text-align: center;
@@ -32,7 +29,7 @@
 .gmaincontainer{
      background-color: whitesmoke;
     min-height: 560px;
-       outline-style: dotted;
+       
 
 }
 
@@ -42,24 +39,48 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: rgb(0, 128, 0);
+    border-style: solid;
+    border-color:  rgb(0, 128, 0);
+    
+    
 }
 
 li {
     float: left;
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+li a {     
+  text-decoration: none;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding: 14px 16px;
+  display: inline-block;
+  border-radius: 0px;  
+
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
-}
+li a:visited, a:link {
+    color:  white;
+  }
+
+  li a:hover {
+    color: rgb(48, 229, 3);
+    background-color:white;
+  }
+
+  li a.active {
+    color: #039be5;
+    background-color: black;
+  }
+
+ 
 
 /* ENDE --> Ul Navi style  */
+
+
+/* everywhere else */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
