@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*  Div for container */
+.gcontainer{
+    margin: 5px;
+     
+    background-color: gray;
+
+}
+
+/*  Div  container  for header */
+.gheadercontainer{
+    margin: 5px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    align-content: center;
+    text-align: center;
+
+}
+
+ 
+
+/*  Div  container  for footer */
+.gfootercontainer{
+    margin: 5px;
+    display: inline-block;    
+
+}
+
+/*  Div  container  for main */
+.gmaincontainer{
+     background-color: whitesmoke;
+    min-height: 560px;
+       outline-style: dotted;
+
+}
+
+/*  Ul Navi style   */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+/* ENDE --> Ul Navi style  */

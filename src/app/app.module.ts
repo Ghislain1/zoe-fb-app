@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { HomeModule } from './home/home.module';
+import { AppRoutineModule } from './app-routine.module';
+ 
 
 
 @NgModule({
@@ -10,7 +13,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HomeModule,
+    AppRoutineModule
   ],
   providers: [],
   bootstrap: [AppComponent]
