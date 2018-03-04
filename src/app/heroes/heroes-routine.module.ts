@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeroListComponent } from './components/hero-list.component';
 import { HeroDetailComponent } from './components/hero-detail.component';
 
- 
 
 const heroesRoutes: Routes = [
   { path: 'heroes', redirectTo: '/superheroes' },
