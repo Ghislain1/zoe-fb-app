@@ -2,6 +2,8 @@ import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { HeroService } from '../services/hero.service';
+import { Hero } from '../models/hero';
  
 
 @Component({
@@ -17,13 +19,27 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
     </ul>
 
     <button routerLink="/sidekicks">Go to sidekicks</button>
-  `
+  `,
+  styleUrls: ['./hero-list.component.css']
 })
 export class HeroListComponent implements OnInit {
+  heroes$: Observable<Hero[]>;
 
-  constructor() { }
+  private selectedHeroId: string;
+  
+  constructor(
+    private heroService: HeroService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+   
+    this.heroes$= this.heroService.getHeroes();
+   
+    this.route.paramMap.switchMap( (par : ParamMap)  =>  this.selectedHeroId=par.get('id'));
+
+   // this.route.paramMap.switchMap((params: ParamMap) => {this.selectedHeroId = +params.get('id')});
+    
   }
 
 }

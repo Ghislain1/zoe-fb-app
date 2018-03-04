@@ -3,7 +3,9 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Hero, HeroService } from '../services/hero.service';
+import { Hero } from '../models/hero';
+import { HeroService } from '../services/hero.service';
+ 
 @Component({
   template: `
   <h2>HEROES</h2>
