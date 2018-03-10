@@ -7,6 +7,8 @@ import { HomeModule } from './home/home.module';
 import { AppRoutineModule } from './app-routine.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { TodoModule } from './todo/todo.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
  
 
 
@@ -15,10 +17,11 @@ import { TodoModule } from './todo/todo.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,     
+    TodoModule, 
+    CoreModule,
     HeroesModule,
-     HomeModule,
-     TodoModule, 
+     HomeModule,   
     AppRoutineModule
   ],
   providers: [],
