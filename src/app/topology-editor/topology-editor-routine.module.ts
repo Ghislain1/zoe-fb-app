@@ -3,16 +3,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { TopologyListComponent } from './components/topology-list/topology-list.component';
+ 
 import { TopologyWorkspaceComponent } from './components/topology-workspace/topology-workspace.component';
 
 
 const topologyEditorRoutes: Routes = [
   {
-    path: 'topologyList', component: TopologyListComponent, children: [
-      {
-        path: "app-topology-workspace/id", component: TopologyWorkspaceComponent
-      }
+    path: 'topologyList', component:TopologyWorkspaceComponent , children: [
+      
     ]
   }, //Add a the route to redirect to home-desc
 

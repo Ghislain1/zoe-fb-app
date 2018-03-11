@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import { Topology } from '../../../core/models/topology';
-import { TopologyItem } from '../../database/topology-item';
+ 
 import { TopologyService } from '../../services/topology.service';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -10,10 +10,10 @@ import 'rxjs/add/operator/switchMap';
 import * as go from 'gojs';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TopologyAggregator } from '../../services/topology.aggregator';
+ 
 import { CustomLink } from '../../utils/custom-link';
 import { NodeTemplateService } from '../../utils/node-template.service';
-import { TopologyEvent } from '../../database/topology-event';
+ 
 import { LinkTemplateService } from '../../utils/link-template.service';
 
 
@@ -50,16 +50,16 @@ export class TopologyWorkspaceComponent implements OnInit {
 
 
     subscription: Subscription;
-    topologyItem: TopologyItem;
-    topologyItem$: Observable<TopologyItem>;
+ 
+   
     topologyItemId: number | string;
 
     constructor(private route: ActivatedRoute,
         private router: Router,
         private topologyService: TopologyService,
         private nodeTemplateService: NodeTemplateService,
-        private linkTemplateService: LinkTemplateService,
-        private topologyAggregator: TopologyAggregator) {
+        private linkTemplateService: LinkTemplateService
+        ) {
 
 
     }
@@ -72,8 +72,7 @@ export class TopologyWorkspaceComponent implements OnInit {
             });
 
 
-        this.topologyAggregator.getSource().subscribe(topoEvent => this.init(topoEvent), error => this.myError(error), () => this.myComplete());
-
+   
     }
 
     myError(error): void {
@@ -85,12 +84,10 @@ export class TopologyWorkspaceComponent implements OnInit {
         console.log("myComplete***************");
 
     }
-    init(eventTopo: TopologyEvent): void {
-        this.doJob(eventTopo.id);
-    }
+   
 
 
-    private setUpGraphLinksModel(myModel: TopologyItem): void {
+    private setUpGraphLinksModel(myModel: Topology): void {
 
         //TODO: Presentation data 
         this.graphLinksModel.copiesArrays = true;
@@ -129,10 +126,10 @@ export class TopologyWorkspaceComponent implements OnInit {
         this.diagram.undoManager.isEnabled = true;
 
         //setting the model 
-        this.topologyItem$ = this.topologyService.getTopologyById(eventTopoId);
+        //this.topologyItem$ = this.topologyService.getTopologyById(eventTopoId);
 
         ///TODO:  create model according to view--> this presentation logic object:graphLinksModel
-        this.setUpGraphLinksModel(this.topologyService.selectedTopologyItem)
+       // this.setUpGraphLinksModel(this.topologyService.selectedTopologyItem)
 
 
         var diagram = this.diagram;
@@ -150,10 +147,10 @@ export class TopologyWorkspaceComponent implements OnInit {
         diagram.nodeTemplate = this.nodeTemplateService.getNodeTemplate();
 
 
-        var nodeDataArray = this.topologyService.selectedTopologyItem.nodeDataArray;
-        var linkDataArray = this.topologyService.selectedTopologyItem.linkDataArray;
+      //  var nodeDataArray = this.topologyService.selectedTopologyItem.nodeDataArray;
+       // var linkDataArray = this.topologyService.selectedTopologyItem.linkDataArray;
 
-        diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+      //  diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
     }
 
     private test() {
