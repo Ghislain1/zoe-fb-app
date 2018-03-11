@@ -1,0 +1,16 @@
+<form enctype="multipart/form-data" method="post">
+  <div>
+
+
+
+    <div class="input-group">
+      <div class="custom-file">
+        <input (click)="message=''" type="file" #picked class="custom-file-input" id="inputGroupFile04" (change)="onPicked(picked)">
+        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+      </div>
+
+    </div>
+
+  </div>
+  <p *ngIf="message">{{message}}</p>
+</form>

@@ -9,6 +9,13 @@ import { HeroesModule } from './heroes/heroes.module';
 import { TodoModule } from './todo/todo.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
+import { RouterModule } from '@angular/router';
+import { LayoutModule } from './layout/layout.module';
+import { TopologyEditorModule } from './topology-editor/topology-editor.module';
+import { AboutModule } from './about/about.module';
+import { LoaderModule } from './loader/loader.module';
+import { OutputModule } from './output/output.module';
+ 
  
 
 
@@ -17,12 +24,17 @@ import { CoreModule } from './core/core.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,     
-    TodoModule, 
-    CoreModule,
-    HeroesModule,
-     HomeModule,   
-    AppRoutineModule
+    BrowserModule,
+    RouterModule,
+    HomeModule,
+    LayoutModule,
+    LoaderModule,
+    AboutModule,
+    OutputModule,    
+    TopologyEditorModule,
+    TodoModule,
+    AppRoutineModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

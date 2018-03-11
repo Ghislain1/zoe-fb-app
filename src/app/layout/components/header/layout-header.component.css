@@ -1,0 +1,6 @@
+.header {
+  background-image: url('/assets/images/pngs/hBande.png'), url('/assets/images/pngs/hBande.png');
+  height: 10px;
+  width: 100%;
+  display: inline-block;
+}

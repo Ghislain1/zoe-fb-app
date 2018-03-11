@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/app-home-description',  pathMatch: 'full'  } 
+  { path: '', redirectTo: '/home',  pathMatch: 'full'  } 
   
 ];
 

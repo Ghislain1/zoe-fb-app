@@ -1,0 +1,76 @@
+.topnav {
+  height: auto;
+  background-color: #fff;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Add a gray right border to all list items, except the last item (last-child) */
+
+li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+
+li a,
+.dropbtn {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* for About */
+
+li:last-child {
+  border-right: none;
+  float: right;
+  /* last childe(About) to right placement*/
+}
+
+li a:hover,
+.dropdown:hover .dropbtn a:active {
+  background-color: red;
+  /* Change the link color to red on hover */
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

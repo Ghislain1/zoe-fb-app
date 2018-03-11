@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './components/home.component';
-import { HomeDescriptionComponent } from './components/home-description.component';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeDescriptionComponent } from './components/description/home-description.component';
+
 
 
 const homeRoutes: Routes = [
-     
-  { path: 'app-home-description',  component: HomeDescriptionComponent },
-  { path: 'app-home', component: HomeComponent }
+  { path: 'home', component: HomeDescriptionComponent } // Add the route to call the Home-Descrip Component
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(homeRoutes)
+  imports: [CommonModule,
+    RouterModule.forChild(homeRoutes) // Registry your  home route -- Not forRoot!!!
   ],
-  exports: [    RouterModule  ]
+  exports: [RouterModule]
+
 })
 export class HomeRoutineModule { }

@@ -1,0 +1,15 @@
+<div *ngIf="topologyItem$ | async as topologyItem">
+
+  <h3>{{ topologyItem.name }}</h3>
+
+  <div>
+    <label>Id: </label>{{ topologyItem.id }}</div>
+  <div>
+    <label>Name: </label>{{ topologyItem.title }}</div>
+
+
+</div>
+
+<div #myDiagramDiv class="diagramContainer">
+
+</div>

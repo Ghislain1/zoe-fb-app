@@ -1,0 +1,29 @@
+
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { TopologyListComponent } from './components/topology-list/topology-list.component';
+import { TopologyWorkspaceComponent } from './components/topology-workspace/topology-workspace.component';
+
+
+const topologyEditorRoutes: Routes = [
+  {
+    path: 'topologyList', component: TopologyListComponent, children: [
+      {
+        path: "app-topology-workspace/id", component: TopologyWorkspaceComponent
+      }
+    ]
+  }, //Add a the route to redirect to home-desc
+
+];
+
+@NgModule({
+  imports: [CommonModule,
+    RouterModule.forChild(topologyEditorRoutes) // Registry your  settings route -- Not forRoot!!!
+  ],
+  exports: [RouterModule]
+
+})
+export class TopologyEditorRoutineModule { }
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../../core/services/config-service';
 
 @Component({
   selector: 'app-home-description',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeDescriptionComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private configService: ConfigService) {
+
+    }
 
   ngOnInit() {
   }

@@ -1,38 +1,25 @@
-<div class="gcontainer">
+<div class="container-fluid">
 
-<div class="gheadercontainer">
- <p> Header </p>
-</div>
+  <!--- header -->
+  <div class="container-fluid">
+    <app-layout-header> </app-layout-header>
+  </div>
 
-<ul>
-  <li>
-    <a routerLinkActive="active"  routerLink="/app-home"> Home </a>
-  </li>
-  
-    <li> 
-       <a routerLinkActive="active"  routerLink="/heroes"> Hereos </a>
-    </li>
+  <!--- Navi top -->
+  <div class="container-fluid">
+    <app-layout-navi> </app-layout-navi>
+  </div>
 
-    <li> 
-      <a routerLinkActive="active"  routerLink="/app-todo"> ToDo </a>
-   </li>
+  <!--- Main -->
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
 
-  <li style="float:right"><a   href="#about">About</a></li>
-</ul> 
+  </div>
 
+  <!--- footer -->
+  <div class="container-fluid">
+    <app-layout-footer> </app-layout-footer>
+  </div>
 
-<div class="gmaincontainer">
-    
-  <router-outlet></router-outlet>
-
-</div>
-
-
-<div class="gfootercontainer">
-  
-
-    
-  <p> Footter </p>
-</div>
 
 </div>

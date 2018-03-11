@@ -1,5 +1,5 @@
 {
-  "name": "my-first-angular5",
+  "name": "web-topology-bootstrap",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -22,11 +22,12 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
+    "gojs": "^1.8.15",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.0",
+    "@angular/cli": "~1.7.2",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
