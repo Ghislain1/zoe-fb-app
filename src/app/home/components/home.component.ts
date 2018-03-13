@@ -1,3 +1,5 @@
+
+import { ConfigService } from '../../core/services/config-service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  topologyUrl: string
+  constructor( private configService:ConfigService) { }
 
   ngOnInit() {
+    
+    this.configService.getConfig_2().subscribe(value => this.topologyUrl= value.topologyUrl);
   }
 
 }

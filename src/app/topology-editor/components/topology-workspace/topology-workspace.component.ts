@@ -10,11 +10,10 @@ import 'rxjs/add/operator/switchMap';
 import * as go from 'gojs';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NodeTemplateService } from '../../../core/utils/node-template.service';
+import { LinkTemplateService } from '../../../core/utils/link-template.service';
+import { CustomLink } from '../../../core/utils/custom-link';
  
-import { CustomLink } from '../../utils/custom-link';
-import { NodeTemplateService } from '../../utils/node-template.service';
- 
-import { LinkTemplateService } from '../../utils/link-template.service';
 
 
 
@@ -36,6 +35,10 @@ export class TopologyWorkspaceComponent implements OnInit {
 
     @ViewChild('myDiagramDiv')
     private diagramRef: ElementRef;
+
+    @ViewChild('myLoadInputText')
+    private loadInputTextRef: ElementRef;
+    private   inputElement:HTMLInputElement;
 
 
     @Input()
@@ -59,31 +62,23 @@ export class TopologyWorkspaceComponent implements OnInit {
         private topologyService: TopologyService,
         private nodeTemplateService: NodeTemplateService,
         private linkTemplateService: LinkTemplateService
-        ) {
-
-
-    }
+        ) {    }
 
     ngOnInit() {
+      this.inputElement  = this.loadInputTextRef.nativeElement as HTMLInputElement;
+      this.inputElement.value="http://localhost:2178/api/topology/1";
+
         const $ = go.GraphObject.make;
         this.diagram = $(go.Diagram, this.diagramRef.nativeElement,
             {
                 initialContentAlignment: go.Spot.Center  // center the content
-            });
+            });   
+        }
 
-
-   
-    }
-
-    myError(error): void {
-        console.log("EROOORRRRRRRRRRRRR***************");
-        console.log(error);
-    }
-
-    myComplete(): void {
-        console.log("myComplete***************");
-
-    }
+        load(par: any){        
+         
+            alert(this.inputElement.value);
+        }
    
 
 
@@ -332,7 +327,7 @@ export class TopologyWorkspaceComponent implements OnInit {
         this.reponseToServer = model;
     }
 
-    load(): void {
+    load_1(): void {
         var mySavedModel = document.getElementById("mySavedModel") as HTMLDivElement;
         if (mySavedModel && go) {
             this.diagram.model = go.Model.fromJson(mySavedModel.textContent);

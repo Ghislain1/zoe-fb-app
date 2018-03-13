@@ -14,9 +14,7 @@ import { element } from 'protractor';
     templateUrl: './about-description.component.html',
     styleUrls: ['./about-description.component.css']
 })
-export class AboutDescriptionComponent implements OnInit {
-
-  
+export class AboutDescriptionComponent implements OnInit { 
 
     @ViewChild('myDiagramDiv')
     diagramDiv: ElementRef;

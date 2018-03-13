@@ -1,6 +1,11 @@
 .footer {
-  background-image: url('/assets/images/pngs/hBande.png'), url('/assets/images/pngs/hBande.png');
-  height: 10px;
-  width: 100%;
-  display: block;
+  background-image: url('/assets/images/hilscherFooterBand.png');
+  height: 60px; 
+  background-repeat: no-repeat;
+  display:block;    
+  background-size: 100%;
+}
+section{
+  text-align: left;
+   
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeRoutineModule } from './home-routine.module';
 import { HomeDescriptionComponent } from './components/description/home-description.component';
+import { HomeComponent } from './components/home.component';
 
 
 @NgModule({
@@ -9,6 +10,6 @@ import { HomeDescriptionComponent } from './components/description/home-descript
     HomeRoutineModule,
     CommonModule
   ],
-  declarations: [HomeDescriptionComponent]
+  declarations: [HomeDescriptionComponent, HomeComponent]
 })
 export class HomeModule { }

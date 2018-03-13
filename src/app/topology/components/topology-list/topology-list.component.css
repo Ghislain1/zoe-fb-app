@@ -1,54 +1,50 @@
-.topul {
-  height: auto; 
+.row{
+ min-height:  600px;
+ }
+ .col-md-auto{
+ height: inherit;
+ }
+
+
+.leftul {
+  width: auto; 
   background-color: gray;
   border-style: none;  
+  margin-top: 10px;
+  min-height: inherit;
 } 
 
-.topul li {
+.leftul li { 
+  margin: 2px  0px;
+  background-color: whitesmoke; 
+  display: block;
   float: left;
-  margin: 0px  2px;
-  background-color: whitesmoke;
-  border-style:none;
+  clear: left;
+ min-width:  160px;
 }
 
-
-/* for About */
-.topul li:last-child {
-  border-right: none;
-  float: right;
-  /* last childe(About) to right placement*/
-}
-
-.topul a {   
+.leftul a {   
   cursor: hand;
   text-transform: uppercase;
 }
 
-.topul li a {
+.leftul li a {
   display: block;  
   text-align: center; 
   text-decoration: none;
   color: var(--hilscher-color);
 }
 
-.topul li a:hover {   
+.leftul li a:hover {   
   background-color: var(--hilscher-bg);
   color: white;
   text-transform: uppercase;
 }
  
 
-.topul li a.active {   
+.leftul li a.active {   
   background-color: var(--hilscher-bg);
   color: white;
 }
 
  
- 
-
-
-
-
- 
-
-

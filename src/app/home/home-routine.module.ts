@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeDescriptionComponent } from './components/description/home-description.component';
+import { HomeComponent } from './components/home.component';
 
 
 
 const homeRoutes: Routes = [
-  { path: 'home', component: HomeDescriptionComponent } // Add the route to call the Home-Descrip Component
+  { path: 'home', component: HomeComponent } // Add the route to call the Home-Descrip Component
 ];
 
 @NgModule({

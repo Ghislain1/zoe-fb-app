@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { AppRoutineModule } from './app-routine.module';
-import { HeroesModule } from './heroes/heroes.module';
+ 
 import { TodoModule } from './todo/todo.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
@@ -15,6 +15,7 @@ import { TopologyEditorModule } from './topology-editor/topology-editor.module';
 import { AboutModule } from './about/about.module';
 import { LoaderModule } from './loader/loader.module';
 import { OutputModule } from './output/output.module';
+import { TopologyModule } from './topology/topology.module';
  
  
 
@@ -26,6 +27,7 @@ import { OutputModule } from './output/output.module';
   imports: [
     BrowserModule,
     RouterModule,
+    TopologyModule,
     HomeModule,
     LayoutModule,
     LoaderModule,

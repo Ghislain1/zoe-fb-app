@@ -1,0 +1,27 @@
+  <div class="row">
+
+      <div class="col-md-auto">
+          <ul class="leftul">
+              <li *ngFor="let topology of topologies$ | async"
+                  [class.selected]="topology.id === selectedId">
+              <a [routerLink]="[topology.id]">       {{ topology.name }}        </a>
+            </li>
+      
+              <li><a href="javascript:;"><i class="glyphicon glyphicon-off"></i> Sign in</a></li>
+                 
+          </ul>
+      </div>
+      
+      <section  class="col-lg-10">         
+        
+        <router-outlet></router-outlet>
+     </section>
+ 
+  
+  </div>
+ 
+
+          
+          
+    
+          
