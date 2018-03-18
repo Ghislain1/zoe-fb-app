@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TopologyService } from './services/topology.service';
+ 
  
 import { TopologyListComponent } from './components/topology-list/topology-list.component';
 import { TopologyDetailComponent } from './components/topology-detail/topology-detail.component';
@@ -28,7 +28,7 @@ import { DiagramService } from '../core/utils/diagram.service';
     TopologyDetailComponent
   ],
   providers: [
-    TopologyService,CanDeactivateGuard, NodeTemplateService, DiagramService,LinkTemplateService
+    CanDeactivateGuard, NodeTemplateService, DiagramService,LinkTemplateService
   ]
 })
 

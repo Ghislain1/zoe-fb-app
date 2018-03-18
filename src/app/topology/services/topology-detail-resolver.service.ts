@@ -4,8 +4,9 @@ import { Injectable }             from '@angular/core';
 import { Observable }             from 'rxjs/Observable';
 import { Router, Resolve, RouterStateSnapshot,
          ActivatedRouteSnapshot } from '@angular/router';
-import { TopologyService } from './topology.service';
+ 
 import { Topology } from '../../core/models/topology';
+import { TopologyService } from '../../core/services/topology.service';
  
 
 @Injectable()

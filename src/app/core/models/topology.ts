@@ -17,7 +17,12 @@ export interface TopArray {
     portId: string;
 }
 
-export interface BottomArray {
+export interface IBottomArray {
+    portColor: string;
+    portId: string;
+}
+
+export class BottomArray implements IBottomArray {
     portColor: string;
     portId: string;
 }
@@ -31,6 +36,7 @@ export class NodeDataArray {
     public key: number;
     name: string;
     loc: string;
+    img:string;
     leftArray: LeftArray[];
     topArray: TopArray[];
     bottomArray: BottomArray[];

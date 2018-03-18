@@ -1,7 +1,7 @@
    {
     "todoUrl": "http://localhost:2178/api/todo"    ,
-    "topologyUrl": "http://localhost:2178/api/topology"   ,
+    "topologyUrl": "http://localhost:2178/api/topo"   ,
     "homeUrl": "http://localhost:2178/api/todo" 
   }
 
- 
+  

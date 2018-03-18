@@ -2,84 +2,87 @@ import { Injectable } from "@angular/core";
 
 import * as go from 'gojs';
 
- 
+
 //Type of shape ...
- export const SHAPE_TYPE: string [] =["RoundedRectangle",
-"Ellipse",
-"Hexagon",
-"Cloud",
-"Procedure",
+export const SHAPE_TYPE: string[] = ["RoundedRectangle",
+    "Ellipse",
+    "Hexagon",
+    "Cloud",
+    "Procedure",
 ];
 
 
 @Injectable()
 export class NodeTemplateService {
 
-    getNodeTemplate_2( panelType:string, shapeType:string , propertyName:string){
+    getNodeTemplate_2(panelType: string, shapeType: string, propertyName: string) {
         const $ = go.GraphObject.make;
-        let temp=$(go.Node, panelType,
-                  $(go.Shape, shapeType),
-                $(go.TextBlock, { margin: 5 },  new go.Binding("text", propertyName)) ,
-               { toolTip:  // define a tooltip for each node that displays the color as text
-                $(go.Adornment, "Auto",
-                  $(go.Shape, { fill: "#FFFFCC" }),
-                  $(go.TextBlock, { margin: 4 },  new go.Binding("text", "key"))
-                )} );
+        let temp = $(go.Node, panelType,
+            $(go.Shape, shapeType),
+            $(go.TextBlock, { margin: 5 }, new go.Binding("text", propertyName)),
+            {
+                toolTip:  // define a tooltip for each node that displays the color as text
+                    $(go.Adornment, "Auto",
+                        $(go.Shape, { fill: "#FFFFCC" }),
+                        $(go.TextBlock, { margin: 4 }, new go.Binding("text", "key"))
+                    )
+            });
         return temp;
     }
 
     getNodeTemplate_1() {
         const $ = go.GraphObject.make;
         var d = $(go.Node, "Auto",
-            $(go.Shape, "RoundedRectangle",  new go.Binding("fill", "color")),  // shape.fill = data.color
-            $(go.TextBlock,   { margin: 5 },  new go.Binding("text", "key"))  // textblock.text = data.key
+            $(go.Shape, "RoundedRectangle", new go.Binding("fill", "color")),  // shape.fill = data.color
+            $(go.TextBlock, { margin: 5 }, new go.Binding("text", "key"))  // textblock.text = data.key
         );
         return d;
 
     }
 
 
-    getNodeTemplate_G(textProp:string, portArrayProp:string): any {
-        const $ = go.GraphObject.make;    
+    getNodeTemplate_G(textProp: string, portArrayProp: string): any {
+        const $ = go.GraphObject.make;
         var portMenu = this.getUpPortMenu();
         var portSize = new go.Size(15, 8);
         var treeExpanderButton = $(go.Panel, { height: 15 }, $("TreeExpanderButton"));
-        
+
         // the node template
         // includes a panel on each side with an itemArray of panels containing ports
         var nodeTemplate =
-            $(go.Node, "Table",{ width:150, height:100,
-                 locationObjectName: "BODY", 
-                 locationSpot: go.Spot.Center,
-                  selectionObjectName: "BODY"
-                    // contextMenu: nodeMenu
+            $(go.Node, "Table", {
+                width: 150, height: 100,
+                locationObjectName: "BODY",
+                locationSpot: go.Spot.Center,
+                selectionObjectName: "BODY"
+                // contextMenu: nodeMenu
             },
                 { defaultAlignment: go.Spot.Center },
-                $(go.RowColumnDefinition, { column: 0, width:150, height: 150 }),//image
+                $(go.RowColumnDefinition, { column: 0, width: 150, height: 150 }),//image
                 $(go.RowColumnDefinition, { column: 1, width: 150, height: 50 }),//text
-                                      
+
                 // the body
                 $(go.Panel, "Table",
-                { defaultAlignment: go.Spot.Left },
-                $(go.RowColumnDefinition, { column: 0, width:150, height: 50 }),//image
-                $(go.RowColumnDefinition, { column: 1, width: 100, height: 50 }),//text
-                 {
-                        row: 0, 
+                    { defaultAlignment: go.Spot.Left },
+                    $(go.RowColumnDefinition, { column: 0, width: 150, height: 50 }),//image
+                    $(go.RowColumnDefinition, { column: 1, width: 100, height: 50 }),//text
+                    {
+                        row: 0,
                         column: 0,
-                        background:"green",
+                        background: "green",
                         name: "BODY",
                         stretch: go.GraphObject.Fill
                     },
-                    $(go.TextBlock,{ row:0 }, new go.Binding("text","img")),
+                    $(go.TextBlock, { row: 0 }, new go.Binding("text", "img")),
                     $(go.TextBlock,
-                        { background:"yellow", row:1, margin: 10, textAlign: "center", font: "14px Segoe UI,sans-serif", stroke: "white", editable: true },
+                        { background: "yellow", row: 1, margin: 10, textAlign: "center", font: "14px Segoe UI,sans-serif", stroke: "white", editable: true },
                         new go.Binding("text", textProp).makeTwoWay())
                 ), // end Auto Panel body      
-            
-            
+
+
                 // the Panel holding the bottom port elements, which are themselves Panels,
                 // created for each item in the itemArray, bound to data.bottomArray
-                $(go.Panel, "Horizontal",{background:"black", row:1, column:1},
+                $(go.Panel, "Horizontal", { background: "black", row: 1, column: 1 },
                     new go.Binding("itemArray", portArrayProp),
                     {
                         row: 1, column: 1,
@@ -107,8 +110,43 @@ export class NodeTemplateService {
         return nodeTemplate;
     }
 
-
     getNodeTemplate(): any {
+        var $ = go.GraphObject.make;  // for conciseness in defining templates
+        var portSize = new go.Size(15, 8);
+        const nodeTemplate =
+            $(go.Node, "Vertical",
+                $(go.Panel, "Auto",
+                    $(go.Shape, "RoundedRectangle", { fill: null, desiredSize: new go.Size(300, 140) }),
+
+                    $(go.Panel, "Table",
+                        $(go.TextBlock, { row: 0 }, new go.Binding("text", "name")),
+                        $(go.Picture, { row: 1 }, { width: 300, height: 100 }, new go.Binding("source", "img")),
+                        $(go.TextBlock, { row: 2 }, new go.Binding("text", "name")))),
+                $(go.Panel, "Horizontal",
+                    new go.Binding("itemArray", "bottomArray"),
+                    {
+                        itemTemplate:
+                            $(go.Panel,
+                                {
+                                    _side: "bottom",
+                                    fromSpot: go.Spot.Bottom, toSpot: go.Spot.Bottom,
+                                    fromLinkable: true, toLinkable: true, cursor: "pointer",
+                                },
+                                new go.Binding("portId", "portId"),
+                                $(go.Shape, "Rectangle",
+                                    {
+                                        stroke: null, strokeWidth: 0,
+                                        desiredSize: portSize,
+                                        margin: new go.Margin(0, 1)
+                                    },
+                                    new go.Binding("fill", "portColor"))
+                            )  // end itemTemplate
+                    }
+                ));
+        return nodeTemplate;
+    }
+
+    getNodeTemplate_11(): any {
         const $ = go.GraphObject.make;
         var portSize = new go.Size(8, 10);
         var portMenu = this.getUpPortMenu();

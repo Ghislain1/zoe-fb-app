@@ -5,7 +5,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
  
 import { Observable }            from 'rxjs/Observable';
 import { Topology } from '../../../core/models/topology';
-import { TopologyService } from '../../services/topology.service';
+import { TopologyService } from '../../../core/services/topology.service';
+ 
 
 @Component({
   selector: 'app-topology-list',

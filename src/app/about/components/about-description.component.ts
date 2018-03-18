@@ -29,12 +29,59 @@ export class AboutDescriptionComponent implements OnInit {
 
     ngOnInit() {
 
-        this.usingPanels();
+        this.usingPanels_1();
         // this.usingPerson();
 
     }
 
- 
+   private usingPanels_1()  : void  {
+    var $ = go.GraphObject.make;  // for conciseness in defining templates
+
+    this.diagram = $(go.Diagram, this.diagramDiv.nativeElement,
+        {
+            initialContentAlignment: go.Spot.Center  // center the content
+        });
+        var portSize = new go.Size(12, 8);
+        this.diagram.nodeTemplate=
+            $(go.Node, "Vertical",
+            $(go.Panel, "Auto",
+            $(go.Shape, "RoundedRectangle",{fill:null,desiredSize:new go.Size(300,140)}),
+          
+            $(go.Panel, "Table",{background:"green"},
+            $(go.TextBlock, {row:0} ,new go.Binding("text","deviceName")),
+            $(go.Picture, { width: 300, height: 100 }, {errorFunction:(s,ss)=>{ alert(s.source);return null}}, {row:1}, new go.Binding("source","src")),
+            $(go.TextBlock,{row:2}, new go.Binding("text","tool")))),
+            $(go.Panel, "Horizontal",
+            new go.Binding("itemArray", "ports"),
+            { 
+              itemTemplate:
+                $(go.Panel,
+                  { _side: "bottom",
+                    fromSpot: go.Spot.Bottom, toSpot: go.Spot.Bottom,
+                    fromLinkable: true, toLinkable: true, cursor: "pointer",
+                     },
+                  new go.Binding("portId", "portId"),
+                  $(go.Shape, "Rectangle",
+                    { stroke: null, strokeWidth: 0,
+                      desiredSize: portSize,
+                      margin: new go.Margin(0, 1) },
+                    new go.Binding("fill", "portColor"))
+                )  // end itemTemplate
+            }
+          )) ;         
+    
+
+          var nodeDatas=[{deviceName:"Device Nr.1" ,
+           src:"/assets/images/cfix.PNG" ,
+           pic:"Picture Place",
+           ports:[{portId:"port0",portColor:"#c25c"}, {portId:"port1",portColor:"#7fff"}],
+           tool:"Tool Nr1"},
+           
+             {ports:[{portId:"port0",portColor:"#F1230"}],
+             tool:"Tool Nr1",deviceName:"Device Nr.2"}]
+          this.diagram.model= new go.GraphLinksModel(nodeDatas);
+        
+   }
  
 
 

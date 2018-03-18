@@ -5,6 +5,7 @@ import { HttpErrorHandler } from './services/http-error-handler.service';
 import { MessageService } from './services/message.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigService } from './services/config-service';
+import { TopologyService } from './services/topology.service';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { ConfigService } from './services/config-service';
     HttpClientModule,
   ],
   declarations: [],
-  providers:[LoggingService, ConfigService,      HttpErrorHandler, MessageService ]
+  providers:[LoggingService, ConfigService,  TopologyService,    HttpErrorHandler, MessageService ]
 })
 export class CoreModule { }
