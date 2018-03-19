@@ -14,23 +14,112 @@ export const SHAPE_TYPE: string[] = ["RoundedRectangle",
 
 @Injectable()
 export class NodeTemplateService {
+ 
 
-    getNodeTemplate_2(panelType: string, shapeType: string, propertyName: string) {
-        const $ = go.GraphObject.make;
-        let temp = $(go.Node, panelType,
-            $(go.Shape, shapeType),
-            $(go.TextBlock, { margin: 5 }, new go.Binding("text", propertyName)),
-            {
-                toolTip:  // define a tooltip for each node that displays the color as text
-                    $(go.Adornment, "Auto",
-                        $(go.Shape, { fill: "#FFFFCC" }),
-                        $(go.TextBlock, { margin: 4 }, new go.Binding("text", "key"))
-                    )
-            });
-        return temp;
+    /**Template using  Table with bar(buttons e.g Expander) , Picture,Name, and Port place */
+    getNodeTemplate_1(): any {
+        var $ = go.GraphObject.make;  // for conciseness in defining templates
+        var portSize = new go.Size(15, 8);
+        var deviceSize = new go.Size(200, 100);
+        var imageSize = new go.Size(150, 65);
+        
+        //Expander if Gayway should be visible
+        var treeExpanderButton = $(go.Panel, { height: 15 }, new go.Binding("visible", "type", (a, b) => {
+            if (a == "2") {
+                return true;
+            }
+            return false;
+        }), $("TreeExpanderButton", ));
+
+
+        const nodeTemplate =
+            $(go.Node, "Vertical",
+                $(go.Panel, "Auto",
+                    $(go.Shape, "RoundedRectangle", { fill: null, desiredSize: deviceSize }),
+
+                    $(go.Panel, "Table",
+                        treeExpanderButton,
+                        $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "img")),
+                        $(go.TextBlock, { row: 2 }, new go.Binding("text", "name")))),
+                $(go.Panel, "Horizontal",
+                    new go.Binding("itemArray", "bottomArray"),
+                    {
+                        itemTemplate:
+                            $(go.Panel,
+                                {
+                                    _side: "bottom",
+                                    fromSpot: go.Spot.Bottom,
+                                    toSpot: go.Spot.Bottom,
+                                    fromLinkable: true,
+                                    toLinkable: true,
+                                    cursor: "pointer",
+                                },
+                                new go.Binding("portId", "portId"),
+                                $(go.Shape, "Rectangle",
+                                    {
+                                        stroke: null, strokeWidth: 0,
+                                        desiredSize: portSize,
+                                        margin: new go.Margin(0, 1)
+                                    },
+                                    new go.Binding("fill", "portColor"))
+                            )  // end itemTemplate
+                    }
+                ));
+        return nodeTemplate;
     }
 
-    getNodeTemplate_1() {
+    /**Template als Table title , Pic and Name, Port place , Port with Dash | */
+    getNodeTemplate_2(): any {
+        var $ = go.GraphObject.make;  // for conciseness in defining templates
+        var portSize = new go.Size(15, 8);
+        var deviceSize = new go.Size(200, 100);
+        var imageSize = new go.Size(150, 65);
+        const nodeTemplate =
+            $(go.Node, "Vertical",
+                $(go.Panel, "Auto",
+                    $(go.Shape, "RoundedRectangle", { fill: null, desiredSize: deviceSize }),
+
+                    $(go.Panel, "Table",
+                        $(go.TextBlock, { row: 0 }, new go.Binding("text", "type")),
+                        $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "img")),
+                        $(go.TextBlock, { row: 2 }, new go.Binding("text", "name")))),
+                $(go.Panel, "Horizontal",
+                    new go.Binding("itemArray", "bottomArray"),
+                    {
+                        itemTemplate:
+                            $(go.Panel, "Vertical",
+                                {
+                                    _side: "bottom",
+                                    name: "COLLAPSIBLE",
+                                    fromSpot: go.Spot.Bottom,
+                                    toSpot: go.Spot.Bottom,
+                                    fromLinkable: true,
+                                    toLinkable: true,
+                                    cursor: "pointer",
+                                },
+                                new go.Binding("portId", "portId"),
+                                $(go.Shape, "Rectangle", {
+                                    stroke: null, strokeWidth: 0,
+                                    desiredSize: new go.Size(2, 20),
+                                    margin: new go.Margin(0, 1)
+                                }),
+                                $(go.Shape, "Rectangle",
+                                    {
+                                        stroke: null, strokeWidth: 0,
+                                        desiredSize: portSize,
+                                        margin: new go.Margin(0, 1)
+                                    },
+                                    new go.Binding("fill", "portColor"))
+                            )  // end itemTemplate
+                    }
+                ));
+        return nodeTemplate;
+    }
+
+
+
+
+    getNodeTemplate_3() {
         const $ = go.GraphObject.make;
         var d = $(go.Node, "Auto",
             $(go.Shape, "RoundedRectangle", new go.Binding("fill", "color")),  // shape.fill = data.color
@@ -41,7 +130,8 @@ export class NodeTemplateService {
     }
 
 
-    getNodeTemplate_G(textProp: string, portArrayProp: string): any {
+    /** Hast expander  */
+    getNodeTemplate_4(): any {
         const $ = go.GraphObject.make;
         var portMenu = this.getUpPortMenu();
         var portSize = new go.Size(15, 8);
@@ -76,14 +166,14 @@ export class NodeTemplateService {
                     $(go.TextBlock, { row: 0 }, new go.Binding("text", "img")),
                     $(go.TextBlock,
                         { background: "yellow", row: 1, margin: 10, textAlign: "center", font: "14px Segoe UI,sans-serif", stroke: "white", editable: true },
-                        new go.Binding("text", textProp).makeTwoWay())
+                        new go.Binding("text", "name").makeTwoWay())
                 ), // end Auto Panel body      
 
 
                 // the Panel holding the bottom port elements, which are themselves Panels,
                 // created for each item in the itemArray, bound to data.bottomArray
                 $(go.Panel, "Horizontal", { background: "black", row: 1, column: 1 },
-                    new go.Binding("itemArray", portArrayProp),
+                    new go.Binding("itemArray", "bottomArray"),
                     {
                         row: 1, column: 1,
                         itemTemplate:
@@ -110,41 +200,6 @@ export class NodeTemplateService {
         return nodeTemplate;
     }
 
-    getNodeTemplate(): any {
-        var $ = go.GraphObject.make;  // for conciseness in defining templates
-        var portSize = new go.Size(15, 8);
-        const nodeTemplate =
-            $(go.Node, "Vertical",
-                $(go.Panel, "Auto",
-                    $(go.Shape, "RoundedRectangle", { fill: null, desiredSize: new go.Size(300, 140) }),
-
-                    $(go.Panel, "Table",
-                        $(go.TextBlock, { row: 0 }, new go.Binding("text", "name")),
-                        $(go.Picture, { row: 1 }, { width: 300, height: 100 }, new go.Binding("source", "img")),
-                        $(go.TextBlock, { row: 2 }, new go.Binding("text", "name")))),
-                $(go.Panel, "Horizontal",
-                    new go.Binding("itemArray", "bottomArray"),
-                    {
-                        itemTemplate:
-                            $(go.Panel,
-                                {
-                                    _side: "bottom",
-                                    fromSpot: go.Spot.Bottom, toSpot: go.Spot.Bottom,
-                                    fromLinkable: true, toLinkable: true, cursor: "pointer",
-                                },
-                                new go.Binding("portId", "portId"),
-                                $(go.Shape, "Rectangle",
-                                    {
-                                        stroke: null, strokeWidth: 0,
-                                        desiredSize: portSize,
-                                        margin: new go.Margin(0, 1)
-                                    },
-                                    new go.Binding("fill", "portColor"))
-                            )  // end itemTemplate
-                    }
-                ));
-        return nodeTemplate;
-    }
 
     getNodeTemplate_11(): any {
         const $ = go.GraphObject.make;
@@ -304,5 +359,49 @@ export class NodeTemplateService {
         return toReturn;
     }
 
+    private makeItemTemplate(leftside) {
+        const $ = go.GraphObject.make;
+        var UnselectedBrush = "lightgray";  // item appearance, if not "selected"
+        var SelectedBrush = "green";   // item appearance, if "selected"
+        return $(go.Panel, "Auto",
+            { margin: new go.Margin(1, 0) },  // some space between ports
+            $(go.Shape,
+                {
+                    name: "SHAPE",
+                    fill: UnselectedBrush, stroke: "gray",
+                    geometryString: "F1 m 0,0 l 5,0 1,4 -1,4 -5,0 1,-4 -1,-4 z",
+                    spot1: new go.Spot(0, 0, 5, 1),  // keep the text inside the shape
+                    spot2: new go.Spot(1, 1, -5, 0),
+                    // some port-related properties
+                    toSpot: go.Spot.Left,
+                    toLinkable: leftside,
+                    fromSpot: go.Spot.Right,
+                    fromLinkable: !leftside,
+                    cursor: "pointer"
+                },
+                new go.Binding("portId", "name")),
+            $(go.TextBlock,
+                new go.Binding("text", "name"),
+                { // allow the user to select items -- the background color indicates whether "selected"
+                    isActionable: true,
+                    //?? maybe this should be more sophisticated than simple toggling of selection
+                    click: function (e, tb) {
+                        var shape = tb.panel.findObject("SHAPE");
+                        if (shape !== null) {
+                            // don't record item selection changes
+                            var oldskips = shape.diagram.skipsUndoManager;
+                            shape.diagram.skipsUndoManager = true;
+                            // toggle the Shape.fill
+                            if (shape.fill === UnselectedBrush) {
+                                shape.fill = SelectedBrush;
+                            } else {
+                                shape.fill = UnselectedBrush;
+                            }
+                            shape.diagram.skipsUndoManager = oldskips;
+                        }
+                    }
+                })
+        );
+    }
 
 }

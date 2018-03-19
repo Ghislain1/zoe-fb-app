@@ -1,11 +1,15 @@
- 
 
-export interface ILink {   
-    id: string;
-     
-    name: string ;
-      type :string ;
-     
+
+export interface ILink {
+
+  id: string;
+  type: string;
+
+  //standart properties
+  from: string;
+  to: string;
+  fromPort: string;
+  toPort: string;
+
 }
 
- 

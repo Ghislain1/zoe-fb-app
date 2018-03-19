@@ -1,14 +1,12 @@
 .header {
   background-image: url('/assets/images/hilscherHeaderBand.png');
   height: 60px;
- 
+  margin-bottom: 2px;
   background-repeat: no-repeat;
-  display:block;
-  
-   
+  display: block;
   background-size: 100%;
 }
-section{
+
+section {
   text-align: right;
-   
 }

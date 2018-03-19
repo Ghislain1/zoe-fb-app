@@ -8,6 +8,7 @@ export class CustomLink extends go.Link {
 
     findSidePortIndexAndCount = function (node, port) {
         var nodedata = node.data;
+
         if (nodedata !== null) {
             var portdata = port.data;
             var side = port._side;

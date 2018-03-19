@@ -46,18 +46,20 @@ export class TopologyWorkerComponent implements OnInit {
     this.topology$ = this.route.paramMap.switchMap((params: ParamMap) =>
       this.topologyService.getTopology(params.get('id')));
 
+    //dojob Diagram template
     var $ = go.GraphObject.make;  // for conciseness in defining templates
-    this.diagram = $(go.Diagram, this.diagramDiv.nativeElement,
-      {
-        //   linkFromPortIdProperty: "fromPort",  // required information:
-        //    linkToPortIdProperty: "toPort",      // identifies data property names
-        initialContentAlignment: go.Spot.Center,  // center the content
-        layout: $(go.GridLayout), // use a GridLayout
-        padding: new go.Margin(5, 5, 25, 5) // to see the names of shapes on the bottom row
-      });
+    this.diagram = $(go.Diagram, this.diagramDiv.nativeElement);
+    this.diagram.initialContentAlignment = go.Spot.Center;  // center the content
+    this.diagram.undoManager.isEnabled = true;
+    this.diagram.padding = new go.Margin(5, 5, 25, 5);
+    this.diagram.layout = $(go.GridLayout);
 
-      //dojob for template
-      this.diagram.nodeTemplate= this.nodeTemplateService.getNodeTemplate();
+    //dojob for template Node
+    this.diagram.nodeTemplate = this.nodeTemplateService.getNodeTemplate_1();
+
+    //dojob for template Links
+    this.diagram.linkTemplate = this.linkTemplateService.getLinkTemplate();
+
 
     //set up model
     this.topology$.subscribe(topo => {
@@ -77,40 +79,14 @@ export class TopologyWorkerComponent implements OnInit {
 
   private initData() {
 
-    alert(   this.topologyJson );
+    //alert(this.topologyJson);
+    console.log(this.topologyJson);
     let linkDataArray = this.topology.linkDataArray;
     let nodeDataArray = this.topology.nodeDataArray;
-    this.diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
-  }
-
-
-  private usingPanels(): void {
-    var $ = go.GraphObject.make; // static method
-
-    let node1 = { key: 1, location: "500, 200", color: "red", text: "Ghislain", img: "../assets/images/appIcon.ico" };
-    let node2 = { key: 2, location: "500, 200", color: "grren", text: "Zoe", img: "../assets/images/cfix.PNG" };
-    let node3 = { key: 3, location: "500, 200", color: "black", text: "Virginie", img: "../assets/images/appIcon.ico" };
-
-    let link1 = { from: 1, to: 2, color: "red" };
-
-    //template link
-    this.diagram.linkTemplate = $(go.Link,
-      $(go.Shape, new go.Binding("stroke", "color")));
-    this.diagram.nodeTemplate = this.nodeTemplateService.getNodeTemplate_G("name", "ports");
-
-
-    let nodeDataArray = this.diagramService.createArrayData(10, 2);
-    nodeDataArray.forEach(element => {
-      element.img = "../assets/images/cfix.PNG"
-
-    });
-    console.log(nodeDataArray);
-
-    const topo = this.topologyService.getTopology(this.selectedId);
-    let linkDataArray = [];
-
-    this.diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
-
+    let graphLinksModel = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+    graphLinksModel.linkFromPortIdProperty = "fromPort";
+    graphLinksModel.linkToPortIdProperty = "toPort";
+    this.diagram.model = graphLinksModel;
   }
 
   showT() {
@@ -118,7 +94,7 @@ export class TopologyWorkerComponent implements OnInit {
   }
 
   cancel() {
-    this.gotoCrises();
+
   }
 
   save() {
@@ -143,7 +119,7 @@ export class TopologyWorkerComponent implements OnInit {
     return Observable.of(true);
   }
 
-  gotoCrises() {
+  gotoTologies() {
     let crisisId = this.topology ? this.topology.id : null;
 
     this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });

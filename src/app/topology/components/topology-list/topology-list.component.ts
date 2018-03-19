@@ -1,12 +1,12 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit }        from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
- 
-import { Observable }            from 'rxjs/Observable';
+
+import { Observable } from 'rxjs/Observable';
 import { Topology } from '../../../core/models/topology';
 import { TopologyService } from '../../../core/services/topology.service';
- 
+
 
 @Component({
   selector: 'app-topology-list',
@@ -21,11 +21,10 @@ export class TopologyListComponent implements OnInit {
     private topologyService: TopologyService,
     private route: ActivatedRoute
   ) {
- 
+
   }
 
   ngOnInit() {
-
     console.log("TopologyHomeComponent***********  2");
     this.topologies$ = this.route.paramMap
       .switchMap((params: ParamMap) => {
