@@ -97,6 +97,30 @@ export class TopologyWorkerComponent implements OnInit {
 
   }
 
+  changeToTree(){
+     var $ = go.GraphObject.make;  // for conciseness in defining templates
+     this.diagram.layout = $(go.TreeLayout);
+  }
+  changeToRing(){
+    this.diagram.startTransaction("changeToRing Layout");
+      var $ = go.GraphObject.make;  // for conciseness in defining templates
+     let rLayout= $(go.CircularLayout);
+       this.diagram.layout = rLayout;
+      this.diagram. initialContentAlignment= go.Spot.Center;
+      this.diagram. initialAutoScale= go.Diagram.UniformToFill;
+         this.diagram.commitTransaction("changeToRing Layout");
+   }
+
+  changeToGrid(){
+  this.diagram.startTransaction("changeToGrid Layout");
+    var $ = go.GraphObject.make;  // for conciseness in defining templates
+   let gLayout= $(go.GridLayout);
+    gLayout   .wrappingColumn = 4;
+    this.diagram.layout = gLayout;
+   this.diagram.commitTransaction("changeToGrid Layout");
+ }
+    
+
   save() {
   }
 

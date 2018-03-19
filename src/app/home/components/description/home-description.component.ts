@@ -20,7 +20,7 @@ export class HomeDescriptionComponent implements OnInit {
             {
                  
             },err=>{
-                alert(err.message);   
+               // alert(err.message);   
             });
     }
 
