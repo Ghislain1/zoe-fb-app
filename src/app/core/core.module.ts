@@ -6,13 +6,15 @@ import { MessageService } from './services/message.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigService } from './services/config-service';
 import { TopologyService } from './services/topology.service';
+import { Safe } from './pipes/safe';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
   ],
-  declarations: [],
-  providers:[LoggingService, ConfigService,  TopologyService,    HttpErrorHandler, MessageService ]
+  declarations: [Safe ],
+  exports:[Safe ],
+  providers:[Safe,LoggingService, ConfigService,  TopologyService,    HttpErrorHandler, MessageService ]
 })
 export class CoreModule { }

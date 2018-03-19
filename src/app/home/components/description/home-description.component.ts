@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-home-description',
@@ -7,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeDescriptionComponent implements OnInit {
 
-    constructor() { }
+    myTemplate: any = "";
+    myExternalPageLink:string;
+    constructor(private httpClient: HttpClient) {
+     
+     }
 
     ngOnInit() {
-        //  alert("HomeDescriptionComponent  init()");
+        this.myExternalPageLink="./assets/statics/overview.html";
+         this. httpClient.get(this.myExternalPageLink).map((html:any) => this.myTemplate = html).subscribe(ii=> 
+            {
+                 
+            },err=>{
+                alert(err.message);   
+            });
     }
 
 }

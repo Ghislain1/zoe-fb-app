@@ -30,11 +30,8 @@ import { TopologyModule } from './topology/topology.module';
     TopologyModule,
     HomeModule,
     LayoutModule,
-
     AboutModule,
     OutputModule,
-
-
     AppRoutineModule,
     HttpClientModule
   ],
