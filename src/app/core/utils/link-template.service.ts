@@ -22,7 +22,7 @@ export class LinkTemplateService {
                 relinkableTo: true
             },
             new go.Binding("points").makeTwoWay(),
-            $(go.Shape, { stroke: "#2F4F4F", strokeWidth: 2 })
+            $(go.Shape, new go.Binding("stroke", "linkColor"), { strokeWidth: 2 })
         );
         return linkTemplate;
     }

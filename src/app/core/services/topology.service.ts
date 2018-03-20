@@ -71,7 +71,10 @@ export class TopologyService {
   }
 
   private createTopo(topoItem: TopologyItem) {
-    let topology = new Topology(topoItem.id, topoItem.name);
+
+    var name = topoItem.name;
+    var id = topoItem.id
+    let topology = new Topology(id, topoItem.name);
 
 
     //Devices
@@ -116,7 +119,10 @@ export class TopologyService {
     linkData.toPort = link.toPort;
 
     //additinal
-    linkData.linkColor = "#74512";
+    linkData.linkColor = link.linkColor;
+    if (!linkData.linkColor) {
+      linkData.linkColor = "#74512";
+    }
     return linkData;
   }
 

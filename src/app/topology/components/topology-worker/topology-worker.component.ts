@@ -68,13 +68,7 @@ export class TopologyWorkerComponent implements OnInit {
       this.initData();
     })
 
-    //Route gives the selected id;
-    //  this.route.data.subscribe((data: { topology: Topology }) => {
-    //    this.editName = "data.topology.name";
-    //    this.topology = data.topology;
-    //     this.topologyJson = JSON.stringify(this.topology);
-    //    this.usingPanels();
-    // });
+
   }
 
   private initData() {
@@ -97,29 +91,39 @@ export class TopologyWorkerComponent implements OnInit {
 
   }
 
-  changeToTree(){
-     var $ = go.GraphObject.make;  // for conciseness in defining templates
-     this.diagram.layout = $(go.TreeLayout);
-  }
-  changeToRing(){
-    this.diagram.startTransaction("changeToRing Layout");
-      var $ = go.GraphObject.make;  // for conciseness in defining templates
-     let rLayout= $(go.CircularLayout);
-       this.diagram.layout = rLayout;
-      this.diagram. initialContentAlignment= go.Spot.Center;
-      this.diagram. initialAutoScale= go.Diagram.UniformToFill;
-         this.diagram.commitTransaction("changeToRing Layout");
-   }
-
-  changeToGrid(){
-  this.diagram.startTransaction("changeToGrid Layout");
+  changeToTree() {
     var $ = go.GraphObject.make;  // for conciseness in defining templates
-   let gLayout= $(go.GridLayout);
-    gLayout   .wrappingColumn = 4;
+    this.diagram.layout = $(go.TreeLayout);
+  }
+
+  changeToTree_90() {
+    this.diagram.startTransaction("changeToTree_90 Layout");
+    var $ = go.GraphObject.make;  // for conciseness in defining templates
+    let rLayout = $(go.TreeLayout, { angle: 90 });
+    this.diagram.layout = rLayout;
+
+    this.diagram.initialAutoScale = go.Diagram.UniformToFill;
+    this.diagram.commitTransaction("changeToTree_90 Layout");
+  }
+  changeToRing() {
+    this.diagram.startTransaction("changeToRing Layout");
+    var $ = go.GraphObject.make;  // for conciseness in defining templates
+    let rLayout = $(go.CircularLayout);
+    this.diagram.layout = rLayout;
+    this.diagram.initialContentAlignment = go.Spot.Center;
+    this.diagram.initialAutoScale = go.Diagram.UniformToFill;
+    this.diagram.commitTransaction("changeToRing Layout");
+  }
+
+  changeToGrid() {
+    this.diagram.startTransaction("changeToGrid Layout");
+    var $ = go.GraphObject.make;  // for conciseness in defining templates
+    let gLayout = $(go.GridLayout);
+    gLayout.wrappingColumn = 4;
     this.diagram.layout = gLayout;
-   this.diagram.commitTransaction("changeToGrid Layout");
- }
-    
+    this.diagram.commitTransaction("changeToGrid Layout");
+  }
+
 
   save() {
   }

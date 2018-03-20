@@ -2,6 +2,7 @@ import { IDevice } from "./bs/idevice";
 import { IPort } from "./bs/iport";
 import { ITopologyItem } from "./bs/topology-item";
 import { ILink } from "./bs/ilink";
+import { IProcessData } from "./bs/iprocessData";
 
 export interface LeftArray {
     portColor: string;
@@ -77,6 +78,7 @@ export interface ITopology {
 }
 
 export class Topology implements ITopology, ITopologyItem {
+    processData: IProcessData;
     constructor(public id: number, public name: string) {
         this.class = name;
         this.id = id;

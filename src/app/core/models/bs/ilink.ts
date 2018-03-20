@@ -10,6 +10,7 @@ export interface ILink {
   to: string;
   fromPort: string;
   toPort: string;
+  linkColor?: string;
 
 }
 

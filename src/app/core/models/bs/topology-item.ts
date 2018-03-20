@@ -1,5 +1,6 @@
 import { IDevice } from "./idevice";
 import { ILink } from "./ilink";
+import { IProcessData } from "./iprocessData";
 
 export interface ITopologyItem {
 
@@ -10,10 +11,12 @@ export interface ITopologyItem {
     numberDevices: number;
     protocols: string;
     description: string;
+    processData: IProcessData;
 }
 
 export class TopologyItem implements ITopologyItem {
 
+    processData: IProcessData;
     numberDevices: number;
     protocols: string;
     description: string;
