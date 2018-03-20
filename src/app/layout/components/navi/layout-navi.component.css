@@ -1,54 +1,43 @@
 .topul {
-  height: auto; 
+  height: auto;
   background-color: gray;
-  border-style: none;  
-} 
+  border-style: none;
+}
 
 .topul li {
   float: left;
-  margin: 0px  2px;
+  margin: 0px 0px 2px 2px;
   background-color: whitesmoke;
-  border-style:none;
+  border-style: none;
 }
 
-
 /* for About */
+
 .topul li:last-child {
   border-right: none;
   float: right;
   /* last childe(About) to right placement*/
 }
 
-.topul a {   
+.topul a {
   cursor: hand;
   text-transform: uppercase;
 }
 
 .topul li a {
-  display: block;  
-  text-align: center; 
+  display: block;
+  text-align: center;
   text-decoration: none;
   color: var(--hilscher-color);
 }
 
-.topul li a:hover {   
+.topul li a:hover {
   background-color: var(--hilscher-bg);
   color: white;
   text-transform: uppercase;
 }
- 
 
-.topul li a.active {   
+.topul li a.active {
   background-color: var(--hilscher-bg);
   color: white;
 }
-
- 
- 
-
-
-
-
- 
-
-
