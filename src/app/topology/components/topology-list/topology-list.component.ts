@@ -16,7 +16,7 @@ import { TopologyService } from '../../../core/services/topology.service';
 export class TopologyListComponent implements OnInit {
   topologies$: Observable<Topology[]>;
   selectedId: number;
-
+  sidebarAction: boolean;
   constructor(
     private topologyService: TopologyService,
     private route: ActivatedRoute
@@ -31,5 +31,9 @@ export class TopologyListComponent implements OnInit {
         this.selectedId = +params.get('id');
         return this.topologyService.getTopologies();
       });
+  }
+  showOrHideSideBar() {
+    this.sidebarAction = !this.sidebarAction;
+
   }
 }
