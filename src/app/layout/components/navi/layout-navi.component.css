@@ -2,6 +2,10 @@
   height: auto;
   background-color: gray;
   border-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .topul li {
@@ -29,6 +33,12 @@
   text-align: center;
   text-decoration: none;
   color: var(--hilscher-color);
+  text-decoration: none;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding: 14px 16px;
+  display: inline-block;
+  border-radius: 0px;
 }
 
 .topul li a:hover {

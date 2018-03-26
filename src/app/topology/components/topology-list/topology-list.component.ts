@@ -16,7 +16,9 @@ import { TopologyService } from '../../../core/services/topology.service';
 export class TopologyListComponent implements OnInit {
   topologies$: Observable<Topology[]>;
   selectedId: number;
-  sidebarAction: boolean;
+
+
+  isSideBarActive: boolean;
   constructor(
     private topologyService: TopologyService,
     private route: ActivatedRoute
@@ -33,7 +35,7 @@ export class TopologyListComponent implements OnInit {
       });
   }
   showOrHideSideBar() {
-    this.sidebarAction = !this.sidebarAction;
+    this.isSideBarActive = !this.isSideBarActive;
 
   }
 }

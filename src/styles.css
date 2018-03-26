@@ -1,87 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 
 /*  Div for container */
-.gcontainer{
-    margin: 5px;     
-     
 
+.gcontainer {
+  margin: 5px;
 }
 
 /*  Div  container  for header */
-.gheadercontainer{
-    margin: 5px;     
-    background-color: white;
-    align-content: center;
-    text-align: center;
 
+.gheadercontainer {
+  margin: 5px;
+  background-color: white;
+  align-content: center;
+  text-align: center;
 }
 
- 
-
 /*  Div  container  for footer */
-.gfootercontainer{
-    margin: 5px;
-    display: inline-block;    
 
+.gfootercontainer {
+  margin: 5px;
+  display: inline-block;
 }
 
 /*  Div  container  for main */
-.gmaincontainer{
-     background-color: whitesmoke;
-    min-height: 560px;
-       
 
+.gmaincontainer {
+  background-color: whitesmoke;
+  min-height: 560px;
 }
-
-/*  Ul Navi style   */
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(0, 128, 0);
-    border-style: solid;
-    border-color:  rgb(0, 128, 0);
-    
-    
-}
-
-li {
-    float: left;
-}
-
-li a {     
-  text-decoration: none;
-  margin-right: 0px;
-  margin-top: 0px;
-  padding: 14px 16px;
-  display: inline-block;
-  border-radius: 0px;  
-
-}
-
-li a:visited, a:link {
-    color:  white;
-  }
-
-  li a:hover {
-    color: rgb(48, 229, 3);
-    background-color:white;
-  }
-
-  li a.active {
-    color: #039be5;
-    background-color: black;
-  }
-
- 
 
 /* ENDE --> Ul Navi style  */
 
-
 /* everywhere else */
-* {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
 
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
