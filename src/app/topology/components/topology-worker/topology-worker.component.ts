@@ -11,6 +11,8 @@ import { NodeTemplateService, SHAPE_TYPE } from '../../../core/utils/node-templa
 import { DiagramService } from '../../../core/utils/diagram.service';
 import { JsonPipe } from '@angular/common';
 import { TopologyService } from '../../../core/services/topology.service';
+import { Controller } from '../../../core/models/bs/controller';
+import { DeviceService } from '../../../core/services/device.service';
 
 @Component({
   selector: 'app-topology-worker',
@@ -18,6 +20,12 @@ import { TopologyService } from '../../../core/services/topology.service';
   styleUrls: ['./topology-worker.component.css']
 })
 export class TopologyWorkerComponent implements OnInit {
+
+  ////This represents a topology because he is master and he gets children
+  masterD: Controller;
+  masterD$: Observable<Controller>;
+  masterJson: string;
+
   topology: Topology;
   topology$: Observable<Topology>;
   editName: string;
@@ -32,6 +40,7 @@ export class TopologyWorkerComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private deviceService: DeviceService,
     public messageService: MessageService,
     private topologyService: TopologyService,
     private linkTemplateService: LinkTemplateService,
@@ -39,12 +48,14 @@ export class TopologyWorkerComponent implements OnInit {
     private diagramService: DiagramService
   ) {
 
+
   }
 
 
   ngOnInit() {
-    this.topology$ = this.route.paramMap.switchMap((params: ParamMap) =>
-      this.topologyService.getTopology(params.get('id')));
+
+    this.masterD$ = this.route.paramMap.switchMap((params: ParamMap) =>
+      this.deviceService.getDeviceBySystemTag(params.get('systemTag')));
 
     //dojob Diagram template
     var $ = go.GraphObject.make;  // for conciseness in defining templates
@@ -55,16 +66,16 @@ export class TopologyWorkerComponent implements OnInit {
     this.diagram.layout = $(go.GridLayout);
 
     //dojob for template Node
-    this.diagram.nodeTemplate = this.nodeTemplateService.getNodeTemplate_1();
+    this.diagram.nodeTemplate = this.nodeTemplateService.getNodeTemplate_A();
 
     //dojob for template Links
     this.diagram.linkTemplate = this.linkTemplateService.getLinkTemplate();
 
 
     //set up model
-    this.topology$.subscribe(topo => {
-      this.topology = topo;
-      this.topologyJson = JSON.stringify(this.topology);
+    this.masterD$.subscribe(masterD => {
+      this.masterD = masterD;
+      this.masterJson = JSON.stringify(this.masterD);
       this.initData();
     })
 
@@ -72,15 +83,16 @@ export class TopologyWorkerComponent implements OnInit {
   }
 
   private initData() {
+    //Write to console the selected controlleur master fromlist of topologies!!!.
+    console.log(this.masterJson);
 
-    //alert(this.topologyJson);
-    console.log(this.topologyJson);
-    let linkDataArray = this.topology.linkDataArray;
-    let nodeDataArray = this.topology.nodeDataArray;
-    let graphLinksModel = new go.GraphLinksModel(nodeDataArray, linkDataArray);
-    graphLinksModel.linkFromPortIdProperty = "fromPort";
-    graphLinksModel.linkToPortIdProperty = "toPort";
-    this.diagram.model = graphLinksModel;
+    let nodeDataArray = [this.masterD];
+    let model = new go.GraphLinksModel(nodeDataArray);
+    this.diagram.model = model;
+
+
+
+
   }
 
   showT() {

@@ -14,7 +14,59 @@ export const SHAPE_TYPE: string[] = ["RoundedRectangle",
 
 @Injectable()
 export class NodeTemplateService {
- 
+
+    /**Template using  Table with bar(buttons e.g Expander) , Picture,Name, and Port place */
+    getNodeTemplate_A(): any {
+        var $ = go.GraphObject.make;  // for conciseness in defining templates
+        var portSize = new go.Size(15, 8);
+        var deviceSize = new go.Size(200, 100);
+        var imageSize = new go.Size(150, 65);
+
+        //Expander if Gayway should be visible
+        var treeExpanderButton = $(go.Panel, { height: 15 }, new go.Binding("visible", "type", (a, b) => {
+            if (a == "2") {
+                return true;
+            }
+            return false;
+        }), $("TreeExpanderButton", ));
+
+
+        const nodeTemplate =
+            $(go.Node, "Vertical",
+                $(go.Panel, "Auto",
+                    $(go.Shape, "RoundedRectangle", { fill: null, desiredSize: deviceSize }),
+
+                    $(go.Panel, "Table",
+                        treeExpanderButton,
+                        $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "img")),
+                        $(go.TextBlock, { row: 2 }, new go.Binding("text", "displayName")))),
+                $(go.Panel, "Horizontal",
+                    new go.Binding("itemArray", "bottomArray"),
+                    {
+                        itemTemplate:
+                            $(go.Panel,
+                                {
+                                    _side: "bottom",
+                                    fromSpot: go.Spot.Bottom,
+                                    toSpot: go.Spot.Bottom,
+                                    fromLinkable: true,
+                                    toLinkable: true,
+                                    cursor: "pointer",
+                                },
+                                new go.Binding("portId", "portId"),
+                                $(go.Shape, "Rectangle",
+                                    {
+                                        stroke: null, strokeWidth: 0,
+                                        desiredSize: portSize,
+                                        margin: new go.Margin(0, 1)
+                                    },
+                                    new go.Binding("fill", "portColor"))
+                            )  // end itemTemplate
+                    }
+                ));
+        return nodeTemplate;
+    }
+
 
     /**Template using  Table with bar(buttons e.g Expander) , Picture,Name, and Port place */
     getNodeTemplate_1(): any {
@@ -22,7 +74,7 @@ export class NodeTemplateService {
         var portSize = new go.Size(15, 8);
         var deviceSize = new go.Size(200, 100);
         var imageSize = new go.Size(150, 65);
-        
+
         //Expander if Gayway should be visible
         var treeExpanderButton = $(go.Panel, { height: 15 }, new go.Binding("visible", "type", (a, b) => {
             if (a == "2") {

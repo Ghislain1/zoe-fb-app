@@ -16,6 +16,7 @@ import { AboutModule } from './about/about.module';
 
 import { OutputModule } from './output/output.module';
 import { TopologyModule } from './topology/topology.module';
+import { DevicesModule } from './devices/devices.module';
 
 
 
@@ -29,6 +30,7 @@ import { TopologyModule } from './topology/topology.module';
     RouterModule,
     TopologyModule,
     HomeModule,
+    DevicesModule,
     LayoutModule,
     AboutModule,
     OutputModule,

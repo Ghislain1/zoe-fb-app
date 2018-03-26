@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <b> Name </b>
+    </div>
+    <div class="col">
+      <b> Channel </b>
+    </div>
+
+    <div class="col">
+      <b> Children </b>
+    </div>
+
+    <div class="col">
+      <b> SystemTag Of Controller/ Master </b>
+    </div>
+  </div>
+
+  <!-- colums Controller name-->
+  <div *ngFor="let device of devices" class="row">
+    <div class="col">
+      {{device.displayName}}
+
+    </div>
+
+    <!-- colums Channel-->
+    <div class="col">
+      <p *ngIf="device.channel.displayName"> {{device.channel.displayName}} </p>
+    </div>
+
+    <!-- colums Devices children-->
+    <div class="col">
+      <p *ngFor="let dev of device.channel.devices"> {{dev.displayName}} </p>
+    </div>
+
+    <!-- colums SystemTag  of controller-->
+    <div class="col">
+      <p *ngIf="device.channel.displayName"> {{device.systemTag}} </p>
+    </div>
+  </div>
+
+
+</div>

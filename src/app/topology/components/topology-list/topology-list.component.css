@@ -83,6 +83,8 @@ a[aria-expanded="true"]::before {
   padding: 2px;
   min-height: 80vh;
   transition: all 0.3s;
+  min-width: 87%;
+  position: relative;
 }
 
 #sidebarCollapse {

@@ -1,4 +1,4 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TopologyListComponent } from './components/topology-list/topology-list.component';
 import { TopologyDetailComponent } from './components/topology-detail/topology-detail.component';
@@ -7,6 +7,7 @@ import { TopologyDetailResolver } from './services/topology-detail-resolver.serv
 import { TopologyHomeComponent } from './components/topology-home/topology-home.component';
 import { TopologyWorkerComponent } from './components/topology-worker/topology-worker.component';
 import { TopologyWorkerResolver } from './services/topology-worker-resolver.service';
+import { ControllerDeviceResolver } from './services/controller-device-resolver.service';
 
 
 
@@ -14,27 +15,19 @@ const topoRoutes: Routes = [
   {
     path: 'app-topology-home',
     component: TopologyHomeComponent,
-    
+
     children: [
       {
         path: '',
         component: TopologyListComponent,
         children: [
           {
-            path: ':id',
+            path: ':systemTag',
             component: TopologyWorkerComponent,
             canDeactivate: [CanDeactivateGuard],
-            resolve: {              topology: TopologyWorkerResolver            }},  
-            {
-              path: ':id',
-              outlet: "router-de",
-              component: TopologyDetailComponent,
-              canDeactivate: [CanDeactivateGuard],
-              resolve: {
-                topology: TopologyDetailResolver
-              }
-            }          
-             
+            resolve: { controller: ControllerDeviceResolver }
+          }
+
         ]
       }
     ]
@@ -49,7 +42,7 @@ const topoRoutes: Routes = [
     RouterModule
   ],
   providers: [
-    TopologyDetailResolver,TopologyWorkerResolver
+    TopologyDetailResolver, TopologyWorkerResolver, ControllerDeviceResolver
   ]
 })
 export class TopologyRoutineModule { }
