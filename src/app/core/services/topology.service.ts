@@ -9,8 +9,9 @@ import { HttpErrorHandler, HandleError } from "../../core/services/http-error-ha
 import { Observable } from "rxjs/Observable";
 import { catchError } from "rxjs/operators";
 import { ITopologyItem, TopologyItem } from "../../core/models/bs/topology-item";
-import { IDevice } from "../models/bs/idevice";
+
 import { ILink } from "../models/bs/ilink";
+import { Device } from "../models/bs/device";
 
 const TOPOLOGIES = [];
 
@@ -79,23 +80,7 @@ export class TopologyService {
 
     //Devices
     topology.nodeDataArray = [];
-    if (topoItem.devices) {
-      topoItem.devices.forEach(device => {
-        let nodeData = this.createNodeData(device);
-        topology.nodeDataArray.push(nodeData);
-      })
-    }
 
-    //Links
-    topology.linkDataArray = [];
-    if (topoItem.links) {
-      topoItem.links.forEach(link => {
-        let linkData = this.createLinkData(link);
-        topology.linkDataArray.push(linkData);
-      })
-    }
-
-    return topology;
   }
 
   private setImage(nodeData: NodeDataArray): void {
@@ -127,30 +112,21 @@ export class TopologyService {
   }
 
 
-  private createNodeData(device: IDevice) {
+  private createNodeData(device: Device) {
     let nodeData = new NodeDataArray();
     nodeData.bottomArray = [];
     //create ports
     for (var i = 0; i < device.ports.length; i++) {
       let port = new BottomArray();
-      port.portColor = device.ports[i].portColor;
-      port.portId = device.ports[i].portId;
+
       nodeData.bottomArray.push(port);
     }
 
     //TODO does not need that any more 
     //other properties
-    nodeData.name = device.name;
-    nodeData.key = device.key;
-    nodeData.img = device.img;
-    nodeData.type = device.type;
-    nodeData.state = device.state;
-    nodeData.type = device.type;
-    nodeData.img = device.img;
-    nodeData.type = device.type;
 
-    //needs
-    nodeData.bottomArray = device.ports;
+
+    //needs     
     this.setImage(nodeData);
     return nodeData;
   };

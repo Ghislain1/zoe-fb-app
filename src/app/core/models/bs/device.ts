@@ -9,5 +9,5 @@ export class Device {
 
   properties: Property[];
 
-
+  ports: Property[];
 }
