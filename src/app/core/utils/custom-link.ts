@@ -1,4 +1,5 @@
 import * as go from 'gojs';
+import { Alert } from 'selenium-webdriver';
 
 export class CustomLink extends go.Link {
     constructor() {
@@ -13,6 +14,7 @@ export class CustomLink extends go.Link {
             var portdata = port.data;
             var side = port._side;
             var arr = nodedata[side + "Array"];
+
             var len = arr.length;
             for (var i = 0; i < len; i++) {
                 if (arr[i] === portdata) return [i, len];

@@ -24,6 +24,7 @@ export class LinkTemplateService {
             new go.Binding("points").makeTwoWay(),
             $(go.Shape, new go.Binding("stroke", "linkColor"), { strokeWidth: 2 })
         );
+
         return linkTemplate;
     }
 

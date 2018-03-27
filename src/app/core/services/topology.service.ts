@@ -3,22 +3,33 @@ import { Topology, NodeDataArray, BottomArray, LinkDataArray } from "../../core/
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
+
 import { ConfigService } from "../../core/services/config-service";
 import { HttpClient } from "@angular/common/http";
 import { HttpErrorHandler, HandleError } from "../../core/services/http-error-handler.service";
-import { Observable } from "rxjs/Observable";
+
 import { catchError } from "rxjs/operators";
+
+import { Observable } from 'rxjs/Rx';
+
 import { ITopologyItem, TopologyItem } from "../../core/models/bs/topology-item";
 
-import { ILink } from "../models/bs/ilink";
+
 import { Device } from "../models/bs/device";
+import { DeviceService } from "./device.service";
+import { LinkService } from "./link.service";
+import { Controller } from "../models/bs/controller";
+import { Link_1 } from "../models/bs/link";
+import { link } from "fs";
+import { LinkData } from "../models/bs/link-data";
 
 const TOPOLOGIES = [];
 
 @Injectable()
 export class TopologyService {
 
-  static nextCrisisId = 100;
+
+
   private handleError: HandleError;
   topologyUrl: string;
   private topologies$: BehaviorSubject<Topology[]> = new BehaviorSubject<Topology[]>(TOPOLOGIES);
@@ -27,120 +38,117 @@ export class TopologyService {
   constructor(
     private httpClient: HttpClient,
     private configService: ConfigService,
+    private deviceService: DeviceService,
+    private linkService: LinkService,
     private httpErrorHandler: HttpErrorHandler) {
 
     this.handleError = httpErrorHandler.createHandleError('TodoService');
 
-    this.configService.getConfig_2().subscribe(ii => this.topologyUrl = ii.topologyUrl
-      , error => { }, () => { this.initAll(); });
-
-  }
-  getTopologies() {
-
-    //TODO: find out a new strategy for this!!! --->initial again before to call all topo
-    this.initAll();
-    return Observable.of(TOPOLOGIES);
-  }
-
-  getTopology(id: number | string) {
-    return this.getTopologies()
-      // (+) before `id` turns the string into a number
-      .map(topos => topos.find(topo => topo.id === +id));
   }
 
 
-  initAll() {
-    let obArray = this.httpClient.get<TopologyItem[]>(this.topologyUrl)
-      .pipe(catchError(this.handleError('initAll() ', [])));
+  /**
+   * 
+   * This method provide a topology with his devices and links Thrick: forkJoin Method should be use3d
+   *
+   * @class Observable<T>
+   */
+  getTopologyBySystemTag(systemTag: string | number): Observable<Topology> {
 
-    //Change BS to PS data.
-    obArray.subscribe(topoArray => {
-      let topo = undefined;
+    //links
+    let linkData$ = this.linkService.getLinkBySystemTag(systemTag);
 
-      //clear the array 
-      TOPOLOGIES.splice(0, TOPOLOGIES.length);
+    //Device
+    let contr$ = this.deviceService.getDeviceBySystemTag(systemTag);
 
-      //fill the topo array with elements
-      for (let index = 0; index < topoArray.length; index++) {
-        const element = topoArray[index];
-        topo = this.createTopo(element);
-        TOPOLOGIES.push(topo);
+    const combined = Observable.forkJoin(contr$, linkData$, (contr, linkData) => { return this.createTopo(contr, linkData) });
+
+    return combined;
+
+  }
+
+
+
+
+  private createTopo(controller: Controller, linkData: LinkData): Topology {
+
+
+    let topo = new Topology(controller);
+    topo.links = this.createLinkData(linkData);
+
+
+    //Push master or controler too!!
+    var masterD = new Device()
+    masterD.displayName = controller.displayName.slice(0, 20);;
+    masterD.stationAddress = controller.stationAddress;
+    masterD.type = controller.channel.displayName;
+    masterD.hasChannel = true;
+    masterD.ports = controller.ports;
+    topo.nodes.push(masterD);
+
+    this.checkIfExpander(topo);
+
+    //img setting
+    this.setImage(topo.nodes);
+    return topo;
+  }
+
+
+
+  private checkIfExpander(topo: Topology) {
+    topo.nodes.forEach(element => {
+      if (element.ports.length >= 3) {
+        element.type = "2";
+      }
+    });
+  }
+
+  private setImage(devices: Device[]): void {
+
+    devices.forEach(nodeData => {
+      if (nodeData.hasChannel) {
+        nodeData.img = "assets/images/netX51.PNG";
+      }
+      else if (nodeData.type == "2") {
+        nodeData.img = "assets/images/NetTap.PNG";
+      }
+      else {
+        nodeData.img = "assets/images/cfix.PNG";
       }
 
-    });
-
+    })
   }
 
-  private createTopo(topoItem: TopologyItem) {
+  private createLinkData(linkD: LinkData): Link_1[] {
 
-    var name = topoItem.name;
-    var id = topoItem.id
-    let topology = new Topology(id, topoItem.name);
-
-
-    //Devices
-    topology.nodeDataArray = [];
-
-  }
-
-  private setImage(nodeData: NodeDataArray): void {
-    if (nodeData.type == "1") {
-      nodeData.img = "assets/images/netX51.PNG";
+    const linkArray: Link_1[] = [];
+    for (let index = 0; index < linkD.links.length; index++) {
+      const link = linkD.links[index];
+      link.linkColor = link.linkColor;
+      if (!link.linkColor) {
+        link.linkColor = "#74512";
+      }
+      linkArray.push(link);
     }
-    else if (nodeData.type == "2") {
-      nodeData.img = "assets/images/NetTap.PNG";
-    }
-    else {
-      nodeData.img = "assets/images/cfix.PNG";
-    }
-
-  }
-
-  private createLinkData(link: ILink): LinkDataArray {
-    let linkData = new LinkDataArray();
-    linkData.from = link.from;
-    linkData.fromPort = link.fromPort;
-    linkData.to = link.to;
-    linkData.toPort = link.toPort;
 
     //additinal
-    linkData.linkColor = link.linkColor;
-    if (!linkData.linkColor) {
-      linkData.linkColor = "#74512";
-    }
-    return linkData;
+    return linkArray;
   }
 
 
-  private createNodeData(device: Device) {
-    let nodeData = new NodeDataArray();
-    nodeData.bottomArray = [];
-    //create ports
-    for (var i = 0; i < device.ports.length; i++) {
-      let port = new BottomArray();
+  //TODO: should remove  this ,ethod.
+  private createNodeDataArray(devices: Device[]): NodeDataArray[] {
+    let nodeDataArray: NodeDataArray[] = [];
+    devices.forEach(dv => {
+      let v = new NodeDataArray();
+      v.name = dv.displayName;
+      v.type = dv.stationAddress;
+      nodeDataArray.push(v);
+    })
 
-      nodeData.bottomArray.push(port);
-    }
-
-    //TODO does not need that any more 
-    //other properties
-
-
-    //needs     
-    this.setImage(nodeData);
-    return nodeData;
+    //needs  for image  
+    this.setImage(devices);
+    return nodeDataArray;
   };
 
-
-
-
-
-  addTopology(name: string) {
-    name = name.trim();
-    if (name) {
-      let topology = new Topology(2000, name);
-      TOPOLOGIES.push(topology);
-      this.topologies$.next(TOPOLOGIES);
-    }
-  }
 }

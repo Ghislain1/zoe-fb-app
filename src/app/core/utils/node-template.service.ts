@@ -20,7 +20,7 @@ export class NodeTemplateService {
         var $ = go.GraphObject.make;  // for conciseness in defining templates
         var portSize = new go.Size(15, 8);
         var deviceSize = new go.Size(200, 100);
-        var imageSize = new go.Size(150, 65);
+        var imageSize = new go.Size(150, 55);
 
         //Expander if Gayway should be visible
         var treeExpanderButton = $(go.Panel, { height: 15 }, new go.Binding("visible", "type", (a, b) => {
@@ -39,9 +39,10 @@ export class NodeTemplateService {
                     $(go.Panel, "Table",
                         treeExpanderButton,
                         $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "img")),
-                        $(go.TextBlock, { row: 2 }, new go.Binding("text", "displayName")))),
+                        $(go.TextBlock, { row: 2 }, new go.Binding("text", "displayName")),
+                        $(go.TextBlock, { row: 3 }, new go.Binding("text", "stationAddress")))),
                 $(go.Panel, "Horizontal",
-                    new go.Binding("itemArray", "bottomArray"),
+                    new go.Binding("itemArray", "ports"),
                     {
                         itemTemplate:
                             $(go.Panel,
@@ -171,15 +172,7 @@ export class NodeTemplateService {
 
 
 
-    getNodeTemplate_3() {
-        const $ = go.GraphObject.make;
-        var d = $(go.Node, "Auto",
-            $(go.Shape, "RoundedRectangle", new go.Binding("fill", "color")),  // shape.fill = data.color
-            $(go.TextBlock, { margin: 5 }, new go.Binding("text", "key"))  // textblock.text = data.key
-        );
-        return d;
 
-    }
 
 
     /** Hast expander  */

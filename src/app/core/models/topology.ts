@@ -2,6 +2,9 @@
 import { IPort } from "./bs/iport";
 import { ITopologyItem } from "./bs/topology-item";
 import { ILink } from "./bs/ilink";
+import { Device } from "./bs/device";
+import { Link_1 } from "./bs/link";
+import { Controller } from "./bs/controller";
 
 
 export interface LeftArray {
@@ -79,12 +82,17 @@ export interface ITopology {
 
 export class Topology {
 
-    constructor(public id: number, public name: string) {
-        this.class = name;
-        this.id = id;
-    }
+    constructor(public masterOrController: Controller, public linkList?: Link_1[]) {
+        this.links = linkList;
+        this.nodes = this.masterOrController.channel.devices;
 
-    links: ILink[];
+    }
+    name: string;
+    links?: Link_1[];
+    nodes: Device[]; // All devices includes controller
+
+    //should be removed!! 
+    id: string;
     numberDevices: number;
     protocols: string;
     description: string;

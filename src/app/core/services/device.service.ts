@@ -33,10 +33,19 @@ export class DeviceService {
     }
 
     ////Look how map works!!!
-    getDeviceBySystemTag(systemTag: string | number) {
-        return this.getDevices()
-            .map(devices => devices.find(masterD => masterD.systemTag === systemTag));
+    getDeviceBySystemTag(systemTag: string | number): Observable<Controller> {
+
+
+        let toReturn = this.getDevices().map(devices => devices.find(masterD => masterD.systemTag === systemTag));
+
+        if (!toReturn) {
+            alert(systemTag + "Not exists");
+        }
+
+        return toReturn;
     }
+
+
 
 
 

@@ -8,6 +8,7 @@ import { ConfigService } from './services/config-service';
 import { TopologyService } from './services/topology.service';
 import { Safe } from './pipes/safe';
 import { DeviceService } from './services/device.service';
+import { LinkService } from './services/link.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { DeviceService } from './services/device.service';
   ],
   declarations: [Safe],
   exports: [Safe],
-  providers: [Safe, LoggingService, ConfigService, TopologyService, DeviceService, HttpErrorHandler, MessageService]
+  providers: [Safe, LoggingService, ConfigService, TopologyService, LinkService, DeviceService, HttpErrorHandler, MessageService]
 })
 export class CoreModule { }

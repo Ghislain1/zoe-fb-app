@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <b> FROM </b>
+    </div>
+    <div class="col">
+      <b> TO </b>
+    </div>
+
+    <div class="col">
+      <b> FROM_PORT </b>
+    </div>
+
+    <div class="col">
+      <b> TO_PORT </b>
+    </div>
+
+    <div class="col">
+      <b> LinkData Id </b>
+    </div>
+  </div>
+
+  <!-- colums Controller name-->
+  <div *ngFor="let lin of links" class="row">
+    <div class="col">
+      {{lin.from}}
+
+    </div>
+
+    <!-- colums Channel-->
+    <div class="col">
+      {{lin.to}}
+    </div>
+
+    <!-- colums Devices children-->
+    <div class="col">
+      <p> {{lin.fromPort}} </p>
+    </div>
+
+    <!-- colums SystemTag  of controller-->
+    <div class="col">
+      <p> {{lin.toPort}} </p>
+    </div>
+
+    <div class="col">
+      <p> {{linkData.id}} </p>
+    </div>
+  </div>
+
+
+</div>

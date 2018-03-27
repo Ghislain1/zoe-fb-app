@@ -46,11 +46,7 @@ export class TopologyListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.topologies$ = this.route.paramMap.switchMap((params: ParamMap) => {
-      this.selectedId = +params.get('systemTag');
 
-      return this.topologyService.getTopologies();
-    });
   }
 
   getControllers() {

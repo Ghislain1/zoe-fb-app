@@ -1,6 +1,6 @@
 
 
-export interface ILink {
+export class Link_1 {
 
   id: string;
   type: string;
@@ -13,3 +13,4 @@ export interface ILink {
   linkColor?: string;
 
 }
+
