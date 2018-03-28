@@ -9,7 +9,7 @@
 }
 
 .topul li {
-  float: left;
+  float: right;
   margin: 0px 0px 2px 2px;
   background-color: whitesmoke;
   border-style: none;
@@ -17,9 +17,9 @@
 
 /* for About */
 
-.topul li:last-child {
+.topul li:first-child {
   border-right: none;
-  float: right;
+  float: left;
   /* last childe(About) to right placement*/
 }
 

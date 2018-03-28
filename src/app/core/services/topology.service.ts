@@ -19,15 +19,15 @@ import { Device } from "../models/bs/device";
 import { DeviceService } from "./device.service";
 import { LinkService } from "./link.service";
 import { Controller } from "../models/bs/controller";
-import { Link_1 } from "../models/bs/link";
+import { Link } from "../models/bs/link";
 import { link } from "fs";
 import { LinkData } from "../models/bs/link-data";
+import { LoggingService } from "./logging.service";
 
 const TOPOLOGIES = [];
 
 @Injectable()
 export class TopologyService {
-
 
 
   private handleError: HandleError;
@@ -40,12 +40,20 @@ export class TopologyService {
     private configService: ConfigService,
     private deviceService: DeviceService,
     private linkService: LinkService,
+    private loggingService: LoggingService,
     private httpErrorHandler: HttpErrorHandler) {
 
     this.handleError = httpErrorHandler.createHandleError('TodoService');
 
   }
 
+
+  public save(json: string): void {
+
+    this.loggingService.stringify(json);
+
+
+  }
 
   /**
    * 
@@ -56,6 +64,8 @@ export class TopologyService {
   getTopologyBySystemTag(systemTag: string | number): Observable<Topology> {
 
     //links
+    let stzr: string = systemTag as string;
+    var splitted = stzr.split(" ", 3);
     let linkData$ = this.linkService.getLinkBySystemTag(systemTag);
 
     //Device
@@ -67,9 +77,6 @@ export class TopologyService {
 
   }
 
-
-
-
   private createTopo(controller: Controller, linkData: LinkData): Topology {
 
 
@@ -78,13 +85,16 @@ export class TopologyService {
 
 
     //Push master or controler too!!
-    var masterD = new Device()
-    masterD.displayName = controller.displayName.slice(0, 20);;
+    var masterD = new Device();
+    masterD.displayName = controller.displayName.slice(0, 20);
     masterD.stationAddress = controller.stationAddress;
     masterD.type = controller.channel.displayName;
     masterD.hasChannel = true;
     masterD.ports = controller.ports;
+    masterD.systemTag = controller.systemTag;
     topo.nodes.push(masterD);
+
+    topo.nodes.reverse();
 
     this.checkIfExpander(topo);
 
@@ -97,8 +107,15 @@ export class TopologyService {
 
   private checkIfExpander(topo: Topology) {
     topo.nodes.forEach(element => {
+
+      //TODO: this must been movec another place  key is import !!
+      element.key = element.systemTag;
+      if (!element.ports) {
+        this.loggingService.showAlert("checkIfExpander--->  No Port on Device ");
+      }
       if (element.ports.length >= 3) {
         element.type = "2";
+        element.canExpander = true;
       }
     });
   }
@@ -119,9 +136,11 @@ export class TopologyService {
     })
   }
 
-  private createLinkData(linkD: LinkData): Link_1[] {
-
-    const linkArray: Link_1[] = [];
+  private createLinkData(linkD: LinkData): Link[] {
+    if (!linkD || !linkD.links) {
+      return [];// no links has been found!!
+    }
+    const linkArray: Link[] = [];
     for (let index = 0; index < linkD.links.length; index++) {
       const link = linkD.links[index];
       link.linkColor = link.linkColor;

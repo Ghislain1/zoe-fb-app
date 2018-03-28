@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggingService } from '../../../core/services/logging.service';
 
 @Component({
   selector: 'app-topology-home',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopologyHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loggingService: LoggingService) { }
 
   ngOnInit() {
-     console.log("TopologyHomeComponent***********  1");
+    //this.loggingService.showAlert(" -------Topo Parent Component----------");
   }
 
 }

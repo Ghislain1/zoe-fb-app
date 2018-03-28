@@ -15,6 +15,7 @@ import { Controller } from '../../../core/models/bs/controller';
 import { DeviceService } from '../../../core/services/device.service';
 import { LinkService } from '../../../core/services/link.service';
 import { link } from 'fs';
+import { LoggingService } from '../../../core/services/logging.service';
 
 @Component({
   selector: 'app-topology-worker',
@@ -33,9 +34,6 @@ export class TopologyWorkerComponent implements OnInit {
   @ViewChild('myDiagramDiv')
   diagramDiv: ElementRef;
 
-
-
-
   diagram: go.Diagram;
 
   constructor(
@@ -45,7 +43,8 @@ export class TopologyWorkerComponent implements OnInit {
     private topologyService: TopologyService,
     private linkTemplateService: LinkTemplateService,
     private nodeTemplateService: NodeTemplateService,
-    private diagramService: DiagramService
+    private diagramService: DiagramService,
+    private loggingService: LoggingService
   ) {
 
     const $ = go.GraphObject.make;
@@ -54,21 +53,22 @@ export class TopologyWorkerComponent implements OnInit {
     this.diagram.allowDrop = true;  // necessary for dragging from Palette
     this.diagram.undoManager.isEnabled = true;
 
-    this.diagram.nodeTemplate = this.nodeTemplateService.getNodeTemplate_A();
+    //We have the digram  you can  do what we want:
+    this.registryEvents();
 
+    this.diagram.nodeTemplate = this.nodeTemplateService.getNodeTemplate_1();
     this.diagram.linkTemplate = this.linkTemplateService.getLinkTemplate();
-
     this.topology$ = this.route.paramMap.switchMap((params: ParamMap) => {
-      this.selectedId = params.get('systemTag');
-      return this.topologyService.getTopologyBySystemTag(params.get('systemTag'))
+      this.selectedId = params.get('systemTag'); return this.topologyService.getTopologyBySystemTag(params.get('systemTag'))
     });
 
 
     //set up model
     this.topology$.subscribe(topo => {
       this.topology = topo;
-      this.topologyJson = JSON.stringify(this.topology, null, 4);
-      this.initData();
+      this.loggingService.stringify(topo);
+
+      this.setupDiagram();
     })
 
   }
@@ -76,39 +76,44 @@ export class TopologyWorkerComponent implements OnInit {
 
   ngOnInit() {
     this.diagram.div = this.diagramDiv.nativeElement;
-
-    //dojob for template Node
-    // this.diagram.nodeTemplate = this.nodeTemplateService.getNodeTemplate_A();
-
-    //dojob for template Links
-    //this.diagram.linkTemplate = this.linkTemplateService.getLinkTemplate();
-
-
-
-
   }
 
-  private initData() {
+  private setupDiagram(): void {
+    const $ = go.GraphObject.make;
 
-    console.log(this.topologyJson);
     let nodeDataArray = this.topology.nodes;
     let linkDataArray = this.topology.links;
-    console.log(JSON.stringify(this.topology.links, null, 4));
+
+    // this.diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+    this.diagram.linkTemplate = this.linkTemplateService.getLinkTemplate();
+    this.diagram.nodeTemplate = this.nodeTemplateService.getNodeTemplate_1();
+
+
+    let graphLinksModel = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+    this.diagram.model = graphLinksModel;
+    graphLinksModel.linkFromPortIdProperty = "fromPort"; // identifies data property names
+    graphLinksModel.linkToPortIdProperty = "toPort";   // required information:
 
 
 
-    this.diagram.model.nodeDataArray = nodeDataArray;
-
-
-
-
+    this.loggingService.stringify(this.diagram.model);
   }
 
   showT() {
-    return "XXXXXXXXXXXXXXXX";
+
   }
 
   cancel() {
+  }
+
+  // Save the model to / load it from JSON text shown on the page itself, not in a database.
+  save() {
+
+    let curretnModel = this.diagram.model.toJson("GHislain");
+
+
+    this.loggingService.stringify(JSON.parse(curretnModel).linkDataArray);
+    //this.topologyService.save(curretnModel);
 
   }
 
@@ -145,8 +150,16 @@ export class TopologyWorkerComponent implements OnInit {
     this.diagram.commitTransaction("changeToGrid Layout");
   }
 
+  private registryEvents(): void {
 
-  save() {
+    //TODO : read https://gojs.net/latest/api/symbols/Model.html
+    this.diagram.addModelChangedListener((e) => {
+      if (e.isTransactionFinished) {
+        var json = e.model.toJson();
+
+
+      }
+    });
   }
 
   ///handle any gut action for any obeect

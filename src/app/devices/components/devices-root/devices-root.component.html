@@ -30,7 +30,9 @@
 
     <!-- colums Devices children-->
     <div class="col">
-      <p *ngFor="let dev of device.channel.devices"> {{dev.displayName}} </p>
+      <p *ngFor="let dev of device.channel.devices"> {{dev.displayName}}
+        <span>( {{dev.systemTag}} ) </span>
+      </p>
     </div>
 
     <!-- colums SystemTag  of controller-->

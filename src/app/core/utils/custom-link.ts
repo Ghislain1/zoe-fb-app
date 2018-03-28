@@ -13,7 +13,7 @@ export class CustomLink extends go.Link {
         if (nodedata !== null) {
             var portdata = port.data;
             var side = port._side;
-            var arr = nodedata[side + "Array"];
+            var arr = nodedata["ports"]; // get all Ports array pro Device !!!
 
             var len = arr.length;
             for (var i = 0; i < len; i++) {

@@ -1,6 +1,6 @@
 
 
-export class Link_1 {
+export class Link {
 
   id: string;
   type: string;

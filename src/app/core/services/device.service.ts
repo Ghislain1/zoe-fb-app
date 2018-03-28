@@ -15,7 +15,7 @@ import { Controller } from '../../core/models/bs/controller';
 export class DeviceService {
 
 
-    devicesUrl = 'http://localhost:2178/api/devices';  // URL to web api all controller / Master
+    devicesUrl = 'http://10.12.4.28:2178/api/devices';  // URL to web api all controller / Master
     private handleError: HandleError;
 
     constructor(

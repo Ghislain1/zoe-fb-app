@@ -11,4 +11,8 @@ export class Device {
   type?: string;
   hasChannel?: boolean;
   img: string;
+  key: string;
+
+  canExpander: boolean;
+
 }

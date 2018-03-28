@@ -3,7 +3,7 @@ import { IPort } from "./bs/iport";
 import { ITopologyItem } from "./bs/topology-item";
 import { ILink } from "./bs/ilink";
 import { Device } from "./bs/device";
-import { Link_1 } from "./bs/link";
+import { Link } from "./bs/link";
 import { Controller } from "./bs/controller";
 
 
@@ -82,13 +82,13 @@ export interface ITopology {
 
 export class Topology {
 
-    constructor(public masterOrController: Controller, public linkList?: Link_1[]) {
+    constructor(public masterOrController: Controller, public linkList?: Link[]) {
         this.links = linkList;
         this.nodes = this.masterOrController.channel.devices;
 
     }
     name: string;
-    links?: Link_1[];
+    links?: Link[];
     nodes: Device[]; // All devices includes controller
 
     //should be removed!! 

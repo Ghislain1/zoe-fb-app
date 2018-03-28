@@ -9,6 +9,7 @@ import { TopologyService } from './services/topology.service';
 import { Safe } from './pipes/safe';
 import { DeviceService } from './services/device.service';
 import { LinkService } from './services/link.service';
+import { FileSaveService } from './utils/file-save.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { LinkService } from './services/link.service';
   ],
   declarations: [Safe],
   exports: [Safe],
-  providers: [Safe, LoggingService, ConfigService, TopologyService, LinkService, DeviceService, HttpErrorHandler, MessageService]
+  providers: [Safe, LoggingService, FileSaveService, ConfigService, TopologyService, LinkService, DeviceService, HttpErrorHandler, MessageService]
 })
 export class CoreModule { }

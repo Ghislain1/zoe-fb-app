@@ -73,29 +73,30 @@ export class NodeTemplateService {
     getNodeTemplate_1(): any {
         var $ = go.GraphObject.make;  // for conciseness in defining templates
         var portSize = new go.Size(15, 8);
-        var deviceSize = new go.Size(200, 100);
-        var imageSize = new go.Size(150, 65);
+        var deviceSize = new go.Size(200, 110);
+        var imageSize = new go.Size(150, 55);
 
         //Expander if Gayway should be visible
-        var treeExpanderButton = $(go.Panel, { height: 15 }, new go.Binding("visible", "type", (a, b) => {
-            if (a == "2") {
-                return true;
-            }
-            return false;
-        }), $("TreeExpanderButton", ));
-
-
+        var treeExpanderButton = $(go.Panel, { height: 15, }, new go.Binding("visible", "canExpander", (a, b) => { return a }), $("TreeExpanderButton"));
+        var treeExpanderButtonPerPort = $(go.Panel, { desiredSize: portSize, background: "green" }, $("TreeExpanderButton"));
+        var btn = $(go.Panel, $(go.Shape, "Rectangle", { stroke: null, strokeWidth: 0, desiredSize: portSize, margin: new go.Margin(0, 1) }));
         const nodeTemplate =
             $(go.Node, "Vertical",
                 $(go.Panel, "Auto",
                     $(go.Shape, "RoundedRectangle", { fill: null, desiredSize: deviceSize }),
-
                     $(go.Panel, "Table",
                         treeExpanderButton,
                         $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "img")),
-                        $(go.TextBlock, { row: 2 }, new go.Binding("text", "name")))),
-                $(go.Panel, "Horizontal",
-                    new go.Binding("itemArray", "bottomArray"),
+                        $(go.TextBlock, { row: 2 }, new go.Binding("text", "displayName")),
+                        $(go.TextBlock, { row: 3 }, new go.Binding("text", "stationAddress")))),
+                $(go.Panel, "Vertical",
+                    $(go.Panel, "Horizontal", new go.Binding("itemArray", "ports"),
+                        {
+                            itemTemplate: btn
+
+                        }
+                    )),
+                $(go.Panel, "Horizontal", new go.Binding("itemArray", "ports"),
                     {
                         itemTemplate:
                             $(go.Panel,
@@ -447,6 +448,52 @@ export class NodeTemplateService {
                     }
                 })
         );
+    }
+
+    collapseFrom(node, start) {
+        if (node.data.isCollapsed) return;
+        node.diagram.model.setDataProperty(node.data, "isCollapsed", true);
+        if (node !== start) node.visible = false;
+        node.findNodesOutOf().each(this.collapseFrom);
+    }
+
+    expandFrom(node, start): void {
+        if (!node.data.isCollapsed) return;
+        node.diagram.model.setDataProperty(node.data, "isCollapsed", false);
+        if (node !== start) node.visible = true;
+        node.findNodesOutOf().each(this.expandFrom);
+    }
+
+    ggd(): any {
+        const $ = go.GraphObject.make;
+        var btn = $("Button",  // a replacement for "TreeExpanderButton" that works for non-tree-structured graphs
+            // assume initially not visible because there are no links coming out
+            { visible: false },
+            // bind the button visibility to whether it's not a leaf node
+            new go.Binding("visible", "isTreeLeaf",
+                function (leaf) { return !leaf; })
+                .ofObject(),
+            $(go.Shape,
+                {
+                    name: "ButtonIcon",
+                    figure: "MinusLine",
+                    desiredSize: new go.Size(6, 6)
+                },
+                new go.Binding("figure", "isCollapsed",  // data.isCollapsed remembers "collapsed" or "expanded"
+                    function (collapsed) { return collapsed ? "PlusLine" : "MinusLine"; })),
+            {
+                click: function (e, obj) {
+                    e.diagram.startTransaction();
+                    var node = obj.part;
+                    if (node.data.isCollapsed) {
+                        this.expandFrom(node, node);
+                    } else {
+                        this.collapseFrom(node, node);
+                    }
+                    e.diagram.commitTransaction("toggled visibility of dependencies");
+                }
+            });
+        return btn;
     }
 
 }

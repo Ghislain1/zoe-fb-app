@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
- 
+
 import { RouterModule, Routes } from '@angular/router';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/home',  pathMatch: 'full'  }   
+  { path: '', redirectTo: '/appabout', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes,{enableTracing:true})
+    RouterModule.forRoot(appRoutes, { enableTracing: true })
   ],
-  exports: [    RouterModule  ]
+  exports: [RouterModule]
 })
 export class AppRoutineModule { }

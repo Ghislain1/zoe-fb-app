@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { Controller } from '../../core/models/bs/controller';
 import { LinkData } from '../models/bs/link-data';
-import { Link_1 } from '../models/bs/link';
+import { Link } from '../models/bs/link';
 
 
 
@@ -17,7 +17,7 @@ import { Link_1 } from '../models/bs/link';
 export class LinkService {
 
 
-    linksUrl = 'http://localhost:2178/api/linkData';  // URL to web api all controller / Master
+    linksUrl = 'http://10.12.4.28:2178/api/linkData';  // URL to web api all controller / Master
     private handleError: HandleError;
 
     constructor(

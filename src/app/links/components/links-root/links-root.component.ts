@@ -6,7 +6,7 @@ import { Controller } from '../../../core/models/bs/controller';
 import { DeviceService } from '../../../core/services/device.service';
 import { LinkData } from '../../../core/models/bs/link-data';
 import { LinkService } from '../../../core/services/link.service';
-import { Link_1 } from '../../../core/models/bs/link';
+import { Link } from '../../../core/models/bs/link';
 import { observeOn } from 'rxjs/operators';
 
 
@@ -17,9 +17,9 @@ import { observeOn } from 'rxjs/operators';
 })
 export class LinksRootComponent implements OnInit {
 
-  links$: Observable<Link_1[]>;
+  links$: Observable<Link[]>;
 
-  links: Link_1[];
+  links: Link[];
 
   linkData: LinkData;
 
