@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import * as go from 'gojs';
 import { CustomLink } from "./custom-link";
 
-
+const $ = go.GraphObject.make;
 @Injectable()
 export class LinkTemplateService {
 
@@ -24,9 +24,28 @@ export class LinkTemplateService {
             new go.Binding("points").makeTwoWay(),
             $(go.Shape, new go.Binding("stroke", "linkColor"), { strokeWidth: 2 })
         );
-
         return linkTemplate;
     }
+
+    /** Avoid Node with JumpOver ***///
+    public getLinkTemplate_2(): any {
+        const linkTemplate =
+            $(CustomLink,  // defined below
+                {
+                    routing: go.Link.AvoidsNodes,
+                    corner: 24,
+                    curve: go.Link.JumpOver,
+                    reshapable: true,
+                    resegmentable: true,
+                    relinkableFrom: true,
+                    relinkableTo: true
+                },                  // rounded corners
+                new go.Binding("points").makeTwoWay(),
+                $(go.Shape, new go.Binding("stroke", "linkColor"), { strokeWidth: 2 })
+            );
+        return linkTemplate;
+    }
+
 
     getLinkTemplate_1() {
         const $ = go.GraphObject.make;

@@ -73,17 +73,18 @@ export class NodeTemplateService {
     getNodeTemplate_1(): any {
         var $ = go.GraphObject.make;  // for conciseness in defining templates
         var portSize = new go.Size(15, 8);
+        var expanderSize = new go.Size(15, 15);
         var deviceSize = new go.Size(200, 110);
         var imageSize = new go.Size(150, 55);
-
         //Expander if Gayway should be visible
-        var treeExpanderButton = $(go.Panel, { height: 15, }, new go.Binding("visible", "canExpander", (a, b) => { return a }), $("TreeExpanderButton"));
-        var treeExpanderButtonPerPort = $(go.Panel, { desiredSize: portSize, background: "green" }, $("TreeExpanderButton"));
+        var treeExpanderButton = $(go.Panel, { height: 15 }, new go.Binding("visible", "canExpander", (a, b) => { if (a) return a; }), $("TreeExpanderButton"));
+
         var btn = $(go.Panel, $(go.Shape, "Rectangle", { stroke: null, strokeWidth: 0, desiredSize: portSize, margin: new go.Margin(0, 1) }));
         const nodeTemplate =
             $(go.Node, "Vertical",
                 $(go.Panel, "Auto",
                     $(go.Shape, "RoundedRectangle", { fill: null, desiredSize: deviceSize }),
+
                     $(go.Panel, "Table",
                         treeExpanderButton,
                         $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "img")),
@@ -92,8 +93,9 @@ export class NodeTemplateService {
                 $(go.Panel, "Vertical",
                     $(go.Panel, "Horizontal", new go.Binding("itemArray", "ports"),
                         {
-                            itemTemplate: btn
-
+                            itemTemplate: $("Button", $(go.TextBlock, "-"),
+                                { alignment: go.Spot.Bottom, alignmentFocus: go.Spot.Top, margin: new go.Margin(0, 1), desiredSize: expanderSize },
+                                { visible: true })
                         }
                     )),
                 $(go.Panel, "Horizontal", new go.Binding("itemArray", "ports"),

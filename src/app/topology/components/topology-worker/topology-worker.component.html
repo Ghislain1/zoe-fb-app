@@ -5,17 +5,24 @@
 
 
 <!--runtime controller like save load  -->
-<div *ngIf="topology">
+<div class="row" *ngIf="topology">
 
-  <label>Id: </label>{{ topology.systemTag }}
+  <div class="col">
+    <label>Id: </label>{{ topology.systemTag }}
 
-  <button (click)="save()">Save</button>
-  <button (click)="cancel()">Cancel</button>
-  <button (click)="changeToRing()">Ring</button>
+    <button (click)="save()">Save</button>
+    <button (click)="cancel()">Cancel</button>
+    <button (click)="changeToRing()">Ring</button>
 
-  <button (click)="changeToTree()">Tree</button>
-  <button (click)="changeToTree_90()">Tree_9</button>
+    <button (click)="changeToTree()">Tree</button>
+    <button (click)="changeToTree_90()">Tree_9</button>
 
-  <button (click)="changeToGrid()">Grid(4,?)</button>
+    <button (click)="changeToGrid()">Grid(Linie)</button>
+    <button (click)="changeToLinie()">Linie</button>
+
+  </div>
+  <div class="col">
+    <button (click)="avoidAll()">Avoid</button>
+  </div>
 
 </div>

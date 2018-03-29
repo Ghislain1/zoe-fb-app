@@ -16,6 +16,8 @@ import { DeviceService } from '../../../core/services/device.service';
 import { LinkService } from '../../../core/services/link.service';
 import { link } from 'fs';
 import { LoggingService } from '../../../core/services/logging.service';
+import { RadialLayout } from '../../../core/utils/radial-layout';
+import { SerpentineLayout } from '../../../core/utils/serpen';
 
 @Component({
   selector: 'app-topology-worker',
@@ -52,7 +54,11 @@ export class TopologyWorkerComponent implements OnInit {
     this.diagram.initialContentAlignment = go.Spot.Center;
     this.diagram.allowDrop = true;  // necessary for dragging from Palette
     this.diagram.undoManager.isEnabled = true;
+    let grid = $(go.GridLayout);
 
+    // grid.spacing = new go.Size(20, 80);
+    grid.spacing = new go.Size(60, 80);
+    this.diagram.layout = grid;
     //We have the digram  you can  do what we want:
     this.registryEvents();
 
@@ -117,6 +123,25 @@ export class TopologyWorkerComponent implements OnInit {
 
   }
 
+  changeToLinie(): void {
+    this.diagram.startTransaction("changeToLinie Layout");
+    var $ = go.GraphObject.make;  // for conciseness in defining templates
+
+    this.diagram.initialContentAlignment = go.Spot.Center,
+      this.diagram.isTreePathToChildren = false,  // links go from child to parent
+      this.diagram.layout = $(SerpentineLayout)   // defined in SerpentineLayout.js
+
+    this.diagram.commitTransaction("changeToLinie Layout");
+
+
+  }
+
+  avoidAll(): void {
+    this.diagram.startTransaction("avoidAll Layout");
+
+    this.diagram.linkTemplate = this.linkTemplateService.getLinkTemplate_2();
+    this.diagram.commitTransaction("avoidAll Layout");
+  }
   changeToTree() {
     var $ = go.GraphObject.make;  // for conciseness in defining templates
     this.diagram.layout = $(go.TreeLayout);
@@ -145,7 +170,8 @@ export class TopologyWorkerComponent implements OnInit {
     this.diagram.startTransaction("changeToGrid Layout");
     var $ = go.GraphObject.make;  // for conciseness in defining templates
     let gLayout = $(go.GridLayout);
-    gLayout.wrappingColumn = 4;
+    gLayout.wrappingColumn = 7;
+
     this.diagram.layout = gLayout;
     this.diagram.commitTransaction("changeToGrid Layout");
   }

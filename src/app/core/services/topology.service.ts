@@ -116,6 +116,7 @@ export class TopologyService {
       if (element.ports.length >= 3) {
         element.type = "2";
         element.canExpander = true;
+        // alert(element.displayName);
       }
     });
   }
