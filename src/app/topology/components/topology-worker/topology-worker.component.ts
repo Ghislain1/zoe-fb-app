@@ -97,6 +97,7 @@ export class TopologyWorkerComponent implements OnInit {
 
     let graphLinksModel = new go.GraphLinksModel(nodeDataArray, linkDataArray);
     this.diagram.model = graphLinksModel;
+
     graphLinksModel.linkFromPortIdProperty = "fromPort"; // identifies data property names
     graphLinksModel.linkToPortIdProperty = "toPort";   // required information:
 
