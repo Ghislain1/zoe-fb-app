@@ -18,6 +18,7 @@ import { OutputModule } from './output/output.module';
 import { TopologyModule } from './topology/topology.module';
 import { DevicesModule } from './devices/devices.module';
 import { LinksModule } from './links/links.module';
+import { ConfigModule } from './config/config.module';
 
 
 
@@ -31,6 +32,7 @@ import { LinksModule } from './links/links.module';
     RouterModule,
     TopologyModule,
     LinksModule,
+    ConfigModule,
     DevicesModule,
     LayoutModule,
     AboutModule,

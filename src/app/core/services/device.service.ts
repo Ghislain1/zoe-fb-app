@@ -14,8 +14,8 @@ import { Controller } from '../../core/models/bs/controller';
 @Injectable()
 export class DeviceService {
 
-
-    devicesUrl = 'http://10.12.4.28:2178/api/devices';  // URL to web api all controller / Master
+    devicesUrl = 'http://localhost:2178/api/devices';
+    //devicesUrl = 'http://10.12.4.28:2178/api/devices';  // URL to web api all controller / Master
     private handleError: HandleError;
 
     constructor(
