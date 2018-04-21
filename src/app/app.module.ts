@@ -19,6 +19,7 @@ import { TopologyModule } from './topology/topology.module';
 import { DevicesModule } from './devices/devices.module';
 import { LinksModule } from './links/links.module';
 import { ConfigModule } from './config/config.module';
+import { HereosXmlModule } from './hereos/hereos-xml.module';
 
 
 
@@ -38,7 +39,8 @@ import { ConfigModule } from './config/config.module';
     AboutModule,
     OutputModule,
     AppRoutineModule,
-    HttpClientModule
+    HttpClientModule,
+    HereosXmlModule
   ],
   providers: [],
   bootstrap: [AppComponent]
