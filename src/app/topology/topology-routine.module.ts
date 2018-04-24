@@ -15,7 +15,6 @@ const topoRoutes: Routes = [
   {
     path: 'app-topology-home',
     component: TopologyHomeComponent,
-
     children: [
       {
         path: '',

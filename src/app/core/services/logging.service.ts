@@ -16,20 +16,20 @@ export class LoggingService {
 
 
   logFancy(ojb: any): void {
-
-  }
-
-
-  stringify(ojb: any): void {
     const js = JSON.stringify(ojb, null, 3);
     console.log(js);
   }
+
+
 
   showAlert(ojb: any): void {
     const js = JSON.stringify(ojb, null, 3);
     alert(js);
   }
+  stringify(ojb: any): string {
+    return JSON.stringify(ojb, null, 3);
 
+  }
 
 
 }
