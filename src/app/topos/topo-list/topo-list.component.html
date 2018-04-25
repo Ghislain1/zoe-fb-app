@@ -1,0 +1,32 @@
+<!--<div>
+ <label>Hero name:
+    <input #heroName />
+  </label>
+  (click) passes input value to add() and then clears the input 
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
+<ul class="topos">
+  <li *ngFor="let node of nodes">
+    <a routerLink="/topo-edit/{{node.nodeId}}">
+      <span class="badge">{{node.nodeId}}</span> {{node.name}}
+    </a>
+    <button class="delete" title="delete node" (click)="delete(node)">x</button>
+  </li>
+</ul>
+-->
+
+
+<div class="card" *ngFor="let node of nodes">
+  <div class="card-header">
+    {{ node.name }} ( {{ node.nodeId }} )
+    <a routerLink="/app-topo-edit/{{node.nodeId}}"> Show Topo !! </a>
+
+  </div>
+  <ul *ngIf="node.children!=null" class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let child of node.children"> {{ child.name }} </li>
+  </ul>
+</div>
+<hr/>

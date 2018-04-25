@@ -16,11 +16,12 @@ import { AboutModule } from './about/about.module';
 
 import { OutputModule } from './output/output.module';
 import { TopologyModule } from './topology/topology.module';
-import { DevicesModule } from './devices/devices.module';
+
 import { LinksModule } from './links/links.module';
 import { ConfigModule } from './config/config.module';
 import { HereosXmlModule } from './hereos/hereos-xml.module';
-import { NodesModule } from './nodes/nodes.module';
+
+import { ToposModule } from './topos/topos.module';
 
 
 
@@ -35,14 +36,13 @@ import { NodesModule } from './nodes/nodes.module';
     TopologyModule,
     LinksModule,
     ConfigModule,
-    DevicesModule,
     LayoutModule,
     AboutModule,
     OutputModule,
     AppRoutineModule,
     HttpClientModule,
     HereosXmlModule,
-    NodesModule,
+    ToposModule,
 
   ],
   providers: [],

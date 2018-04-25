@@ -118,7 +118,6 @@ export class TopologyWorkerComponent implements OnInit {
 
     let curretnModel = this.diagram.model.toJson("GHislain");
 
-
     this.loggingService.stringify(JSON.parse(curretnModel).linkDataArray);
     //this.topologyService.save(curretnModel);
 
@@ -178,13 +177,10 @@ export class TopologyWorkerComponent implements OnInit {
   }
 
   private registryEvents(): void {
-
     //TODO : read https://gojs.net/latest/api/symbols/Model.html
     this.diagram.addModelChangedListener((e) => {
       if (e.isTransactionFinished) {
         var json = e.model.toJson();
-
-
       }
     });
   }
