@@ -56,7 +56,9 @@ export class AppConfiguration {
 
 
       setToastrOptions() {
+        console.log("-----------> setToastrOptions");
         toastr.options.closeButton = true;
+        console.log("-----------> setToastrOptions 2");
         toastr.options.positionClass = "toast-bottom-right";
       }
 

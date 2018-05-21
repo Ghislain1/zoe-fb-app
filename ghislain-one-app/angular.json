@@ -22,10 +22,19 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+  "styles": [
+            "../node_modules/bootstrap/dist/css/bootstrap.css",
+            "../node_modules/bootstrap/dist/css/bootstrap-theme.css",
+            "../node_modules/font-awesome/css/font-awesome.css",
+            "../node_modules/toastr/build/toastr.css",            
+            "./css/albumviewer.css"
+        ],
+                 "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/toastr/toastr.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/bootstrap-3-typeahead/bootstrap3-typeahead.js"
+      ]
           },
           "configurations": {
             "production": {
@@ -95,6 +104,8 @@
         }
       }
     },
+	
+	
     "ghislain-one-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
