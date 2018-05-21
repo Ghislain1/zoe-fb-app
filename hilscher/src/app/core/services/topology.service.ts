@@ -63,6 +63,7 @@ export class TopologyService {
    */
   getTopologyBySystemTag(systemTag: string | number): Observable<Topology> {
 
+    
     //links
     let stzr: string = systemTag as string;
     var splitted = stzr.split(" ", 3);
@@ -70,22 +71,22 @@ export class TopologyService {
 
     //Device
     let contr$ = this.deviceService.getDeviceBySystemTag(systemTag);
-
+    
     const combined = Observable.forkJoin(contr$, linkData$, (contr, linkData) => { return this.createTopo(contr, linkData) });
 
     return combined;
 
   }
 
-  private createTopo(controller: Controller, linkData: LinkData): Topology {
+  private createTopo(devices: Device[], linkData: LinkData): Topology {
 
 
-    let topo = new Topology(controller);
+    let topo = new Topology(devices);
     topo.links = this.createLinkData(linkData);
-
-
+    alert("Device     "+topo);
+    
     //Push master or controler too!!
-    var masterD = new Device();
+   /* var masterD = new Device();
     masterD.displayName = controller.displayName.slice(0, 20);
     masterD.stationAddress = controller.stationAddress;
     masterD.type = controller.channel.displayName;
@@ -94,7 +95,7 @@ export class TopologyService {
     masterD.systemTag = controller.systemTag;
     topo.nodes.push(masterD);
 
-    topo.nodes.reverse();
+    topo.nodes.reverse();*/
 
     this.checkIfExpander(topo);
 

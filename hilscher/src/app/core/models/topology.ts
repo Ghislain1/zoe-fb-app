@@ -82,9 +82,9 @@ export interface ITopology {
 
 export class Topology {
 
-    constructor(public masterOrController: Controller, public linkList?: Link[]) {
+    constructor(public devices?: Device [], public linkList?: Link[]) {
         this.links = linkList;
-        this.nodes = this.masterOrController.channel.devices;
+        this.nodes = devices;
 
     }
     name: string;

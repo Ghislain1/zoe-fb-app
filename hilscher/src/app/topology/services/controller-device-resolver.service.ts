@@ -11,11 +11,12 @@ import { Topology } from '../../core/models/topology';
 import { TopologyService } from '../../core/services/topology.service';
 import { DeviceService } from '../../core/services/device.service';
 import { Controller } from '../../core/models/bs/controller';
+import { Device } from '../../core/models/bs/device';
 
 //// Helper class or service to find a device with the giveb systemTag
 
 @Injectable()
-export class ControllerDeviceResolver implements Resolve<Controller> {
+export class ControllerDeviceResolver implements Resolve<Device []> {
 
 
   constructor(private deviceService: DeviceService, private router: Router) {
@@ -23,13 +24,13 @@ export class ControllerDeviceResolver implements Resolve<Controller> {
   }
 
   ///return the found controller as observable.
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Controller> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Device[]> {
 
     //Get the systemTag of the  controller or Master first...
     let systemTag = route.paramMap.get('systemTag');
 
+   let masterD=  this.deviceService.getDeviceBySystemTag(systemTag);
 
-    return this.deviceService.getDeviceBySystemTag(systemTag).take(1).map(masterD => {
       if (masterD) {
         return masterD;
       }
@@ -38,6 +39,6 @@ export class ControllerDeviceResolver implements Resolve<Controller> {
         this.router.navigate(['/ControllerDeviceResolver']);
         return null;
       }
-    });
-  }
+    };
+  
 }

@@ -12,6 +12,7 @@ export class Device {
   hasChannel?: boolean;
   img: string;
   key: string;
+  deviceList: Device [];
 
   canExpander: boolean;
 

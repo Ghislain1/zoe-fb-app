@@ -7,6 +7,7 @@ import { HttpErrorHandler, HandleError } from '../../core/services/http-error-ha
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { Controller } from '../../core/models/bs/controller';
+import { Device } from '../models/bs/device';
 
 
 
@@ -14,7 +15,7 @@ import { Controller } from '../../core/models/bs/controller';
 @Injectable()
 export class DeviceService {
 
-    devicesUrl = 'http://localhost:2178/api/devices';
+    devicesUrl = 'http://localhost:2178/api/processdata';
     //devicesUrl = 'http://10.12.4.28:2178/api/devices';  // URL to web api all controller / Master
     private handleError: HandleError;
 
@@ -33,16 +34,16 @@ export class DeviceService {
     }
 
     ////Look how map works!!!
-    getDeviceBySystemTag(systemTag: string | number): Observable<Controller> {
+    getDeviceBySystemTag(systemTag: string | number): Observable< Device[]> {
 
+   var urlWithSystemtag=this.devicesUrl+"/"+ systemTag;
+   alert("Device     "+urlWithSystemtag);
+        return this.httpClient.get<Device[]>(urlWithSystemtag)
+        .pipe(
+            catchError(this.handleError('getDeviceBySystemTag', []))
+        );     
 
-        let toReturn = this.getDevices().map(devices => devices.find(masterD => masterD.systemTag === systemTag));
-
-        if (!toReturn) {
-            alert(systemTag + "Not exists");
-        }
-
-        return toReturn;
+    
     }
 
 
