@@ -8,6 +8,7 @@ import { ArtistList } from './artists/artistList';
 import { ArtistDisplay} from "./artists/artistDisplay";
  
 import {LoginComponent} from "./common/login";
+import { AlbumList } from './albums/albumList';
  
 
 const routes: Routes = [

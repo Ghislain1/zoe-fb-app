@@ -2,9 +2,8 @@
  
 
 import { Injectable } from '@angular/core';
-
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/of';
+import { Observable, of } from 'rxjs';
+import { map, catchError, scan } from 'rxjs/operators';
 
 import {AppConfiguration} from "../business/appConfiguration";
 import {HttpClient} from "@angular/common/http";
@@ -14,7 +13,7 @@ import {ErrorInfo} from "../common/errorDisplay";
 import { Album } from '../business/album';
 import { Artist } from '../business/artist';
 import { ArtistResult } from '../business/artistResult';
-import { Observable, of } from 'rxjs';
+
 
 @Injectable()
 export class ArtistService {
@@ -38,18 +37,18 @@ export class ArtistService {
       return of(this.artistList) as Observable<Artist[]>;
 
     return this.httpClient.get<Artist[]>(this.config.urls.url("artists"))
-      .map( artistList => {
+      .pipe(map( artistList => {
         this.artistList = artistList;
         return this.artistList;
       })
-      .catch( new ErrorInfo().parseObservableResponseError);
+      ,catchError( new ErrorInfo().parseObservableResponseError));
   }
 
 
   getArtist(id):Observable<ArtistResult>  {
     return this.httpClient.get<any>(this.config.urls.url("artist",id),
                          this.config.requestHeaders)
-        .map(artistResult => {
+        .pipe(map(artistResult => {
           this.artist = artistResult.Artist;
           this.artist.Albums = artistResult.Albums;
 
@@ -58,13 +57,13 @@ export class ArtistService {
 
           return artistResult;
         })
-        .catch( new ErrorInfo().parseObservableResponseError );
+        ,catchError( new ErrorInfo().parseObservableResponseError) );
   }
 
   saveArtist(artist):Observable<ArtistResult> {
       return this.httpClient.post<ArtistResult>(this.config.urls.url("saveArtist"),artist,
                              this.config.requestHeaders)
-        .map( artistResult => {
+        .pipe(map( artistResult => {
 
           this.artist = artistResult.Artist;
           this.artist.Albums = artistResult.Albums;
@@ -73,7 +72,7 @@ export class ArtistService {
 
           return artistResult;
         })
-        .catch( new ErrorInfo().parseObservableResponseError);
+        ,catchError( new ErrorInfo().parseObservableResponseError));
   }
 
   // Update the artistList with an artist
@@ -91,7 +90,7 @@ export class ArtistService {
   deleteArtist(artist:Artist):Observable<boolean> {
     return this.httpClient.delete<boolean>(this.config.urls.url("artist",artist.Id),
                             this.config.requestHeaders)
-                    .catch( new ErrorInfo().parseObservableResponseError);
+                    .pipe(catchError( new ErrorInfo().parseObservableResponseError));
   }
 }
 

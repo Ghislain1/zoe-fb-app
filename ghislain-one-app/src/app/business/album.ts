@@ -4,7 +4,7 @@ import { Track } from './Track';
 
 declare var $:any;
 
-@Injectable()
+
 export class Album {
     Id:number = 0;
     ArtistId:number = 0;

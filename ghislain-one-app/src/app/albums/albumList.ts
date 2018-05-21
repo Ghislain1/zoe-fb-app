@@ -7,8 +7,9 @@ import {Router} from "@angular/router";
 import {ErrorInfo} from "../common/errorDisplay";
  
 import { UserInfo } from "../business/userInfo";
-import { slideIn } from '../common/appHeader';
+ 
 import { Album } from '../business/album';
+import { slideIn } from '../common/animations';
 
 declare var $:any;
 declare var toastr:any;

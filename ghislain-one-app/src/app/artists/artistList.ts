@@ -3,8 +3,9 @@ import {AppConfiguration} from "../business/appConfiguration";
 import { ArtistService } from './artistService';
 import {Router} from "@angular/router";
 import {ErrorInfo} from "../common/errorDisplay";
-import { slideInLeft } from '../common/appHeader';
+ 
 import { Artist } from '../business/artist';
+import { slideInLeft } from '../common/animations';
 
  
 

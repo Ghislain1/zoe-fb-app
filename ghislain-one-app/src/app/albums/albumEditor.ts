@@ -5,8 +5,9 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {ErrorInfo} from "../common/errorDisplay";
 import {AppConfiguration} from "../business/appConfiguration";
 import {UserInfo} from "../business/userInfo";
-import { slideIn } from '../common/appHeader';
+ 
 import { Album } from '../business/album';
+import { slideIn } from '../common/animations';
 
 //declare var $:any ;
 declare var $:any;

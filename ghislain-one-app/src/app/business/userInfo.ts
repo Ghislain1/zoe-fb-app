@@ -2,14 +2,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AppConfiguration} from "./appConfiguration";
 
- 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
 
 
 import {ErrorInfo} from "../common/errorDisplay";
 import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable()
 export class UserInfo {
@@ -42,22 +39,22 @@ export class UserInfo {
             username: username,
             password: password
         })
-            .catch((response) => {
+          .pipe(catchError((response) => {
                 if (response.status === 401)
                     this.isAuthenticated = false;
 
                 return new ErrorInfo().parseObservableResponseError(response);
-            });
+            }));
     }
 
     logout() {
         return this.http.get<boolean>(this.config.urls.url("logout"))
-            .map(
+           .pipe(map(
                 (success) => {
                     this.isAuthenticated = false;
                     return true;
                 }
-            );
+            ));
     }
 
     /**
@@ -69,13 +66,13 @@ export class UserInfo {
         var url = this.config.urls.url("isAuthenticated");
         console.log(url);
         return this.http.get<boolean>(url)            
-            .map((result) => {                
+            .pipe(map((result) => {                
                 this.isAuthenticated = result;
                 return result;
             })
-            .catch((response) => {                
+            ,catchError((response) => {                
                 this.isAuthenticated = false;
                 return Observable.throw(response);
-            });
+            }));
     }
 }

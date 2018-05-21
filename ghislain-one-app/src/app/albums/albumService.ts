@@ -1,10 +1,21 @@
 import {Injectable} from '@angular/core';
-import {Album, Artist, Track} from '../business/entities';
+
+ import { Observable, of, throwError} from "rxjs"
+
+import { map, filter, catchError, mergeMap } from 'rxjs/operators';
+ 
 import {AppConfiguration} from "../business/appConfiguration";
 import {ErrorInfo} from "../common/errorDisplay";
-import {Observable}  from 'rxjs/Observable';
+ 
 import {HttpClient} from "@angular/common/http";
 
+import { Album } from '../business/album';
+
+
+
+import { Track } from '../business/Track';
+ 
+ 
 @Injectable()
 export class AlbumService {
     constructor( private httpClient: HttpClient,
@@ -19,20 +30,20 @@ export class AlbumService {
 
     getAlbums(): Observable<Album[]> {
         return this.httpClient.get<Album[]>(this.config.urls.url("albums"))
-            .map(albumList => this.albumList = albumList)
-            .catch(new ErrorInfo().parseObservableResponseError);
+            .pipe(map(albumList => this.albumList = albumList)
+            ,catchError(new ErrorInfo().parseObservableResponseError));
     }
 
     getAlbum(id): Observable<Album> {
         return this.httpClient.get<Album>(this.config.urls.url("album", id))
-            .map(album => {
+            .pipe(map(album => {
                 this.album = album;
 
                 if (!this.albumList || this.albumList.length < 1)
                     this.getAlbums(); // load up albums in background
                 return this.album;
             })
-            .catch(new ErrorInfo().parseObservableResponseError);
+            ,catchError(new ErrorInfo().parseObservableResponseError));
     }
 
     newAlbum(): Album {
@@ -43,24 +54,24 @@ export class AlbumService {
     saveAlbum(album): Observable<any> {
         return this.httpClient.post<Album>(this.config.urls.url("album"),
             album,{withCredentials: true})
-            .map(album => {
+            .pipe(map(album => {
                 this.album = album;
 
                 // explicitly update the list with the updated data
                 this.updateAlbum(this.album);
                 return this.album;
             })
-            .catch(new ErrorInfo().parseObservableResponseError);
+            ,catchError(new ErrorInfo().parseObservableResponseError));
     }
 
     deleteAlbum(album: Album): Observable<any> {
         return this.httpClient.delete<boolean>(this.config.urls.url("album", album.Id),
-            this.config.requestHeaders)
-            .map( result => {
+            this.config.requestHeaders).pipe(
+            map( result => {
                 if (result)
                     this.removeAlbum(album); // client side remove
-            })
-            .catch(new ErrorInfo().parsePromiseResponseError);
+            }),
+            catchError(new ErrorInfo().parsePromiseResponseError));
     }
 
 

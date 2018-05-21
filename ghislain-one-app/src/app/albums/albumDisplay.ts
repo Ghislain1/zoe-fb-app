@@ -4,7 +4,7 @@ import {AlbumService} from "./albumService";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ErrorInfo} from "../common/errorDisplay";
 import {AppConfiguration} from "../business/appConfiguration";
-import { slideIn } from '../common/appHeader';
+import { slideIn } from '../common/animations';
 import { Component, OnInit, Input } from '@angular/core';
 import { Album } from "../business/album";
  
