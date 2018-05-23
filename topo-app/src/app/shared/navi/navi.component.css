@@ -1,0 +1,53 @@
+.topul {
+    height: auto;
+    background-color: gray;
+    border-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .topul li {
+    float: right;
+    margin: 0px 0px 2px 2px;
+    background-color: whitesmoke;
+    border-style: none;
+  }
+  
+  /* for About */
+  
+  .topul li:first-child {
+    border-right: none;
+    float: left;
+    /* last childe(About) to right placement*/
+  }
+  
+  .topul a {
+    cursor: hand;
+    text-transform: uppercase;
+  }
+  
+  .topul li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: var(--hilscher-color);
+    text-decoration: none;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding: 14px 16px;
+    display: inline-block;
+    border-radius: 0px;
+  }
+  
+  .topul li a:hover {
+    background-color: var(--hilscher-bg);
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  .topul li a.active {
+    background-color: var(--hilscher-bg);
+    color: white;
+  }
