@@ -7,6 +7,9 @@
 
 # dependencies
 /node_modules
+/hil/node_modules
+/ghislain-one-app/node_modules
+
 
 # IDEs and editors
 /.idea
@@ -23,6 +26,7 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
 
 # misc
 /.sass-cache

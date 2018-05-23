@@ -63,16 +63,17 @@ export class TopologyService {
    */
   getTopologyBySystemTag(systemTag: string | number): Observable<Topology> {
 
-    
+
     //links
     let stzr: string = systemTag as string;
     var splitted = stzr.split(" ", 3);
     let linkData$ = this.linkService.getLinkBySystemTag(systemTag);
 
     //Device
-    let contr$ = this.deviceService.getDeviceBySystemTag(systemTag);
-    
-    const combined = Observable.forkJoin(contr$, linkData$, (contr, linkData) => { return this.createTopo(contr, linkData) });
+    let dArray$ = this.deviceService.getDeviceBySystemTag(systemTag);
+
+    //forjoinf for paarallel  query to join it.
+    const combined = Observable.forkJoin(dArray$, linkData$, (contr, linkData) => { return this.createTopo(contr, linkData) });
 
     return combined;
 
@@ -83,19 +84,19 @@ export class TopologyService {
 
     let topo = new Topology(devices);
     topo.links = this.createLinkData(linkData);
-    alert("Device     "+topo);
-    
-    //Push master or controler too!!
-   /* var masterD = new Device();
-    masterD.displayName = controller.displayName.slice(0, 20);
-    masterD.stationAddress = controller.stationAddress;
-    masterD.type = controller.channel.displayName;
-    masterD.hasChannel = true;
-    masterD.ports = controller.ports;
-    masterD.systemTag = controller.systemTag;
-    topo.nodes.push(masterD);
 
-    topo.nodes.reverse();*/
+
+    //Push master or controler too!!
+    /* var masterD = new Device();
+     masterD.displayName = controller.displayName.slice(0, 20);
+     masterD.stationAddress = controller.stationAddress;
+     masterD.type = controller.channel.displayName;
+     masterD.hasChannel = true;
+     masterD.ports = controller.ports;
+     masterD.systemTag = controller.systemTag;
+     topo.nodes.push(masterD);
+ 
+     topo.nodes.reverse();*/
 
     this.checkIfExpander(topo);
 

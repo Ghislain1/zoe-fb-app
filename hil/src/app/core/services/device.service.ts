@@ -34,16 +34,16 @@ export class DeviceService {
     }
 
     ////Look how map works!!!
-    getDeviceBySystemTag(systemTag: string | number): Observable< Device[]> {
+    getDeviceBySystemTag(systemTag: string | number): Observable<Device[]> {
 
-   var urlWithSystemtag=this.devicesUrl+"/"+ systemTag;
-   alert("Device     "+urlWithSystemtag);
+        var urlWithSystemtag = this.devicesUrl + "/" + systemTag;
+
         return this.httpClient.get<Device[]>(urlWithSystemtag)
-        .pipe(
-            catchError(this.handleError('getDeviceBySystemTag', []))
-        );     
+            .pipe(
+                catchError(this.handleError('getDeviceBySystemTag', []))
+            );
 
-    
+
     }
 
 
