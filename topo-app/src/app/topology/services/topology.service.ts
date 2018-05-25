@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
- 
+
 import { HttpClient } from "@angular/common/http";
 
 import { catchError } from "rxjs/operators";
@@ -19,6 +19,8 @@ import { HttpErrorHandler } from "../../shared/handlers/http-error-handler";
 import { LoggingService } from "../../shared/services/logging.service";
 import { Link } from "../models/link";
 import { Device } from "../models/device";
+import { Config } from "../../shared/Config";
+import { forEach } from "@angular/router/src/utils/collection";
 
 
 
@@ -27,7 +29,7 @@ const TOPOLOGIES = [];
 @Injectable()
 export class TopologyService {
 
-
+  private configuration: Config | any[];
   private handleError: HandleError;
   topologyUrl: string;
   private topologies$: BehaviorSubject<Topology[]> = new BehaviorSubject<Topology[]>(TOPOLOGIES);
@@ -43,8 +45,27 @@ export class TopologyService {
 
     this.handleError = httpErrorHandler.createHandleError('TodoService');
 
+    //Set the configuration for teh all system
+    this.configService.getConfig().subscribe(con => this.configuration = con);
+
   }
 
+  public getTopologyList() {
+    let url = (this.configService.config as Config).urlApiTopo;
+    //Device
+    let topologyArray: Topology[] = [];
+    let dArray$ = this.deviceService.getDevices().subscribe(list => {
+
+
+      for (let k = 0; k < list.length; k++) {
+
+        let topo = this.createTopo(list[k].deviceList, null);
+        topologyArray.push(topo);
+      }
+    });
+    return Observable.of(topologyArray);
+
+  }
 
   public save(json: string): void {
 
@@ -80,7 +101,7 @@ export class TopologyService {
   private createTopo(devices: Device[], linkData: Link[]): Topology {
 
 
-    let topo = new Topology(devices);
+    let topo = new Topology("isdgfzfgozufgzuodzodgsfoasgfsf", devices);
     topo.links = this.createLinkData(linkData);
 
 
@@ -156,6 +177,6 @@ export class TopologyService {
   }
 
 
- 
+
 
 }

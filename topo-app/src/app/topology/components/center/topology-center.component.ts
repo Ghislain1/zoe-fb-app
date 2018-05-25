@@ -2,7 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { LoggingService } from '../../../shared/services/logging.service';
- 
+
 
 @Component({
   selector: 'app-topology-center',
@@ -11,10 +11,13 @@ import { LoggingService } from '../../../shared/services/logging.service';
 })
 export class TopologyCenterComponent implements OnInit {
 
-  constructor(private loggingService: LoggingService) { }
+  constructor(private loggingService: LoggingService) {
+
+    this.loggingService.logFancy(" -------Topo Parent Component----------");
+  }
 
   ngOnInit() {
-    //this.loggingService.showAlert(" -------Topo Parent Component----------");
+    this.loggingService.logFancy(" -------Topo Parent Component----------");
   }
 }
 

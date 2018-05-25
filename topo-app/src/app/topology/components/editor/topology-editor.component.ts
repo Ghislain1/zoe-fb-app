@@ -1,24 +1,27 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
- 
+
 
 
 import * as go from 'gojs';
 import { Topology } from '../../models/topology';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { MessageService } from '../../../shared/services/message.service';
 import { TopologyService } from '../../services/topology.service';
 import { DeviceTemplateService } from '../../services/device-template.service';
 import { LoggingService } from '../../../shared/services/logging.service';
+import { LinkTemplateService } from '../../services/link-template.service';
+import { DiagramService } from '../../services/diagram.service';
+import { SerpentineLayout } from '../../extensions/serpentine-layout';
 
 
 
 @Component({
-  selector: 'app-topology-worker',
-  templateUrl: './topology-worker.component.html',
-  styleUrls: ['./topology-worker.component.css']
+  selector: 'app-topology-editor',
+  templateUrl: './topology-editor.component.html',
+  styleUrls: ['./topology-editor.component.css']
 })
-export class TopologyWorkerComponent implements OnInit {
+export class TopologyEditorComponent implements OnInit {
 
   ////This represents a topology because he is master and he gets children
   topology: Topology;
@@ -195,7 +198,7 @@ export class TopologyWorkerComponent implements OnInit {
   }
 
   gotoTologies() {
-    let crisisId = this.topology ? this.topology.id : null;
+    let crisisId = this.topology ? this.topology.systemTag : null;
 
     this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
   }

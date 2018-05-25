@@ -5,7 +5,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { TopologyModule } from './topology/topology.module';
 import { SharedModule } from './shared/shared.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { AppRoutineModule } from './app-routine.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -14,11 +16,17 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    RouterModule , // for outlet-route
+    RouterModule, // for outlet-route  
+    HttpClientModule,
+    TopologyModule,
     SharedModule,
-   // TopologyModule
+    AppRoutineModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {  // Diagnostic only: inspect router configuration
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+}

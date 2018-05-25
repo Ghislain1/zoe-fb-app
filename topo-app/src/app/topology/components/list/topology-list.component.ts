@@ -8,7 +8,7 @@ import { Topology } from '../../models/topology';
 import { Device } from '../../models/device';
 import { DeviceService } from '../../services/device.service';
 import { TopologyService } from '../../services/topology.service';
- 
+
 
 @Component({
   selector: 'app-topology-list',
@@ -27,26 +27,24 @@ export class TopologyListComponent implements OnInit {
   selectedId: number;
   isSideBarActive: boolean;
 
-
-
   constructor(
     private topologyService: TopologyService,
     private deviceService: DeviceService,
     private route: ActivatedRoute
   ) {
 
-    this.controllers$ = this.route.paramMap.switchMap((params: ParamMap) => {
-      this.selectedSytemTag = params.get('systemTag');
 
-      return this.deviceService.getDevices();
-    });
   }
 
 
 
   ngOnInit() {
 
+    // this.controllers$ = this.route.paramMap.switchMap((params: ParamMap) => {
+    //   this.selectedSytemTag = params.get('systemTag');
 
+    //   return this.deviceService.getDevices();
+    // });
   }
 
   getControllers() {

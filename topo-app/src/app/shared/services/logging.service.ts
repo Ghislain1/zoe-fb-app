@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LoggingService {
 
+  constructor() {
+    let d = "HH";
+  }
   logs: string[] = [];
 
   clear() {
@@ -24,7 +27,7 @@ export class LoggingService {
     const js = JSON.stringify(ojb, null, 3);
     alert(js);
   }
-  
+
   stringify(ojb: any): string {
     return JSON.stringify(ojb, null, 3);
 
