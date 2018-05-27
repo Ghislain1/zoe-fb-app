@@ -38,7 +38,7 @@ export class DeviceTemplateService {
 
                     $(go.Panel, "Table",
                         treeExpanderButton,
-                        $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "img")),
+                        $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "imgUrl")),
                         $(go.TextBlock, { row: 2 }, new go.Binding("text", "displayName")),
                         $(go.TextBlock, { row: 3 }, new go.Binding("text", "stationAddress")))),
                 $(go.Panel, "Horizontal",
@@ -87,7 +87,7 @@ export class DeviceTemplateService {
 
                     $(go.Panel, "Table",
                         treeExpanderButton,
-                        $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "img")),
+                        $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "imgUrl")),
                         $(go.TextBlock, { row: 2 }, new go.Binding("text", "displayName")),
                         $(go.TextBlock, { row: 3 }, new go.Binding("text", "stationAddress")))),
                 $(go.Panel, "Vertical",
@@ -137,7 +137,7 @@ export class DeviceTemplateService {
 
                     $(go.Panel, "Table",
                         $(go.TextBlock, { row: 0 }, new go.Binding("text", "type")),
-                        $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "img")),
+                        $(go.Picture, { row: 1, desiredSize: imageSize }, new go.Binding("source", "imgUrl")),
                         $(go.TextBlock, { row: 2 }, new go.Binding("text", "name")))),
                 $(go.Panel, "Horizontal",
                     new go.Binding("itemArray", "bottomArray"),
@@ -210,11 +210,11 @@ export class DeviceTemplateService {
                         name: "BODY",
                         stretch: go.GraphObject.Fill
                     },
-                    $(go.TextBlock, { row: 0 }, new go.Binding("text", "img")),
+                    $(go.TextBlock, { row: 0 }, new go.Binding("text", "imgUrl")),
                     $(go.TextBlock,
                         { background: "yellow", row: 1, margin: 10, textAlign: "center", font: "14px Segoe UI,sans-serif", stroke: "white", editable: true },
                         new go.Binding("text", "name").makeTwoWay())
-                ), // end Auto Panel body      
+                ), // end Auto Panel body
 
                 // the Panel holding the bottom port elements, which are themselves Panels,
                 // created for each item in the itemArray, bound to data.bottomArray

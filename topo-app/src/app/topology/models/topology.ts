@@ -3,6 +3,7 @@ import { Link } from "./link";
 
 export class Topology {
 
+
     constructor(public device: Device, public linkList?: Link[]) {
         this.links = linkList;
         this.nodes = device.deviceList;
@@ -21,4 +22,7 @@ export class Topology {
     index: number;
     links?: Link[];
     nodes: Device[]; // All devices includes Controller
+
+
+
 }

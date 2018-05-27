@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { ResponseContentType } from '@angular/http';
 
 
 import { HttpClient } from '@angular/common/http';

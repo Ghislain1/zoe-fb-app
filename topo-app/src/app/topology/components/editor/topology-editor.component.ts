@@ -28,7 +28,13 @@ import { ConfigService } from '../../../shared/services/config-service';
 })
 export class TopologyEditorComponent implements OnInit {
 
-    @Input() topo: Topology;
+    @Input()
+    topo: Topology;
+
+    @ViewChild('myDiagramDiv')
+    diagramDiv: ElementRef;
+
+    diagram: go.Diagram;
 
     public topo$: Observable<Topology>;
     private configuration: Config;
@@ -38,29 +44,39 @@ export class TopologyEditorComponent implements OnInit {
         private topologyService: TopologyService,
         private messageService: MessageService,
         private location: Location,
-        private configService: ConfigService
+        private configService: ConfigService,
+
+        private linkTemplateService: LinkTemplateService,
+        private deviceTemplateService: DeviceTemplateService,
+        private diagramService: DiagramService,
     ) {
 
-        this.route.data.subscribe((data: { config: Config }) => {
-            this.configuration = { ...data.config };
-        });
+
 
     }
 
     ngOnInit(): void {
+
+        this.diagram = new go.Diagram();
+        this.diagram.div = this.diagramDiv.nativeElement;
         this.getTopology();
         this.protocol("OnInit() finished");
+
     }
 
     getTopology(): void {
 
         const id = this.route.snapshot.paramMap.get('systemTag');
         this.protocol(" id = " + id);
-        this.protocol(" calls getTopologyBySystemTag()");
+        this.protocol(" calls   getTopology()");
         const urlserver = this.configService.serverConfig.urlApiTopo;
-
+        this.protocol(" calls   getTopology() " + urlserver);
         this.topo$ = this.topologyService.getTopology(id, urlserver);
-        this.topo$.subscribe(topo => this.topo = topo);
+        this.topo$.subscribe(topo => {
+            this.topo = topo;
+            this.setupDiagram();
+        }
+        );
     }
 
     goBack(): void {
@@ -69,9 +85,40 @@ export class TopologyEditorComponent implements OnInit {
 
     save(): void {
 
-        this.topologyService.updateTopology(this.topo)
-            .subscribe(() => this.goBack());
+        this.topologyService.updateTopology(this.topo).subscribe(() => this.goBack());
     }
+
+    private setupDiagram(): void {
+        const $ = go.GraphObject.make;
+
+
+        this.diagram.initialContentAlignment = go.Spot.Center;
+        this.diagram.allowDrop = true;  // necessary for dragging from Palette
+        this.diagram.undoManager.isEnabled = true;
+        let grid = $(go.GridLayout);
+
+        // grid.spacing = new go.Size(20, 80);
+        grid.spacing = new go.Size(60, 80);
+        this.diagram.layout = grid;
+
+        let nodeDataArray = this.topo.nodes
+        let linkDataArray = this.topo.links;
+
+        // this.diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+        this.diagram.linkTemplate = this.linkTemplateService.getLinkTemplate();
+        this.diagram.nodeTemplate = this.deviceTemplateService.getNodeTemplate_1();
+
+        let graphLinksModel = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+        this.diagram.model = graphLinksModel;
+
+        graphLinksModel.linkFromPortIdProperty = "fromPort"; // identifies data property names
+        graphLinksModel.linkToPortIdProperty = "toPort";   // required information:
+
+
+        this.protocol("setup diagram is finished!!");
+
+    }
+
 
     /** Log a HeroService message with the MessageService */
     private protocol(message: string) {

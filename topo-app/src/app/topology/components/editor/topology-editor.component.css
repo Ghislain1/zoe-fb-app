@@ -1,3 +1,10 @@
+#myDiagramDiv {
+  border: solid black 1px;
+  height: 1000px;
+  margin-top: 10px;
+  background: beige;
+}
+
 label {
   display: inline-block;
   width: 3em;

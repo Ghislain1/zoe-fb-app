@@ -31,9 +31,9 @@ const TOPOLOGIES = [];
 @Injectable()
 export class TopologyService {
 
-    updateTopology(arg0: any): any {
-        throw new Error("Method not implemented.");
-    }
+
+
+
     private configuration: Config | any[];
     private handleError: HandleError;
     private indexTopo: number;
@@ -50,11 +50,16 @@ export class TopologyService {
         private messageService: MessageService,
         private httpErrorHandler: HttpErrorHandler) {
 
-        this.handleError = httpErrorHandler.createHandleError('TodoService');
+        this.handleError = httpErrorHandler.createHandleError('TopologyService');
 
         this.indexTopo = 0;
 
     }
+
+    public updateTopology(arg0: any): any {
+        throw new Error("Method not implemented.");
+    }
+
 
     /**
      * this method returns the list of topologie by given the url server whrer the topologie should be come.
@@ -91,19 +96,23 @@ export class TopologyService {
 
     public getTopology(systemTag: string, urlServer: string): Observable<Topology> {
 
+        var api = urlServer + systemTag;
+        this.log("ONE Topo has started...serverApi= " + api);
         //Device
         let anyDevice$ = this.deviceService.getDevice(systemTag, urlServer);
 
         //Transform each device to topology using map..
         return anyDevice$.map((list, index) => {
-            this.log("ONE Topo has started...");
+
             let topology: Topology;
             list.forEach(value => {
 
-                this.log("Check root(Master or Not)...");
+
                 if (value.isRoot) {
+                    this.log("Image is " + value.imgUrl);
                     topology = this.createTopo(value, null);
                 }
+
 
             });
 
@@ -145,7 +154,7 @@ export class TopologyService {
 
 
         topo.links = this.createLinkData(linkData);
-        this.log("IS CREATED  ..."+ topo.name + "  "+ topo.id);
+        this.log("IS CREATED  ..." + topo.name + "  " + topo.id);
 
         //Push master or controler too!!
         /* var masterD = new Device();
@@ -185,20 +194,20 @@ export class TopologyService {
     }
 
     private setImage(devices: Device[]): void {
+        devices.forEach((value, index) => {
 
-        devices.forEach(nodeData => {
-            if (nodeData.hasChannel) {
-                nodeData.img = "assets/images/netX51.PNG";
+            value.imgUrl = "./assets/imgs/S.PNG";
+            if (value.isRoot) {
+                value.imgUrl = "./assets/imgs/M.PNG";
             }
-            else if (nodeData.type == "2") {
-                nodeData.img = "assets/images/NetTap.PNG";
+            else if (value.ports.length > 2) {
+                value.imgUrl = "./assets/imgs/G.PNG";
             }
-            else {
-                nodeData.img = "assets/images/cfix.PNG";
-            }
-
         })
     }
+
+
+
 
     private createLinkData(linkD: Link[]): Link[] {
         if (!linkD || !linkD) {

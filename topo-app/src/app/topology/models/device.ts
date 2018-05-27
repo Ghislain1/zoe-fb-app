@@ -3,6 +3,10 @@ import { Port } from "./port";
 
 export class Device {
 
+    constructor() {
+
+    }
+
     displayName: string;
     systemTag: string;
     stationAddress: string;
@@ -11,10 +15,17 @@ export class Device {
     type?: string;
     hasChannel?: boolean;
     isRoot: boolean;
-    img: string;
+    imgUrl: string;
     key: string;
     deviceList: Device[];
 
     canExpander: boolean;
+
+
+
+
+    public stringify(): string {
+        return JSON.stringify(this, null, 4)
+    }
 
 }
