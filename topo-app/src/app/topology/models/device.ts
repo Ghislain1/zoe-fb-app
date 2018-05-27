@@ -10,10 +10,11 @@ export class Device {
     ports: Port[];
     type?: string;
     hasChannel?: boolean;
+    isRoot: boolean;
     img: string;
     key: string;
-    deviceList: Device [];
-  
+    deviceList: Device[];
+
     canExpander: boolean;
-  
-  }
+
+}

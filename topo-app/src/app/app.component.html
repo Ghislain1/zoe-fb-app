@@ -1,23 +1,13 @@
-<div>
+<h1>
 
-  <!--- header 
-     
-      <app-layout-header> </app-layout-header>
-    -->
+  {{title}}</h1>
 
-  <!--- Navi top -->
-  <app-layout-navi> </app-layout-navi>
+<!--- Navi top -->
+<app-layout-navi> </app-layout-navi>
 
 
-  <!--- Main  -->
+<!--- Main  -->
+<router-outlet></router-outlet>
 
-  <router-outlet></router-outlet>
-
-
-  <!--- footer 
-    
-      <app-layout-footer> </app-layout-footer>
-   -->
-
-
-</div>
+<hr/>
+<app-messages></app-messages>

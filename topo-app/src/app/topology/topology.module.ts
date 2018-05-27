@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopologyRoutineModule } from './topology-routing.module';
 import { Topology } from './models/topology';
-import { TopologyListResolver } from './resolvers/topology-list-resolver.service';
+
 
 import { TopologyListComponent } from './components/list/topology-list.component';
 import { TopologyEditorComponent } from './components/editor/topology-editor.component';
@@ -19,17 +19,18 @@ import { DiagramService } from './services/diagram.service';
 import { TopologyService } from './services/topology.service';
 import { TopologyEditorResolver } from './resolvers/topology-editor-resolver.service';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    // FormsModule,
-    // RouterModule, // for outlet-route
-    TopologyRoutineModule
-  ],
-  declarations: [TopologyListComponent, TopologyEditorComponent, TopologyCenterComponent],
-  providers: [TopologyListResolver, TopologyEditorResolver,
-    LinkTemplateService, DeviceService, LinkService, DeviceTemplateService, DiagramService, TopologyService,
-    LoggingService, MessageService, ConfigService, HttpErrorHandler]
+    imports: [
+        CommonModule,
+        FormsModule,
+        // RouterModule, // for outlet-route
+        TopologyRoutineModule
+    ],
+    declarations: [TopologyListComponent, TopologyEditorComponent, TopologyCenterComponent],
+    providers: [TopologyEditorResolver,
+        LinkTemplateService, DeviceService, LinkService, DeviceTemplateService, DiagramService, TopologyService,
+        LoggingService, MessageService, ConfigService, HttpErrorHandler]
 })
 export class TopologyModule { }

@@ -1,15 +1,24 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // Verwendet IntelliSense zum Ermitteln möglicher Attribute.
+    // Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
+    // Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Chrome gegen localhost starten",
             "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}"
         }
+        ,
+        {
+          "type": "chrome",
+          "request": "launch",
+          "name": "Chrome Ghislain",
+          "url": "http://localhost:4200",
+          "webRoot": "${workspaceFolder}"
+
+      }
     ]
 }

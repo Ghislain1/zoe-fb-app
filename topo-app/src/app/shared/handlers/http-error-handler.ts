@@ -16,11 +16,11 @@ export class HttpErrorHandler {
   createHandleError = (serviceName = '') => <T>
     (operation = 'operation', result = {} as T) => this.handleError(serviceName, operation, result);
 
- 
+
   handleError<T> (serviceName = '', operation = 'operation', result = {} as T) {
 
     return (error: HttpErrorResponse): Observable<T> => {
-     
+
       this.loggingService.error(error);
 
       const message = (error.error instanceof ErrorEvent) ?

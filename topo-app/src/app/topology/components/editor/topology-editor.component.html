@@ -1,0 +1,12 @@
+<div *ngIf="topo">
+  <h2>{{ topo.name | uppercase }} Editor</h2>
+  <div>
+    <span>id: </span>{{topo.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="topo.name" placeholder="name" />
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

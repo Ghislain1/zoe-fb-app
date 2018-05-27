@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class MessageService {
-  messages: string[] = [];
+    messages: string[] = [];
 
-  add(message: string) {
-    this.messages.push(message);
-  }
+    add(message: string) {
+        let counter = this.messages.length;
+        counter++;
 
-  clear() {
-    this.messages = [];
-  }
+
+        this.messages.push("Nr." + counter + " " + message);
+    }
+
+    clear() {
+        this.messages = [];
+    }
 }

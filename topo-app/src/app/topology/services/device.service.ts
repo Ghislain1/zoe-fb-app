@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 import { HandleError } from '../../shared/handlers/handler-error';
 import { HttpErrorHandler } from '../../shared/handlers/http-error-handler';
 import { Device } from '../models/device';
- 
+
 
 
 
@@ -17,18 +17,40 @@ import { Device } from '../models/device';
 @Injectable()
 export class DeviceService {
 
+
+
+
+
     devicesUrl = 'http://localhost:2178/api/processdata';
     //devicesUrl = 'http://10.12.4.28:2178/api/devices';  // URL to web api all controller / Master
     private handleError: HandleError;
 
     constructor(
         private httpClient: HttpClient,
-        httpErrorHandler: HttpErrorHandler) {
+        private httpErrorHandler: HttpErrorHandler) {
         this.handleError = httpErrorHandler.createHandleError('DeviceService');
     }
 
+    /**
+     * any device can  be getting from this method. master oder slave is not import!! all propries should be called.
+     * @param systemTag id for the desired device
+     * @param urlServer server api to  holds the desired device
+     */
+    public getDevice(systemTag: string, urlServer: string): Observable<Device[]> {
+        this.devicesUrl = urlServer + systemTag;
+        return this.httpClient.get<Device[]>(this.devicesUrl)
+            .pipe(
+                catchError(this.handleError('getDevice', []))
+            );
+    }
 
-    getDevices(): Observable<Device[]> {
+
+    /**
+     *Provide the list of Device Master by the given url server.
+     * @param url : the url api tp communicat with server.
+     */
+    getDevices(url: string): Observable<Device[]> {
+        this.devicesUrl = url;
         return this.httpClient.get<Device[]>(this.devicesUrl)
             .pipe(
                 catchError(this.handleError('getDevices', []))

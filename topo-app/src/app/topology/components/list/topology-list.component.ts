@@ -8,50 +8,51 @@ import { Topology } from '../../models/topology';
 import { Device } from '../../models/device';
 import { DeviceService } from '../../services/device.service';
 import { TopologyService } from '../../services/topology.service';
+import { Config } from '../../../shared/Config';
 
 
 @Component({
-  selector: 'app-topology-list',
-  templateUrl: './topology-list.component.html',
-  styleUrls: ['./topology-list.component.css']
+    selector: 'app-topology-list',
+    templateUrl: './topology-list.component.html',
+    styleUrls: ['./topology-list.component.css']
 })
 export class TopologyListComponent implements OnInit {
-  topologies$: Observable<Topology[]>;
+    topologies$: Observable<Topology[]>;
+    private configuration: Config;
 
 
-  //Store all list of Controllers or Master from processdata.
-  controllers$: Observable<Device[]>;
-  controllers: Device[];
-  selectedSytemTag: string;
+    //Store all list of Controllers or Master from processdata.
+    controllers$: Observable<Device[]>;
+    controllers: Device[];
+    selectedSytemTag: string;
+    selectedId: number;
+    isSideBarActive: boolean;
+    topolologyList$: Observable<Topology[]>;
 
-  selectedId: number;
-  isSideBarActive: boolean;
+    constructor(
+        private topologyService: TopologyService,
+        private deviceService: DeviceService,
+        private route: ActivatedRoute
+    ) {
+        this.route.data.subscribe((data: { config: Config }) => {
+            this.configuration = { ...data.config };
+        });
 
-  constructor(
-    private topologyService: TopologyService,
-    private deviceService: DeviceService,
-    private route: ActivatedRoute
-  ) {
-
-
-  }
-
+    }
 
 
-  ngOnInit() {
 
-    // this.controllers$ = this.route.paramMap.switchMap((params: ParamMap) => {
-    //   this.selectedSytemTag = params.get('systemTag');
+    ngOnInit() {
+        var urlServer = this.configuration.urlApiTopo;
+        this.topolologyList$ = this.topologyService.getTopologyList(urlServer);
 
-    //   return this.deviceService.getDevices();
-    // });
-  }
+    }
 
-  getControllers() {
-    this.deviceService.getDevices().subscribe(controllers => this.controllers = controllers);
-  }
+    getControllers() {
+        // this.deviceService.getDevices().subscribe(controllers => this.controllers = controllers);
+    }
 
-  showOrHideSideBar() {
-    this.isSideBarActive = !this.isSideBarActive;
-  }
+    showOrHideSideBar() {
+        this.isSideBarActive = !this.isSideBarActive;
+    }
 }

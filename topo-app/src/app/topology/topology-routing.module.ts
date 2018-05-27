@@ -4,43 +4,41 @@ import { TopologyCenterComponent } from './components/center/topology-center.com
 import { Routes, RouterModule } from '@angular/router';
 import { TopologyListComponent } from './components/list/topology-list.component';
 import { TopologyEditorComponent } from './components/editor/topology-editor.component';
-import { TopologyListResolver } from './resolvers/topology-list-resolver.service';
+
 import { TopologyEditorResolver } from './resolvers/topology-editor-resolver.service';
+import { ConfigResolver } from '../shared/resolvers/config-resolver.service';
 
 const topoRoutes: Routes = [
-
-  {
-    path: 'app-topology-center',
-    component: TopologyCenterComponent,
-
-    children: [
-      {
-        path: '',
-        component: TopologyListComponent,
-        resolve: { topology: TopologyListResolver },
+    {
+        path: 'app-topology-center',
+        component: TopologyCenterComponent,
+        resolve: { config: ConfigResolver },
         children: [
-          {
-            path: ':systemTag',
-            component: TopologyEditorComponent,
-            resolve: { topology: TopologyEditorResolver }
-          }
-
+            {
+                path: '',
+                component: TopologyListComponent,
+                resolve: { config: ConfigResolver }
+            }
         ]
-      }
-    ]
-  },
+    },
+    {
+        path: 'topo/:systemTag',
+        component: TopologyEditorComponent,
+        //TODO: Try to understand resolve
+        // resolve: { topology: ConfigResolver }
+    }
 
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(topoRoutes)
-  ],
-  exports: [
-    RouterModule
-  ],
-  providers: [
-    //TopologyWorkerResolver
-  ]
+    imports: [
+        RouterModule.forChild(topoRoutes)
+    ],
+    exports: [
+        RouterModule
+    ],
+    providers: [
+        //TopologyWorkerResolver
+    ]
 })
 export class TopologyRoutineModule { }
