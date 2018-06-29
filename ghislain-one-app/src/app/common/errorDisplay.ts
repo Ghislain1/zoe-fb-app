@@ -1,10 +1,7 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 import {Component, OnInit, Input} from '@angular/core';
 import {Response} from "@angular/http";
-
-
-
-import 'rxjs/add/observable/throw';
-import { Observable } from 'rxjs';
 
 
 /**
@@ -177,18 +174,18 @@ export class ErrorInfo {
             } catch(ex) { }
 
             if(err.hasOwnProperty("message"))
-                return Observable.throw(err);
+                return observableThrowError(err);
             if (err.hasOwnProperty("Message"))
             {
                 err.message = err["Message"];
-                return Observable.throw(err);
+                return observableThrowError(err);
             }
         }
         if (response.hasOwnProperty("message"))
-            return Observable.throw(response);
+            return observableThrowError(response);
         if (response.hasOwnProperty("Message")) {
             response.message = response.Message;
-            return Observable.throw(response);
+            return observableThrowError(response);
         }
 
         err.response = response;
@@ -205,6 +202,6 @@ export class ErrorInfo {
         if (!err.message)
             err.message = "Unknown server failure.";
 
-        return Observable.throw(err);
+        return observableThrowError(err);
     }
 }

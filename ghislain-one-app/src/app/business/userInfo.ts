@@ -1,3 +1,5 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AppConfiguration} from "./appConfiguration";
@@ -5,7 +7,6 @@ import {AppConfiguration} from "./appConfiguration";
 
 
 import {ErrorInfo} from "../common/errorDisplay";
-import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable()
@@ -72,7 +73,7 @@ export class UserInfo {
             })
             ,catchError((response) => {                
                 this.isAuthenticated = false;
-                return Observable.throw(response);
+                return observableThrowError(response);
             }));
     }
 }
