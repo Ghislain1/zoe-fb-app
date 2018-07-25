@@ -1,10 +1,10 @@
-##Idea
+# Idea
 Based on [1](https://github.com/aviabird/angularspree)  and [2](https://angularspree.firebaseapp.com/#)
 
 
 # Project structure or Main Module in App
-|-src
-   |-app
+- |-src
+-   |-app
       |-layout
       |-core
       |-album
