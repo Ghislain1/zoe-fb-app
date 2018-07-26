@@ -4,9 +4,9 @@ Based on [1](https://github.com/aviabird/angularspree)  and [2](https://angulars
 
 
 # Project structure or Main Module in App
-* |-src
-      * |-app
-           * |-album:
+|-src
+    * |-app
+          * |-album:
            * |-auth: 
            *|-core
            |-home
