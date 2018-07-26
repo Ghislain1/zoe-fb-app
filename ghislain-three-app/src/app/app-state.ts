@@ -11,5 +11,6 @@ import { UserState } from "./user/reducers/user.state";
 export interface AppState {
     albums: AlbumState;
     auth: AuthState;
+    xx: AlbumState;
     users: UserState;
 }
