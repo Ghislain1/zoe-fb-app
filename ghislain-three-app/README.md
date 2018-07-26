@@ -4,15 +4,15 @@ Based on [1](https://github.com/aviabird/angularspree)  and [2](https://angulars
 
 
 # Project structure or Main Module in App
-|-src
+- |-src
     * |-app
-          * |-album:
-           * |-auth: 
-           *|-core
-           |-home
-           |-layout
-           |-user
-           |-app.module.ts(component.CSS|HTML|TS|)
+        - |-album:
+        - |-auth: 
+        - |-core
+        - |-home
+        - |-layout
+        - |-user
+        - |-app.module.ts(component.CSS|HTML|TS|)
 
 
 
