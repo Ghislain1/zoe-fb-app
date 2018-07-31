@@ -14,7 +14,7 @@ import { TopologyService } from '../../../core/services/topology.service';
 import { Controller } from '../../../core/models/bs/controller';
 import { DeviceService } from '../../../core/services/device.service';
 import { LinkService } from '../../../core/services/link.service';
-import { link } from 'fs';
+
 import { LoggingService } from '../../../core/services/logging.service';
 import { RadialLayout } from '../../../core/utils/radial-layout';
 import { SerpentineLayout } from '../../../core/utils/serpen';

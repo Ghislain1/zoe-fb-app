@@ -1,0 +1,16 @@
+<p> detials works!!</p>
+
+
+<div *ngIf="topology">
+    <h3>"{{ editName }}"</h3>
+    <div>
+      <label>Id: </label>{{ topology.id }}</div>
+    <div>
+      <label>Name: </label>
+      <input [(ngModel)]="editName" placeholder="name"/>
+    </div>
+    <p>
+      <button (click)="save()">Save</button>
+      <button (click)="cancel()">Cancel</button>
+    </p>
+  </div>

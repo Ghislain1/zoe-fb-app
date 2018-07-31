@@ -1,0 +1,31 @@
+<div id="wrapper">
+
+  <nav [class.active]="isSideBarActive" id="sidebar">
+    <ul>
+      <div>
+        <p id="title">List of topologies</p>
+        <hr>
+      </div>
+
+
+      <li *ngFor="let masterD of controllers$ | async" [class.selected]="masterD.systemTag === selectedId">
+        <a routerLinkActive="active" [routerLink]="[masterD.systemTag]"> {{ masterD.displayName }} </a>
+      </li>
+
+    </ul>
+  </nav>
+
+
+
+  <div id="content">
+
+    <nav class="navbar navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" (click)="showOrHideSideBar()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+
+  </div>

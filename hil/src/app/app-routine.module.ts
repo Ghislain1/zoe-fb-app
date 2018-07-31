@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/appabout', pathMatch: 'full' }
+  { path: '', redirectTo: '/app-topology-list', pathMatch: 'full' }
 ];
 
 @NgModule({

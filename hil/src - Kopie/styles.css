@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*  Div for container */
+
+.gcontainer {
+  margin: 5px;
+}
+
+/*  Div  container  for header */
+
+.gheadercontainer {
+  margin: 5px;
+  background-color: white;
+  align-content: center;
+  text-align: center;
+}
+
+/*  Div  container  for footer */
+
+.gfootercontainer {
+  margin: 5px;
+  display: inline-block;
+}
+
+/*  Div  container  for main */
+
+.gmaincontainer {
+  background-color: whitesmoke;
+  min-height: 560px;
+}
+
+/* ENDE --> Ul Navi style  */
+
+/* everywhere else */
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,11 @@
+.footer {
+  background-image: url('/assets/images/hilscherFooterBand.png');
+  height: 60px; 
+  background-repeat: no-repeat;
+  display:block;    
+  background-size: 100%;
+}
+section{
+  text-align: left;
+   
+}

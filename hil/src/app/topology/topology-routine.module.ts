@@ -12,25 +12,21 @@ import { ControllerDeviceResolver } from './services/controller-device-resolver.
 
 
 const topoRoutes: Routes = [
+
   {
-    path: 'app-topology-home',
-    component: TopologyHomeComponent,
+    path: 'app-topology-list',
+    component: TopologyListComponent,
     children: [
       {
-        path: '',
-        component: TopologyListComponent,
-        children: [
-          {
-            path: ':systemTag',
-            component: TopologyWorkerComponent,
-            canDeactivate: [CanDeactivateGuard],
-            resolve: { controller: ControllerDeviceResolver }
-          }
-
-        ]
+        path: ':systemTag',
+        component: TopologyWorkerComponent,
+        canDeactivate: [CanDeactivateGuard],
+        resolve: { controller: ControllerDeviceResolver }
       }
+
     ]
   }
+
 ];
 
 @NgModule({

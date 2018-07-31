@@ -1,0 +1,6 @@
+/* declaration in css  mit ---  usage : var(--akzent); e.g color: var(--akzent);  case sensitiv*/
+:root {
+    --hilscher-color: #777171;
+    --hilscherBg: #ce2828;
+    --hilscher-bg: #ce2828;
+  }

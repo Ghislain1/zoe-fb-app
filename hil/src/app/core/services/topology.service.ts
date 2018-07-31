@@ -20,7 +20,7 @@ import { DeviceService } from "./device.service";
 import { LinkService } from "./link.service";
 import { Controller } from "../models/bs/controller";
 import { Link } from "../models/bs/link";
-import { link } from "fs";
+
 import { LinkData } from "../models/bs/link-data";
 import { LoggingService } from "./logging.service";
 

@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HandleError, HttpErrorHandler } from "../services/http-error-handler.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-
 import 'rxjs/add/operator/toPromise';
-import { saveAs } from 'file-saver';
+
 
 /*Step 1: Install FileSaver.js dependency ---> npm install --save file-saver
  
@@ -35,6 +34,6 @@ export class FileSaveService {
         const parts: string[] = contentDispositionHeader.split(';');
         const filename = parts[1].split('=')[1];
         const blob = new Blob([response._body], { type: 'text/plain' });
-        saveAs(blob, filename);
+        // saveAs(blob, filename);
     }
 }
