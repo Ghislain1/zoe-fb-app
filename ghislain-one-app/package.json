@@ -1,9 +1,10 @@
 {
   "name": "ghislain-one-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:open": "ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
