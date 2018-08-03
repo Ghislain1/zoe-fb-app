@@ -9,6 +9,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 
+
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'search', pathMatch: 'full' },
   { path: 'user', loadChildren: 'app/containers/user/index#UserModule' }
@@ -26,10 +27,9 @@ export const ROUTES: Routes = [
     HttpClientJsonpModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
     BrowserAnimationsModule,
-
     BrowserModule,
     CoreModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

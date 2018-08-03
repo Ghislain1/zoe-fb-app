@@ -8,3 +8,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Grundlegende Theorie
 - [TSLINT](https://palantir.github.io/tslint/): TSLint ist ein erweiterbares <b> statisches Analysetool </b>, das TypeScript-Code auf Lesbarkeits-, Wartbarkeits- und Funktionsfehler prüft. Wie kannst du es dich vorstellen?
+
+- [CompoDoc](https://compodoc.app/guides/installation.html)
