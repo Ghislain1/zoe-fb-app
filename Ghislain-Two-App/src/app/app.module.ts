@@ -11,17 +11,21 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AppRoutingModule } from './app.routine.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { LoginModule } from './login/login.module';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardModule,
-    LayoutComponent
+
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
+    LayoutModule,
+    DashboardModule,
+    LoginModule,
     CommonModule,
     Ng2AutoBreadCrumb
   ],

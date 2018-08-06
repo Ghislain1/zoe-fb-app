@@ -6,7 +6,7 @@ import { PieChart } from '../shared/pieChart/pieChart';
 @Component({
   templateUrl: './dashboard.component.html',
   selector: 'dashboard',
-  styleUrls: ['./dashboard.scss']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 
@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
     console.log(item);
     return true;
   }
+
+
   public timelineData: Array<Object> = [
     {
       title: "Step 1",
@@ -40,7 +42,14 @@ export class DashboardComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+
+    this.log("Init()");
+
+
+
+
     let self = this;
+
     setTimeout(function () {
       self.timelineData.push({
         title: "Step 3",
@@ -106,4 +115,8 @@ export class DashboardComponent implements OnInit {
       content: "Blockchain based electricity trading platform"
     }
   ]
+
+  private log(taskName: string) {
+    console.log("DashboardService says: " + taskName);
+  }
 }

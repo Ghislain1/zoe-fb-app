@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  public toggleBarIcon: boolean = true;
+
+  constructor() {
+
+    this.log("Method not implemented.");
+
+  }
+
+  toggle(): void {
+    let self = this;
+    setTimeout(() => {
+      self.toggleBarIcon = !self.toggleBarIcon;
+
+    }, 500)
+  }
+
+
+
+
+  ngOnInit(): void {
+    this.log("Method not implemented.");
+  }
+
+  private log(taskName: string) {
+    console.log("LayoutComponent says: " + taskName);
   }
 
 }
