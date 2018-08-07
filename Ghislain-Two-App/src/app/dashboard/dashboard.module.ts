@@ -16,16 +16,15 @@ import { Ng2Timeline } from 'ng2-timeline';
 
 @NgModule({
   imports: [
-
     FormsModule,
     ReactiveFormsModule,
-    DashboardRoutingModule,
+    //DashboardRoutingModule,
     HttpModule,
-    ChartsModule,
-    RoundProgressModule,
+    //  ChartsModule,
+    //RoundProgressModule,
     CommonModule
   ],
-  declarations: [DashboardComponent, StatsCardComponent, PieChartComponent],
+  declarations: [DashboardComponent],
   providers: [DashboardService],
   exports: []
 })

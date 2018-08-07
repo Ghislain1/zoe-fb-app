@@ -4,15 +4,17 @@ import { NgModule } from '@angular/core';
 
 import { Ng2AutoBreadCrumb } from "ng2-auto-breadcrumb";
 
-import { LocationStrategy, CommonModule, HashLocationStrategy } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './layout/layout.component';
+
 import { AppRoutingModule } from './app.routine.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginModule } from './login/login.module';
 import { LayoutModule } from './layout/layout.module';
+import { RegisterModule } from './register/register.module';
+import { FormModule } from './form/form.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { LayoutModule } from './layout/layout.module';
     LayoutModule,
     DashboardModule,
     LoginModule,
+    RegisterModule,
     CommonModule,
+    FormModule,
     Ng2AutoBreadCrumb
   ],
 

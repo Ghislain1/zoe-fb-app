@@ -7,9 +7,9 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    data: {
-      title: 'Login'
-    }
+    // data: {
+    //   title: 'Login'
+    // }
   }
 ];
 
