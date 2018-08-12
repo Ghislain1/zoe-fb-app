@@ -1,6 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { LayoutComponent } from './layout.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { Ng2AutoBreadCrumb } from 'ng2-auto-breadcrumb';
+import { FormModule } from '../form/form.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,6 +14,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
   imports: [
     BrowserModule,
+    FormModule,
+    Ng2AutoBreadCrumb,
+    RouterModule
 
   ],
 

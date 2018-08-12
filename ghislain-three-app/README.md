@@ -16,7 +16,7 @@ Based on [1](https://github.com/aviabird/angularspree)  and [2](https://angulars
 
 
 
-## Code scaffolding
+# Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 

@@ -1,38 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-layout',
+  selector: 'app-dashboard',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit {
-
-
-  public toggleBarIcon: boolean = true;
+  public toggleBarIcon = true;
 
   constructor() {
-
-    this.log("Method not implemented.");
+    this.log('Method not implemented.');
 
   }
 
   toggle(): void {
-    let self = this;
+    const self = this;
     setTimeout(() => {
       self.toggleBarIcon = !self.toggleBarIcon;
 
-    }, 500)
+    }, 500);
   }
 
-
-
-
   ngOnInit(): void {
-    this.log("Method not implemented.");
+    this.log('Method not implemented.');
   }
 
   private log(taskName: string) {
-    console.log("LayoutComponent says: " + taskName);
+    console.log('LayoutComponent says: ' + taskName);
   }
 
 }

@@ -8,12 +8,11 @@ import { Injectable } from '@angular/core';
 export class DashboardService {
 
   constructor() {
-
     this.log('Init() is finished successfully!!');
   }
 
 
   public log(taskName: string) {
-    console.log("DashboardService says: " + taskName);
+    console.log('DashboardService says: ' + taskName);
   }
 }

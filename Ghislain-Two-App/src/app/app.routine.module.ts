@@ -1,6 +1,6 @@
-import { Routes, RouterModule } from "@angular/router";
-import { LayoutComponent } from "./layout/layout.component";
-import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
+import { NgModule } from '@angular/core';
 
 // Layouts
 export const routes: Routes = [
@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: './login/login.module#LoginModule'
+    loadChildren: './login/login.module#LoginModule' // <namespace>#<ModuleClassName>
   },
   {
     path: 'register',
@@ -28,8 +28,12 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule',
         data: {
-          title2: "Dashboard"
+          title2: 'Dashboard'
         }
+      },
+      {
+        path: 'album',
+        loadChildren: './album/album.module#AlbumModule'
       },
       /*   {
           path: 'form',
