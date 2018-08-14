@@ -1,11 +1,9 @@
-import { Component, NgModule } from '@angular/core';
-import { LayoutComponent } from './layout.component';
+
+import { FormRoutingModule } from '../form/form-routine.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { Ng2AutoBreadCrumb } from 'ng2-auto-breadcrumb';
-import { FormModule } from '../form/form.module';
+import { NgModule } from '@angular/core';
+import { LayoutComponent } from './layout.component';
 import { RouterModule } from '@angular/router';
-
-
 
 @NgModule({
   declarations: [
@@ -14,12 +12,8 @@ import { RouterModule } from '@angular/router';
 
   imports: [
     BrowserModule,
-    FormModule,
-    Ng2AutoBreadCrumb,
-    RouterModule
-
+    RouterModule,
   ],
-
   exports: [LayoutComponent]
 
 })
