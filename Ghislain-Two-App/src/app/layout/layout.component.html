@@ -1,108 +1,240 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar-collapse" (click)="toggle()">
-        <span class="sr-only">Toggle navigation</span>
-        <i class="fa {{toggleBarIcon?'fa-bars':'fa-remove'}} text-white custom-nav-toggle"></i>
-      </button>
-      <a class="navbar-brand" href="#">
-        <span>Paper </span>Admin</a>
-      <ul class="user-menu">
-        <li class="dropdown pull-right">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            User
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="#">
-                <i class="fa fa-fw fa-user"></i> Profile</a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-fw fa-cogs"></i> Settings</a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-fw fa-lock"></i> Logout</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- /.container-fluid -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="#">Sign out</a>
+    </li>
+  </ul>
 </nav>
 
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-  <form role="search">
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search">
-    </div>
-  </form>
-  <ul class="nav menu">
-    <li>
-      <a routerLinkActive="active" [routerLink]="['/dashboard']">
-        <i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-    </li>
-    <li>
-      <a routerLinkActive="active" [routerLink]="['/form']">
-        <i class="fa fa-list fa-fw"></i> Form</a>
-    </li>
-
-    <li>
-      <a routerLinkActive="active" [routerLink]="['/album']">
-        <i class="fa fa-lock fa-fw"></i> Album</a>
-    </li>
-
-
-
-    <li class="parent ">
-      <a data-toggle="collapse" href="#sub-item-1">
-        <i class="fa fa-fw fa-chevron-circle-down"></i> Widgets
-      </a>
-      <ul class="children collapse" id="sub-item-1">
-        <li>
-          <a routerLinkActive="active" [routerLink]="['/widget/main']">
-            <i class="fa fa-fw fa-cogs"></i> Main
-          </a>
-        </li>
-        <li>
-          <a routerLinkActive="active" [routerLink]="['/widget/table']">
-            <i class="fa fa-fw fa-table"></i> Table
-          </a>
-        </li>
-        <li>
-          <a routerLinkActive="active" [routerLink]="['/widget/chart']">
-            <i class="fa fa-fw fa-bar-chart"></i> Charts
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li role="presentation" class="divider"></li>
-    <li>
-      <a routerLinkActive="active" [routerLink]="['/login']">
-        <i class="fa fa-user fa-fw"></i> Login</a>
-    </li>
-    <li>
-      <a routerLinkActive="active" [routerLink]="['/register']">
-        <i class="fa fa-users fa-fw"></i> Register</a>
-    </li>
-
-  </ul>
-  <div class="attribution">Angular 5 Dashboard by
-    <a href="https://github.com/Ghislain1">@GhislainOne</a>
-
-
-  </div>
-</div>
-<!--/.sidebar-->
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-  <!-- Main content -->
+<div class="container-fluid">
   <div class="row">
-    <ng2-auto-breadcrumb></ng2-auto-breadcrumb>
-  </div>
-  <!--/.row-->
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <span data-feather="home"></span>
+              Dashboard
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file"></span>
+              Orders
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="shopping-cart"></span>
+              Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="users"></span>
+              Customers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="bar-chart-2"></span>
+              Reports
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="layers"></span>
+              Integrations
+            </a>
+          </li>
+        </ul>
 
-  <router-outlet></router-outlet>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Saved reports</span>
+          <a class="d-flex align-items-center text-muted" href="#">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Current month
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Last quarter
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Social engagement
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              Year-end sale
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-outline-secondary">Share</button>
+            <button class="btn btn-sm btn-outline-secondary">Export</button>
+          </div>
+          <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            This week
+          </button>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+
+
+      <canvas class="my-4 w-100" id="myChart" width="900" height="380">
+      </canvas>
+
+      <h2>Section title</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Header</th>
+              <th>Header</th>
+              <th>Header</th>
+              <th>Header</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1,001</td>
+              <td>Lorem</td>
+              <td>ipsum</td>
+              <td>dolor</td>
+              <td>sit</td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>amet</td>
+              <td>consectetur</td>
+              <td>adipiscing</td>
+              <td>elit</td>
+            </tr>
+            <tr>
+              <td>1,003</td>
+              <td>Integer</td>
+              <td>nec</td>
+              <td>odio</td>
+              <td>Praesent</td>
+            </tr>
+            <tr>
+              <td>1,003</td>
+              <td>libero</td>
+              <td>Sed</td>
+              <td>cursus</td>
+              <td>ante</td>
+            </tr>
+            <tr>
+              <td>1,004</td>
+              <td>dapibus</td>
+              <td>diam</td>
+              <td>Sed</td>
+              <td>nisi</td>
+            </tr>
+            <tr>
+              <td>1,005</td>
+              <td>Nulla</td>
+              <td>quis</td>
+              <td>sem</td>
+              <td>at</td>
+            </tr>
+            <tr>
+              <td>1,006</td>
+              <td>nibh</td>
+              <td>elementum</td>
+              <td>imperdiet</td>
+              <td>Duis</td>
+            </tr>
+            <tr>
+              <td>1,007</td>
+              <td>sagittis</td>
+              <td>ipsum</td>
+              <td>Praesent</td>
+              <td>mauris</td>
+            </tr>
+            <tr>
+              <td>1,008</td>
+              <td>Fusce</td>
+              <td>nec</td>
+              <td>tellus</td>
+              <td>sed</td>
+            </tr>
+            <tr>
+              <td>1,009</td>
+              <td>augue</td>
+              <td>semper</td>
+              <td>porta</td>
+              <td>Mauris</td>
+            </tr>
+            <tr>
+              <td>1,010</td>
+              <td>massa</td>
+              <td>Vestibulum</td>
+              <td>lacinia</td>
+              <td>arcu</td>
+            </tr>
+            <tr>
+              <td>1,011</td>
+              <td>eget</td>
+              <td>nulla</td>
+              <td>Class</td>
+              <td>aptent</td>
+            </tr>
+            <tr>
+              <td>1,012</td>
+              <td>taciti</td>
+              <td>sociosqu</td>
+              <td>ad</td>
+              <td>litora</td>
+            </tr>
+            <tr>
+              <td>1,013</td>
+              <td>torquent</td>
+              <td>per</td>
+              <td>conubia</td>
+              <td>nostra</td>
+            </tr>
+            <tr>
+              <td>1,014</td>
+              <td>per</td>
+              <td>inceptos</td>
+              <td>himenaeos</td>
+              <td>Curabitur</td>
+            </tr>
+            <tr>
+              <td>1,015</td>
+              <td>sodales</td>
+              <td>ligula</td>
+              <td>in</td>
+              <td>libero</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
 </div>
