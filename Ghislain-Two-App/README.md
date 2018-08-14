@@ -10,4 +10,13 @@ https://github.com/mohdrashid/PaperAdmin/tree/master/src/app/dashboard
 
 
 
+# Based ON
+* das Module <b>Album</b> is based on [this guy](https://github.com/RickStrahl/AlbumViewerVNext/blob/master/src/AlbumViewerAngular/src/app/albums/albumList.html)
+
+
+
+
+
+
+
  

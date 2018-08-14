@@ -39,28 +39,28 @@ export const routes: Routes = [
         path: 'form',
         loadChildren: './form/form.module#FormModule'
       },
-      {
-        path: 'widget',
-        children: [
-          {
-            path: '',
-            pathMatch: 'full',
-            redirectTo: 'widget/main'
-          },
-          {
-            path: 'main',
-            loadChildren: './widgets/main/main.module#MainWidgetModule'
-          },
-          {
-            path: 'table',
-            loadChildren: './widgets/tables/tables.module#TablesWidgetModule'
-          },
-          {
-            path: 'chart',
-            loadChildren: './widgets/charts/charts.module#ChartsWidgetModule'
-          }
-        ]
-      }
+      /* {
+         path: 'widget',
+         children: [
+           {
+             path: '',
+             pathMatch: 'full',
+             redirectTo: 'widget/main'
+           },
+           {
+             path: 'main',
+             loadChildren: './widgets/main/main.module#MainWidgetModule'
+           },
+           {
+             path: 'table',
+             loadChildren: './widgets/tables/tables.module#TablesWidgetModule'
+           },
+           {
+             path: 'chart',
+             loadChildren: './widgets/charts/charts.module#ChartsWidgetModule'
+           }
+         ]
+       }*/
 
     ]
   },
