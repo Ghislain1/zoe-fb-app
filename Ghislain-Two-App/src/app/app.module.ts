@@ -17,6 +17,7 @@ import { RegisterModule } from './register/register.module';
 import { FormModule } from './form/form.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { HeroModule } from './hero/hero.module';
 
 
 @NgModule({
@@ -34,7 +35,6 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterModule,
     CommonModule,
     FormModule,
-
 
     Ng2AutoBreadCrumb
   ],

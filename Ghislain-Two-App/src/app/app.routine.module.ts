@@ -35,6 +35,11 @@ export const routes: Routes = [
         path: 'album',
         loadChildren: './album/album.module#AlbumModule'
       },
+
+      {
+        path: 'heroes',
+        loadChildren: './hero/hero.module#HeroModule'
+      },
       {
         path: 'form',
         loadChildren: './form/form.module#FormModule'
