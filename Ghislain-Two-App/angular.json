@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Ghislain-Two-App": {
+    "ghislain-two-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Ghislain-Two-App",
+            "outputPath": "dist/ghislain-two-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -96,7 +96,7 @@
         }
       }
     },
-    "Ghislain-Two-App-e2e": {
+    "ghislain-two-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
