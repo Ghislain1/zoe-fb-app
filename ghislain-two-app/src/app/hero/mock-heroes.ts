@@ -1,6 +1,7 @@
-import { Hero } from './heroes.component';
-
-
+export class Hero {
+  id: number;
+  name: string;
+}
 
 export const HEROES: Hero[] = [
   { id: 11, name: 'Mr. Nice' },

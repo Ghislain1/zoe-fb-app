@@ -18,6 +18,7 @@ import { FormModule } from './form/form.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { HeroModule } from './hero/hero.module';
+import { Router } from '@angular/router';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { HeroModule } from './hero/hero.module';
     RegisterModule,
     CommonModule,
     FormModule,
+    HeroModule,
 
     Ng2AutoBreadCrumb
   ],
@@ -45,4 +47,8 @@ import { HeroModule } from './hero/hero.module';
 
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {  // Diagnostic only: inspect router configuration
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+}

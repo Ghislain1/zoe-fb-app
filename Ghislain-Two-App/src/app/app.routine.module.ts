@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { NgModule } from '@angular/core';
+import { HeroDetailComponent } from './hero/detail/hero-detail.component';
 
 // Layouts
 export const routes: Routes = [
@@ -40,6 +41,7 @@ export const routes: Routes = [
         path: 'heroes',
         loadChildren: './hero/hero.module#HeroModule'
       },
+
       {
         path: 'form',
         loadChildren: './form/form.module#FormModule'

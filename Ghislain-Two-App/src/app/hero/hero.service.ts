@@ -1,12 +1,10 @@
-import { Component, OnInit, Injectable } from '@angular/core';
-import { HeroMessageService } from './heroMgs/hero-message.service';
-import { Observable, of } from 'rxjs';
-import { HEROES } from './mock-heroes';
 
-export class Hero {
-  id: number;
-  name: string;
-}
+import { Observable, of } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HeroMessageService } from './heroMgs/hero-message.service';
+import { HEROES, Hero } from './mock-heroes';
+
+
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
@@ -24,19 +22,4 @@ export class HeroService {
     this.messageService.add(`HeroService: fetched hero id=${id}`);
     return of(HEROES.find(hero => hero.id === id));
   }
-}
-
-
-@Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
-})
-export class HeroesComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

@@ -51,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Ghislain-Two-App:build"
+            "browserTarget": "ghislain-two-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Ghislain-Two-App:build:production"
+              "browserTarget": "ghislain-two-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Ghislain-Two-App:build"
+            "browserTarget": "ghislain-two-app:build"
           }
         },
         "test": {
@@ -104,11 +104,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Ghislain-Two-App:serve"
+            "devServerTarget": "ghislain-two-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Ghislain-Two-App:serve:production"
+              "devServerTarget": "ghislain-two-app:serve:production"
             }
           }
         },
@@ -124,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "Ghislain-Two-App"
+  "defaultProject": "ghislain-two-app"
 }
