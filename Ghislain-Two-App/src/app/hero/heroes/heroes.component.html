@@ -1,12 +1,27 @@
 <h2>My Heroes --- </h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-2">
+      <ul class="heroes">
+        <li *ngFor="let hero of heroes">
+          <a routerLink="dashboard/heroes/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-10">
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <app-messages></app-messages>

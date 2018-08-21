@@ -4,9 +4,13 @@ based On
 
 https://github.com/mohdrashid/PaperAdmin/tree/master/src/app/dashboard
 
+# CSS-Tips
+1. Die Zahl in der Klasse <b> .col-sm-* </ b> gibt an, wie viele Spalten das <b>div</b> überspannen sollte. Stellen Sie sicher, dass die Summe immer gleich **12** ist.
+
 # How to?
 1. How to import a .css file in .css File? --> see styles.css
 2. How load Module from Routine? --> see app.routine.module
+3. Route Configuration --> dashboard/heroes/detail/:id  bedeutet mapping components dashboard+heroes+detail/:id
 
 # Based on [Angular Routing](https://angular.io/tutorial/toh-pt5)
 * Fügen Sie das AppRoutingModule hinzu --> nutzt --flat option

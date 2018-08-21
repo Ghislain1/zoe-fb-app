@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HeroService } from '../hero.service';
 import { Hero } from '../mock-heroes';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'detail',
@@ -10,22 +11,24 @@ import { Hero } from '../mock-heroes';
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero;
+
   constructor(
+    private route: ActivatedRoute,
+    private heroService: HeroService,
+    private location: Location
+  ) { }
 
-  ) {
+  ngOnInit(): void {
     this.getHero();
-    alert("jjj");
-
-  }
-
-  ngOnInit() {
-
   }
 
   getHero(): void {
-    /*     const id = +this.route.snapshot.paramMap.get('id');
-        this.heroService.getHero(id)
-          .subscribe(hero => this.hero = hero); */
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.heroService.getHero(id)
+      .subscribe(hero => this.hero = hero);
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 }

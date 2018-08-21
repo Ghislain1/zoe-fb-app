@@ -6,6 +6,7 @@ import { HeroesComponent } from '../hero/heroes/heroes.component';
 import { HeroMessageComponent } from './heroMgs/hero-message.component';
 import { HeroDetailComponent } from './detail/hero-detail.component';
 import { RouterModule, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule, Router } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
-    HeroRoutingModule
+    HeroRoutingModule,
+    FormsModule
   ],
   declarations: [HeroesComponent, HeroMessageComponent, HeroDetailComponent],
   // providers: [HeroMessageService]
