@@ -37,7 +37,9 @@ const topoRoutes: Routes = [
     RouterModule
   ],
   providers: [
-    TopologyDetailResolver, TopologyWorkerResolver, ControllerDeviceResolver
+    TopologyDetailResolver,
+    TopologyWorkerResolver,
+    ControllerDeviceResolver
   ]
 })
 export class TopologyRoutineModule { }
