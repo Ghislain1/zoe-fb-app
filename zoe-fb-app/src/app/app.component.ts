@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs';
-
+import { UserService } from './shared/services/user.service';
+import { AuthService } from './shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,20 +9,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'zoe-fb-app';
+  constructor(private userService: UserService, private auth: AuthService, router: Router) {
+    auth.user$.subscribe(user => {
+      if (!user) { return; }
 
-  public people$: Observable<any[]>;
-  public people: AngularFireList<any>;
-  pathOrRef: any;
+      userService.save(user);
 
-  constructor(db: AngularFireDatabase) {
-    this.pathOrRef = '/results';
-    this.people$ = db.list(this.pathOrRef).valueChanges();
+      const returnUrl = localStorage.getItem('returnUrl');
+      if (!returnUrl) { return; }
 
-    this.people = db.list(this.pathOrRef);
-
-    console.log(JSON.stringify(this.people));
-    console.log(db);
-
+      localStorage.removeItem('returnUrl');
+      router.navigateByUrl(returnUrl);
+    });
   }
 }

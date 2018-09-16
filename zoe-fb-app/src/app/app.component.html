@@ -1,13 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <h6> {{ people$ }}</h6>
+
+
+<app-navbar></app-navbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li *ngFor="let per of people$ | async">
-    <pre>{{ per   }}</pre>
-  </li>
-</ul>
