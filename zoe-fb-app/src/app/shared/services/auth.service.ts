@@ -20,7 +20,7 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private route: ActivatedRoute) {
 
-    alert("AUTServerice   ");
+
     this.user$ = afAuth.authState;
   }
 
