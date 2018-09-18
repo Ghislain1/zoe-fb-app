@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../../../shared/services/movie.service';
 import { MovieFavoryService } from '../../../shared/services/movie-favory.service';
 
-
+import { switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -16,6 +16,8 @@ import { MovieFavoryService } from '../../../shared/services/movie-favory.servic
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
+  movies$: Observable<any[]>;
+  movies1 = [];
   filteredMovies: Movie[] = [];
   category: string;
   favory$: Observable<MovieFavory>;
@@ -29,20 +31,36 @@ export class MoviesComponent implements OnInit {
 
   async ngOnInit() {
     this.favory$ = await this.movieFavoryService.getFavory();
-    this.populatemovies();
+
+    this.populateMovies();
   }
 
-  private populatemovies() {
-    this.movieService.getAll().valueChanges();
+
+
+  private populateMovies() {
+    this.movieService.getAll().pipe(switchMap(movies => {
+      this.movies = movies;
+      return this.route.queryParamMap;
+    }))
+      .subscribe(params => {
+        this.category = params.get('category');
+        this.applyFilter();
+      });
 
 
   }
 
 
   private applyFilter() {
-    this.filteredMovies = (this.category) ?
-      this.movies.filter(p => p.category === this.category) :
 
-      this.movies;
+    this.filteredMovies = (this.category) ? this.movies.filter(p => p.category === this.category) : this.movies;
+
+    this.log(this.filteredMovies);
+
+  }
+
+  private log(obst: any) {
+
+    console.log(" MoviesComponent says---> " + JSON.stringify(obst, null, 2));
   }
 }

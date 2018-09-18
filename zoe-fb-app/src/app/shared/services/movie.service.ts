@@ -7,22 +7,22 @@ export class MovieService {
   constructor(private db: AngularFireDatabase) { }
 
   create(movie) {
-    return this.db.list('/movies').push(movie);
+    return this.db.list('/results').push(movie);
   }
 
   getAll() {
-    return this.db.list('/movies');
+    return this.db.list('/results').valueChanges();
   }
 
   get(movieId) {
-    return this.db.object('/movies/' + movieId);
+    return this.db.object('/results/' + movieId);
   }
 
   update(movieId, movie) {
-    return this.db.object('/movies/' + movieId).update(movie);
+    return this.db.object('/results/' + movieId).update(movie);
   }
 
   delete(movieId) {
-    return this.db.object('/movies/' + movieId).remove();
+    return this.db.object('/results/' + movieId).remove();
   }
 }

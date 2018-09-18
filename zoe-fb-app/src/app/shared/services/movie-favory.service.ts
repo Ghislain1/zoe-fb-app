@@ -29,6 +29,7 @@ export class MovieFavoryService {
   }
 
   async addToFavory(movie: Movie) {
+
     this.updateItem(movie, 1);
   }
 
@@ -65,9 +66,13 @@ export class MovieFavoryService {
 
   private async updateItem(movie: Movie, change: number) {
     const favoryId = await this.getOrCreateFavoryId();
+    this.log(favoryId);
+    this.log(movie);
     const item$ = this.getItem(favoryId, movie.$key);
 
+  }
 
-
+  private log(obst: any) {
+    console.log(JSON.stringify(obst, null, 2));
   }
 }

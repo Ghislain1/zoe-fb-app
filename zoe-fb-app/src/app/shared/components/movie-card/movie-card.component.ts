@@ -18,7 +18,13 @@ export class MovieCardComponent {
 
   constructor(private movieFavoryService: MovieFavoryService) { }
 
-  addToCart() {
+  addToFavory() {
+    this.log(this.movie);
     this.movieFavoryService.addToFavory(this.movie);
   }
+
+  private log(toLog: any) {
+    console.log(" MovieCardComponent says---> " + JSON.stringify(toLog, null, 2));
+  }
+
 }

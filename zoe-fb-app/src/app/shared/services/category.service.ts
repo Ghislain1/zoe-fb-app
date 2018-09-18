@@ -18,13 +18,13 @@ export class CategoryService {
 
   getAll() {
     const cta = this.db.list('/categories');
-
+    this.log(cta);
     // TODO: Ghislain https://github.com/angular/angularfire2/blob/master/docs/rtdb/lists.md
     return cta.valueChanges();
   }
 
   private log(obst: any) {
 
-    console.log(JSON.stringify(obst, null, 4));
+    console.log(" CategoryService says: " + JSON.stringify(obst, null, 4));
   }
 }

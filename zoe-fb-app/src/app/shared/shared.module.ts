@@ -11,6 +11,7 @@ import { CategoryService } from './services/category.service';
 import { MovieFavoryService } from './services/movie-favory.service';
 import { MovieService } from './services/movie.service';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MovieQuantityComponent } from './components/movie-quantity/movie-quantity.component';
 
 
 @NgModule({
@@ -23,12 +24,12 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     AngularFireAuthModule
   ],
   declarations: [
-    MovieCardComponent
-    //  ProductQuantityComponent,
+    MovieCardComponent,
+    MovieQuantityComponent
   ],
   exports: [
     MovieCardComponent,
-    //  ProductQuantityComponent,
+    MovieQuantityComponent,
     CommonModule,
     FormsModule,
     CustomFormsModule,

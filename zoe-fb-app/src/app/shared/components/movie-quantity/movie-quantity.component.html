@@ -8,11 +8,8 @@
     <button *ngIf="movieFavory.getQuantity(movie) === 0; else updateQuantity" (click)="addToFavory()" class="btn btn-secondary btn-block">Add
       to Favory</button>
     <ng-template #updateQuantity>
-
-      <app-movie-quantity [movie]="movie" [movie-favory]="movieFavory"> </app-movie-quantity>
-
-
-
+      <!-- <product-quantity [movie]="movie" [shopping-cart]="shoppingCart">
+      </product-quantity> -->
       <p> Prodctur Q</p>
     </ng-template>
   </div>
