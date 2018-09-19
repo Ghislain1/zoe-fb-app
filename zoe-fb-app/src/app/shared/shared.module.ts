@@ -12,6 +12,7 @@ import { MovieFavoryService } from './services/movie-favory.service';
 import { MovieService } from './services/movie.service';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { MovieQuantityComponent } from './components/movie-quantity/movie-quantity.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { MovieQuantityComponent } from './components/movie-quantity/movie-quanti
   ],
   providers: [
     AuthService,
-    // AuthGuard,
+    AuthGuard, //TODO  Why??
     UserService,
     CategoryService,
     MovieService,

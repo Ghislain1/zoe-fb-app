@@ -5,6 +5,9 @@ export class MovieFavoryItem {
   price: number;
   quantity: number;
 
+  //Todo: Why gets a total price
+  totalPrice: number;
+
   // TODO: why PARTIAL?
   constructor(init?: Partial<MovieFavoryItem>) {
     Object.assign(this, init);

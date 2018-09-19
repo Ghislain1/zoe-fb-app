@@ -13,13 +13,14 @@ export class MovieFilterComponent implements OnInit {
   constructor(categoryService: CategoryService) {
     this.categories$ = categoryService.getAll();
 
-    this.categories$.subscribe(i => this.log(i))
+
   }
 
   ngOnInit() {
+    this.log('Init...');
   }
   private log(obst: any) {
 
-    console.log(" MovieFilterComponent says---> " + JSON.stringify(obst, null, 3));
+    console.log(JSON.stringify(obst, null, 3));
   }
 }

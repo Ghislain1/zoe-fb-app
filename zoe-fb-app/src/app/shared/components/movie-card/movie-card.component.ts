@@ -24,7 +24,7 @@ export class MovieCardComponent {
   }
 
   private log(toLog: any) {
-    console.log(" MovieCardComponent says---> " + JSON.stringify(toLog, null, 2));
+    console.log(JSON.stringify(toLog, null, 2));
   }
 
 }

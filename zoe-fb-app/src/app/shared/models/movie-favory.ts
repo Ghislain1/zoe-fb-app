@@ -30,4 +30,9 @@ export class MovieFavory {
     }
     return count;
   }
+  get totalPrice() {
+
+    //TODO: GHislain why MovieFoavor gets a prices???
+    return 0;
+  }
 }

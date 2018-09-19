@@ -1,0 +1,53 @@
+<h2>TODO: Check out shipping== movie .. movie == movie </h2>
+
+<div class="card" *ngIf="movie$ | async as movie" style="width: 80%;">
+  <div class="card-body">
+    <p>
+      You have {{ movie.totalItemsCount }} items in your shopping movie.
+      <button *ngIf="movie.items.length" (click)="clearmovie()" class="float-right btn btn-light btn-sm">Clear
+        Shopping movie</button>
+
+    </p>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>movie</th>
+        <th class="text-center" style="width: 230px">Quantity</th>
+        <th class="text-right" style="width: 200px">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of movie.items">
+        <td>
+          <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail">
+          </div>
+        </td>
+        <td>
+          {{ item.title }}
+        </td>
+        <td>
+          <app-movie-quantity [movie]="item" [movie-favory]="movie">
+          </app-movie-quantity>
+        </td>
+        <td class="text-right">
+          {{ item.totalPrice | currency:'USD':true }}
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="text-right">{{ movie.totalPrice | currency:'USD':true }}</th>
+      </tr>
+      <tr>
+        <th colspan="4">
+          <a *ngIf="movie.items.length" routerLink="/check-out" class="btn btn-primary">Check Out</a>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
