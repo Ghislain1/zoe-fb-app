@@ -13,3 +13,4 @@ C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\C
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\obj\Debug\ComStudio.Infrastructure.csproj.CopyComplete
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\obj\Debug\ComStudio.Infrastructure.dll
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\obj\Debug\ComStudio.Infrastructure.pdb
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\obj\Debug\ComStudio.Infrastructure.csprojAssemblyReference.cache

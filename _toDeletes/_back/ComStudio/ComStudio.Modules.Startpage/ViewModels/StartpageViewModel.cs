@@ -4,9 +4,9 @@
 
     public class StartpageViewModel : BindableBase
     {
-        public string HeaderInfo
-        {
-            get { return "Start page"; }
-        }
+        /// <summary>
+        /// TODO:GHislain Why do you use this? can you do the sequence diagram for that.
+        /// </summary>
+        public string HeaderInfo { get => "Start page"; }
     }
 }

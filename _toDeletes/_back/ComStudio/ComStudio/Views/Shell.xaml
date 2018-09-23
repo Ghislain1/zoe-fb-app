@@ -120,7 +120,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     </TransformGroup>
                 </Canvas.RenderTransform>
                 <TextBlock Text="CS- " TextWrapping="NoWrap" Foreground="#FFC4CFD6" FontSize="72" Opacity="0.85" Canvas.Left="0" Canvas.Top="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="80" Width="135" TextAlignment="Left" FontWeight="Bold" />
-                <TextBlock Text="COMSTUDIO" TextWrapping="NoWrap" Foreground="#FFC4CFD6" FontSize="72" Opacity="0.85" Height="80" TextAlignment="Left" FontWeight="Normal" Width="525" Canvas.Left="150" Canvas.Top="5" />
+                <TextBlock Text="Ghislain" TextWrapping="NoWrap" Foreground="#FFC4CFD6" FontSize="72" Opacity="0.85" Height="80" TextAlignment="Left" FontWeight="Normal" Width="525" Canvas.Left="150" Canvas.Top="5" />
             </Canvas>
 
             <!-- main bar -->
