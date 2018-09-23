@@ -24,6 +24,8 @@
         {
             this.container.RegisterType<IMarketFeedService, MarketFeedService>();
             this.container.RegisterType<IMarketHistoryService, MarketHistoryService>();
+            this.container.RegisterType<ITopologyService, TopologyService>();
+
             //  this.container.RegisterType<TrendLineViewModel, TrendLineViewModel>();
             //  this.regionManager.RegisterViewWithRegion(RegionNames.ResearchRegion,
             //                                            () => this.container.Resolve<TrendLineView>());

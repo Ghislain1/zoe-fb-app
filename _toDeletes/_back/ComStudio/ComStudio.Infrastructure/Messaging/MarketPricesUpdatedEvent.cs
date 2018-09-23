@@ -6,4 +6,8 @@
     public class MarketPricesUpdatedEvent : PubSubEvent<IDictionary<string, decimal>>
     {
     }
+
+    public class SystemTagSelectedEvent : PubSubEvent<string>
+    {
+    }
 }

@@ -19,26 +19,18 @@
     public class TopologyNodeListViewModel : BindableBase
     {
         private readonly IEventAggregator eventAggregator;
-        private readonly IMarketFeedService marketFeedService;
-        private readonly IRegionManager regionManager;
-        private readonly ObservableCollection<string> topologyNodeList;
-        private IAccountPositionService accountPositionService;
-        private TopologyNodeItem currentTopologyNodeItem;
-        private ICommand removeTopologyNodeCommand;
-        private ObservableCollection<TopologyNodeItem> topologyNodeListItems;
 
-        public TopologyNodeListViewModel(IAccountPositionService accountPositionService, ITopologyNodeListService TopologyNodeListService, IMarketFeedService marketFeedService, IRegionManager regionManager, IEventAggregator eventAggregator)
+        private readonly IRegionManager regionManager;
+        private readonly ITopologyNodeListService topologyNodeListService;
+        private readonly ITopologyService topologyService;
+        private TopologyNodeItemViewModel currentTopologyNodeItem;
+        private ICommand removeTopologyNodeCommand;
+        private ObservableCollection<TopologyNodeItemViewModel> topologyNodeListItems;
+
+        public TopologyNodeListViewModel(ITopologyService topologyService, ITopologyNodeListService topologyNodeListService, IRegionManager regionManager, IEventAggregator eventAggregator)
         {
             //TODO: Ghslain Wer implemtiert this service? Response= Andere Module-->
-            if (TopologyNodeListService == null)
-            {
-                throw new ArgumentNullException("TopologyNodeListService");
-            }
-
-            this.accountPositionService = accountPositionService;
-
-            //TODO: Wer Implentier this? resp: andere Module -->IMarketFeedService ist in
-            if (marketFeedService == null)
+            if (topologyService == null)
             {
                 throw new ArgumentNullException("TopologyNodeListService");
             }
@@ -47,28 +39,35 @@
             {
                 throw new ArgumentNullException("eventAggregator");
             }
-            this.marketFeedService = marketFeedService;
 
-            this.TopologyNodeListItems = new ObservableCollection<TopologyNodeItem>();
+            this.regionManager = regionManager;
+            this.eventAggregator = eventAggregator;
+            this.topologyService = topologyService;// from insfrac
+            this.topologyNodeListService = topologyNodeListService;// from hier
+            this.TopologyNodeListItems = new ObservableCollection<TopologyNodeItemViewModel>();
             this.HeaderInfo = "TopologyNodeList(VM)";
-            var collection = accountPositionService.GetAccountPositions().Select(i => i.TickerSymbol);
+
+            //TODO: GHislain ---> Hier sind  die systemtag von Master only!!
+            var collection = this.topologyService.GetTopologySystemTagList();
             this.PopulateTopologyNodeItemsList(collection);
 
-            this.marketFeedService = marketFeedService;
-            this.regionManager = regionManager;
+            var collectionVM = this.topologyNodeListService.GetTopologyNodeList();
 
-            this.topologyNodeList = TopologyNodeListService.RetrieveTopologyNodeList();
-            this.topologyNodeList.CollectionChanged += delegate { this.PopulateTopologyNodeItemsList(this.topologyNodeList); };
+            this.topologyNodeListItems.CollectionChanged += delegate { this.PopulateTopologyNodeItemsList(collection); };
 
-            this.eventAggregator = eventAggregator;
-            this.eventAggregator.GetEvent<MarketPricesUpdatedEvent>().Subscribe(this.MarketPricesUpdated, ThreadOption.UIThread);
+            // this.eventAggregator.GetEvent<SystemTagSelectedEvent>().Subscribe(this.TopologyNodeNamesUpdated, ThreadOption.UIThread);
 
-            this.removeTopologyNodeCommand = new DelegateCommand<string>(this.RemoveTopologyNode);
+            this.removeTopologyNodeCommand = new DelegateCommand<TopologyNodeItemViewModel>(this.RemoveTopologyNode);
 
             this.TopologyNodeListItems.CollectionChanged += this.TopologyNodeListItems_CollectionChanged;
+
+            this.DiscoverCommand = new DelegateCommand(() =>
+            {
+                var dsdsd0 = this.HeaderInfo;
+            }, () => this.CurrentTopologyNodeItem != null);
         }
 
-        public TopologyNodeItem CurrentTopologyNodeItem
+        public TopologyNodeItemViewModel CurrentTopologyNodeItem
         {
             get
             {
@@ -80,16 +79,20 @@
                 if (value != null)
                 {
                     SetProperty(ref this.currentTopologyNodeItem, value);
-                    this.eventAggregator.GetEvent<TickerSymbolSelectedEvent>().Publish(this.currentTopologyNodeItem.TickerSymbol);
+                    this.eventAggregator.GetEvent<SystemTagSelectedEvent>().Publish(this.currentTopologyNodeItem.SystemTag);
+
+                    var topo = this.topologyService.GetTopologyItemList();
                 }
             }
         }
+
+        public DelegateCommand DiscoverCommand { get; private set; }
 
         public string HeaderInfo { get; set; }
 
         public ICommand RemoveTopologyNodeCommand { get => this.removeTopologyNodeCommand; }
 
-        public ObservableCollection<TopologyNodeItem> TopologyNodeListItems
+        public ObservableCollection<TopologyNodeItemViewModel> TopologyNodeListItems
         {
             get
             {
@@ -102,44 +105,28 @@
             }
         }
 
-        private void MarketPricesUpdated(IDictionary<string, decimal> updatedPrices)
-        {
-            if (updatedPrices == null)
-            {
-                throw new ArgumentNullException("updatedPrices");
-            }
-
-            foreach (TopologyNodeItem TopologyNodeItem in this.TopologyNodeListItems)
-            {
-                if (updatedPrices.ContainsKey(TopologyNodeItem.TickerSymbol))
-                {
-                    TopologyNodeItem.CurrentPrice = updatedPrices[TopologyNodeItem.TickerSymbol];
-                }
-            }
-        }
-
         private void PopulateTopologyNodeItemsList(IEnumerable<string> TopologyNodeItemsList)
         {
             this.TopologyNodeListItems.Clear();
-            foreach (string tickerSymbol in TopologyNodeItemsList)
+            foreach (string systemTag in TopologyNodeItemsList)
             {
-                decimal? currentPrice;
+                string currentName;
                 try
                 {
-                    currentPrice = this.marketFeedService.GetPrice(tickerSymbol);
+                    currentName = this.topologyService.GetName(systemTag);
                 }
                 catch (ArgumentException)
                 {
-                    currentPrice = null;
+                    currentName = null;
                 }
 
-                this.TopologyNodeListItems.Add(new TopologyNodeItem(tickerSymbol, currentPrice));
+                this.TopologyNodeListItems.Add(new TopologyNodeItemViewModel(systemTag, currentName));
             }
         }
 
-        private void RemoveTopologyNode(string tickerSymbol)
+        private void RemoveTopologyNode(TopologyNodeItemViewModel current)
         {
-            this.topologyNodeList.Remove(tickerSymbol);
+            this.topologyNodeListItems.Remove(current);
         }
 
         private void TopologyNodeListItems_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -147,6 +134,22 @@
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 regionManager.Regions[RegionNames.MainRegion].RequestNavigate("/TopologyNodeListView", nr => { });
+            }
+        }
+
+        private void TopologyNodeNamesUpdated(IDictionary<string, string> updatedTopologyNodeNames)
+        {
+            if (updatedTopologyNodeNames == null)
+            {
+                throw new ArgumentNullException("updatedPrices");
+            }
+
+            foreach (TopologyNodeItemViewModel topologyNodeItem in this.TopologyNodeListItems)
+            {
+                if (updatedTopologyNodeNames.ContainsKey(topologyNodeItem.SystemTag))
+                {
+                    topologyNodeItem.CurrentName = updatedTopologyNodeNames[topologyNodeItem.SystemTag];
+                }
             }
         }
     }

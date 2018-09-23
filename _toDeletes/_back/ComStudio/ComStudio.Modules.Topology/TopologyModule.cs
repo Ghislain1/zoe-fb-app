@@ -25,8 +25,10 @@
             this.container.RegisterType<ITopologyNodeListService, TopologyNodeListService>();
             // this.container.RegisterType<AddWatchViewModel, AddWatchViewModel>();
             this.container.RegisterType<TopologyNodeListViewModel, TopologyNodeListViewModel>();
-            //this.regionManager.RegisterViewWithRegion(RegionNames.MainToolBarRegion,
-            //                                           () => this.container.Resolve<AddWatchView>());
+
+            this.regionManager.RegisterViewWithRegion(RegionNames.MainToolBarRegion,
+                                                       () => this.container.Resolve<DiscoverTopologyView>());
+
             this.regionManager.RegisterViewWithRegion(RegionNames.MainRegion,
                                                        () => this.container.Resolve<TopologyNodeListView>());
         }

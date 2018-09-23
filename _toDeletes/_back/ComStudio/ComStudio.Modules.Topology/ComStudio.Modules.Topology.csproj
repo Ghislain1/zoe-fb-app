@@ -70,11 +70,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ITopologyNodeListService.cs" />
-    <Compile Include="Models\TopologyNodeItem.cs" />
+    <Compile Include="Models\TopologyNodeItemViewModel.cs" />
     <Compile Include="Services\TopologyNodeListService.cs" />
     <Compile Include="TopologyModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\TopologyNodeListViewModel.cs" />
+    <Compile Include="Views\DiscoverTopologyView.xaml.cs">
+      <DependentUpon>DiscoverTopologyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TopologyNodeListView.xaml.cs">
       <DependentUpon>TopologyNodeListView.xaml</DependentUpon>
     </Compile>
@@ -82,9 +85,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ComStudio.Infrastructure\ComStudio.Infrastructure.csproj">
       <Project>{69A40FA3-2F1B-40D3-9DE6-80106F3A4982}</Project>
@@ -92,6 +93,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\DiscoverTopologyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TopologyNodeListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

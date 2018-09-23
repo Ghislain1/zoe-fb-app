@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Services\MarketFeedService.cs" />
     <Compile Include="Services\MarketHistoryService.cs" />
+    <Compile Include="Services\TopologyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -94,6 +95,7 @@
   <ItemGroup>
     <Content Include="Data\MarketHistory.xml" />
     <Content Include="Data\Market.xml" />
+    <Content Include="Data\TopologyInfo.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

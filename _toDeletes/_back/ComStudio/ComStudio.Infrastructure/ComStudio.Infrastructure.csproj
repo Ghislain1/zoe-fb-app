@@ -65,7 +65,10 @@
     <Compile Include="Behaviors\WindowDialogActivationBehavior.cs" />
     <Compile Include="Behaviors\WindowWrapper.cs" />
     <Compile Include="ExtendedHeader.cs" />
+    <Compile Include="Interfaces\ITopologyService.cs" />
+    <Compile Include="Messaging\TopologyNodeNameUpdatedEvent.cs" />
     <Compile Include="Models\MarketHistoryCollection.cs" />
+    <Compile Include="Models\TopologyNodeItem.cs" />
     <Compile Include="TransactionType.cs" />
     <Compile Include="ComStudioCommandProxy.cs" />
     <Compile Include="ComStudioCommands.cs" />

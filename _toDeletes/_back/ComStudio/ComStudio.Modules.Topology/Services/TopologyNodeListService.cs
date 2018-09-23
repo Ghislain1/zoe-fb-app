@@ -2,11 +2,10 @@
 {
     using ComStudio.Infrastructure.Interfaces;
     using ComStudio.Modules.Topology.Interfaces;
-    using Prism.Commands;
+    using ComStudio.Modules.Topology.Models;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Globalization;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -14,38 +13,30 @@
 
     public class TopologyNodeListService : ITopologyNodeListService
     {
-        private readonly IMarketFeedService marketFeedService;
+        private readonly ITopologyService topologyService;
 
-        public TopologyNodeListService(IMarketFeedService marketFeedService)
+        public TopologyNodeListService(ITopologyService topologyService)
         {
-            //TODO: Wer implemtiert IMarketFeedService?: wer bringt data mit!!
-            this.marketFeedService = marketFeedService;
-            WatchItems = new ObservableCollection<string>();
-
-            AddTopologyNodeCommand = new DelegateCommand<string>(AddWatch);
+            this.topologyService = topologyService;
         }
 
-        public ICommand AddTopologyNodeCommand { get; set; }
-        private ObservableCollection<string> WatchItems { get; set; }
+        public ICommand AddTopologyNodeCommand { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public string GetName(string systemTag)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ObservableCollection<TopologyNodeItemViewModel> GetTopologyNodeList()
+        {
+            var dd = this.topologyService.GetTopologyItemList().Select(ti => new TopologyNodeItemViewModel(ti)).ToList();
+            this.topologyService.GetTopologySystemTagList();
+            return new ObservableCollection<TopologyNodeItemViewModel>(dd);
+        }
 
         public ObservableCollection<string> RetrieveTopologyNodeList()
         {
-            return WatchItems;
-        }
-
-        private void AddWatch(string tickerSymbol)
-        {
-            if (!String.IsNullOrEmpty(tickerSymbol))
-            {
-                string upperCasedTrimmedSymbol = tickerSymbol.ToUpper(CultureInfo.InvariantCulture).Trim();
-                if (!WatchItems.Contains(upperCasedTrimmedSymbol))
-                {
-                    if (marketFeedService.SymbolExists(upperCasedTrimmedSymbol))
-                    {
-                        WatchItems.Add(upperCasedTrimmedSymbol);
-                    }
-                }
-            }
+            throw new NotImplementedException();
         }
     }
 }

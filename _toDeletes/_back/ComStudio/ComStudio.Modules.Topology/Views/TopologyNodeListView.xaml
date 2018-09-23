@@ -1,7 +1,7 @@
 ﻿<UserControl x:Class="ComStudio.Modules.Topology.Views.TopologyNodeListView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:prism="http://prismlibrary.com/"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             prism:ViewModelLocator.AutoWireViewModel="True"
     xmlns:converters="clr-namespace:ComStudio.Infrastructure.Converters;assembly=ComStudio.Infrastructure"
     Height="Auto" Width="Auto">
@@ -18,14 +18,14 @@
     </UserControl.Resources>
     <StackPanel>
         <ListView Name="watchListListView"
-                  ItemsSource="{Binding TopologyNodeListItems}" SelectedItem="{Binding Mode=TwoWay, Path=CurrentWatchItem}"
+                  ItemsSource="{Binding TopologyNodeListItems}" SelectedItem="{Binding Mode=TwoWay, Path=CurrentTopologyNodeItem}"
                   AlternationCount="2"
                   BorderThickness="0" Width="Auto"
                   IsSynchronizedWithCurrentItem="True" AutomationProperties.AutomationId="WatchListGrid">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Watch List">
-                    <GridViewColumn Header="SystemTag" DisplayMemberBinding="{Binding Path=TickerSymbol}" Width="65" />
-                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Converter={StaticResource currencyConverter}, Path=CurrentPrice}" Width="85" />
+                    <GridViewColumn Header="SystemTag" DisplayMemberBinding="{Binding Path=SystemTag}" Width="65" />
+                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding  Path=CurrentName}" Width="auto" />
                     <GridViewColumn Header="Station Address" DisplayMemberBinding="{Binding Path=TickerSymbol}" Width="65" />
                     <GridViewColumn Header="Foto" DisplayMemberBinding="{Binding Path=TickerSymbol}" Width="65" />
                     <GridViewColumn Header="Location" DisplayMemberBinding="{Binding Path=TickerSymbol}" Width="65" />
@@ -41,5 +41,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <Button  Content=" Discover "  Command="{Binding DiscoverCommand}" />
     </StackPanel>
 </UserControl>

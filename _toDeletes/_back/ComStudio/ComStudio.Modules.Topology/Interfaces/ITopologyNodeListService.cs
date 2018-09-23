@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComStudio.Modules.Topology.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace ComStudio.Modules.Topology.Interfaces
     {
         ICommand AddTopologyNodeCommand { get; set; }
 
-        ObservableCollection<string> RetrieveTopologyNodeList();
+        string GetName(string systemTag);
+
+        ObservableCollection<TopologyNodeItemViewModel> GetTopologyNodeList();
     }
 }
