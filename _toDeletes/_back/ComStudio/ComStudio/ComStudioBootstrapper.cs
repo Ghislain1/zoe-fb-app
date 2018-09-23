@@ -31,6 +31,8 @@
             moduleCatalog.AddModule(typeof(ComStudio.Modules.Position.PositionModule));
 
             moduleCatalog.AddModule(typeof(ComStudio.Modules.Watch.WatchModule));
+
+            moduleCatalog.AddModule(typeof(ComStudio.Modules.Topology.TopologyModule));
         }
 
         /// <summary>

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio.Modules.Position"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio.Modules.Market", "ComStudio.Modules.Market\ComStudio.Modules.Market.csproj", "{B42863B9-B859-495F-BE94-DAC3041FBB13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio.Modules.Topology", "ComStudio.Modules.Topology\ComStudio.Modules.Topology.csproj", "{FD105C41-BAF1-4F96-9D2F-831FAB1670C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B42863B9-B859-495F-BE94-DAC3041FBB13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B42863B9-B859-495F-BE94-DAC3041FBB13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B42863B9-B859-495F-BE94-DAC3041FBB13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD105C41-BAF1-4F96-9D2F-831FAB1670C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD105C41-BAF1-4F96-9D2F-831FAB1670C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD105C41-BAF1-4F96-9D2F-831FAB1670C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD105C41-BAF1-4F96-9D2F-831FAB1670C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

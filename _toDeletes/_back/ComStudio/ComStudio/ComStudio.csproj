@@ -150,6 +150,10 @@
       <Project>{11bf080a-e5af-4419-aa2c-78ac1411c539}</Project>
       <Name>ComStudio.Modules.Startpage</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ComStudio.Modules.Topology\ComStudio.Modules.Topology.csproj">
+      <Project>{fd105c41-baf1-4f96-9d2f-831fab1670c2}</Project>
+      <Name>ComStudio.Modules.Topology</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ComStudio.Modules.Watch\ComStudio.Modules.Watch.csproj">
       <Project>{a0b421cf-20db-44f3-af7c-c8e216f7bae8}</Project>
       <Name>ComStudio.Modules.Watch</Name>

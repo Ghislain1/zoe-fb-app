@@ -217,3 +217,5 @@ C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\C
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\bin\Debug\x64\CefSharp.Wpf.dll
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\bin\Debug\x64\CefSharp.Wpf.pdb
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\bin\Debug\x64\CefSharp.Wpf.XML
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\bin\Debug\ComStudio.Modules.Topology.dll
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\bin\Debug\ComStudio.Modules.Topology.pdb
