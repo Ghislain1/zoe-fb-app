@@ -9,7 +9,6 @@ C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\C
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\bin\Debug\Prism.xml
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\bin\Debug\Prism.Wpf.xml
-C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\obj\Debug\ComStudio.Infrastructure.csprojAssemblyReference.cache
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\obj\Debug\ComStudio.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\obj\Debug\ComStudio.Infrastructure.csproj.CopyComplete
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Infrastructure\obj\Debug\ComStudio.Infrastructure.dll

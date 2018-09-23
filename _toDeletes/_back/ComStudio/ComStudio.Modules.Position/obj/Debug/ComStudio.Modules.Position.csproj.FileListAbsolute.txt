@@ -1,3 +1,5 @@
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\bin\Debug\Properties\Resources.resx
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\bin\Debug\Properties\Resources.Designer.cs
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\bin\Debug\ComStudio.Modules.Position.dll
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\bin\Debug\ComStudio.Modules.Position.pdb
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\bin\Debug\ComStudio.Infrastructure.dll
@@ -20,6 +22,10 @@ C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\C
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\bin\Debug\Prism.Unity.Wpf.xml
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\bin\Debug\Prism.Wpf.xml
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\obj\Debug\ComStudio.Modules.Position.csprojAssemblyReference.cache
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\obj\Debug\Views\PositionSummaryView.baml
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\obj\Debug\Views\PositionSummaryView.g.cs
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\obj\Debug\ComStudio.Modules.Position_MarkupCompile.cache
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\obj\Debug\ComStudio.Modules.Position.g.resources
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\obj\Debug\ComStudio.Modules.Position.Properties.Resources.resources
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\obj\Debug\ComStudio.Modules.Position.csproj.GenerateResource.cache
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Position\obj\Debug\ComStudio.Modules.Position.csproj.CoreCompileInputs.cache

@@ -51,3 +51,5 @@ C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\C
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\obj\Debug\ComStudio.csproj.CopyComplete
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\obj\Debug\ComStudio.exe
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\obj\Debug\ComStudio.pdb
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\bin\Debug\Properties\Resources.resx
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio\bin\Debug\Properties\Resources.Designer.cs

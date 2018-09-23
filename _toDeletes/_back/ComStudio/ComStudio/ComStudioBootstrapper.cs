@@ -27,8 +27,9 @@
             moduleCatalog.AddModule(typeof(ComStudio.Modules.Output.OutputModule));
             moduleCatalog.AddModule(typeof(ComStudio.Modules.Startpage.StartpageModule));
 
-            moduleCatalog.AddModule(typeof(ComStudio.Modules.Position.PositionModule));
             moduleCatalog.AddModule(typeof(ComStudio.Modules.Market.MarketModule));
+            moduleCatalog.AddModule(typeof(ComStudio.Modules.Position.PositionModule));
+
             moduleCatalog.AddModule(typeof(ComStudio.Modules.Watch.WatchModule));
         }
 

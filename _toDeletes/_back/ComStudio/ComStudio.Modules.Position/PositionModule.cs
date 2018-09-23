@@ -1,21 +1,20 @@
 ﻿namespace ComStudio.Modules.Position
 {
+    using ComStudio.Infrastructure;
     using ComStudio.Infrastructure.Interfaces;
+    using ComStudio.Modules.Position.Interfaces;
     using ComStudio.Modules.Position.Services;
+    using ComStudio.Modules.Position.ViewModels;
+    using ComStudio.Modules.Position.Views;
     using Microsoft.Practices.Unity;
     using Prism.Modularity;
     using Prism.Regions;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class PositionModule : IModule
     {
         private readonly IUnityContainer container;
         private readonly IRegionManager regionManager;
-        // private OrdersController _ordersController;
+        private OrdersController ordersController;
 
         public PositionModule(IUnityContainer container, IRegionManager regionManager)
         {
@@ -26,14 +25,14 @@
         public void Initialize()
         {
             this.container.RegisterType<IAccountPositionService, AccountPositionService>();
-            //   this.container.RegisterType<IOrdersService, XmlOrdersService>();
-            // this.container.RegisterType<IOrdersController, OrdersController>();
-            // this.container.RegisterType<IObservablePosition, ObservablePosition>();
-            //  this.container.RegisterType<IPositionSummaryViewModel, PositionSummaryViewModel>();
+            this.container.RegisterType<IOrdersService, XmlOrdersService>();
+            this.container.RegisterType<IOrdersController, OrdersController>();
+            this.container.RegisterType<IObservablePosition, ObservablePosition>();
+            this.container.RegisterType<IPositionSummaryViewModel, PositionSummaryViewModel>();
             // this.container.RegisterType<IPositionPieChartViewModel, PositionPieChartViewModel>();
-            //this.regionManager.RegisterViewWithRegion(RegionNames.MainRegion,
-            //                                           () => this.container.Resolve<PositionSummaryView>());
-            //this._ordersController = this.container.Resolve<OrdersController>();
+            this.regionManager.RegisterViewWithRegion(RegionNames.MainRegion,
+                                                  () => this.container.Resolve<PositionSummaryView>());
+            this.ordersController = this.container.Resolve<OrdersController>();
         }
     }
 }

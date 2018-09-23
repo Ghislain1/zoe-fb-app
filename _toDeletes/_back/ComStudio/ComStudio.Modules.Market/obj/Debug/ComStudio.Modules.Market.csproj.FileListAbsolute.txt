@@ -1,7 +1,3 @@
-C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.csprojAssemblyReference.cache
-C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.Properties.Resources.resources
-C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.csproj.GenerateResource.cache
-C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.csproj.CoreCompileInputs.cache
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\bin\Debug\ComStudio.Modules.Market.dll
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\bin\Debug\ComStudio.Modules.Market.pdb
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\bin\Debug\ComStudio.Infrastructure.dll
@@ -23,6 +19,10 @@ C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\C
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\bin\Debug\Prism.xml
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\bin\Debug\Prism.Unity.Wpf.xml
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\bin\Debug\Prism.Wpf.xml
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.csprojAssemblyReference.cache
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.Properties.Resources.resources
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.csproj.GenerateResource.cache
+C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.csproj.CoreCompileInputs.cache
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.csproj.CopyComplete
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.dll
 C:\Users\Zoe\Desktop\___Z_Todelte\my-first-angular5\_toDeletes\_back\ComStudio\ComStudio.Modules.Market\obj\Debug\ComStudio.Modules.Market.pdb

@@ -13,8 +13,6 @@
     using System.Collections.ObjectModel;
     using System.Collections.Specialized;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Input;
 
     public class WatchListViewModel : BindableBase
@@ -23,17 +21,20 @@
         private readonly IMarketFeedService marketFeedService;
         private readonly IRegionManager regionManager;
         private readonly ObservableCollection<string> watchList;
+        private IAccountPositionService accountPositionService;
         private WatchItem currentWatchItem;
         private ICommand removeWatchCommand;
         private ObservableCollection<WatchItem> watchListItems;
 
-        public WatchListViewModel(IWatchListService watchListService, IMarketFeedService marketFeedService, IRegionManager regionManager, IEventAggregator eventAggregator)
+        public WatchListViewModel(IAccountPositionService accountPositionService, IWatchListService watchListService, IMarketFeedService marketFeedService, IRegionManager regionManager, IEventAggregator eventAggregator)
         {
             //TODO: Ghslain Wer implemtiert this service? Response= Andere Module-->
             if (watchListService == null)
             {
                 throw new ArgumentNullException("watchListService");
             }
+
+            this.accountPositionService = accountPositionService;
 
             //TODO: Wer Implentier this? resp: andere Module -->IMarketFeedService ist in
             if (marketFeedService == null)
@@ -45,16 +46,18 @@
             {
                 throw new ArgumentNullException("eventAggregator");
             }
+            this.marketFeedService = marketFeedService;
 
-            this.HeaderInfo = " Resources.WatchListTitle";
             this.WatchListItems = new ObservableCollection<WatchItem>();
+            this.HeaderInfo = "WatchList(VM)";
+            var collection = accountPositionService.GetAccountPositions().Select(i => i.TickerSymbol);
+            this.PopulateWatchItemsList(collection);
 
             this.marketFeedService = marketFeedService;
             this.regionManager = regionManager;
 
             this.watchList = watchListService.RetrieveWatchList();
             this.watchList.CollectionChanged += delegate { this.PopulateWatchItemsList(this.watchList); };
-            this.PopulateWatchItemsList(this.watchList);
 
             this.eventAggregator = eventAggregator;
             this.eventAggregator.GetEvent<MarketPricesUpdatedEvent>().Subscribe(this.MarketPricesUpdated, ThreadOption.UIThread);
