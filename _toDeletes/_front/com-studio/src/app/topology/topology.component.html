@@ -1,0 +1,32 @@
+<div *ngIf="topologyNode">
+  <h2>{{topologyNode.name | uppercase}}:</h2>
+  <div><span>id: </span>{{topologyNode.systemTag}}</div>
+  <!-- <div>
+    <label>name:
+      <input [(ngModel)]="topologyNode.name" placeholder="name" />
+    </label>
+  </div> -->
+  <!-- <button (click)="GetChildren()">Children</button> -->
+</div>
+
+<div #myDiagramDiv id="myDiagramDiv" class="container-fluid" style="height:410px; border: fuchsia">
+</div>
+
+<div class="row">
+  <!-- 
+  <ng-container *ngFor="let topo of topologyNodeChildren; let i = index">
+
+
+
+    <div class="card w-100">
+      <div class="card-body">
+        <h5 class="card-title">{{topo.name}}</h5>
+        <p class="card-text">id= {{topo.systemTag}}</p>
+        <a [routerLink]="['/app-topology',topo.systemTag]" routerLinkActive="router-link-active" class="btn btn-danger">Discover</a>
+      </div>
+    </div>
+    <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+
+  </ng-container> -->
+
+</div>
