@@ -20,6 +20,10 @@ export class TopologyComponent implements OnInit {
     @ViewChild('myDiagramDiv') //TODO: Ghislain why this?
     diagramDiv: ElementRef;
 
+
+    // To store number of nodes(ink.Master)
+    counter: number;
+
     diagram: go.Diagram;
 
     topologyNodeChildren: TopologyNode[] = [];
@@ -63,6 +67,7 @@ export class TopologyComponent implements OnInit {
         this.topologyNodeService.GetChildren(this.topologyNode.systemTag).pipe(switchMap(nodes => {
             this.topologyNodeChildren = nodes;
             this.topologyNodeChildren.push(this.topologyNode);// add Msater to liost too
+            this.counter = this.topologyNodeChildren.length;
             this.setUpDiagramSimple();
             return this.route.queryParamMap;
         })).subscribe();

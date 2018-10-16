@@ -1,6 +1,6 @@
-<div *ngIf="topologyNode">
-  <h2>{{topologyNode.name | uppercase}}:</h2>
-  <div><span>id: </span>{{topologyNode.systemTag}}</div>
+<div class="container-fluid" *ngIf="topologyNode">
+  <h2>{{topologyNode.name | uppercase}} [{{topologyNode.stationAddress}}]: <span>({{counter}}) </span> </h2>
+
   <!-- <div>
     <label>name:
       <input [(ngModel)]="topologyNode.name" placeholder="name" />
