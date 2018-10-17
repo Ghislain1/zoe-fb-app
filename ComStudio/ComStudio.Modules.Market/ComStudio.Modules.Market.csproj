@@ -98,4 +98,7 @@
     <Content Include="Data\TopologyInfo.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(SolutionDir)\$(SolutionName)\$(OutDir)" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
