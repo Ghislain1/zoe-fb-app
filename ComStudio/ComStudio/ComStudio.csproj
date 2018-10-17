@@ -134,30 +134,6 @@
       <Project>{69a40fa3-2f1b-40d3-9de6-80106f3a4982}</Project>
       <Name>ComStudio.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ComStudio.Modules.Market\ComStudio.Modules.Market.csproj">
-      <Project>{b42863b9-b859-495f-be94-dac3041fbb13}</Project>
-      <Name>ComStudio.Modules.Market</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ComStudio.Modules.Output\ComStudio.Modules.Output.csproj">
-      <Project>{76d5f1a7-e7b1-41d5-95d4-8b775c408f4e}</Project>
-      <Name>ComStudio.Modules.Output</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ComStudio.Modules.Position\ComStudio.Modules.Position.csproj">
-      <Project>{acb0ba9c-9314-45af-9a42-7a29df054d08}</Project>
-      <Name>ComStudio.Modules.Position</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ComStudio.Modules.Startpage\ComStudio.Modules.Startpage.csproj">
-      <Project>{11bf080a-e5af-4419-aa2c-78ac1411c539}</Project>
-      <Name>ComStudio.Modules.Startpage</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ComStudio.Modules.Topology\ComStudio.Modules.Topology.csproj">
-      <Project>{fd105c41-baf1-4f96-9d2f-831fab1670c2}</Project>
-      <Name>ComStudio.Modules.Topology</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ComStudio.Modules.Watch\ComStudio.Modules.Watch.csproj">
-      <Project>{a0b421cf-20db-44f3-af7c-c8e216f7bae8}</Project>
-      <Name>ComStudio.Modules.Watch</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
