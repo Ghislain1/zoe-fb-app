@@ -1,7 +1,0 @@
-   {
-     "todoUrl": "http://localhost:2178/api/todo",
-     "topologyUrl": "http://localhost:2178/api/topo",
-     "homeUrl": "http://localhost:2178/api/todo",
-     "nodeUrl": "http://localhost:2177/api/node",
-     "nodeUrl2": "http://10.12.5.10:2177/api/node"
-   }
