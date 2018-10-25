@@ -9,8 +9,10 @@ export class FetchDataComponent {
   public forecasts: WeatherForecast[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
+    alert(baseUrl);
+    http.get<WeatherForecast[]>('http://localhost:5000/' + 'api/SampleData/WeatherForecasts').subscribe(result => {
       this.forecasts = result;
+      alert("NOServeiecve  ");
     }, error => console.error(error));
   }
 }
