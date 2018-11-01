@@ -1,8 +1,0 @@
-<p>Available Topologie(Master Devices Only):</p>
-
-<ul *ngIf="topologyNodeList$ async as topologyNodeList">
-  <li *ngFor="let topo of topologyNodeList$ | async">
-    {{ topo.name }}
-  </li>
-
-</ul>
