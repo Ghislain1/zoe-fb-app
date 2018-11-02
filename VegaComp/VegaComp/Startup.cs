@@ -1,10 +1,17 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Net;
+using VegaComp.Persistences;
 
 namespace VegaComp
 {
@@ -22,11 +29,44 @@ namespace VegaComp
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+
+
+            //confurge the serve to call DB TODOD:See syntax of ConnectionString
+            var connectionString = this.Configuration.GetConnectionString("D4");
+            this.CheckConnection(connectionString);
+
+            //
+            services.AddAutoMapper();
+           
+        
+
+
+    services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(connectionString));
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+        }
+
+        private bool CheckConnection(string connectionString)
+        {
+            bool result = false;
+            try
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                     result = true;
+                }
+            }
+            catch (DbException ex)
+            {
+                throw   new Exception(ex.Message);
+            }
+           
+            return result;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
