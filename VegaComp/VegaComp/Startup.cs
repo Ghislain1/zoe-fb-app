@@ -33,7 +33,7 @@ namespace VegaComp
 
             //confurge the serve to call DB TODOD:See syntax of ConnectionString
             var connectionString = this.Configuration.GetConnectionString("D4");
-            this.CheckConnection(connectionString);
+           this.CheckConnection(connectionString);
 
             //
             services.AddAutoMapper();
@@ -63,7 +63,7 @@ namespace VegaComp
             }
             catch (DbException ex)
             {
-                throw   new Exception(ex.Message);
+                throw new Exception(ex.Message);
             }
            
             return result;

@@ -2,7 +2,8 @@
   <nav class='navbar navbar-expand-lg navbar-dark bg-dark d-flex flex-column'>
     <div class="navbar-header p-0">
       <a class='navbar-brand' [routerLink]='["/"]'>VegaComp</a>
-      <button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbarNav' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
+      <button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbarNav' [attr.aria-expanded]='isExpanded'
+        (click)='toggle()'>
         <span class='sr-only'>Toggle navigation</span>
         <span class='navbar-toggler-icon'></span>
       </button>
@@ -25,6 +26,15 @@
             <span class='fas fa-database'></span> Fetch data
           </a>
         </li>
+
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/vehicles/new"]' class="nav-link" (click)='collapse()'>
+            <span class='fa fa-plus'></span> New Vehicle
+          </a>
+        </li>
+
+
+
       </ul>
     </div>
   </nav>
