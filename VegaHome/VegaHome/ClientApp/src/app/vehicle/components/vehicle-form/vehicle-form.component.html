@@ -2,6 +2,9 @@
 <p>
   {{ vehicle | json }}
 </p>
+<p *ngIf="selectedMakeG">
+  {{ selectedMakeG | json }}
+</p>
 <form #f="ngForm" (ngSubmit)="submit()" novalidate>
   <div class="form-group">
     <label for="make">Make</label>

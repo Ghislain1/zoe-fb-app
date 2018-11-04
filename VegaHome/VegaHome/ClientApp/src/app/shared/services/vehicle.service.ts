@@ -15,34 +15,39 @@ export class VehicleService {
   ) { }
 
   getFeatures() {
-    return this.http.get('/api/features')
+    return this.http.get<any[]>('/api/features')
       .pipe(map(res => res));
   }
 
   getMakes() {
-    return this.http.get('/api/makes')
+    return this.http.get<any[]>('/api/makes')
       .pipe(map(res => res));
   }
 
   create(vehicle) {
-    const username: String = 'username';
-    const password: String = 'password';
-    const headers: HttpHeaders = new HttpHeaders();
-    headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    // TODO for autthoring alsoin in api controller
+    // const username: String = 'username';
+    // const password: String = 'password';
+    // const headers: HttpHeaders = new HttpHeaders();
+    // headers.append('Authorization', 'Basic ' + btoa(username + ':' + password));
+    // headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    return this.http.post<SaveVehicle>(this.vehiclesEndpoint, vehicle, { headers: headers })
+    return this.http.post<SaveVehicle>(this.vehiclesEndpoint, vehicle
+      // , { headers: headers }
+    )
       .pipe(map(res => res));
   }
 
   getVehicle(id) {
-    return this.http.get(this.vehiclesEndpoint + '/' + id)
+    return this.http.get<any>(this.vehiclesEndpoint + '/' + id)
       .pipe(map(res => res));
   }
 
   getVehicles(filter) {
-    return this.http.get(this.vehiclesEndpoint + '?' + this.toQueryString(filter))
-      .pipe(map(res => res));
+    const endPointV = this.vehiclesEndpoint + '?' + this.toQueryString(filter);
+    const reps = this.http.get<any[]>(endPointV);
+    return reps;
+
   }
 
   toQueryString(obj) {

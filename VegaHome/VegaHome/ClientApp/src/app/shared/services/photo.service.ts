@@ -19,7 +19,7 @@ export class PhotoService {
   }
 
   getPhotos(vehicleId) {
-    return this.http.get(`/api/vehicles/${vehicleId}/photos`)
+    return this.http.get<any[]>(`/api/vehicles/${vehicleId}/photos`)
       .pipe(map(res => res));
   }
 }

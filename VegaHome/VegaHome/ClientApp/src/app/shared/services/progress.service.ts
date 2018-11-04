@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { BrowserXhr } from '@angular/common/http/src/xhr';
+// import { BrowserXhr } from '@angular/common/http/src/xhr';
 
 
 
@@ -27,24 +27,27 @@ export class ProgressService {
 }
 
 @Injectable()
-export class BrowserXhrWithProgress extends BrowserXhr {
+export class BrowserXhrWithProgress { // extends BrowserXhr
 
-  constructor(private service: ProgressService) { super(); }
 
-  build(): XMLHttpRequest {
-
-    const xhr: XMLHttpRequest = super.build();
-
-    xhr.upload.onprogress = (event) => {
-      this.service.notify(this.createProgress(event));
-    };
-
-    xhr.upload.onloadend = () => {
-      this.service.endTracking();
-    };
-
-    return xhr;
+  constructor(private service: ProgressService) {
+    // super();
   }
+
+  // build(): XMLHttpRequest {
+
+  //   const xhr: XMLHttpRequest = super.build();
+
+  //   xhr.upload.onprogress = (event) => {
+  //     this.service.notify(this.createProgress(event));
+  //   };
+
+  //   xhr.upload.onloadend = () => {
+  //     this.service.endTracking();
+  //   };
+
+  //   return xhr;
+  // }
 
   private createProgress(event) {
     return {
