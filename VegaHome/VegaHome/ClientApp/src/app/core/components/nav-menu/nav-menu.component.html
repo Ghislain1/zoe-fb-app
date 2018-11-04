@@ -34,10 +34,13 @@
             <a class="dropdown-item" routerLink="/">Home</a>
             <a class="dropdown-item" routerLink="/vehicles/new">New Vehicle</a>
             <a class="dropdown-item" routerLink="/vehicles">Views all Vehicles</a>
-
             <hr />
+
             <ng-container *ngIf="appUser.isAdmin">
               <a class="dropdown-item" routerLink="/admin/dashbord">Admin Dashbord</a>
+              <a class="dropdown-item" routerLink="/make/new">New Make </a>
+              <a class="dropdown-item" routerLink="/model/new">New Model </a>
+              <hr />
               <a class="dropdown-item" routerLink="/counter">Counter</a>
               <a class="dropdown-item" routerLink="/fetch-data">Fetch data</a>
             </ng-container>

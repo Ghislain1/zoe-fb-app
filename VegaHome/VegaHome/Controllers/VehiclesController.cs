@@ -1,11 +1,8 @@
 ﻿namespace VegaHome.Controllers
 {
     using AutoMapper;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using VegaHome.Controllers.Resources;
     using VegaHome.Interfaces;
@@ -66,7 +63,9 @@
             var vehicle = await repository.GetVehicle(id);
 
             if (vehicle == null)
+            {
                 return NotFound();
+            }
 
             var vehicleResource = mapper.Map<Vehicle, VehicleResource>(vehicle);
 

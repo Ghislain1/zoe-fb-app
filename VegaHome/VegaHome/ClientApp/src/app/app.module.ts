@@ -19,13 +19,11 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-
     RouterModule.forRoot([]),
     CoreModule,
     SharedModule,
     VehicleModule,
     AdminModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

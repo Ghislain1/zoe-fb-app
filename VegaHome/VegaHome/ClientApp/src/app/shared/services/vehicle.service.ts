@@ -3,12 +3,16 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SaveVehicle } from '../models/vehicle';
+import { SaveModel } from '../models/model';
 
 
 
 @Injectable()
 export class VehicleService {
   private readonly vehiclesEndpoint = '/api/vehicles';
+  private readonly modelVehiclesEndpoint = '/api/models';
+
+
 
   constructor(private http: HttpClient
     // , private authHttp: AuthHttp --> TODO no exisz no more
@@ -22,6 +26,10 @@ export class VehicleService {
   getMakes() {
     return this.http.get<any[]>('/api/makes')
       .pipe(map(res => res));
+  }
+
+  createModelVehicle(model) {
+    return this.http.post<SaveModel>(this.modelVehiclesEndpoint, model).pipe(map(res => res));
   }
 
   create(vehicle) {

@@ -24,6 +24,11 @@
             context.Vehicles.Add(vehicle);
         }
 
+        public void AddModel(Model modelC)
+        {
+            context.Models.Add(modelC);
+        }
+
         public async Task<Vehicle> GetVehicle(int id, bool includeRelated = true)
         {
             if (!includeRelated)
@@ -35,6 +40,11 @@
               .Include(v => v.Model)
                 .ThenInclude(m => m.Make)
               .SingleOrDefaultAsync(v => v.Id == id);
+        }
+
+        public async Task<Model> GetVehicleModel(int id)
+        {
+            return await context.Models.FindAsync(id);
         }
 
         public async Task<QueryResult<Vehicle>> GetVehicles(VehicleQuery queryObj)
