@@ -12,7 +12,7 @@
 - Erstellen einer neuen Datenbank
    CREATE DATABASE TestDB
    GO
-   * Go um die Befehl durchzufühen
+   * Go um die Befehl durchzufÃ¼hen
  
 - [DATABASE-LIST]: Anzeige all Databases in SQL_APPLICATION/CONTAINERS
 	SELECT Name from sys.Databases
