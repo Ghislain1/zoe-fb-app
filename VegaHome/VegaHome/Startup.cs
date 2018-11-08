@@ -1,13 +1,16 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Data.SqlClient;
+using VegaHome.Interfaces;
 using VegaHome.Persistence;
+using VegaHome.Services;
 
 namespace VegaHome
 {
@@ -33,10 +36,10 @@ namespace VegaHome
                 app.UseHsts();
             }
             app.UseCors(builder => builder
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .AllowCredentials());
+                                     .AllowAnyOrigin()
+                                     .AllowAnyMethod()
+                                      .AllowAnyHeader()
+                                     .AllowCredentials());
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -67,7 +70,18 @@ namespace VegaHome
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(this.Configuration.GetConnectionString("Default")));
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IPhotoRepository, PhotoRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IPhotoService, PhotoService>();
+            services.AddTransient<IPhotoStorage, FileSystemPhotoStorage>();
+
+            // 172.17.0.2"
+            var connectString = this.Configuration.GetConnectionString("Default");
+
+            var vegaExist = CheckDatabaseExists(connectString, "vega");
+
+            services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(connectString));
 
             services.AddAutoMapper();
 
@@ -76,6 +90,40 @@ namespace VegaHome
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+        }
+
+        private bool CheckDatabaseExists(string connectionString, string databaseName)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand($"SELECT db_id('{databaseName}')", connection))
+                {
+                    connection.Open();
+                    return (command.ExecuteScalar() != DBNull.Value);
+                }
+            }
+        }
+
+        private void CheckSqlConnection(string connectionString, Action<SqlConnection> connectionCallBack)
+        {
+            SqlConnection sqlConnection = null;
+            try
+            {
+                sqlConnection = new SqlConnection(connectionString);
+                sqlConnection.Open();
+
+                connectionCallBack(sqlConnection);
+            }
+            catch (Exception ex)
+            {
+                //Log Error Here
+                throw ex;
+            }
+            finally
+            {
+                if (sqlConnection != null)
+                    sqlConnection.Dispose(); //will close the connection
+            }
         }
     }
 }

@@ -5,32 +5,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
+import { ToastrModule } from 'ngx-toastr';
+import { CoreModule } from './core/core.module';
+import { VehicleModule } from './vehicle/vehicle.module';
+import { AdminModule } from './admin/admin.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
-    VehicleFormComponent
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'app-vehicle-form', component: VehicleFormComponent },
-
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ])
+    RouterModule.forRoot([]),
+    CoreModule,
+    SharedModule,
+    VehicleModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
