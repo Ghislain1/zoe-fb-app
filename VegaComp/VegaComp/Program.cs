@@ -12,17 +12,15 @@ namespace VegaComp
 {
     public class Program
     {
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+
+            .UseStartup<Startup>();
+
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args)
-            //.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            //.AddJsonFile($"appsettings.Development.json", optional: true, reloadOnChange: true)
             .Build().Run();
         }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-           
-            .UseStartup<Startup>();
     }
 }

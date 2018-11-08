@@ -12,12 +12,16 @@ namespace VegaComp.Models
     {
         public int Id { get; set; }
 
+        public DateTime LastUpdate { get; set; }
+
+        public Make Make { get; set; }
+
+        public int MakeId { get; set; }
+
         [Required]
         [StringLength(255)]
-        public string  Name { get; set; }
-        public Make Make { get; set; }
-        public int MakeId { get; set; } //TODO why? es gibt erkärung --> see Buidling the Domain Model
+        public string Name { get; set; }
 
-
+        //TODO why? es gibt erkärung --> see Buidling the Domain Model
     }
 }

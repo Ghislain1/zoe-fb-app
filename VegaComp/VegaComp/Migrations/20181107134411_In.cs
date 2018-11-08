@@ -1,14 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VegaComp.Migrations
 {
-    public partial class AddVehicle : Migration
+    public partial class In : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Feature",
+                name: "Features",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -17,7 +18,40 @@ namespace VegaComp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Feature", x => x.Id);
+                    table.PrimaryKey("PK_Features", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Makes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 255, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Makes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Models",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 255, nullable: false),
+                    MakeId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Models", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Models_Makes_MakeId",
+                        column: x => x.MakeId,
+                        principalTable: "Makes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -31,7 +65,7 @@ namespace VegaComp.Migrations
                     ConctactName = table.Column<string>(maxLength: 255, nullable: false),
                     ConctactPhone = table.Column<string>(nullable: true),
                     ConctactEmail = table.Column<string>(maxLength: 255, nullable: false),
-                    LastUpdate = table.Column<bool>(nullable: false)
+                    LastUpdate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,9 +89,9 @@ namespace VegaComp.Migrations
                 {
                     table.PrimaryKey("PK_VehicleFeatures", x => new { x.VehicleId, x.FeatureId });
                     table.ForeignKey(
-                        name: "FK_VehicleFeatures_Feature_FeatureId",
+                        name: "FK_VehicleFeatures_Features_FeatureId",
                         column: x => x.FeatureId,
-                        principalTable: "Feature",
+                        principalTable: "Features",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -67,6 +101,11 @@ namespace VegaComp.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Models_MakeId",
+                table: "Models",
+                column: "MakeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_VehicleFeatures_FeatureId",
@@ -85,10 +124,16 @@ namespace VegaComp.Migrations
                 name: "VehicleFeatures");
 
             migrationBuilder.DropTable(
-                name: "Feature");
+                name: "Features");
 
             migrationBuilder.DropTable(
                 name: "Vehicles");
+
+            migrationBuilder.DropTable(
+                name: "Models");
+
+            migrationBuilder.DropTable(
+                name: "Makes");
         }
     }
 }

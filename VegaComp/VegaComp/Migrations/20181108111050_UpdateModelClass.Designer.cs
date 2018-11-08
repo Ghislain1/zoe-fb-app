@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using VegaComp.Persistences;
+using VegaComp.Persistence;
 
 namespace VegaComp.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    [Migration("20181102162453_UpdatedErrorFixed")]
-    partial class UpdatedErrorFixed
+    [Migration("20181108111050_UpdateModelClass")]
+    partial class UpdateModelClass
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,6 +42,8 @@ namespace VegaComp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("LastUpdate");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255);
@@ -56,6 +58,8 @@ namespace VegaComp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("LastUpdate");
 
                     b.Property<int>("MakeId");
 

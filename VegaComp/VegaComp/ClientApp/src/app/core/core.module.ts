@@ -5,6 +5,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { RouterModule } from '@angular/router';
 import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,9 @@ import { FetchDataComponent } from './components/fetch-data/fetch-data.component
     NavMenuComponent,
     HomeComponent,
     FetchDataComponent,
-    CounterComponent,],
-  exports: [NavMenuComponent]
+    CounterComponent,
+    PaginationComponent
+  ],
+  exports: [NavMenuComponent, PaginationComponent]
 })
 export class CoreModule { }

@@ -1,41 +1,56 @@
-<div class='main-nav'>
-  <nav class='navbar navbar-expand-lg navbar-dark bg-dark d-flex flex-column'>
-    <div class="navbar-header p-0">
-      <a class='navbar-brand' [routerLink]='["/"]'>VegaComp</a>
-      <button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbarNav' [attr.aria-expanded]='isExpanded'
-        (click)='toggle()'>
-        <span class='sr-only'>Toggle navigation</span>
-        <span class='navbar-toggler-icon'></span>
-      </button>
-    </div>
-    <div class='clearfix p-2'></div>
-    <div id="navbarNav" class='navbar-collapse collapse p-0' [ngClass]='{ "in": isExpanded }'>
-      <ul class='nav navbar-nav flex-column'>
-        <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-          <a [routerLink]='["/"]' class="nav-link" (click)='collapse()'>
-            <span class='fas fa-home'></span> Home
+<nav class="navbar navbar-expand-md navbar-light bg-ghislain fixed-top">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <i class="fa fa-leaf" aria-hidden="true"></i>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+              {{ cart.totalItemsCount }}
+            </span>
           </a>
         </li>
-        <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a [routerLink]='["/counter"]' class="nav-link" (click)='collapse()'>
-            <span class='fas fa-sort-amount-up'></span> Counter
+      </ul>
+      <ul class="navbar-nav">
+        <ng-template #anonymousUser>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        </ng-template>
+        <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            {{ appUser.name }}
           </a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" routerLink="/">Home</a>
+            <a class="dropdown-item" routerLink="/vehicles/new">Registry Vehicle</a>
+            <a class="dropdown-item" routerLink="/vehicles">Views all Vehicles</a>
+            <a class="dropdown-item" routerLink="/makes">Views all Makes</a>
+            <a class="dropdown-item" routerLink="/models">Views all Models</a>
+            <a class="dropdown-item" routerLink="/features">Views all Features</a>
+            <hr />
+
+            <ng-container *ngIf="appUser.isAdmin">
+              <a class="dropdown-item" routerLink="/admin/dashbord">Admin Dashbord</a>
+              <a class="dropdown-item" routerLink="/makes/new">New Make </a>
+              <a class="dropdown-item" routerLink="/models/new">New Model </a>
+              <hr />
+              <a class="dropdown-item" routerLink="/counter">Counter</a>
+              <a class="dropdown-item" routerLink="/fetch-data">Fetch data</a>
+            </ng-container>
+            <a class="dropdown-item" (click)="logout()">Log Out</a>
+          </div>
         </li>
-        <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a [routerLink]='["/fetch-data"]' class="nav-link" (click)='collapse()'>
-            <span class='fas fa-database'></span> Fetch data
-          </a>
-        </li>
-
-        <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a [routerLink]='["/vehicles/new"]' class="nav-link" (click)='collapse()'>
-            <span class='fa fa-plus'></span> New Vehicle
-          </a>
-        </li>
-
-
-
       </ul>
     </div>
-  </nav>
-</div>
+  </div>
+</nav>

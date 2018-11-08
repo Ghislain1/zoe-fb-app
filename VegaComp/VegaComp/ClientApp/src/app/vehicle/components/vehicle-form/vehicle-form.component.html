@@ -20,7 +20,6 @@
     </select>
     <div class="alert alert-danger" *ngIf="model.touched && !model.valid">Please specify the model.</div>
   </div>
-  <!--- Rendering Dynamics check Boxes-->
   <p>Is this vehicle registered?</p>
   <label for="registered" class="radio-inline">
     <input type="radio" name="isRegistered" id="registered" [value]="true" [(ngModel)]="vehicle.isRegistered"> Yes

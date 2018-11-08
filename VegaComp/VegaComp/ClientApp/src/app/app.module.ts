@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 
 import { VehicleModule } from './vehicle/vehicle.module';
 import { CoreModule } from './core/core.module';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ToastrModule,
     CoreModule,
     VehicleModule,
     RouterModule.forRoot([])

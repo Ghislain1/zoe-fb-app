@@ -1,5 +1,4 @@
-﻿
-namespace VegaComp.Controllers
+﻿namespace VegaComp.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -10,13 +9,14 @@ namespace VegaComp.Controllers
     using Microsoft.EntityFrameworkCore;
     using VegaComp.Controllers.Resources;
     using VegaComp.Models;
-    using VegaComp.Persistences;
+    using VegaComp.Persistence;
 
-    [Route("/api/vehicles")]
+    [Route("api/[controller]")]
     public class VehiclesController : Controller
     {
         private readonly VegaDbContext context;
         private readonly IMapper mapper;
+
         public VehiclesController(VegaDbContext context, IMapper mapper)
         {
             this.context = context;
@@ -25,25 +25,24 @@ namespace VegaComp.Controllers
 
         //TODO- why fromBody attribut?--> API Resources Vs Domain Classes
         [HttpPost]
-        public async Task<IActionResult>CreateVehicle([FromBody]VehicleResource vehicle) 
+        public async Task<IActionResult> CreateVehicle([FromBody]VehicleResource vehicle)
         {
-            
-            var veh= this.mapper.Map<VehicleResource, Vehicle>(vehicle);
+            var veh = this.mapper.Map<VehicleResource, Vehicle>(vehicle);
             veh.LastUpdate = DateTime.Now;
 
             this.context.Vehicles.Add(veh);
-            await   context.SaveChangesAsync();
+            await context.SaveChangesAsync();
 
-           var result=  this.mapper.Map<Vehicle, VehicleResource>(veh);
+            var result = this.mapper.Map<Vehicle, VehicleResource>(veh);
             return base.Ok(result);
         }
 
-        [HttpGet("/api/makes")]
-        public  async Task<IEnumerable<MakeResource>> GetMakes()
+        [HttpGet()]
+        public async Task<IEnumerable<MakeResource>> GetVehicles()
         {
             var makes = await this.context.Makes.Include(m => m.Models).ToListAsync();
 
             return mapper.Map<List<Make>, List<MakeResource>>(makes);
-        } 
+        }
     }
 }

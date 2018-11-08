@@ -1,8 +1,11 @@
+import { VehicleService } from './../../services/vehicle.service';
+
 
 import { Component, OnInit } from '@angular/core';
 import { MakeService } from '../../services/make.service';
 import { SaveVehicle } from '../../../shared/models/vehicle';
 import { FeatureService } from '../../services/feature.service';
+import { ModelService } from '../../services/model.service';
 
 @Component({
   selector: 'app-vehicle-form',
@@ -11,8 +14,7 @@ import { FeatureService } from '../../services/feature.service';
 })
 export class VehicleFormComponent implements OnInit {
   makes: any[];
-
-  models: any = {};
+  models: any[];
   features: any[];
   vehicle: SaveVehicle = {
     id: 0,
@@ -26,16 +28,32 @@ export class VehicleFormComponent implements OnInit {
       phone: '',
     }
   };
-  constructor(private makeService: MakeService, private featureService: FeatureService) { }
+  constructor(private makeService: MakeService,
+    private modelService: ModelService,
+    private vehicleService: VehicleService,
 
-  ngOnInit() {
-    this.makeService.getMakes().subscribe(makes => {
-      this.makes = makes;
-      console.log(JSON.stringify(this.makes, null, 4));
-    })
+    private featureService: FeatureService) { }
 
-    //Use this service to get data from a server
-    this.featureService.getFeatures().subscribe(features => this.features = features);
+  async  ngOnInit() {
+
+    //make list
+    const makeList$ = await this.makeService.getMakes();
+    //model list
+    const modelList$ = await this.modelService.getModels();
+    //ferature list
+    const featureList$ = await this.featureService.getFeatures();
+    //vehicles list
+    const vehicleList$ = await this.vehicleService.getVehicles("");
+
+    makeList$.subscribe(makes => this.makes = makes);
+    modelList$.subscribe(models => this.models = models);
+    featureList$.subscribe(features => this.features = features);
+
+    //TODO--> why? not --> vehicleList$.subscribe(vehicles => this.vehicles = vehicles);
+
+
+
+
   }
 
   onMakeChange() {

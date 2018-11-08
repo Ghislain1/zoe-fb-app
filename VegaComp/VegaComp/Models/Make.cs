@@ -1,6 +1,4 @@
-﻿
-
-namespace VegaComp.Models
+﻿namespace VegaComp.Models
 {
     using System;
     using System.Collections.Generic;
@@ -8,18 +6,21 @@ namespace VegaComp.Models
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Threading.Tasks;
+
     public class Make
     {
         public Make()
         {
             this.Models = new Collection<Model>();
         }
-       
+
         public int Id { get; set; }
+        public DateTime LastUpdate { get; set; }
+
+        public ICollection<Model> Models { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
-
-        public ICollection<Model> Models { get; set; }
     }
 }
