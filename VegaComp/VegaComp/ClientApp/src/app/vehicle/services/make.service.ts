@@ -16,12 +16,12 @@ export class MakeService {
 
   }
 
-  create(make: SaveMake): any {
-    return this.httpClient.post(this.makesEndpoint, make);
+  create(make: SaveMake): Observable<Make> {
+    return this.httpClient.post<Make>(this.makesEndpoint, make);
   }
 
-  update(make: SaveMake): any {
-    return this.httpClient.put(this.makesEndpoint + '/' + make.id, make)
+  update(make: SaveMake): Observable<Make> {
+    return this.httpClient.put<Make>(this.makesEndpoint + '/' + make.id, make)
 
   }
 

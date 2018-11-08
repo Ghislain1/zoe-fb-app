@@ -69,7 +69,7 @@ namespace VegaComp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddScoped<IVehicleRepository, VehicleRepository>();
-            services.AddScoped<IMakeRepository, MakeRepository>(); // TOD: Scoped becasue whey the request is done. the Gabagge collector should clean---
+            services.AddScoped<IMakeRepository, MakeRepository>(); // TODO: Scoped because whey the request is completed. the Gabagge collector should clean---
 
             services.AddScoped<IModelRepository, ModelRepository>();
 

@@ -1,8 +1,10 @@
+import { Make } from './../../../shared/models/vehicle';
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { MakeService } from '../../services/make.service';
 import { SaveMake } from '../../../shared/models/vehicle';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-make-form',
@@ -10,13 +12,10 @@ import { SaveMake } from '../../../shared/models/vehicle';
   styleUrls: ['./make-form.component.css']
 })
 export class MakeFormComponent implements OnInit {
-  models: any[];
-
   make: SaveMake = {
     id: 0,
     name,
-    isAfricaManufactured: false,
-
+    isAfricaManufactured: true,
   };
 
 
@@ -24,7 +23,7 @@ export class MakeFormComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private makeService: MakeService,
-    // private toastyService: ToastyService
+    private toastrService: ToastrService
   ) {
 
     route.params.subscribe(p => {
@@ -41,24 +40,15 @@ export class MakeFormComponent implements OnInit {
     console.log(this.make);
   }
 
-  private populatemakes() {
-    // var selectedmake = this.makes.find(m => m.id == this.make.makeId);
-    // this.makes = selectedMake ? selectedMake.makes : [];
-  }
-
 
 
   submit() {
     var result$ = (this.make.id) ? this.makeService.update(this.make) : this.makeService.create(this.make);
     result$.subscribe(make => {
-      // this.toastyService.success({
-      //   title: 'Success',
-      //   msg: 'Data was sucessfully saved.',
-      //   theme: 'bootstrap',
-      //   showClose: true,
-      //   timeout: 5000
-      // });
-      this.router.navigate(['/makes/', make.id])
+
+      this.toastrService.success(make.name + ' is created succesfully! id=' + make.id, 'Creating');
+      // this.router.navigate(['/makes/', make.id])
+      this.router.navigate([]);
     });
   }
 }

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component';
 
@@ -16,9 +17,10 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserAnimationsModule,// TODO--> because of  ToastrModule module see website for more info
     HttpClientModule,
     FormsModule,
-    ToastrModule,
+    ToastrModule.forRoot(),
     CoreModule,
     VehicleModule,
     RouterModule.forRoot([])
