@@ -11,9 +11,11 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', redirectTo: 'vehicles', pathMatch: 'full' }, // Why pathMatch?? and why here??
+      { path: 'home', component: HomeComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      // { path: '**', redirectTo: 'home' }, --> Notfound is better
     ])
   ],
   declarations: [

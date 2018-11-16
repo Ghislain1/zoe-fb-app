@@ -33,10 +33,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let v of queryResult.items">
+
       <td>{{ v.id }}</td>
+      <td>{{ v.contact.name }}</td>
       <td>{{ v.make.name }}</td>
       <td>{{ v.model.name }}</td>
-      <td>{{ v.contact.name }}</td>
+
       <td>
         <a [routerLink]="['/vehicles/', v.id]">View</a>
       </td>

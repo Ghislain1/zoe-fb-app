@@ -13,7 +13,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+            <span class="badge badge-warning badge-pill" *ngIf="vehicles">
               {{ cart.totalItemsCount }}
             </span>
           </a>
@@ -41,9 +41,12 @@
 
             <ng-container *ngIf="appUser.isAdmin">
               <a class="dropdown-item" routerLink="/admin/dashbord">Admin Dashbord</a>
+              <hr />
               <a class="dropdown-item" routerLink="/makes/new">New Make </a>
               <a class="dropdown-item" routerLink="/models/new">New Model </a>
-              <hr />
+              <a class="dropdown-item" routerLink="/vehicles/new">New Vehicle</a>
+              <a class="dropdown-item" routerLink="/features/new">New Feature</a>
+
               <a class="dropdown-item" routerLink="/counter">Counter</a>
               <a class="dropdown-item" routerLink="/fetch-data">Fetch data</a>
             </ng-container>

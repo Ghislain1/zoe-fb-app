@@ -12,6 +12,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Net;
 using VegaComp.Interfaces;
+using VegaComp.Models;
 using VegaComp.Persistence;
 
 namespace VegaComp
@@ -68,23 +69,26 @@ namespace VegaComp
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            //Communicate with PhotoSetting from appsettings.json
+            services.Configure<PhotoSettings>(this.Configuration.GetSection("PhotoSettings"));
+
+            // Repositories
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IMakeRepository, MakeRepository>(); // TODO: Scoped because whey the request is completed. the Gabagge collector should clean---
-
+            services.AddScoped<IFeatureRepository, FeatureRepository>();
             services.AddScoped<IModelRepository, ModelRepository>();
+            services.AddScoped<IPhotoRepository, PhotoRepository>();
 
+            //UnitOfWork to save data
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             //TODO: confurge the serve to call DB TODOD:See syntax of ConnectionString
             var connectionString = this.Configuration.GetConnectionString("Default");
-            //if (!this.CheckConnection(connectionString))
-            //{
-            //    throw new Exception("Server is running" + connectionString);
-            //}
 
-            //
+            // Add Mapper services
             services.AddAutoMapper();
 
+            //Add DataContext--> vega
             services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(connectionString));
 
             // In production, the Angular files will be served from this directory
@@ -92,25 +96,6 @@ namespace VegaComp
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-        }
-
-        private bool CheckConnection(string connectionString)
-        {
-            bool result = false;
-            try
-            {
-                using (var connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    result = true;
-                }
-            }
-            catch (DbException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
-            return result;
         }
     }
 }

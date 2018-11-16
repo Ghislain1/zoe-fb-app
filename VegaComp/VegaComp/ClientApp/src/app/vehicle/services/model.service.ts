@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SaveModel } from '../../shared/models/vehicle';
+
 import { HttpClient } from '@angular/common/http';
+import { SaveModel } from '../../shared/models/model';
 
 @Injectable()
 export class ModelService {

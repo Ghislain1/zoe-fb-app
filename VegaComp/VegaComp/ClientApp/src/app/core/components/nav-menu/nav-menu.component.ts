@@ -9,6 +9,7 @@ import { AuthService } from '../../../shared/services/auth.service';
 export class NavMenuComponent {
 
   appUser: any;
+  vehicles: any;
 
   constructor(private auth: AuthService) {
 

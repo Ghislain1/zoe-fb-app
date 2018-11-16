@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { Vehicle } from './../../shared/models/vehicle';
 import { Injectable } from '@angular/core';
 import { SaveVehicle } from '../../shared/models/vehicle';
 import { HttpClient } from '@angular/common/http';
@@ -16,14 +18,14 @@ export class VehicleService {
 
 
 
-  create(vehicle) {
+  create(vehicle): Observable<Vehicle> {
     // return this.authHttp.post(this.vehiclesEndpoint, vehicle); TODO:
-    return this.httpClient.post(this.vehiclesEndpoint, vehicle);
+    return this.httpClient.post<Vehicle>(this.vehiclesEndpoint, vehicle);
 
   }
 
-  getVehicle(id) {
-    return this.httpClient.get(this.vehiclesEndpoint + '/' + id);
+  getVehicle(id): Observable<Vehicle> {
+    return this.httpClient.get<Vehicle>(this.vehiclesEndpoint + '/' + id);
 
   }
 
@@ -43,9 +45,9 @@ export class VehicleService {
     return parts.join('&');
   }
 
-  update(vehicle: SaveVehicle) {
+  update(vehicle: SaveVehicle): Observable<Vehicle> {
     // TODOD-->return this.authHttp.put(this.vehiclesEndpoint + '/' + vehicle.id, vehicle);
-    return this.httpClient.put(this.vehiclesEndpoint + '/' + vehicle.id, vehicle);
+    return this.httpClient.put<Vehicle>(this.vehiclesEndpoint + '/' + vehicle.id, vehicle);
 
   }
 

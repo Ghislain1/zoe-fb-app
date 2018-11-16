@@ -1,8 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
-import { KeyValuePair, Make } from '../../../shared/models/vehicle';
+
 import { VehicleService } from '../../services/vehicle.service';
 import { MakeService } from '../../services/make.service';
+import { Make } from '../../../shared/models/make';
 
 @Component({
   selector: 'app-vehicle-list',

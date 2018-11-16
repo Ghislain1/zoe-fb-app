@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModelService } from '../../services/model.service';
-import { SaveModel } from '../../../shared/models/vehicle';
+
 import { MakeService } from '../../services/make.service';
 
 import { ToastrService } from 'ngx-toastr';
+import { SaveModel } from '../../../shared/models/model';
 
 @Component({
   selector: 'app-model-form',
@@ -18,7 +19,9 @@ export class ModelFormComponent implements OnInit {
   model: SaveModel = {
     id: 0,
     name,
-    makeId: 0
+    makeId: 0,
+    touched: false,
+    valid: false
   };
 
   makes;

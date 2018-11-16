@@ -9,6 +9,8 @@ import { ModelService } from './services/model.service';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from '../core/core.module';
+import { ViewVehicleComponent } from './components/view-vehicle/view-vehicle.component';
+import { FeatureFormComponent } from './components/feature-form/feature-form.component';
 
 @NgModule({
   imports: [
@@ -17,9 +19,10 @@ import { CoreModule } from '../core/core.module';
     RouterModule,// TODO: remove this and explain the erro message
     CoreModule,
 
+
     VehicleRoutingModule
   ],
-  declarations: [VehicleFormComponent, MakeFormComponent, ModelFormComponent, VehicleListComponent],
+  declarations: [VehicleFormComponent, MakeFormComponent, ModelFormComponent, VehicleListComponent, ViewVehicleComponent, FeatureFormComponent],
   providers: [ModelService]
   // exports: [VehicleFormComponent]
 })

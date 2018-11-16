@@ -53,8 +53,9 @@
         public async Task<IEnumerable<ModelResource>> GetModels()
         {
             var models = await this.context.Models.ToListAsync();
+            var modelsToReturn = mapper.Map<List<Model>, List<ModelResource>>(models);
 
-            return mapper.Map<List<Model>, List<ModelResource>>(models);
+            return modelsToReturn;
         }
 
         public IActionResult Index()

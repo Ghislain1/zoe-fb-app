@@ -14,24 +14,24 @@ namespace VegaComp.Models
         public Vehicle()
         {
             this.Features = new Collection<VehicleFeature>();
+            this.Photos = new Collection<Photo>();
         }
-        public int Id { get; set; }
-        public int ModelId { get; set; }
-        public Model Model { get; set; }
-
-        public bool IsRegistered { get; set; }
-
 
         [Required]
         [StringLength(255)]
-        public string ConctactName { get; set; }
-        public string ConctactPhone { get; set; }
+        public string ContactEmail { get; set; }
+
         [Required]
         [StringLength(255)]
-        public string ConctactEmail { get; set; }
-        public DateTime LastUpdate { get; set; }
+        public string ContactName { get; set; }
 
+        public string ContactPhone { get; set; }
         public ICollection<VehicleFeature> Features { get; set; }
-
+        public int Id { get; set; }
+        public bool IsRegistered { get; set; }
+        public DateTime LastUpdate { get; set; }
+        public Model Model { get; set; }
+        public int ModelId { get; set; }
+        public ICollection<Photo> Photos { get; set; }
     }
 }

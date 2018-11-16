@@ -1,4 +1,4 @@
-export interface KeyValuePair {
+export interface KeyValuePair { // TODO: why this !!
     id: number;
     name: string;
 }
@@ -19,6 +19,7 @@ export interface Vehicle {
     lastUpdate: string;
 }
 
+//Please check unterscheid  SaveVehicle and Vehicle
 export interface SaveVehicle {
     id: number;
     modelId: number;
@@ -28,29 +29,8 @@ export interface SaveVehicle {
     contact: Contact;
 }
 
-export interface SaveMake {
-    id: number;
-    name: string;
-    isAfricaManufactured: boolean;
-    models?: number[];
-
-}
-
-export interface Make {
-    id: number;
-    name: string;
-    isAfricaManufactured: boolean;
-    models?: number[];
-    lastUpdate: string;
-
-}
 
 
-export interface SaveModel {
-    id: number;
-    name: string;
-    makeId: number;
-}
 
 
 

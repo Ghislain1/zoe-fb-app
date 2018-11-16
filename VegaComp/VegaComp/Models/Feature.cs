@@ -10,9 +10,10 @@ namespace VegaComp.Models
     {
         public int Id { get; set; }
 
+        public DateTime LastUpdate { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
-
     }
 }

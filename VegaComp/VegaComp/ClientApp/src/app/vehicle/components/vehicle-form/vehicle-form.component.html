@@ -1,7 +1,5 @@
 <h1>New Vehicle</h1>
-<p>
-  {{ vehicle | json }}
-</p>
+
 <form #f="ngForm" (ngSubmit)="submit()" novalidate>
   <div class="form-group">
     <label for="make">Make</label>
@@ -16,7 +14,7 @@
     <label for="model">Model</label>
     <select id="model" class="form-control" [(ngModel)]="vehicle.modelId" name="modelId" required #model="ngModel">
       <option value=""></option>
-      <option *ngFor="let m of models" value="{{ m.id }}">{{ m.name }}</option>
+      <option *ngFor="let mo of models" value="{{ mo.id }}">{{ mo.name }}</option>
     </select>
     <div class="alert alert-danger" *ngIf="model.touched && !model.valid">Please specify the model.</div>
   </div>
@@ -27,6 +25,7 @@
   <label for="notRegistered" class="radio-inline">
     <input type="radio" name="isRegistered" id="notRegistered" [value]="false" [(ngModel)]="vehicle.isRegistered"> No
   </label>
+
   <h2>Features</h2>
   <div *ngFor="let f of features" class="checkbox">
     <label for="feature{{ f.id }}">
@@ -34,6 +33,8 @@
       {{ f.name }}
     </label>
   </div>
+
+
   <h2>Contact</h2>
   <div class="form-group">
     <label for="contactName">Name</label>

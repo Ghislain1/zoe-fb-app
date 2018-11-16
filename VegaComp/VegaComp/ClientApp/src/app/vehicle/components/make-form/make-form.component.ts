@@ -1,10 +1,11 @@
-import { Make } from './../../../shared/models/vehicle';
+
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { MakeService } from '../../services/make.service';
-import { SaveMake } from '../../../shared/models/vehicle';
+
 import { ToastrService } from 'ngx-toastr';
+import { SaveMake } from '../../../shared/models/make';
 
 @Component({
   selector: 'app-make-form',
@@ -16,6 +17,8 @@ export class MakeFormComponent implements OnInit {
     id: 0,
     name,
     isAfricaManufactured: true,
+    touched: false,
+    valid: true,
   };
 
 

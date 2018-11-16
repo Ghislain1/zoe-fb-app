@@ -25,6 +25,8 @@ namespace VegaComp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("LastUpdate");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255);
@@ -72,21 +74,40 @@ namespace VegaComp.Migrations
                     b.ToTable("Models");
                 });
 
+            modelBuilder.Entity("VegaComp.Models.Photo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<int>("VehicleId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("VegaComp.Models.Vehicle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ConctactEmail")
+                    b.Property<string>("ContactEmail")
                         .IsRequired()
                         .HasMaxLength(255);
 
-                    b.Property<string>("ConctactName")
+                    b.Property<string>("ContactName")
                         .IsRequired()
                         .HasMaxLength(255);
 
-                    b.Property<string>("ConctactPhone");
+                    b.Property<string>("ContactPhone");
 
                     b.Property<bool>("IsRegistered");
 
@@ -119,6 +140,14 @@ namespace VegaComp.Migrations
                     b.HasOne("VegaComp.Models.Make", "Make")
                         .WithMany("Models")
                         .HasForeignKey("MakeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("VegaComp.Models.Photo", b =>
+                {
+                    b.HasOne("VegaComp.Models.Vehicle")
+                        .WithMany("Photos")
+                        .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
