@@ -1,3 +1,4 @@
+import { Photo } from './../../../shared/models/photo';
 import { AuthService } from './../../../shared/services/auth.service';
 import { ProgressService } from './../../../shared/services/progress.service';
 import { PhotoService } from './../../services/photo.service';
@@ -16,7 +17,7 @@ export class ViewVehicleComponent implements OnInit {
   @ViewChild('fileInput') fileInput: ElementRef;
   vehicle: any;
   vehicleId: number;
-  photos: any[];
+  photos: Photo[];
   progress: any;
 
   constructor(
@@ -78,7 +79,7 @@ export class ViewVehicleComponent implements OnInit {
     nativeElement.value = ''; // why???
     this.photoService.upload(this.vehicleId, file)
       .subscribe(photo => {
-        this.photos.push(photo);
+        this.photos.push(photo as Photo);
       },
         err => {
           this.toastrService.error('Error', err.text());

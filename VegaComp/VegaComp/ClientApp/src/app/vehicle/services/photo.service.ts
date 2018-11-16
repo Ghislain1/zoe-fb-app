@@ -1,7 +1,9 @@
+import { Photo } from './../../shared/models/photo';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Jsonp } from '@angular/http';
+
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,11 +29,11 @@ export class PhotoService {
     const result = this.httpClient.post(`/api/vehicles/${vehicleId}/photos`, formData);
 
 
-    return result.pipe(map(res => JSON.parse(res.toString())));
+    return result.pipe(map(res => res));
 
   }
 
-  getPhotos(vehicleId) {
-    return this.httpClient.get(`/api/vehicles/${vehicleId}/photos`).pipe(map(res => JSON.parse(res.toString())));
+  getPhotos(vehicleId): Observable<Photo[]> {
+    return this.httpClient.get<Photo[]>(`/api/vehicles/${vehicleId}/photos`).pipe(map(res => res));
   }
 }
