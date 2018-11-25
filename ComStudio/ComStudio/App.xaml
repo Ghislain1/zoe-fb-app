@@ -1,5 +1,6 @@
-﻿<Application x:Class="ComStudio.App"
-                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Application
+    x:Class="ComStudio.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -7,6 +8,7 @@
                 <ResourceDictionary Source="Resources/TabItemResource.xaml" />
                 <ResourceDictionary Source="Resources/WindowRegionResource.xaml" />
                 <ResourceDictionary Source="Resources/Styles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ComStudio.Web.WpfControls;component/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

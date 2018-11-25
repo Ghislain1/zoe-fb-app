@@ -17,11 +17,6 @@
         {
             this.container = container;
             this.regionManager = regionManager;
-
-            //TODO: GHislain WHy do you do that?
-            //What doses the Value  <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport> in csproject of startpage?
-            // Can you do the sequence diagram for that?
-            CefSetupHelper.SetupCefSharpForWpf();
         }
 
         public void Initialize()

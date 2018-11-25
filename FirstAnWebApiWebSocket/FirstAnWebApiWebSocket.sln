@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstAnWebApiWebSocket", "FirstAnWebApiWebSocket\FirstAnWebApiWebSocket.csproj", "{57A516A0-049F-490B-9C82-A3D1EAA750DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57A516A0-049F-490B-9C82-A3D1EAA750DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57A516A0-049F-490B-9C82-A3D1EAA750DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57A516A0-049F-490B-9C82-A3D1EAA750DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57A516A0-049F-490B-9C82-A3D1EAA750DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F05DE10-3AD1-42AC-AADE-955C6751CA0C}
+	EndGlobalSection
+EndGlobal

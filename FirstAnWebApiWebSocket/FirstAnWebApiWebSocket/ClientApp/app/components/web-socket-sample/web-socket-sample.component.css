@@ -1,0 +1,17 @@
+table {
+    border: 0
+}
+
+.commslog-data {
+    font-family: Consolas, Courier New, Courier, monospace;
+}
+
+.commslog-server {
+    background-color: red;
+    color: white
+}
+
+.commslog-client {
+    background-color: green;
+    color: white
+}

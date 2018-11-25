@@ -1,13 +1,16 @@
 ﻿namespace ComStudio.Modules.Topology
 {
     using ComStudio.Infrastructure;
-    using ComStudio.Modules.Topology.Interfaces;
+    using ComStudio.Infrastructure.Interfaces;
+
     using ComStudio.Modules.Topology.Services;
     using ComStudio.Modules.Topology.ViewModels;
     using ComStudio.Modules.Topology.Views;
+    using ComStudio.Web.Api;
     using Microsoft.Practices.Unity;
     using Prism.Modularity;
     using Prism.Regions;
+    using System.Threading.Tasks;
 
     public class TopologyModule : IModule
     {
@@ -20,17 +23,24 @@
             this.regionManager = regionManager;
         }
 
-        public void Initialize()
+        public async void Initialize()
         {
-            this.container.RegisterType<ITopologyNodeListService, TopologyNodeListService>();
-            // this.container.RegisterType<AddWatchViewModel, AddWatchViewModel>();
-            this.container.RegisterType<TopologyNodeListViewModel, TopologyNodeListViewModel>();
+            await this.container.Resolve<ServerStarter>().LaunchAsnyc();
+
+            this.container.RegisterType<ITopologyService, TopologyService>();
+
+            this.container.RegisterType<TopologyViewModel, TopologyViewModel>();
 
             this.regionManager.RegisterViewWithRegion(RegionNames.MainToolBarRegion,
                                                        () => this.container.Resolve<DiscoverTopologyView>());
 
             this.regionManager.RegisterViewWithRegion(RegionNames.MainRegion,
-                                                       () => this.container.Resolve<TopologyNodeListView>());
+                                                       () => this.container.Resolve<TopologyView>());
+        }
+
+        private async Task Call()
+        {
+            await this.container.Resolve<ServerStarter>().LaunchAsnyc();
         }
     }
 }

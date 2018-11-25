@@ -8,6 +8,7 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using System.Threading;
     using System.Xml.Linq;
 
     public class MarketFeedService : IMarketFeedService, IDisposable
@@ -17,8 +18,8 @@
         private readonly Dictionary<string, decimal> _priceList = new Dictionary<string, decimal>();
         private readonly Dictionary<string, long> _volumeList = new Dictionary<string, long>();
 
-        // private Timer _timer;
         private int _refreshInterval = 10000;
+        private Timer timer;
 
         public MarketFeedService(IEventAggregator eventAggregator)
         : this(XDocument.Parse(Resources.Market), eventAggregator)
@@ -33,7 +34,7 @@
             }
 
             EventAggregator = eventAggregator;
-            // _timer = new Timer(TimerTick);
+            this.timer = new Timer(TimerTick);
 
             var marketItemsElement = document.Element("MarketItems");
             var refreshRateAttribute = marketItemsElement.Attribute("RefreshRate");
@@ -65,7 +66,7 @@
             set
             {
                 _refreshInterval = value;
-                // _timer.Change(_refreshInterval, _refreshInterval);
+                this.timer.Change(_refreshInterval, _refreshInterval);
             }
         }
 
@@ -98,10 +99,13 @@
         protected virtual void Dispose(bool disposing)
         {
             if (!disposing) return;
-            //TODO: GHislain
-            //if (_timer != null)
-            //    _timer.Dispose();
-            //_timer = null;
+
+            if (this.timer != null)
+            {
+                this.timer.Dispose();
+            }
+
+            this.timer = null;
         }
 
         protected void UpdatePrice(string tickerSymbol, decimal newPrice, long newVolume)

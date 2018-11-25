@@ -4,6 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio", "ComStudio\ComStudio.csproj", "{3D9A76A8-71F4-4154-9E65-625E12646472}"
+	ProjectSection(ProjectDependencies) = postProject
+		{11BF080A-E5AF-4419-AA2C-78AC1411C539} = {11BF080A-E5AF-4419-AA2C-78AC1411C539}
+		{FD105C41-BAF1-4F96-9D2F-831FAB1670C2} = {FD105C41-BAF1-4F96-9D2F-831FAB1670C2}
+		{ACB0BA9C-9314-45AF-9A42-7A29DF054D08} = {ACB0BA9C-9314-45AF-9A42-7A29DF054D08}
+		{76D5F1A7-E7B1-41D5-95D4-8B775C408F4E} = {76D5F1A7-E7B1-41D5-95D4-8B775C408F4E}
+		{B42863B9-B859-495F-BE94-DAC3041FBB13} = {B42863B9-B859-495F-BE94-DAC3041FBB13}
+		{A0B421CF-20DB-44F3-AF7C-C8E216F7BAE8} = {A0B421CF-20DB-44F3-AF7C-C8E216F7BAE8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio.Infrastructure", "ComStudio.Infrastructure\ComStudio.Infrastructure.csproj", "{69A40FA3-2F1B-40D3-9DE6-80106F3A4982}"
 EndProject
@@ -18,6 +26,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio.Modules.Market", "ComStudio.Modules.Market\ComStudio.Modules.Market.csproj", "{B42863B9-B859-495F-BE94-DAC3041FBB13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio.Modules.Topology", "ComStudio.Modules.Topology\ComStudio.Modules.Topology.csproj", "{FD105C41-BAF1-4F96-9D2F-831FAB1670C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfControls", "WpfControls", "{ECD43EB7-CCB8-4716-8F6D-DEFE78366E14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio.ChartControls", "ComStudio.ChartControls\ComStudio.ChartControls.csproj", "{E6B3B4CD-E16B-4E02-A9E0-F640565B9AA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio.Web.WpfControls", "ComStudio.Web.WpfControls\ComStudio.Web.WpfControls.csproj", "{99DBAB24-6765-4A6A-B94C-CC62524C14CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{6173397F-982E-4E4F-BC3C-FBDE3D08645D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComStudio.Web.Api", "ComStudio.Web.Api\ComStudio.Web.Api.csproj", "{B7598B13-5DFC-481B-8869-62F25DD0DD87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,9 +75,26 @@ Global
 		{FD105C41-BAF1-4F96-9D2F-831FAB1670C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD105C41-BAF1-4F96-9D2F-831FAB1670C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD105C41-BAF1-4F96-9D2F-831FAB1670C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6B3B4CD-E16B-4E02-A9E0-F640565B9AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6B3B4CD-E16B-4E02-A9E0-F640565B9AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6B3B4CD-E16B-4E02-A9E0-F640565B9AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6B3B4CD-E16B-4E02-A9E0-F640565B9AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DBAB24-6765-4A6A-B94C-CC62524C14CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DBAB24-6765-4A6A-B94C-CC62524C14CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DBAB24-6765-4A6A-B94C-CC62524C14CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DBAB24-6765-4A6A-B94C-CC62524C14CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7598B13-5DFC-481B-8869-62F25DD0DD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7598B13-5DFC-481B-8869-62F25DD0DD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7598B13-5DFC-481B-8869-62F25DD0DD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7598B13-5DFC-481B-8869-62F25DD0DD87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6B3B4CD-E16B-4E02-A9E0-F640565B9AA4} = {ECD43EB7-CCB8-4716-8F6D-DEFE78366E14}
+		{99DBAB24-6765-4A6A-B94C-CC62524C14CF} = {ECD43EB7-CCB8-4716-8F6D-DEFE78366E14}
+		{B7598B13-5DFC-481B-8869-62F25DD0DD87} = {6173397F-982E-4E4F-BC3C-FBDE3D08645D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F6AEEBFB-3ED3-4355-80FD-BAE52B70CD97}
