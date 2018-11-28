@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{6173397F-982
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComStudio.Web.Api", "ComStudio.Web.Api\ComStudio.Web.Api.csproj", "{B7598B13-5DFC-481B-8869-62F25DD0DD87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComStudio.Modules.WebTopology", "ComStudio.Modules.WebTopology\ComStudio.Modules.WebTopology.csproj", "{C6B692BB-7C75-4ACD-968B-A472583F792C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{B7598B13-5DFC-481B-8869-62F25DD0DD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7598B13-5DFC-481B-8869-62F25DD0DD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7598B13-5DFC-481B-8869-62F25DD0DD87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B692BB-7C75-4ACD-968B-A472583F792C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B692BB-7C75-4ACD-968B-A472583F792C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B692BB-7C75-4ACD-968B-A472583F792C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B692BB-7C75-4ACD-968B-A472583F792C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
