@@ -79,7 +79,7 @@ namespace VegaHome
             // 172.17.0.2"
             var connectString = this.Configuration.GetConnectionString("Default");
 
-            var vegaExist = CheckDatabaseExists(connectString, "vega");
+            //var vegaExist = CheckDatabaseExists(connectString, "vega");
 
             services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(connectString));
 

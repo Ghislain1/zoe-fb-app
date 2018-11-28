@@ -1,6 +1,6 @@
 ﻿namespace ComStudio.Infrastructure.Behaviors
 {
-    using Microsoft.Practices.ServiceLocation;
+    using CommonServiceLocator;
     using Prism.Regions;
     using System;
     using System.ComponentModel;

@@ -1,19 +1,36 @@
 ﻿namespace ComStudio
 {
+    using ComStudio.Views;
     using ComStudio.Web.WpfControls.Setups;
+    using Prism.Ioc;
+    using Prism.Modularity;
+    using Prism.Unity;
     using System.Windows;
 
-    public partial class App : Application
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
+
+    public partial class App : PrismApplication
     {
-        protected override void OnStartup(StartupEventArgs e)
+        public App()
         {
-            base.OnStartup(e);
             ICefSharpProvider cefSharpProvider = new CefSharpProvider();
             cefSharpProvider.InitializeCefSharp();
+        }
 
-            ComStudioBootstrapper bootstrapper = new ComStudioBootstrapper();
-            bootstrapper.Run();
-            this.ShutdownMode = ShutdownMode.OnMainWindowClose;
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+            return new ConfigurationModuleCatalog();
+        }
+
+        protected override Window CreateShell()
+        {
+            return Container.Resolve<Shell>();
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
         }
     }
 }

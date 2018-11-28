@@ -5,51 +5,38 @@
     using ComStudio.Modules.Market.Services;
     using ComStudio.Modules.Market.ViewModels;
     using ComStudio.Modules.Market.Views;
-    using Microsoft.Practices.Unity;
+    using Prism.Ioc;
     using Prism.Modularity;
     using Prism.Regions;
 
     public class MarketModule : IModule
-
     {
-        private readonly IUnityContainer container;
-
         private readonly IRegionManager regionManager;
 
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-
-        //private MainRegionController _mainRegionController;
-
-        public MarketModule(IUnityContainer container, IRegionManager regionManager)
-
+        public MarketModule(IRegionManager regionManager)
         {
-            this.container = container;
-
             this.regionManager = regionManager;
         }
 
-        public void Initialize()
-
+        public void Initialize(IContainerProvider containerProvider)
         {
-            this.container.RegisterType<IMarketFeedService, MarketFeedService>();
-
-            this.container.RegisterType<IMarketHistoryService, MarketHistoryService>();
-
-            this.container.RegisterType<TrendLineViewModel, TrendLineViewModel>();
-
             this.regionManager.RegisterViewWithRegion(RegionNames.ResearchRegion,
 
-                                                       () => this.container.Resolve<TrendLineView>());
+                                                       () => containerProvider.Resolve<TrendLineView>());
+        }
 
-            //this._mainRegionController = this.container.Resolve<MainRegionController>();
+        public void OnInitialized(IContainerProvider containerProvider)
+        {
+            this.Initialize(containerProvider);
+        }
 
-            //this.regionManager.RegisterViewWithRegion(RegionNames.TabRegion,
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterSingleton<IMarketFeedService, MarketFeedService>();
 
-            // () => this.container.Resolve<EmployeeDetailsView>());
+            containerRegistry.RegisterSingleton<IMarketHistoryService, MarketHistoryService>();
 
-            //this.regionManager.RegisterViewWithRegion(RegionNames.TabRegion,
-
-            // () => this.container.Resolve<EmployeeProjectsView>());
+            containerRegistry.RegisterSingleton<TrendLineViewModel, TrendLineViewModel>();
         }
     }
 }

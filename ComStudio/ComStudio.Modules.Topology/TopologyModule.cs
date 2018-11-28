@@ -6,41 +6,41 @@
     using ComStudio.Modules.Topology.Services;
     using ComStudio.Modules.Topology.ViewModels;
     using ComStudio.Modules.Topology.Views;
-    using ComStudio.Web.Api;
-    using Microsoft.Practices.Unity;
+    using Prism.Ioc;
     using Prism.Modularity;
     using Prism.Regions;
     using System.Threading.Tasks;
 
     public class TopologyModule : IModule
     {
-        private readonly IUnityContainer container;
         private readonly IRegionManager regionManager;
 
-        public TopologyModule(IUnityContainer container, IRegionManager regionManager)
+        public TopologyModule(IRegionManager regionManager)
         {
-            this.container = container;
             this.regionManager = regionManager;
         }
 
-        public async void Initialize()
+        public void Initialize(IContainerProvider containerProvider)
         {
-            await this.container.Resolve<ServerStarter>().LaunchAsnyc();
-
-            this.container.RegisterType<ITopologyService, TopologyService>();
-
-            this.container.RegisterType<TopologyViewModel, TopologyViewModel>();
+            // await this.container.Resolve<ServerStarter>().LaunchAsnyc();
 
             this.regionManager.RegisterViewWithRegion(RegionNames.MainToolBarRegion,
-                                                       () => this.container.Resolve<DiscoverTopologyView>());
+                                                       () => containerProvider.Resolve<DiscoverTopologyView>());
 
             this.regionManager.RegisterViewWithRegion(RegionNames.MainRegion,
-                                                       () => this.container.Resolve<TopologyView>());
+                                                       () => containerProvider.Resolve<TopologyView>());
         }
 
-        private async Task Call()
+        public void OnInitialized(IContainerProvider containerProvider)
         {
-            await this.container.Resolve<ServerStarter>().LaunchAsnyc();
+            this.Initialize(containerProvider);
+        }
+
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterSingleton<ITopologyService, TopologyService>();
+
+            containerRegistry.RegisterSingleton<TopologyViewModel, TopologyViewModel>();
         }
     }
 }

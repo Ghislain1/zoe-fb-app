@@ -1,12 +1,12 @@
 ﻿namespace ComStudio.Modules.Position.ViewModels
 {
+    using CommonServiceLocator;
     using ComStudio.Infrastructure;
     using ComStudio.Infrastructure.Interfaces;
     using ComStudio.Infrastructure.Models;
     using ComStudio.Modules.Position.Interfaces;
     using ComStudio.Modules.Position.Models;
     using ComStudio.Modules.Position.Properties;
-    using Microsoft.Practices.ServiceLocation;
     using Prism.Commands;
     using Prism.Regions;
     using System;
