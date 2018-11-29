@@ -1,3 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 /* regular style toast */
+
 @import '~ngx-toastr/toastr.css';
+
+.d-relative {
+  position: relative;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 .font-alt {
+  font-family: 'OLean ', cursive;
+}
+
+.navbar.navbar-dark button:hover,
+.navbar.navbar-dark button:focus,
+.navbar.navbar-dark nav-link {
+  color: #dc3545;
+}
+
+.navbar-nav .badge {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  padding-left: .5em;
+  padding-right: .5em;
+  size: 1.5m;
+
+}
+
+.hero-bg {
+  background-image: url('/img/CEL12.png');
+}

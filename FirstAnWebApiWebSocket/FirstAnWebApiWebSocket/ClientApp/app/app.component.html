@@ -1,7 +1,5 @@
 <div class="container-fluid">
-
     <div class="container">
-        <!-- <app-web-socket-sample></app-web-socket-sample> -->
     </div>
     <hr />
     <form #f="ngForm" (ngSubmit)="sendMsg()" novalidate>
@@ -13,7 +11,6 @@
             <div class="alert alert-danger" *ngIf="nickname.touched && !nickname.valid">!! Please specify the nick name
                 !!!!.</div>
         </div>
-
 
         <div class="form-group">
             <label for="message">Message: </label>

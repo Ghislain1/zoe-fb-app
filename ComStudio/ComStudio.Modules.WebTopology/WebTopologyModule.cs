@@ -19,7 +19,7 @@ namespace ComStudio.Modules.WebTopology
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            //TOD refatory programm class !!
+            //TODO refatory programm class !!
             Program.Main(null);
         }
 

@@ -90,6 +90,10 @@
       <Project>{69A40FA3-2F1B-40D3-9DE6-80106F3A4982}</Project>
       <Name>ComStudio.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ComStudio.Modules.WebTopology\ComStudio.Modules.WebTopology.csproj">
+      <Project>{c6b692bb-7c75-4acd-968b-a472583f792c}</Project>
+      <Name>ComStudio.Modules.WebTopology</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\DiscoverTopologyView.xaml">
@@ -108,6 +112,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)*.*" "$(SolutionDir)\$(SolutionName)\$(OutDir)" /Y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)*.*"    "$(SolutionDir)\$(SolutionName)\$(OutDir)" /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>
