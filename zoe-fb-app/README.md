@@ -3,16 +3,17 @@
 * [Intro](#intro)
 * [Screenshots](#screenshots)
 * [Tech Stacks](#techstakts)
-* [Conlusion](#conclusion)
+* [Conclusion](#conclusion)
 
 # Intro
 # Screenshots
   
     
 # Tech Stacks
-* FireBase 
+* [FireBase](https://firebase.google.com/)
   * NoSQL
-  * Angular
+  * Realtime Database - is a serviceor product of firebase - your googlemail konto
+* Angular
     * AngularFireDatabaseModule
     
 # Conclusion
