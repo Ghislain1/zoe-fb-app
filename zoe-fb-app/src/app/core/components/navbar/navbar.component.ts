@@ -14,6 +14,9 @@ export class NavbarComponent implements OnInit {
   appUser: AppUser;
   favories$: Observable<MovieFavory>;
 
+  cart$: Observable<MovieFavory>; // TODO ..
+
+
   constructor(private auth: AuthService, private movieFavoryService: MovieFavoryService) {
   }
 
@@ -21,6 +24,8 @@ export class NavbarComponent implements OnInit {
 
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
     this.favories$ = await this.movieFavoryService.getFavory();
+    this.cart$ = await this.movieFavoryService.getFavory();
+
   }
 
   logout() {
