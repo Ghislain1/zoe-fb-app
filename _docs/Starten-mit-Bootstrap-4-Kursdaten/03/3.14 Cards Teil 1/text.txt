@@ -1,5 +1,0 @@
-Beispiele mit typischen Elementen
-https://getbootstrap.com/docs/4.0/components/card/
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Erfahrung nennt man die Summe aller unserer Irrtümer.
-Thomas Alva Edison

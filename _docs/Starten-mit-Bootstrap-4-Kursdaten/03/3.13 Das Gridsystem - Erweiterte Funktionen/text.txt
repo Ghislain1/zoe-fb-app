@@ -1,3 +1,0 @@
-https://getbootstrap.com/docs/4.0/layout/grid/
-Horizontal-verteilen mit gleichen Abstand rechts &amp; links
-Horizontal-verteilen mit gleichen Abstand dazwischen

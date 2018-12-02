@@ -1,2 +1,0 @@
-https://getbootstrap.com/docs/4.0/components/buttons/
-https://getbootstrap.com/docs/4.0/components/button-group/
