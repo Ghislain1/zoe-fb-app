@@ -61,6 +61,6 @@ export class MoviesComponent implements OnInit {
 
   private log(obst: any) {
 
-    console.log(" MoviesComponent says---> " + JSON.stringify(obst, null, 2));
+    console.log(' MoviesComponent says---> ' + JSON.stringify(obst, null, 2));
   }
 }
