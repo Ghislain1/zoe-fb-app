@@ -1,9 +1,41 @@
-# Use FireBase  as NoSQL Datenbank
+# Zoe-Fb-App
+
+* [Intro](#intro)
+* [Screenshots](#screenshots)
+* [Tech Stacks](#techstakts)
+* [Conlusion](#conclusion)
+
+# Intro
+# Screenshots
+  
+    
+# Tech Stacks
+* FireBase 
+  * NoSQL
+  * Angular
+    * AngularFireDatabaseModule
+    
+# Conclusion
+* Inspiried by [Mosh- Shop- App](https://github.com/mosh-hamedani/organic-shop)
+* Project structure and archictecture
+  * AppModule
+      * AppComponent
+  * AdminModule
+      * AdminComponent
+  * SharedModule
+      * Service-Collections
+      * Model-Collections
+  * CoreModule
+      * Specific Component-Collections
+          * Home
+
+
+Use FireBase  as NoSQL Datenbank
 * NoSQL V relation Daten bank
 * Module AngularFireDatabaseModule has been used
 * Baed on this [guy](https://www.youtube.com/watch?v=k5E2AVpwsko&t=5114s)
  thank for nice tutorial
- and inspiried by [Mosh- Shop- App](https://github.com/mosh-hamedani/organic-shop)
+ and 
 
 
 
