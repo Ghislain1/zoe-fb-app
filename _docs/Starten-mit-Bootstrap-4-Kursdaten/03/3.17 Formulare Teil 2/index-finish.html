@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<!-- Wichtige Meta Daten -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- CSS
+  ============================================================================================= -->
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<!-- Custom -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<a href="https://getbootstrap.com/docs/4.0/components/forms/" target="_blank">
+			<h1>Formular</h1>
+		</a>
+
+		<!-- Einzelne Elemente
+		============================================================================================= -->
+
+		<h2>Einzelne Elemente</h2>
+		<div class="row">
+			<div class="col">
+				<form>
+					<div class="form-group">
+						<label for="text">Text</label>
+						<input type="text" class="form-control" id="text">
+					</div>
+					<div class="form-group">
+						<label for="email">E-Mail</label>
+						<input type="email" class="form-control" id="email" placeholder="E-Mail">
+						<small class="form-text text-muted">Bitte E-Mail hier einfügen</small>
+					</div>
+					<div class="form-group">
+						<label for="auswahl">Auswahl</label>
+						<select id="auswahl" class="form-control">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+				</form>
+			</div>
+			<div class="col">
+				<form>
+					<div class="form-group">
+						<label for="textarea">Nachrricht</label>
+						<textarea id="textarea" rows="8" class="form-control"></textarea>
+					</div>
+					<button type="submit" class="btn btn-warning">Senden</button>
+				</form>
+			</div>
+		</div>
+		
+		<!-- Formularfelder Größen
+		============================================================================================= -->
+		
+		<h2>Formularfelder Größen</h2>
+		<div class="row">
+			<div class="col">
+				<form>
+					<div class="form-group">
+						<label for="klein">Klein</label>
+						<input type="text" class="form-control form-control-sm" id="klein">
+					</div>
+				</form>
+			</div>
+			<div class="col">
+				<form>
+					<div class="form-group">
+						<label for="standard">Standard</label>
+						<input type="text" class="form-control" id="standard">
+					</div>
+				</form>
+			</div>
+			<div class="col">
+				<form>
+					<div class="form-group">
+						<label for="gross">Groß</label>
+						<input type="text" class="form-control form-control-lg" id="gross">
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<!-- Eingabegruppen
+		============================================================================================= -->
+		
+		<a href="https://getbootstrap.com/docs/4.0/components/input-group/">
+			<h2>Eingabegruppen</h2>
+		</a>
+		<div class="row">
+			<div class="col">
+				<h4>Beispiele</h4>
+				<form>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <span class="input-group-text bg-danger text-white">&copy;</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Name">
+					</div>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" placeholder="Name">
+						<div class="input-group-append">
+						  <span class="input-group-text bg-danger text-white">&copy;</span>
+						</div>
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <span class="input-group-text bg-dark text-white">Zahlung</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Betrag">
+						<div class="input-group-append">
+						  <span class="input-group-text bg-dark text-white">&euro;</span>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col">
+				<h4>Größen</h4>
+				<form>
+					<div class="input-group input-group-sm mb-3">
+						<div class="input-group-prepend">
+						  <span class="input-group-text bg-info text-white">&copy;</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Klein">
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <span class="input-group-text bg-info text-white">&copy;</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Standard">
+					</div>
+					<div class="input-group input-group-lg mb-3">
+						<div class="input-group-prepend">
+						  <span class="input-group-text bg-info text-white">&copy;</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Groß">
+					</div>
+				</form>
+			</div>
+			<div class="col">
+				<h4>Mit Button</h4>
+				<form>
+					<div class="input-group input-group-sm mb-3">
+						<input type="text" class="form-control" placeholder="Button">
+						<div class="input-group-append">
+							 <button class="btn btn-warning" type="submit">&rarr;</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts
+  ============================================================================================= -->
+
+	<!-- jQuery -->
+	<script src="assets/js/jquery-3.2.1.min.js"></script>
+	<!-- Popper -->
+	<script src="assets/js/popper.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- Custom -->
+	<script src="assets/js/custom.js"></script>
+
+</body>
+
+</html>

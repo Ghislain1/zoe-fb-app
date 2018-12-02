@@ -1,7 +1,16 @@
-
-- Start a mssql-server instance using the latest update for SQL Server 2017:
+﻿- Start a mssql-server instance using the latest update for SQL Server 2017:
 	docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 -d microsoft/mssql-server-linux:latest
 	* -e: envirmeoment viaraible setzen
+
+FAQs:
+	* Why do you use  ng-bootstrap?--> because angular does not support modal diagal, carousel  from Bootstrap
+ Projekt Meilenstein:
+	* Projekt Vorbereitung
+		- Schriftarte embedded --> fonts.google.com
+		- Montserrat schriftart?
+		- Icon Pack embedded --> https://worldwidehigh.github.io/simple-line-icons/
+	
+
 
 - Connect to Microsoft SQL Server via Docker (sich vorstellen)
 	docker exec -it <container_id|container_name> /opt/mssql-tools/bin/sqlcmd -S <ip-addre> -U sa -P <your_password>
@@ -37,3 +46,4 @@ SQL_APPLICATION
 	|- TABLE-LIST
 		|-Columns-Lists
 		|- Rows-Lists
+

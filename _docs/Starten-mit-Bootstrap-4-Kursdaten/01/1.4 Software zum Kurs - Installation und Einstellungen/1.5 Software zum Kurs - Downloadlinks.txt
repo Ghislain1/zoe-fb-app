@@ -1,0 +1,3 @@
+http://brackets.io
+https://www.google.de/chrome
+https://github.com/tonsky/FiraCode

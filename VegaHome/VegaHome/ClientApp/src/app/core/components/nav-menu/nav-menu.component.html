@@ -1,57 +1,46 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-ghislain fixed-top py-0">
-    <div class="container">
-      <a href="#" class="navbar-brand font-alt">
-        <img src="assets/img/CEL10.png" alt="Loo" class="mr-3 mb-2" height="40"> Zoe &amp; Soso
-      </a>
+<!-- Navigation
+  ============================================================================================= -->
 
-      <div class="navbar-toogler text-justify">
-        <ul class="navbar-nav">
+<header>
+  <!-- Start Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-0">
+    <div class="container">
+      <a class="navbar-brand font-alt" href="#home">
+        <img class="mr-2 mb-3" src="assets/img/logo.svg" height="40" alt="Logo Mug and Move">Zoe &amp; Soso
+      </a>
+      <button class="navbar-toggler btn-round" type="button" data-toggle="collapse" data-target="#navbar-toggle"
+        aria-controls="navbar-toggle">
+        <span class="icon-menu"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end text-uppercase" id="navbar-toggle">
+        <ul class="navbar-nav ">
           <li class="nav-item">
-            <a href="#" class="nav-link">Home</a>
+            <a class="nav-link" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Vehicles</a>
+            <a class="nav-link" href="#ueber-uns">Über uns</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Über uns</a>
+            <a class="nav-link" href="#bohne">Die Bohnen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#produkte">Produkte</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#impressionen">Impressionen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#kontakt">Kontakte</a>
           </li>
           <li class="nav-item d-relative">
-            <a href="#" class="nav-link">
-              <span class="badge badge-danger">4</span>
-              Impression</a>
-          </li>
-
-          <ng-template #anonymousUser>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/login">Login</a>
-            </li>
-          </ng-template>
-          <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
-            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              {{ appUser.name }}
-            </a>
-            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" routerLink="/">Home</a>
-              <a class="dropdown-item" routerLink="/vehicles/new">New Vehicle</a>
-              <a class="dropdown-item" routerLink="/vehicles">Views all Vehicles</a>
-              <hr />
-
-              <ng-container *ngIf="appUser.isAdmin">
-                <a class="dropdown-item" routerLink="/admin/dashbord">Admin Dashbord</a>
-                <a class="dropdown-item" routerLink="/make/new">New Make </a>
-                <a class="dropdown-item" routerLink="/model/new">New Model </a>
-                <hr />
-                <a class="dropdown-item" routerLink="/counter">Counter</a>
-                <a class="dropdown-item" routerLink="/fetch-data">Fetch data</a>
-              </ng-container>
-              <a class="dropdown-item" (click)="logout()">Log Out</a>
-            </div>
+            <a class="nav-link" href="#"><span class="icon-basket"></span><span class="badge badge-pill badge-danger">4</span></a>
           </li>
         </ul>
-        <!--end navbar-nav-->
+        <!-- navbar-nav -->
       </div>
+      <!-- navbar-collapse -->
     </div>
+    <!-- container -->
   </nav>
+  <!-- Ende Navigation -->
 </header>

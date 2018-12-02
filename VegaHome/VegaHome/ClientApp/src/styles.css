@@ -2,26 +2,72 @@
 /* regular style toast */
 
 @import '~ngx-toastr/toastr.css';
+/* Google fonts embebded directly from website Method:1*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300|Oleo+Script+Swash+Caps');
 
-.d-relative {
-  position: relative;
-}
+/*Simple Line embedded --> npm install simple-line-icons --save Method:2*/
+@import '~simple-line-icons/css/simple-line-icons.css';
 
-body {
-  background-color: aliceblue;
+
+/* === Allgemein ===*/
+
+
+/* Schriften */
+
+body,
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
 }
 
 h1,
 h2,
 h3,
 h4,
-h5 .font-alt {
-  font-family: 'OLean ', cursive;
+h5,
+h6,
+.font-alt {
+  font-family: 'Oleo Script Swash Caps', cursive;
 }
 
-.navbar.navbar-dark button:hover,
-.navbar.navbar-dark button:focus,
-.navbar.navbar-dark nav-link {
+
+/* Button */
+
+.btn-round {
+  border-radius: 30px;
+}
+
+
+/* Farben */
+
+.bg-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.9);
+  position: absolute;
+  top: 0;
+}
+
+
+/* Section */
+
+section {
+  padding: 140px 0;
+}
+
+
+/* Hilfsklassen */
+
+.d-relative {
+  position: relative;
+}
+
+
+/* === Navigation ===*/
+
+nav.navbar.navbar-dark button:hover,
+nav.navbar.navbar-dark button:focus,
+nav.navbar.navbar-dark .nav-link:hover {
   color: #dc3545;
 }
 
@@ -29,12 +75,100 @@ h5 .font-alt {
   position: absolute;
   left: 25px;
   bottom: 25px;
-  padding-left: .5em;
   padding-right: .5em;
-  size: 1.5m;
-
+  padding-left: .5em;
 }
 
+.navbar-nav .icon-basket {
+  line-height: 0.8;
+  font-size: 1.5em;
+}
+
+
+/* === Hero ===*/
+
 .hero-bg {
-  background-image: url('/img/CEL12.png');
+  background: url('/././././assets/img/bg-hero.jpg') 50% 0 fixed no-repeat;
+  height: 100vh;
+  background-size: cover;
+}
+
+#home .container {
+  height: 100%;
+}
+
+#home .row {
+  height: 80%;
+}
+
+
+/* === Über uns ===*/
+
+.img-bg {
+  position: absolute;
+  overflow: hidden;
+  right: 0px;
+  bottom: 0;
+  width: 50vw;
+}
+
+
+/* === Die Bohnen ===*/
+
+.bohne-bg {
+  background: url('/././././assets/img/bg-bohne.jpg') 50% 0 fixed no-repeat;
+  height: 100%;
+  background-size: cover;
+}
+
+#bohne .rounded-circle {
+  border: 8px solid #FFF;
+}
+
+/* === Impressionen ===*/
+
+.card-columns {
+  -webkit-column-gap: 0;
+  -moz-column-gap: 0;
+  column-gap: 0;
+}
+
+.card-columns .card {
+  margin-bottom: -1px;
+  border: 0;
+}
+
+
+/* === Newsletter ===*/
+
+.newsletter-bg {
+  background: url('/././././assets/img/bg-newsletter.jpg') 50% 0 fixed no-repeat;
+  height: 100%;
+  background-size: cover;
+}
+
+
+/* === Modal ===*/
+
+.modal-open {
+  padding-right: 0px !important;
+}
+
+
+/* === Kontakt ===*/
+
+.input-group-lg>.form-control {
+  border-radius: 30px;
+}
+
+.input-group-lg .input-group-prepend .input-group-text {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+
+/* === Footer ===*/
+
+.bg-black {
+  background-color: #333;
 }

@@ -1,0 +1,68 @@
+/*HOme specific  e.g Hero = my bild*/
+.hero-bg {
+  background: url('/././././assets/img/bg-hero.jpg') 50% 0 fixed no-repeat;
+  height: 100vh;
+  background-size: cover;
+}
+
+#home .container {
+  height: 100%;
+}
+
+#home row {
+  height: 80%;
+}
+
+/*  Uber Uns section */
+.img-bg {
+  position: absolute;
+  overflow: hidden;
+  right: 0px;
+  bottom: 0;
+
+}
+
+/*Bohne section */
+.bohne-bg {
+  background: url('/././././assets/img/bg-bohne.jpg') 50% 0 fixed no-repeat;
+  height: 100%;
+  background-size: cover;
+}
+
+#bohne .rounded-circle {
+  border: 8px solid #FFF;
+}
+
+/*Carousel Test SECTION */
+.ngbCarousel-bg {
+
+  height: 100%;
+  background-size: cover;
+}
+
+
+
+
+
+/*PRODUKTE SECTION */
+
+/* IMPRESSIONEN */
+.card-columns {
+  -webkit-column-gap: 0;
+  -moz-column-gap: 0;
+  -o-olumn-gap: 0;
+  column-gap: 0;
+}
+
+.card-columns .card {
+  margin-bottom: 1px;
+  border: 0;
+}
+
+/* Newsletter*/
+
+.newsletter-bg {
+  background: url('/././././assets/img/bg-newsletter.jpg') 50% 0 fixed no-repeat;
+  height: 100%;
+  background-size: cover;
+}
