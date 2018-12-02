@@ -11,6 +11,6 @@ Welcome to my page. You have come to the right place to check how i learn a new 
 **Getting Started**
   * [zoe-fb-app](https://github.com/Ghislain1/zoe-fb-app/tree/master/zoe-fb-app) (this is my first angular application)
   * [VegaHome](VegaHome)  VegaComp
-  * [VegaComp](https://github.com/Ghislain1/zoe-fb-app/tree/master/VegaComp/VegaComp) - this project used Docker,MYSQL and more
-  * [ComStudio](https://github.com/Ghislain1/zoe-fb-app/tree/master/ComStudio) - used WPF-Frameword, PRISM-Frameword
+  * [VegaComp](https://github.com/Ghislain1/zoe-fb-app/tree/master/VegaComp/VegaComp) - Docker, MYSQL and more
+  * [ComStudio](https://github.com/Ghislain1/zoe-fb-app/tree/master/ComStudio) - WPF-Framework, PRISM-Framework and more
   * [ZoeSoso]() - used pure Angular this is serverless app for my daughter
