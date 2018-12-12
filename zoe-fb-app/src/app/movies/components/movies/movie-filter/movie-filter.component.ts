@@ -8,19 +8,18 @@ import { CategoryService } from '../../../../shared/services/category.service';
 })
 export class MovieFilterComponent implements OnInit {
   categories$;
+
+  // tslint:disable-next-line:no-input-rename
   @Input('category') category;
 
   constructor(categoryService: CategoryService) {
     this.categories$ = categoryService.getAll();
-
-
   }
 
   ngOnInit() {
     this.log('Init...');
   }
   private log(obst: any) {
-
     console.log(JSON.stringify(obst, null, 3));
   }
 }

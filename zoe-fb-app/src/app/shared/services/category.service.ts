@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, QueryFn, PathReference } from 'angularfire2/database';
 
 @Injectable()
 export class CategoryService {
@@ -17,14 +17,15 @@ export class CategoryService {
 
 
   getAll() {
-    const cta = this.db.list('/categories');
+    const queryFn: QueryFn = fn => fn.orderByChild('name');
+    const cta = this.db.list('/categories', queryFn);
+
     this.log(cta);
     // TODO: Ghislain https://github.com/angular/angularfire2/blob/master/docs/rtdb/lists.md
     return cta.valueChanges();
   }
 
   private log(obst: any) {
-
-    console.log(" CategoryService says: " + JSON.stringify(obst, null, 4));
+    console.log(' CategoryService says: ' + JSON.stringify(obst, null, 4));
   }
 }

@@ -65,4 +65,8 @@
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="echo &quot;****************************************** COPY Start:::**********************&quot;&#xD;&#xA;echo &quot;    &quot;&#xD;&#xA;echo &quot;    &quot;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;xcopy &quot;$(TargetDir)*.*&quot;      &quot;$(SolutionDir)\$(SolutionName)\$(OutDir)&quot; /Y /F&#xD;&#xA;&#xD;&#xA;echo &quot;    &quot;" />
   </Target>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="dir&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;PING -n 31 127.0.0.1&gt;nul&#xD;&#xA;FOR /L %%G IN (1,1,50) DO echo &quot; ++++++++++++++++++++++++++&quot;" />
+  </Target>
 </Project>

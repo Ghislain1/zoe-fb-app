@@ -1,81 +1,18 @@
-# hil
-
-Start a mssql server instance
-docker run -d -p 1433:1433 -e sa_password=MyComplexPassword!234  -e ACCEPT_EULA=Y microsoft/mssql-server-windows-developer
-
-
-+ features
-    - scss 
-    - project struture
-    - core module()
- + npm package Dependencies 
-   - 
-    
- # topo-app
- + Feature
-    - css
-    - bootstrapwith cdn
-    - project struture (CORE ,shared, containers)
- + npm package Dependencies 
-   - gojs
-   - 
-    
-    
-  # ghislainone
-  + features
-
-  # Use FireBase  as NoSQL Datenbank
-* NoSQL V relation Daten bank
-* Module AngularFireDatabaseModule has been used
-* Baed on this [guy](https://www.youtube.com/watch?v=k5E2AVpwsko&t=5114s)
- thank for nice tutorial
- and inspiried by [Mosh- Shop- App](https://github.com/mosh-hamedani/organic-shop)
 
 
 
-* For Architecture 
-@startuml
-folder UI{
+# My work experience
 
-  node app #green
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Ghislain1/zoe-fb-app/blob/master/LICENSE)
 
-  node admin #red
-  node core #yellow
-  node movies #violet
-  node shared #cyan
- 
+**Intro**
 
-  node home #yellow
-  node navbar  #yellow
-  node login  #yellow
-  
-  node movieFilter #violet
+Welcome to my page. You have come to the right place to check how i learn a new technologie to become a best software developer, you can also suggest a new technologie  and of cause contribute to any listing project above:
 
-  node movieCard  #cyan
-  node movieQuantity  #violet
- node movieForm #violet
- node movieFavorySummary#violet
- node checkOut  #violet
+**Getting Started**
 
-
-  
- 
-} 
-
-app .. admin
-app .. core
-app .. movies
-app .. shared
-
-core .. login
-core .. home
-core .. navbar
- 
-movies .. movieFavorySummary 
-movies .. movieForm 
-movies .. checkOut  
-movies .. movieFilter 
-shared .. movieCard
-shared .. movieQuantity
-@enduml
-  
+  * [zoe-fb-app](https://github.com/Ghislain1/zoe-fb-app/tree/master/zoe-fb-app) (this is my first angular application)
+  * [VegaHome](VegaHome)  VegaComp
+  * [VegaComp](https://github.com/Ghislain1/zoe-fb-app/tree/master/VegaComp/VegaComp) - Docker, MYSQL and more
+  * [ComStudio](https://github.com/Ghislain1/zoe-fb-app/tree/master/ComStudio) - WPF-Framework, PRISM-Framework and more
+  * [ZoeSoso]() - used pure Angular this is serverless app for my daughter

@@ -32,7 +32,7 @@ export class MovieFavory {
   }
   get totalPrice() {
 
-    //TODO: GHislain why MovieFoavor gets a prices???
+    // TODO: GHislain why MovieFoavor gets a prices???
     return 0;
   }
 }
