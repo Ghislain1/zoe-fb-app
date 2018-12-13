@@ -17,6 +17,6 @@ Welcome to my page. You have come to the right place to check how i learn a new 
   * [ComStudio](https://github.com/Ghislain1/zoe-fb-app/tree/master/ComStudio) - WPF-Framework, PRISM-Framework and more
   * [ZoeSoso](https://ghislain1.github.io/zoe-fb-app/) - Angular 7+, ASP.NET Core, AWS(Baas) and more
   
- **Real Project**
+ **Real App**
  
   * [my familywebsite](https://ghislain1.github.io/zoe-fb-app/) : https://ghislain1.github.io/zoe-fb-app/
