@@ -1,4 +1,14 @@
-﻿- Start a mssql-server instance using the latest update for SQL Server 2017:
+**GIT**
+* git clone [url] -b [branch-name] --single-branch
+	* [url]= https://github.com/Ghislain1/zoe-fb-app
+	* [branch-name]= gh-pages
+	* [deploy app](https://angular.io/guide/deployment) and more
+	
+* ng build --prod --output-path docs --base-href <project_name>
+	* docs = folder of output files ( files to push)
+
+**DOCKER**
+- Start a mssql-server instance using the latest update for SQL Server 2017:
 	docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 -d microsoft/mssql-server-linux:latest
 	* -e: envirmeoment viaraible setzen
 
