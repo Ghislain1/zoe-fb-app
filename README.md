@@ -19,4 +19,7 @@ Welcome to my page. You have come to the right place to check how i learn a new 
   
  **Real App**
  
-  * [my familywebsite](https://ghislain1.github.io/zoe-fb-app/) : https://ghislain1.github.io/zoe-fb-app/
+  * [Zoe&Soso](https://ghislain1.github.io/zoe-fb-app/): Displaying over login family fotos
+    * Fotos should be stored in AWS (comming soon..)
+    * Dockerizing (later)
+    * Git --> git clone [url] -b [branch-name] --single-branch
