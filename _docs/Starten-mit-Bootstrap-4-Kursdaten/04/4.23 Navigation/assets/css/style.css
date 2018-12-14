@@ -1,0 +1,34 @@
+/* === Allgemein ===*/
+
+
+/* Schriften */
+
+body,
+p {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-alt {
+	font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+
+/* Button */
+
+.btn-round {
+	border-radius: 30px;
+}
+
+
+/* Hilfsklassen */
+
+.d-relative {
+	position: relative;
+}

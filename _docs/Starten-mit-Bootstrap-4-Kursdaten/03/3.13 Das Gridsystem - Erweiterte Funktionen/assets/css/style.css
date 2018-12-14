@@ -1,0 +1,42 @@
+h1 {
+	margin: 20px 0;
+	padding-bottom: 7px;
+	border-bottom: 2px solid #ffc107;
+	color: #000;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+h2 {
+	margin: 20px 0;
+	color: #000;
+}
+
+.container {
+	padding: 25px 0;
+}
+
+#vertikal .row {
+	height: 15vh;
+}
+
+#horizontal .row {
+	height: 40px;
+}
+
+.row {
+	margin: 20px 0px;
+	background-color: #d5d5d5;
+}
+
+.row [class^="col"]:nth-child(even) {
+	height: 40px;
+	background-color: #3d4a4f;
+}
+
+.row [class^="col"]:nth-child(odd) {
+	height: 40px;
+	background-color: #ffc107;
+}
