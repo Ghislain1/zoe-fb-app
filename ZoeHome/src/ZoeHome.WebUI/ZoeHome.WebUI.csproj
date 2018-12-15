@@ -13,4 +13,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ZoeHome.Core.Interface\ZoeHome.Core.Interface.csproj" />
+    <ProjectReference Include="..\ZoeHome.Core\ZoeHome.Core.csproj" />
+  </ItemGroup>
+
 </Project>

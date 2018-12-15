@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ZoeHome.Core.Interface;
+using ZoeHome.Core.Services;
 
 namespace ZoeHome.WebUI
 {
@@ -44,7 +46,7 @@ namespace ZoeHome.WebUI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             // Add framework services.
             services.AddTransient<INotificationService, NotificationService>();
-            services.AddTransient<IDateTimeService, MachineDateTime>();
+            services.AddTransient<IDateTimeService, MachineDateTimeService>();
         }
     }
 }
