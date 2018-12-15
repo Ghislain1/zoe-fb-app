@@ -18,6 +18,7 @@
     <ProjectReference Include="..\ZoeHome.Application.Interface\ZoeHome.Application.Interface.csproj" />
     <ProjectReference Include="..\ZoeHome.Application\ZoeHome.Application.csproj" />
     <ProjectReference Include="..\ZoeHome.Infrastructure\ZoeHome.Infrastructure.csproj" />
+    <ProjectReference Include="..\ZoeHome.Persistence\ZoeHome.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

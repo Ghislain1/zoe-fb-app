@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ZoeHome.Application.Interface;
 using ZoeHome.Infrastructure;
+using ZoeHome.Persistence;
 
 namespace ZoeHome.WebUI
 {
@@ -25,7 +26,8 @@ namespace ZoeHome.WebUI
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, ZoeHomeDbContext ZoeHomeDbContext,
+            IConfiguration configuration)
         {
             if (env.IsDevelopment())
             {
@@ -48,6 +50,18 @@ namespace ZoeHome.WebUI
             // Add framework services.
             services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<IDateTimeService, MachineDateTimeService>();
+
+            // Cors policy is added to controllers via [EnableCors("CorsPolicy")] or
+            // .UseCors("CorsPolicy") globally
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials());
+            });
         }
     }
 }
