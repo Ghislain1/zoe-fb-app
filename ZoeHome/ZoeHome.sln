@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoeHome.Infrastructure", "src\ZoeHome.Infrastructure\ZoeHome.Infrastructure.csproj", "{CE4A528E-2A5B-4CBD-9346-4F5CBE25B324}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoeHome.Persistence", "src\ZoeHome.Persistence\ZoeHome.Persistence.csproj", "{9EB3CA7E-AA23-4238-80B1-0DF3542C1E9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{CE4A528E-2A5B-4CBD-9346-4F5CBE25B324}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE4A528E-2A5B-4CBD-9346-4F5CBE25B324}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE4A528E-2A5B-4CBD-9346-4F5CBE25B324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB3CA7E-AA23-4238-80B1-0DF3542C1E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB3CA7E-AA23-4238-80B1-0DF3542C1E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB3CA7E-AA23-4238-80B1-0DF3542C1E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB3CA7E-AA23-4238-80B1-0DF3542C1E9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{78619834-A7FF-4BA9-ACBF-9BCF92EF3076} = {2CD1D00A-20C8-45FE-90B0-9D02B46C6470}
 		{AF1DA87D-DFED-4E86-A63E-19E74E93A062} = {2CD1D00A-20C8-45FE-90B0-9D02B46C6470}
 		{CE4A528E-2A5B-4CBD-9346-4F5CBE25B324} = {992DEE5C-A01A-4175-8D4C-0E1C758696A4}
+		{9EB3CA7E-AA23-4238-80B1-0DF3542C1E9F} = {BDB7076D-D837-4999-8BE2-2344B1B42173}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98FECDD8-1A21-430A-AAD9-37805C9F3090}
