@@ -3,9 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoeHome.Common", "src\ZoeHome.Common\ZoeHome.Common.csproj", "{1673E8E1-4E8B-4E8D-9AD1-2B57F3913D60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoeHome.Domain", "src\ZoeHome.Domain\ZoeHome.Domain.csproj", "{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F82910FF-EB37-420B-9C05-C7D43E8829A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C0E6AA04-4A50-4CB3-955F-FE2CD0D4D65F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1673E8E1-4E8B-4E8D-9AD1-2B57F3913D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1673E8E1-4E8B-4E8D-9AD1-2B57F3913D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1673E8E1-4E8B-4E8D-9AD1-2B57F3913D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1673E8E1-4E8B-4E8D-9AD1-2B57F3913D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1673E8E1-4E8B-4E8D-9AD1-2B57F3913D60} = {F82910FF-EB37-420B-9C05-C7D43E8829A1}
+		{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445} = {C0E6AA04-4A50-4CB3-955F-FE2CD0D4D65F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98FECDD8-1A21-430A-AAD9-37805C9F3090}
