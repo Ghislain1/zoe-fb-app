@@ -7,4 +7,4 @@
 	* Data structure for Track, Albums, User, Artist
 	
 # Data Struture for Entities
-![Screenshot](https://github.com/Ghislain1/zoe-fb-app/edit/master/OnlyGui/Specs/Diagram.JPG)
+![Screenshot](https://github.com/Ghislain1/zoe-fb-app/blob/master/OnlyGui/Specs/Diagram.JPG)
