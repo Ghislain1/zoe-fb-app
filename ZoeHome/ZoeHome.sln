@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoeHome.Common", "src\ZoeHome.Common\ZoeHome.Common.csproj", "{1673E8E1-4E8B-4E8D-9AD1-2B57F3913D60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZoeHome.Common", "src\ZoeHome.Common\ZoeHome.Common.csproj", "{1673E8E1-4E8B-4E8D-9AD1-2B57F3913D60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoeHome.Domain", "src\ZoeHome.Domain\ZoeHome.Domain.csproj", "{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZoeHome.Domain", "src\ZoeHome.Domain\ZoeHome.Domain.csproj", "{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F82910FF-EB37-420B-9C05-C7D43E8829A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C0E6AA04-4A50-4CB3-955F-FE2CD0D4D65F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{5B1CAE3E-03A6-4E9B-ADFD-ACA4019148B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebUI", "WebUI", "{F5801E3C-4ADC-4A38-969D-3715901F2B96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoeHome.WebUI", "src\ZoeHome.WebUI\ZoeHome.WebUI.csproj", "{0E3166AF-DF56-4658-A00E-9A778C9E8CD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +31,10 @@ Global
 		{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E3166AF-DF56-4658-A00E-9A778C9E8CD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E3166AF-DF56-4658-A00E-9A778C9E8CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E3166AF-DF56-4658-A00E-9A778C9E8CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E3166AF-DF56-4658-A00E-9A778C9E8CD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1673E8E1-4E8B-4E8D-9AD1-2B57F3913D60} = {F82910FF-EB37-420B-9C05-C7D43E8829A1}
 		{6DE1D2FA-15C2-4549-8B5E-4C28BA69A445} = {C0E6AA04-4A50-4CB3-955F-FE2CD0D4D65F}
+		{0E3166AF-DF56-4658-A00E-9A778C9E8CD2} = {F5801E3C-4ADC-4A38-969D-3715901F2B96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98FECDD8-1A21-430A-AAD9-37805C9F3090}
