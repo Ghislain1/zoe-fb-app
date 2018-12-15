@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZoeHome.Core
+namespace ZoeHome.Application
 {
     public class Class1
     {

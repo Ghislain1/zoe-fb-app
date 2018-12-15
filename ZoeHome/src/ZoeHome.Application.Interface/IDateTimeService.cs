@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ZoeHome.Core.Interface
+namespace ZoeHome.Application.Interface
 {
-    public interface INotificationService
+    public interface IDateTimeService
     {
     }
 }

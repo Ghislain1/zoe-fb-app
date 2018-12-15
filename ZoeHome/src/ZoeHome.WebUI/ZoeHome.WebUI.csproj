@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ZoeHome.Core.Interface\ZoeHome.Core.Interface.csproj" />
-    <ProjectReference Include="..\ZoeHome.Core\ZoeHome.Core.csproj" />
+    <ProjectReference Include="..\ZoeHome.Application.Interface\ZoeHome.Application.Interface.csproj" />
+    <ProjectReference Include="..\ZoeHome.Infrastructure\ZoeHome.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
