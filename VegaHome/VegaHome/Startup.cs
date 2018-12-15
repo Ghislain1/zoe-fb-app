@@ -76,7 +76,7 @@ namespace VegaHome
             services.AddTransient<IPhotoService, PhotoService>();
             services.AddTransient<IPhotoStorage, FileSystemPhotoStorage>();
 
-            // 172.17.0.2"
+            // 192.168.99.100
             var connectString = this.Configuration.GetConnectionString("Default");
 
             //var vegaExist = CheckDatabaseExists(connectString, "vega");

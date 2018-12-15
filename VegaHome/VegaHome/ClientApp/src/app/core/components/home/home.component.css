@@ -1,6 +1,6 @@
 /*HOme specific  e.g Hero = my bild*/
 .hero-bg {
-  background: url('/././././assets/img/bg-hero.jpg') 50% 0 fixed no-repeat;
+  background: url('/././././assets/img/Zoe2.jpg') 50% 0 fixed no-repeat;
   height: 100vh;
   background-size: cover;
 }
@@ -24,7 +24,7 @@
 
 /*Bohne section */
 .bohne-bg {
-  background: url('/././././assets/img/bg-bohne.jpg') 50% 0 fixed no-repeat;
+  background: url('/././././assets/img/Zoe1.jpg') 50% 0 fixed no-repeat;
   height: 100%;
   background-size: cover;
 }
