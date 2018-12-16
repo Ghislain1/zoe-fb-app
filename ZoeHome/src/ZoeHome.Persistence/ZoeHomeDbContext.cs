@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using ZoeHome.Domain.Entities;
+using ZoeHome.Persistence.Extensions;
 
 namespace ZoeHome.Persistence
 {
@@ -16,7 +17,7 @@ namespace ZoeHome.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // modelBuilder.ApplyAllConfigurations();
+            modelBuilder.ApplyAllConfigurations();
         }
     }
 }

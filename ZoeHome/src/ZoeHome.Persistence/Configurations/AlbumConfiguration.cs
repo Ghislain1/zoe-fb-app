@@ -11,9 +11,9 @@ namespace ZoeHome.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Album> builder)
         {
-            builder.HasKey(e => e.AlbumId);
+            builder.HasKey(e => e.Id);
 
-            builder.Property(e => e.AlbumId).HasColumnName("AlbumId");
+            builder.Property(e => e.Id).HasColumnName("Id");
 
             // builder.Property(e => e.CategoryId).HasColumnName("CategoryID");
 

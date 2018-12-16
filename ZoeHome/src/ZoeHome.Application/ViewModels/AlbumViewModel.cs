@@ -14,7 +14,7 @@ namespace ZoeHome.Application.ViewModels
             {
                 return p => new AlbumViewModel
                 {
-                    AlbumId = p.AlbumId,
+                    AlbumId = p.Id,
                     AlbumName = p.Title,
                 };
             }

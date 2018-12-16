@@ -12,7 +12,7 @@ namespace ZoeHome.Application.ViewModels
             {
                 return p => new AlbumDto
                 {
-                    AlbumId = p.AlbumId,
+                    AlbumId = p.Id,
 
                     //UnitPrice = p.UnitPrice,
                     //SupplierId = p.SupplierId,

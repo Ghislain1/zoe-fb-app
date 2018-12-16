@@ -12,11 +12,11 @@ namespace ZoeHome.Domain.Entities
             Tracks = new List<Track>();
         }
 
-        public int AlbumId { get; set; }
         public string AmazonUrl { get; set; }
         public virtual Artist Artist { get; set; }
         public int ArtistId { get; set; }
         public string Description { get; set; }
+        public int Id { get; set; }
         public string ImageUrl { get; set; }
         public string SpotifyUrl { get; set; }
         public string Title { get; set; }
