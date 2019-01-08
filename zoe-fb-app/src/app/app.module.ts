@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { MoviesModule } from './movies/movies.module';
 import { MoviesComponent } from './movies/components/movies/movies.component';
 import { AdminModule } from './admin/admin.module';
+import { HomeComponent } from './core/components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { AdminModule } from './admin/admin.module';
     CoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
-      { path: '', component: MoviesComponent },
+      { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
     ])
   ],
