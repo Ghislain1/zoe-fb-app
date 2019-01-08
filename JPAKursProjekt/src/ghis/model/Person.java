@@ -13,6 +13,7 @@ import javax.persistence.*;
 public class Person implements Serializable {
 
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	private long id;
 	private String vorname;
