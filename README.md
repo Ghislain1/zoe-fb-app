@@ -24,3 +24,4 @@ Welcome to my page. You have come to the right place to check how i learn a new 
     * Fotos should be stored in AWS (comming soon..)
     * Dockerizing (later)
     * Git --> git clone [url] -b [branch-name] --single-branch
+    * [How to deploy gitpage](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch)
