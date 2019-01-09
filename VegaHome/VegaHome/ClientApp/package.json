@@ -7,6 +7,8 @@
     "start": "ng serve",
     "build": "ng build",
     "build:ssr": "npm run build -- --app=ssr --output-hashing=media",
+    "deploy:gh": "ng build --prod --output-path docs --base-href gh",
+    "deploy:0": "ng build --prod --output-path docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
