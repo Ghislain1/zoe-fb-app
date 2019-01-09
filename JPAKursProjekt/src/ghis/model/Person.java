@@ -70,5 +70,11 @@ public class Person implements Serializable {
 	public void setKommentar(String kommentar) {
 		this.kommentar = kommentar;
 	}
+	
+	@Override
+    public String toString() {
+			 
+			return this.vorname + " "+ this.nachname;
+		}
    
 }
