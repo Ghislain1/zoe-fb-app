@@ -7,8 +7,9 @@
     "start": "ng serve",
     "build": "ng build",
     "build:ssr": "npm run build -- --app=ssr --output-hashing=media",
-    "deploy:gh": "ng build --prod --output-path docs --base-href gh",
+    "deploy:2": "ng build --prod --output-path docs --base-href gh",
     "deploy:0": "ng build --prod --output-path docs",
+    "deploy:1": "ng build --prod --output-path docs --base-href zoe-fb-app",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
