@@ -13,9 +13,10 @@ Welcome to my page. You have come to the right place to check how i learn a new 
 
   * [zoe-fb-app](https://github.com/Ghislain1/zoe-fb-app/tree/master/zoe-fb-app) (this is my first angular application)
   * [VegaHome](VegaHome)  VegaComp
+  * [JPAKursProjekt](https://github.com/Ghislain1/zoe-fb-app/tree/master/JPAKursProjekt/src) - JPA- Hibernate project, Oracle DB, JavaFx and more...
   * [VegaComp](https://github.com/Ghislain1/zoe-fb-app/tree/master/VegaComp/VegaComp) - Docker, MYSQL and more
   * [ComStudio](https://github.com/Ghislain1/zoe-fb-app/tree/master/ComStudio) - WPF-Framework, PRISM-Framework and more
-  * [ZoeSoso](https://ghislain1.github.io/zoe-fb-app/) - Angular 7+, ASP.NET Core, AWS(Baas) and more
+  * [ZoeSoso](https://github.com/Ghislain1/zoe-fb-app/tree/master/VegaHome/VegaHome/ClientApp) - this is the frontend of VegaHome project
   
  **Real App**
  
