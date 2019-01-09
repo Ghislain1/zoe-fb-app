@@ -15,7 +15,7 @@ Welcome to my page. You have come to the right place to check how i learn a new 
   * [VegaHome](VegaHome)  VegaComp
   * [VegaComp](https://github.com/Ghislain1/zoe-fb-app/tree/master/VegaComp/VegaComp) - Docker, MYSQL and more
   * [ComStudio](https://github.com/Ghislain1/zoe-fb-app/tree/master/ComStudio) - WPF-Framework, PRISM-Framework and more
-  * [ZoeSoso](https://ghislain1.github.io/zoe-fb-app/) - Angular 7+, ASP.NET Core, AWS(Baas) and more
+  * [ZoeSoso](https://github.com/Ghislain1/zoe-fb-app/tree/master/VegaHome/VegaHome/ClientApp) - this is the fronend of VegaHone
   
  **Real App**
  
