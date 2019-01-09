@@ -7,7 +7,7 @@
 			<property name="javax.persistence.jdbc.user" value="jpakurs"/>
 			<property name="javax.persistence.jdbc.password" value="0000"/>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
-			<property name="hibernatehbm2ddl.auto" value="create"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -1,0 +1,38 @@
+
+
+***************+ JPA-Hibernate Udemy Kurs*****************************
+
+Oracle DB Downloaden
+	* Register on webseite
+	* Datenbankmagemnetsystem
+	* Oracle SQL is die Sprache dafür!!
+	* Gzeleu@protonmail.com
+	* Oracle Database Express Edition for 64 bit
+	
+
+Command Line Tools:
+	* Table angelget
+	* Temporary Angelegt
+	* Grant angelegt
+	* User angelegt*
+	
+
+SQL Developer Downloaden
+	* UI to see or SQL Query to database
+	* Database hinauzuschauen
+	* Oracle SQL developer installieren und Funktionsprüfung durchführen (Abschnit 2 - 8)
+	
+
+JPA Diagram Editor
+	* Help --> Marketplace
+	* Why? Beziehng zwischen der Klassen zu visualizieren
+
+JPA Project anlegen with Hibernate
+	* Hibernate ist eine Implemnetierug von JPA
+	* JPA version?
+	* Auf nächste Seite wird gefragt wie class Src nennen soll?--> lassen wir scr
+	* JPA Facet: wird gefragt welche Library genutzt werden soll? --> hibernate.
+	* Hibernate mannulee herunterladen --> http://hibernate.org/
+	* An object relational-mapping (ORM) library for Java
+	*JPA Facet: wird gefragt welche DatenBank genutzt werden soll?
+	* Welhe Driver für DB soll genutzt werden --> 

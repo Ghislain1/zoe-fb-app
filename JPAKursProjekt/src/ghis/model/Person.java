@@ -19,6 +19,14 @@ public class Person implements Serializable {
 	private String vorname;
 	private String nachname;
 	private static final long serialVersionUID = 1L;
+	
+	@Lob
+	private byte[] passBild;
+	
+	@Column(name="Hinweis")
+	private String kommentar;
+	 
+	private String lieblingsfarbe;
 
 	public Person() {
 		super();
@@ -43,6 +51,24 @@ public class Person implements Serializable {
 
 	public void setNachname(String nachname) {
 		this.nachname = nachname;
+	}
+	public byte[] getPassBild() {
+		return passBild;
+	}
+	public void setPassBild(byte[] passBild) {
+		this.passBild = passBild;
+	}
+	public String getLieblingsfarbe() {
+		return lieblingsfarbe;
+	}
+	public void setLieblingsfarbe(String lieblingsfarbe) {
+		this.lieblingsfarbe = lieblingsfarbe;
+	}
+	public String getKommentar() {
+		return kommentar;
+	}
+	public void setKommentar(String kommentar) {
+		this.kommentar = kommentar;
 	}
    
 }
