@@ -2,7 +2,11 @@ package ghis.model;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.sql.Date;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity implementation class for Entity: Person
@@ -11,24 +15,29 @@ import javax.persistence.*;
 @Entity
 
 public class Person implements Serializable {
-
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="gen")
+	@SequenceGenerator(name="gen", sequenceName="Personensequenz", initialValue=1000, allocationSize=10)	 
 	private long id;
 	private String vorname;
-	private String nachname;
-	private static final long serialVersionUID = 1L;
-	
+	private String nachname;	
 	@Lob
-	private byte[] passBild;
-	
+	private byte[] passBild;	
 	@Column(name="Hinweis")
-	private String kommentar;
-	 
+	private String kommentar;	 
 	private String lieblingsfarbe;
+	
+	@OneToOne(mappedBy="person", cascade=CascadeType.PERSIST)
+	private Adresse adresse;
+	
+	private Emailadresse emailadresse;
+	private Date geburtsdatum;
+	private Geschlecht geschlecht;
 
-	public Person() {
+
+	public Person() { 
 		super();
 	}   
 	public long getId() {
@@ -76,5 +85,33 @@ public class Person implements Serializable {
 			 
 			return this.vorname + " "+ this.nachname;
 		}
+	public Adresse getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Adresse adresse) {
+		if(adresse!=null)
+		{
+			this.adresse.setPerson(null); //  TODO: Why?
+		}
+		this.adresse = adresse;
+	}
+	public Emailadresse getEmailadresse() {
+		return emailadresse;
+	}
+	public void setEmailadresse(Emailadresse emailadresse) {
+		this.emailadresse = emailadresse;
+	}
+	public Date getGeburtsdatum() {
+		return geburtsdatum;
+	}
+	public void setGeburtsdatum(Date geburtsdatum) {
+		this.geburtsdatum = geburtsdatum;
+	}
+	public Geschlecht getGeschlecht() {
+		return geschlecht;
+	}
+	public void setGeschlecht(Geschlecht geschlecht) {
+		this.geschlecht = geschlecht;
+	}
    
 }

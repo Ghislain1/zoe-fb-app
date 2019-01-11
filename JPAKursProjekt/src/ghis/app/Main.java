@@ -9,6 +9,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import ghis.dao.PersonDAO;
+import ghis.model.Adresse;
+import ghis.model.Emailadresse;
 import ghis.model.Person;
 
 public class Main {
@@ -18,19 +20,14 @@ public class Main {
 		
 		
       PersonDAO personDAO= new PersonDAO();      
-      Person person= personDAO.find(7);
-    
+      Person person= createPerson();
+      person.setAdresse(createAdresse());
+      person.setEmailadresse(CreateEmailadresse());
+      person.setPassBild(createPassBild());  
       
-      person.setLieblingsfarbe("green");
-      person.setKommentar("Mein lieber Ghislain!!! ");
-      
-		/*
-		 * // PassBild Creating!.... try {
-		 * person.setPassBild(Files.readAllBytes(Paths.get("src/img1.jpg"))); } catch
-		 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); }
-		 */
       
       personDAO.persist(person);
+      
       personDAO.shutdown();
      
 		/*
@@ -42,6 +39,45 @@ public class Main {
 		 */
        
       
+	}
+
+	private static byte[] createPassBild() {
+           // PassBild Creating!.... 
+		String imgPath="src/img2.jpg";
+		
+		byte[] byting= null;
+		 try {
+			 byting = Files.readAllBytes(Paths.get(imgPath)); 
+		 }
+		 catch (IOException e) {
+			     e.printStackTrace();
+			 }
+		 return byting;
+		 
+	}
+
+	private static Emailadresse CreateEmailadresse() {
+		Emailadresse emailadresse = new Emailadresse();
+		emailadresse.setEmailadresseString("Musteremail@muste.com");
+		return emailadresse;
+		
+	}
+
+	private static Adresse createAdresse() {
+		
+		Adresse adr= new Adresse();
+		adr.setPlzOrt("55543 Bad Keuznach");
+		adr.setStrasseHausNummer("Weyroth 38");
+		return adr;
+	}
+
+	private static Person createPerson() {
+		Person pers= new Person();
+		pers.setKommentar("Just for fun");
+		pers.setLieblingsfarbe("yellow");
+		pers.setVorname("Sorialla");
+		pers.setNachname("Zabatio");
+		return pers;
 	}
 
 }
