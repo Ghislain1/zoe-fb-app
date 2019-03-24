@@ -21,10 +21,8 @@ public class Main {
 		
       PersonDAO personDAO= new PersonDAO();      
       Person person= createPerson();
-      person.setAdresse(createAdresse());
-      person.setEmailadresse(CreateEmailadresse());
-      person.setPassBild(createPassBild());  
-      
+      person.setAdresse(createAdresse());  
+      person.setPassBild(createPassBild());
       
       personDAO.persist(person);
       
@@ -77,6 +75,7 @@ public class Main {
 		pers.setLieblingsfarbe("yellow");
 		pers.setVorname("Sorialla");
 		pers.setNachname("Zabatio");
+	 
 		return pers;
 	}
 

@@ -12,14 +12,14 @@ import javax.persistence.*;
 public class Emailadresse implements Serializable {
 
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 11L;
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	private long id;
-	
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long id;	
 	private String emailadresseString;
-
+	@ManyToOne
+    private Person person;
 	public Emailadresse() {
 		super();
 	}
@@ -30,6 +30,22 @@ public class Emailadresse implements Serializable {
 
 	public void setEmailadresseString(String emailadresseString) {
 		this.emailadresseString = emailadresseString;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
 	}
    
 }

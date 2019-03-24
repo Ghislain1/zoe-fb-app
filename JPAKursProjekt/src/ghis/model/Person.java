@@ -3,10 +3,13 @@ package ghis.model;
 import java.io.Serializable;
 import java.lang.String;
 import java.sql.Date;
+import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
+ 
 
 /**
  * Entity implementation class for Entity: Person
@@ -27,16 +30,23 @@ public class Person implements Serializable {
 	private byte[] passBild;	
 	@Column(name="Hinweis")
 	private String kommentar;	 
-	private String lieblingsfarbe;
-	
-	@OneToOne(mappedBy="person", cascade=CascadeType.PERSIST)
-	private Adresse adresse;
-	
-	private Emailadresse emailadresse;
+	private String lieblingsfarbe;	
+	@OneToOne(mappedBy="person", cascade=CascadeType.PERSIST) //TODO: JPA-Welt Beziehung aufbauen
+	private Adresse adresse;		
 	private Date geburtsdatum;
 	private Geschlecht geschlecht;
+	@OneToMany(mappedBy="person")
+	private Set <Emailadresse>emailadresseList;
+	@ManyToMany
+	private Collection<Sprache> sprachen;
 
 
+	public Set<Emailadresse> getEmailadresseList() {
+		return this.emailadresseList;
+	}
+	public void setEmailadresseList(Set<Emailadresse> emailadresseList) {
+		this.emailadresseList = emailadresseList;
+	}
 	public Person() { 
 		super();
 	}   
@@ -88,19 +98,15 @@ public class Person implements Serializable {
 	public Adresse getAdresse() {
 		return adresse;
 	}
+	
 	public void setAdresse(Adresse adresse) {
-		if(adresse!=null)
+		if(adresse==null)
 		{
 			this.adresse.setPerson(null); //  TODO: Why?
 		}
 		this.adresse = adresse;
 	}
-	public Emailadresse getEmailadresse() {
-		return emailadresse;
-	}
-	public void setEmailadresse(Emailadresse emailadresse) {
-		this.emailadresse = emailadresse;
-	}
+ 
 	public Date getGeburtsdatum() {
 		return geburtsdatum;
 	}
