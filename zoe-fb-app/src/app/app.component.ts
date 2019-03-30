@@ -1,7 +1,16 @@
-import { Component } from '@angular/core';
+
+import { TranslateService } from '@ngx-translate/core';
 import { UserService } from './shared/services/user.service';
-import { AuthService } from './shared/services/auth.service';
-import { Router } from '@angular/router';
+
+import {
+  Router,
+  Component,
+  isDevMode,
+  NavigationEnd,
+  NavigationStart,
+  NavigationCancel,
+  NavigationError
+} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +18,50 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private userService: UserService, private auth: AuthService, router: Router) {
-    auth.user$.subscribe(user => {
-      if (!user) { return; }
 
-      userService.save(user);
+  loading: boolean;
 
-      const returnUrl = localStorage.getItem('returnUrl');
-      if (!returnUrl) { return; }
+  constructor(
+    private router: Router,
+    translate: TranslateService) {
+    translate.setDefaultLang('en');
+    translate.use('en');
 
-      localStorage.removeItem('returnUrl');
-      router.navigateByUrl(returnUrl);
+    this.subscribeToLoading();
+
+    if (isDevMode()) {
+      console.log('👋 Development!');
+    } else {
+      this.subscribeToAddGA();
+    }
+  }
+
+  private subscribeToAddGA() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        (<any>window).ga('set', 'page', event.urlAfterRedirects);
+        (<any>window).ga('send', 'pageview');
+      }
+    });
+  }
+
+  private subscribeToLoading() {
+    this.router.events.subscribe((event) => {
+      switch (true) {
+        case event instanceof NavigationStart: {
+          this.loading = true;
+          return;
+        }
+        case event instanceof NavigationEnd:
+        case event instanceof NavigationCancel:
+        case event instanceof NavigationError:
+        default: {
+          setTimeout(() => {
+            this.loading = false;
+          }, 300);
+          return;
+        }
+      }
     });
   }
 }

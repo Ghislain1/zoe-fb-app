@@ -1,18 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-
 import { AppComponent } from './app.component';
-import { environment } from '../environments/environment';
-import { RouterModule } from '@angular/router';
-import { LoginComponent } from './core/components/login/login.component';
-import { CoreModule } from './core/core.module';
+import { AppRoutineModule } from './app-routine/app-routine.module';
 import { SharedModule } from './shared/shared.module';
-import { MoviesModule } from './movies/movies.module';
-import { MoviesComponent } from './movies/components/movies/movies.component';
-import { AdminModule } from './admin/admin.module';
-import { HomeComponent } from './core/components/home/home.component';
+import { HomeModule } from './home/home.module';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 
 @NgModule({
   declarations: [
@@ -20,18 +16,13 @@ import { HomeComponent } from './core/components/home/home.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutineModule,
     SharedModule,
-    AdminModule, // TODO: Cause it s empty
-    MoviesModule,
-    CoreModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'login', component: LoginComponent },
-    ])
+    HomeModule,
   ],
   providers: [
-    // AdminAuthGuard, // TODO Why?
+
   ],
   bootstrap: [AppComponent]
 })
