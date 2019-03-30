@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build.prod": "ng build --prod",
+    "build.prod.doc": "ng build --prod --output-path ../docs --base-href /",
+    "build.prod.githubpage": "ng build --prod --output-path ../docs --base-href /",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
