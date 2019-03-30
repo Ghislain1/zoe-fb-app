@@ -6,6 +6,8 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { createTranslateModule } from './shared/services/translate';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -17,9 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutineModule,
     SharedModule,
     HomeModule,
+    createTranslateModule(),
   ],
   providers: [
 

@@ -4,13 +4,14 @@ import { UserService } from './shared/services/user.service';
 
 import {
   Router,
-  Component,
-  isDevMode,
+
   NavigationEnd,
   NavigationStart,
   NavigationCancel,
   NavigationError
 } from '@angular/router';
+
+import { Component, isDevMode } from '@angular/core';
 
 @Component({
   selector: 'app-root',
