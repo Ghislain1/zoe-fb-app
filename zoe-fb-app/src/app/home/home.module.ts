@@ -10,6 +10,7 @@ import {
   MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule
 
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,6 +24,7 @@ import {
     CommonModule,
     FormsModule,
     MatToolbarModule,
+    HttpClientModule,
 
    MatButtonModule,
 

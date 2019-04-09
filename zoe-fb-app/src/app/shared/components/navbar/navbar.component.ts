@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { Route } from '@angular/compiler/src/core';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +11,17 @@ import { MatSnackBar } from '@angular/material';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public snackBar: MatSnackBar) { }
+  background = '';
+  constructor(
+    public snackBar: MatSnackBar,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
+  toggleBackground() {
+    this.background = this.background ? 'warn' : 'primary';
+  }
 
   openSnackBar(message: string, action: string) {
 
@@ -22,6 +31,10 @@ export class NavbarComponent implements OnInit {
 
     });
 
+  }
+
+  focus() {
+    this.router.navigate(['admin']);
   }
 
 

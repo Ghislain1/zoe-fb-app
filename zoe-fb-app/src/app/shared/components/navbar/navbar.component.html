@@ -1,4 +1,12 @@
-<h1> Welcome to Ghislain Z. Blog </h1>
+<h1 class='primary'><span> Ghislain</span> -  Nuget Package Viewer</h1>
+<button mat-raised-button
+        class="example-action-button"
+        (click)='toggleBackground()'>
+  Toggle background
+</button>
+<nav mat-tab-nav-bar>
+
+
 <mat-icon color='warn'>home</mat-icon>
 
 <button mat-button color='primary'>Home</button>
@@ -6,12 +14,12 @@
 <button mat-button (click)="openSnackBar('This is a', 'Snackbar Stategy Logic coming soon !')">Open Snackbar!</button>
 
 
-<mat-menu #menu='matMenu'>
-
-<button mat-menu-item>Comming soon </button>
-
-<button mat-menu-item>Coming soon</button>
+<mat-menu #menu='matMenu' yPosition="above">
+ <button focus='focus()' mat-menu-item>Coming soon</button>
+<button focus='focus()' mat-menu-item>Login</button>
 
 </mat-menu>
 
-<button mat-button [mat-menu-trigger-for]='menu'>Menu</button>
+<!-- <button mat-button [mat-menu-trigger-for]='menu'>Nuget</button> -->
+<mat-button-toggle  mat-button >Nuget</mat-button-toggle>
+</nav>

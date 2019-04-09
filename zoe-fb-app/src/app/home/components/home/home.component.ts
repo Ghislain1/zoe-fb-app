@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { RootResource, Resource } from '../../Models/url-resource';
+import { RootObject, Datum } from '../../Models/package';
 
 @Component({
   selector: 'app-home',
@@ -7,30 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  username: string;
-  password: string;
-  showSpinner: string;
+  url = 'https://api.nuget.org/v3/index.json';
+  url1 = 'https://api-v2v3search-0.nuget.org/query';
 
-  constructor(private router: Router) { }
+all: Datum[] ;
+  constructor(private httpClient: HttpClient)  {
 
+  }
+  ngOnInit(): void {
+    this.httpClient.get<RootObject>(this.url1).subscribe(va =>  {
+      this.all = va.data;
+      console.log(JSON.stringify(va.data, null, 4));
+    });
 
-    ngOnInit() {
-
-    }
-    login(): void {
-
-      if (this.username === 'admin' && this.password === 'admin') {
-
-       this.router.navigate(['user']);
-
-      } else {
-
-        alert('Invalid credentials');
-
-      }
-
-    }
-
-    }
-
-
+  }
+}

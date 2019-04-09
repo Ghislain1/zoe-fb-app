@@ -14,6 +14,7 @@ import {
   MatProgressSpinnerModule } from '@angular/material';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     FormsModule,
     MatButtonModule,
+    RouterModule,
     MatCheckboxModule,
     MatToolbarModule,
     MatButtonToggleModule,
