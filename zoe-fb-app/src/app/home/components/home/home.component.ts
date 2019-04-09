@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  username: string;
+  password: string;
+  showSpinner: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
-  }
 
-}
+    ngOnInit() {
+
+    }
+    login(): void {
+
+      if (this.username === 'admin' && this.password === 'admin') {
+
+       this.router.navigate(['user']);
+
+      } else {
+
+        alert('Invalid credentials');
+
+      }
+
+    }
+
+    }
+
+

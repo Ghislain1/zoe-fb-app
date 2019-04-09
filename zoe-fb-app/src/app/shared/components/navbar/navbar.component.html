@@ -1,3 +1,17 @@
-<p>
-  navbar works!
-</p>
+<h1> Welcome to Ghislain Z. Blog </h1>
+<mat-icon color='warn'>home</mat-icon>
+
+<button mat-button color='primary'>Home</button>
+
+<button mat-button (click)="openSnackBar('This is a', 'Snackbar Stategy Logic coming soon !')">Open Snackbar!</button>
+
+
+<mat-menu #menu='matMenu'>
+
+<button mat-menu-item>Comming soon </button>
+
+<button mat-menu-item>Coming soon</button>
+
+</mat-menu>
+
+<button mat-button [mat-menu-trigger-for]='menu'>Menu</button>
