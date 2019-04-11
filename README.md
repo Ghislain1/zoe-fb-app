@@ -1,27 +1,27 @@
-
-
-
-# My work experience
-
-[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Ghislain1/zoe-fb-app/blob/master/LICENSE)
-
-**Intro**
-
-Welcome to my page. You have come to the right place to check how i learn a new technologie to become a best software developer, you can also suggest a new technologie  and of cause contribute to any listing project above:
-
-**Getting Started**
-
-  * [zoe-fb-app](https://github.com/Ghislain1/zoe-fb-app/tree/master/zoe-fb-app) (this is my first angular application)
-  * [VegaHome](VegaHome)  VegaComp
-  * [JPAKursProjekt](https://github.com/Ghislain1/zoe-fb-app/tree/master/JPAKursProjekt/src) - JPA- Hibernate project, Oracle DB, JavaFx and more...
-  * [VegaComp](https://github.com/Ghislain1/zoe-fb-app/tree/master/VegaComp/VegaComp) - Docker, MYSQL and more
-  * [ComStudio](https://github.com/Ghislain1/zoe-fb-app/tree/master/ComStudio) - WPF-Framework, PRISM-Framework and more
-  * [ZoeSoso](https://github.com/Ghislain1/zoe-fb-app/tree/master/VegaHome/VegaHome/ClientApp) - this is the frontend of VegaHome project
-  
- **Real App**
+# Developement process
+* Open package.json
+* Read the scripts command 
+* Run the script command `start.dev`
+* Implement or Fix the issue
+* Test it
+* Run the script command `build.prod.githubpage`
+* Go to directory `.git`
+* Commit your Changes
+* Push  your Commits.  
  
-  * [Zoe&Soso](https://ghislain1.github.io/zoe-fb-app/): Displaying over login family fotos
-    * Fotos should be stored in AWS (comming soon..)
-    * Dockerizing (later)
-    * Git --> git clone [url] -b [branch-name] --single-branch
-    * [How to deploy gitpage](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch)
+
+
+# Screenshots
+![Screenshot](https://github.com/Ghislain1/ZoeProg/blob/master/src_ZoeProg/docs/setting.PNG)
+
+
+# Inspirations:
+* [Maven Home page](https://search.maven.org/)
+  * Using Language in real project
+  * Angular Project structure and archictecture
+    
+
+* Inspiried by [Mosh- Shop- App](https://github.com/mosh-hamedani/organic-shop)
+  * Angular Project structure and archictecture  
+
+
