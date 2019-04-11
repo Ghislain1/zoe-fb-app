@@ -1,4 +1,13 @@
-# Zoe-Fb-App
+# Developement process
+* Open package.json
+* Read the scripts command 
+* Run the script command `start.dev`
+* Implement or Fix the issue
+* Test it
+* Run the script command `build.prod.githubpage`
+* Go to directory `.git`
+* Commit your Changes
+* Push  your Commits. 
 
 * [Intro](#intro)
 * [Screenshots](#screenshots)
