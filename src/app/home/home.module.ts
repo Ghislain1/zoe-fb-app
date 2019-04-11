@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
+
     HomeComponent
   ],
   imports: [
@@ -25,16 +26,12 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatToolbarModule,
     HttpClientModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatDialogModule,
 
-   MatButtonModule,
-
-   MatCardModule,
-
-   MatInputModule,
-
-   MatDialogModule,
-
-   MatTableModule,
+    MatTableModule,
 
    MatMenuModule,
 

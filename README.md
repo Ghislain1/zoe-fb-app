@@ -1,4 +1,5 @@
 # Developement process
+* Run command `npm install`
 * Open package.json
 * Read the scripts command 
 * Run the script command `start.dev`
@@ -16,6 +17,11 @@
 
 
 # Inspirations:
+* [Bootstrapp lesson from Udemy](https://github.com/Ghislain1/zoe-fb-app/tree/master/_docs/Starten-mit-Bootstrap-4-Kursdaten)
+  * Design for Home page
+  * Design for Card
+  * Using Bootstrap
+
 * [Maven Home page](https://search.maven.org/)
   * Using Language in real project
   * Angular Project structure and archictecture

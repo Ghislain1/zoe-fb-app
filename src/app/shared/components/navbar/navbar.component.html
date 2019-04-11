@@ -1,25 +1,38 @@
-<h1 class='primary'><span> Ghislain</span> -  Nuget Package Viewer</h1>
-<button mat-raised-button
-        class="example-action-button"
-        (click)='toggleBackground()'>
-  Toggle background
-</button>
-<nav mat-tab-nav-bar>
+<header>
+		<!-- Start Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-0">
+			<div class="container">
+				<a class="navbar-brand font-alt" href="#home">
+					<img class="mr-2 mb-3" src="assets/img/logo.svg" height="40" alt="Ghisaonnpthot missing">Ghislain - Blog: Nuget package Viewer
+				</a>
+				<button class="navbar-toggler btn-round" type="button" data-toggle="collapse" data-target="#navbar-toggle" aria-controls="navbar-toggle">
+          <span class="icon-menu"></span>
+        </button>
+				<div class="collapse navbar-collapse justify-content-end text-uppercase" id="navbar-toggle">
+					<ul class="navbar-nav ">
+						<li class="nav-item">
+							<a class="nav-link" href="#home">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#bohne">Packages</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#produkte">Admin</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#impressionen">Impressionen</a>
+						</li>
 
+						<!-- <li class="nav-item d-relative">
+							<a class="nav-link" href="#"><span class="icon-basket"></span><span class="badge badge-pill badge-danger">4</span></a>
+						</li> -->
+					</ul>
+					<!-- navbar-nav -->
+				</div>
+				<!-- navbar-collapse -->
+			</div>
+			<!-- container -->
+		</nav>
+		<!-- Ende Navigation -->
+  </header>
 
-<mat-icon color='warn'>home</mat-icon>
-
-<button mat-button color='primary'>Home</button>
-
-<button mat-button (click)="openSnackBar('This is a', 'Snackbar Stategy Logic coming soon !')">Open Snackbar!</button>
-
-
-<mat-menu #menu='matMenu' yPosition="above">
- <button focus='focus()' mat-menu-item>Coming soon</button>
-<button focus='focus()' mat-menu-item>Login</button>
-
-</mat-menu>
-
-<!-- <button mat-button [mat-menu-trigger-for]='menu'>Nuget</button> -->
-<mat-button-toggle  mat-button >Nuget</mat-button-toggle>
-</nav>

@@ -1,35 +1,19 @@
 
-
-    <div class="container">
-
-        <div class="navBar">
-
-                <ul>
-                        <li *ngFor="let package of all"  >
-                                <nav class="navBox">
-
-      <mat-card class="example-card"  >
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{package.title}}</mat-card-title>
-          <mat-card-subtitle>{{package.title}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="{{package.iconUrl}}" alt=" ">
-        <mat-card-content>
-          <p>
-              {{package.description}}
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-        <hr/>
-      </mat-card>
-
-      </nav>
-      </li>
-      </ul>
+<div class="container">
+    <div class="row mb-5">
+      <div class="col-md-12 text-center">
+        <h1 class="text-danger">Frameworks and Libraries to accelerate your projects </h1>
+      </div>
+    </div>
+    <div class="card-columns">
+      <div *ngFor="let package of all" class="card">
+        <img class="card-img rounded-0" src="{{package.iconUrl}}" alt="No Picc Sorry!!">
+        <h3 class="text-danger mb-3">{{package.version}}</h3>
+        <h6 class="text-black px-4">{{package.description}} </h6>
+      </div>
 
     </div>
+    <!-- card-columns -->
+  </div>
+
 
