@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 @import "~font-awesome/css/font-awesome.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 /*Ovveriding  color of mat*/
-.mat-toolbar.mat-primary{
-  background: #c1d62e ;
+.mat-toolbar.mat-primary {
+  background: #c1d62e;
 }
 
 body {

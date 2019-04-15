@@ -9,9 +9,14 @@ const appRoutes: Routes = [
     path: '',
     canActivate: [ClassicUrlGuard],
     component: HomeComponent
-  }, {
+  },
+  {
     path: 'admin',
     loadChildren: '../admin/admin.module#AdminModule'
+  },
+  {
+    path: 'package',
+    loadChildren: '../package/package.module#PackageModule'
   },
   {
     path: '**',
