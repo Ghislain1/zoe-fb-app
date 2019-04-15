@@ -1,4 +1,5 @@
 # Developement process
+* Clone the project
 * Run command `npm install`
 * Open package.json
 * Read the scripts command 
@@ -13,7 +14,7 @@
 
 
 # Screenshots
-![Screenshot](https://github.com/Ghislain1/ZoeProg/blob/master/src_ZoeProg/docs/setting.PNG)
+Coming soon!!
 
 
 # Inspirations:
