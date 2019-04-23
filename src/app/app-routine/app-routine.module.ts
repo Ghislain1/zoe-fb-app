@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/components/home/home.component';
 import { ClassicUrlGuard } from '../shared/services/classic-url.guard';
 
@@ -10,12 +10,13 @@ const appRoutes: Routes = [
     canActivate: [ClassicUrlGuard],
     component: HomeComponent
   },
-   {
+
+  {
     path: 'admin',
     loadChildren: '../admin/admin.module#AdminModule'
   },
   {
-    path: 'app-package-list',
+    path: 'package',
     loadChildren: '../package/package.module#PackageModule'
   },
   {
