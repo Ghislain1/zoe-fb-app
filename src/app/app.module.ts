@@ -20,10 +20,6 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     HttpClientModule,
 
-<<<<<<< HEAD
-=======
-    RouterModule,
->>>>>>> 2457b2d36c1f5bf9246c04f2d40f7afc2e6bcb2f
     AppRoutineModule,
     SharedModule,
     HomeModule,

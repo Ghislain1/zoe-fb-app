@@ -1,9 +1,4 @@
 # Developement process
-<<<<<<< HEAD
-
-=======
-* Clone the project
->>>>>>> 2457b2d36c1f5bf9246c04f2d40f7afc2e6bcb2f
 * Run command `npm install`
 * Open package.json
 * Read the scripts command 
@@ -18,7 +13,6 @@
 # Screenshots
 Coming soon!!
 
-<<<<<<< HEAD
 # Development sub-projects
 
 ## How to translate your angular
@@ -33,10 +27,6 @@ Coming soon!!
 9. [Refrences](https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-angular7-app-with-ngx-translate)
 
 # Inspirations
-=======
-
-# Inspirations:
->>>>>>> 2457b2d36c1f5bf9246c04f2d40f7afc2e6bcb2f
 * [Bootstrapp lesson from Udemy](https://github.com/Ghislain1/zoe-fb-app/tree/master/_docs/Starten-mit-Bootstrap-4-Kursdaten)
   * Design for Home page
   * Design for Card
