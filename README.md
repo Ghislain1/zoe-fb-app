@@ -1,4 +1,5 @@
 # Developement process
+
 * Run command `npm install`
 * Open package.json
 * Read the scripts command 
@@ -9,14 +10,24 @@
 * Go to directory `.git`
 * Commit your Changes
 * Push  your Commits.  
- 
-
 
 # Screenshots
-![Screenshot](https://github.com/Ghislain1/ZoeProg/blob/master/src_ZoeProg/docs/setting.PNG)
+Coming soon!!
 
+# Development sub-projects
 
-# Inspirations:
+## How to translate your angular
+1. Add `@ngx-translate/core @ngx-translate/http-loader and rxjs` to your Angular application
+2. Configure the imports by using `TranslateModule`
+3. Inject `TranslateService` in your desired component.
+4. Create JSON translation file like `assets/i18n/en.json` each language is stored in a separate .json file
+5. Using translations with translation pipe — `{{'id' | translate}}` or translation directive —` <element [translate]="'id'"></element>`
+6. Translations with parameters
+7. Switching languages at runtime
+8. Editing JSON files with BabelEdit
+9. [Refrences](https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-angular7-app-with-ngx-translate)
+
+# Inspirations
 * [Bootstrapp lesson from Udemy](https://github.com/Ghislain1/zoe-fb-app/tree/master/_docs/Starten-mit-Bootstrap-4-Kursdaten)
   * Design for Home page
   * Design for Card
@@ -28,6 +39,7 @@
     
 
 * Inspiried by [Mosh- Shop- App](https://github.com/mosh-hamedani/organic-shop)
-  * Angular Project structure and archictecture  
+  * Angular Project structure and archictecture
+  * Using custom table in angular App. 
 
 
