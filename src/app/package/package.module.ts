@@ -8,7 +8,6 @@ const packageRoutes: Routes = [
     path: '',
     component: PackageListComponent
   }
-
 ];
 
 
