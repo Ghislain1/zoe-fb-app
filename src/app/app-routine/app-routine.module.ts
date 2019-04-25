@@ -5,25 +5,25 @@ import { HomeComponent } from '../home/components/home/home.component';
 import { ClassicUrlGuard } from '../shared/services/classic-url.guard';
 
 const appRoutes: Routes = [
-  {
-    path: '',
-    canActivate: [ClassicUrlGuard],
-    component: HomeComponent
-  },
+                          {
+                            path: '',
+                            canActivate: [ClassicUrlGuard],
+                            component: HomeComponent
+                          },
+                          {
+                            path: 'admin',
+                            loadChildren: '../admin/admin.module#AdminModule'
+                          },
+                          {
+                            path: 'package',
+                            loadChildren: '../package/package.module#PackageModule'
+                          },
+                          {
+                            path: '**',
+                            redirectTo: ''
+                          }
 
-  {
-    path: 'admin',
-    loadChildren: '../admin/admin.module#AdminModule'
-  },
-  {
-    path: 'package',
-    loadChildren: '../package/package.module#PackageModule'
-  },
-  {
-    path: '**',
-    redirectTo: ''
-  }
-];
+                        ];
 @NgModule({
   declarations: [],
   imports: [
