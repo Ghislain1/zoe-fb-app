@@ -9,6 +9,7 @@
     "build.prod": "ng build --prod",
     "build.prod.doc": "ng build --prod --output-path ./docs --base-href ./",
     "build.prod.githubpage": "ng build --prod --output-path ./docs --base-href ./",
+    "build.shell.prod.githubpage": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command  ./build.ps1",
     "build.shell": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command  ./build.ps1",
     "test": "ng test",
     "lint": "ng lint",

@@ -11,7 +11,6 @@ const appRoutes: Routes = [
                             canActivate: [ClassicUrlGuard],
                             redirectTo : 'package',
                             pathMatch: 'full'
-
                           },
                           {
                             path: 'admin',
