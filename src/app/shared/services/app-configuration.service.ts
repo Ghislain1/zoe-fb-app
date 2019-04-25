@@ -9,7 +9,7 @@ import { AppConfig } from '../models/app-config';
 export class AppConfigurationService {
 
   private appConfig: AppConfig;
-  private appConfigPath = 'assets/data/appConfig.json';
+  private appConfigPath = './assets/data/appConfig.json';
 
   constructor(
     private httpClient: HttpClient

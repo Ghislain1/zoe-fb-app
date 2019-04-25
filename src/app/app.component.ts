@@ -11,7 +11,7 @@ import {
   NavigationError
 } from '@angular/router';
 
-import { Component, isDevMode } from '@angular/core';
+import { Component, isDevMode} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +30,7 @@ export class AppComponent {
 
     this.subscribeToLoading();
 
+
     if (isDevMode()) {
       console.log('👋 Development!');
     } else {
@@ -40,8 +41,11 @@ export class AppComponent {
   private subscribeToAddGA() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
+        // @Ghislain: Why this 2 lines???
         (<any>window).ga('set', 'page', event.urlAfterRedirects);
         (<any>window).ga('send', 'pageview');
+
+        console.log(' AppComponent-  subscribeToAddGA! ' + JSON.stringify(event, null, 4));
       }
     });
   }
