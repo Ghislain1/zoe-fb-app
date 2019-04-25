@@ -39,3 +39,9 @@ export interface RootObject {
 }
 
 
+
+// @Ghislain:If you call (Get https://api.nuget.org/v3/index.json) this you get this structure:
+
+
+
+

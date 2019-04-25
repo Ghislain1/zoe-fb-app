@@ -10,7 +10,7 @@
       "endpoint": "https://api.nuget.org/v3/index.json"
     }
   },
-  "appBaseUrl": "https://api-v2v3search-0.nuget.org/query?",
+  "appBaseUrl": "https://api-v2v3search-0.nuget.org/query",
   "repositoryBaseUrl": "https://github.com/Ghislain1/zoe-fb-app",
   "appClassicLookUrl": "https://www.nuget.org/packages"
 }

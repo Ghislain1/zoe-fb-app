@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PackageListComponent } from './components/package-list/package-list.component';
 import { Routes, RouterModule } from '@angular/router';
+import { Datum } from '../home/Models/package';
 
 const packageRoutes: Routes = [
   {
@@ -21,7 +22,7 @@ const packageRoutes: Routes = [
 })
 export class PackageModule {
 
-  list:   string [];
+  list:   Datum [];
  constructor () {
 
  }
