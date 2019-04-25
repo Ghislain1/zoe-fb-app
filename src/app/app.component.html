@@ -1,10 +1,27 @@
 <!--The content below is only a placeholder and can be replaced.-->
+ <section>
   <app-navbar></app-navbar>
-  <hr/>
-  <div class="container-fluid  ">
-<div class="row align-items-center  ">
-  <div class="col ghis-bg">
-    <router-outlet></router-outlet>
+ </section>
+
+
+ <section>
+    <div [hidden]="!loading" class="loader">
+        <div class ="container">
+          <mat-spinner diameter="500"></mat-spinner>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+ </section>
+
+ <section>
+  <app-footer></app-footer>
+ </section>
+
+
+  <!-- <div class="container-fluid">
+     <div class="row align-items-center  ">
+     <div class="col">
+     <router-outlet></router-outlet>
     <div [hidden]="!loading" class="loader">
       <div>
         <mat-spinner diameter="735"></mat-spinner>
@@ -12,9 +29,9 @@
     </div>
   </div>
 </div>
- </div>
+</div> -->
 
- <!--  <app-footer></app-footer> -->
+ <!--   -->
 
 
 

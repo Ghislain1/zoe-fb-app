@@ -19,6 +19,10 @@ const appRoutes: Routes = [
                             loadChildren: '../package/package.module#PackageModule'
                           },
                           {
+                            path: 'impression',
+                            loadChildren: '../impression/impression.module#ImpressionModule'
+                          },
+                          {
                             path: '**',
                             redirectTo: ''
                           }

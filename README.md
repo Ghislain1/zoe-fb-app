@@ -26,6 +26,10 @@ Coming soon!!
 8. Editing JSON files with BabelEdit
 9. [Refrences](https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-angular7-app-with-ngx-translate)
 
+## How to use font in Angular
+1. Install package e.g. `npm install --save font-awesome angular-font-awesome`
+2. Embebbed any externe  font lib to your app e.g. 
+
 # Inspirations
 * [Bootstrapp lesson from Udemy](https://github.com/Ghislain1/zoe-fb-app/tree/master/_docs/Starten-mit-Bootstrap-4-Kursdaten)
   * Design for Home page

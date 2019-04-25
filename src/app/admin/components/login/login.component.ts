@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  list: any[] = [];
   username: string;
   password: string;
   showSpinner: string;
@@ -16,7 +18,12 @@ export class LoginComponent implements OnInit {
 
 
     ngOnInit() {
+      let counter = 1;
+   for (let index = 0; index < 10; index++) {
 
+     this.list.push('Comming soon!!!> ' + counter++);
+
+   }
     }
     login(): void {
 

@@ -19,7 +19,6 @@ const adminRoutes: Routes = [
 
 ];
 
-
 @NgModule({
   imports: [
     CommonModule,
