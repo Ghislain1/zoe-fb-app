@@ -3,12 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/components/home/home.component';
 import { ClassicUrlGuard } from '../shared/services/classic-url.guard';
+import { PackageListComponent } from '../package/components/package-list/package-list.component';
 
 const appRoutes: Routes = [
                           {
                             path: '',
                             canActivate: [ClassicUrlGuard],
-                            component: HomeComponent
+                            redirectTo : 'package',
+                            pathMatch: 'full'
+
                           },
                           {
                             path: 'admin',

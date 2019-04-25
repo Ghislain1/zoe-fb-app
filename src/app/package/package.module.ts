@@ -16,7 +16,8 @@ const packageRoutes: Routes = [
   imports: [
     CommonModule,
      RouterModule.forChild(packageRoutes)
-  ]
+  ],
+  exports: [PackageListComponent]
 })
 export class PackageModule {
 
