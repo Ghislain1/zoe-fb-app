@@ -2,7 +2,7 @@
   "search": {
     "endpoint": "http://localhost:8080/central/solrsearch/select"
   },
-  "API": {
+  "Api": {
     "endpoint": "https://docs.microsoft.com/en-us/nuget/api/overview"
   },
   "ossindex": {

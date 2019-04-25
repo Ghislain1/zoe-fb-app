@@ -9,7 +9,7 @@ import { AppConfig } from '../models/app-config';
 export class AppConfigurationService {
 
   private appConfig: AppConfig;
-  private appConfigPath = '/assets/data/appConfig.json';
+  private appConfigPath = 'assets/data/appConfig.json';
 
   constructor(
     private httpClient: HttpClient
@@ -18,10 +18,14 @@ export class AppConfigurationService {
 
   /// load config using toPromise() Method
   loadAppConfig() {
-    return this.httpClient.get(this.appConfigPath)
+    return this.httpClient.get<AppConfig>(this.appConfigPath)
         .toPromise()
         .then(data => {
-            this.appConfig = <AppConfig>data;
+            this.appConfig = data;
+            console.log(JSON.stringify(this.appConfig, null, 4));
+        })
+        .catch(rease => {
+          console.log(JSON.stringify(rease, null, 4));
         });
 }
 
