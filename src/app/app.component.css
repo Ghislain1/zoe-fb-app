@@ -1,0 +1,326 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0px;
+  font-family: Ubuntu;
+}
+
+dashboard,
+articles,
+events,
+mails,
+accounting,
+subscriptions,
+newbooking {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0px 0px 20px 8px #c1c1c112;
+  padding: 8px;
+  border-radius: 2px;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+.card .more {
+  color: blue;
+  text-decoration: none;
+  padding-left: 5px;
+}
+
+.card-wrapper {
+  margin-top: 25px;
+}
+
+.card-wrapper.w50 {
+  width: 50%;
+}
+
+.card-wrapper.w100 {
+  width: 100%;
+}
+
+.card-wrapper.w70 {
+  width: 70%;
+}
+
+.card-wrapper.w30 {
+  width: 30%;
+}
+
+.card-wrapper.h7 .card {
+  height: 7em;
+}
+
+.card-wrapper.h13 .card {
+  height: 13.8em;
+}
+
+.card-wrapper.h33 .card {
+  height: 33em;
+}
+
+.card h3 {
+  margin: 0;
+}
+
+.card-wrapper h3,
+h4 {
+  margin: 0;
+}
+
+.card .card-actions {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.card .card-actions label {
+  padding-top: 9px;
+  font-size: 13.3333px;
+}
+
+.card#mails div:not(.span) {
+  position: relative;
+  top: 0px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-top: 1px solid #dadada;
+  cursor: pointer;
+}
+
+.card#mails div:first-child:not(.span) {
+  border-top: 0px !important;
+}
+
+.card#mails div .span {
+  font-size: 0.95em;
+  display: inline-block;
+}
+
+.card#mails div.from {
+  width: 11.5em;
+  overflow: hidden;
+}
+
+.card div.event {
+  padding: 5px;
+}
+
+.card div.task {
+  margin-bottom: 8px;
+  padding-left: 5px;
+}
+
+.card div.task div.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+}
+
+.card div.task h4 {
+  display: inline-block;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+#tasks a.more {
+  top: 15px;
+  position: relative;
+}
+
+.card div.event:not(:first-child) {
+  border-top: 1px solid #cacaca;
+}
+
+label {
+  margin-right: 7px;
+}
+
+input,
+select {
+  outline: none !important;
+  border: 1px solid #dedede;
+  border-radius: 1px;
+  box-shadow: 0px 0px 6px 0px #80808021;
+  padding: 4px;
+  margin: 2px;
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  padding: 9px;
+  font-weight: bold;
+  /**box-shadow: 0px 0px 9px 0px #efefef;*/
+  outline: none;
+  cursor: pointer;
+}
+
+button:not(.outline) {
+  /**color: white !important;**/
+}
+
+button.save,
+button.primary,
+button.cancel {
+  background-color: transparent;
+  border-color: transparent;
+  color: #2196f3;
+}
+
+button.cancel {
+  color: #f44336 !important;
+}
+
+button.outline {
+  /*border: 1px solid !important;*/
+  box-shadow: none;
+  background-color: transparent !important;
+}
+
+#content {
+  position: fixed;
+  left: 190px;
+  width: calc(100% - 190px);
+  padding: 0px;
+  background-color: #fdfdfd;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 2px 0px 20px 0px #80808017;
+}
+
+#content.fullscreen {
+  left: 0px !important;
+  width: 100% !important;
+}
+
+#content-inner {
+  padding-top: 18px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-bottom: 18px;
+  height: calc(100% - 36px);
+}
+
+sidenav {
+  height: 100%;
+  position: fixed;
+  width: 190px;
+}
+
+#mobile-tabs {
+  display: none;
+}
+
+#lineChartWrapper {
+  position: relative;
+  max-height: 13em;
+}
+
+h1.page-title {
+  width: 100%;
+  margin-top: 11px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+}
+
+events {
+  height: 100%;
+}
+
+:root {
+  --HeiszesVomHeilwig: #ea9999;
+  --HeiszerScheisz: #674ea7;
+  --Platzhalter: white;
+  --Anzeige: #f6b26b;
+}
+
+@media (max-width: 672px) {
+  sidenav {
+    height: 57px;
+    width: 100%;
+    bottom: 0px;
+    box-shadow: 0px 0px 10px 0px #a0a0a01c;
+    z-index: 10;
+  }
+
+  #sidenav-wrapper {
+    display: none;
+  }
+
+  #content {
+    left: 0px !important;
+    width: 100% !important;
+    height: calc(100% - 57px);
+    /**box-shadow: inset 0 -10px 12px -10px #0000004d;**/
+  }
+
+  #content-inner {
+    padding: 10px;
+  }
+
+  #mobile-tabs {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 10;
+    background: linear-gradient(to top right, #fff6fe, #ffd79a);
+    width: 100%;
+    height: 57px;
+    bottom: 0px;
+  }
+
+  #mobile-tabs .tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+    cursor: pointer;
+  }
+
+  #mobile-tabs .tab-item i {
+    margin-top: 9px;
+    font-size: 2em;
+    color: #5f5f5f;
+  }
+
+  #mobile-tabs .tab-item span {
+    font-size: 0.5em;
+  }
+
+  #mobile-tabs .tab-item.active span {
+    color: #ff317b !important;
+  }
+
+  #mobile-tabs .tab-item.active i {
+    color: #ff317b !important;
+  }
+
+  .card {
+    margin-right: 0px;
+  }
+
+  .card .card-actions {
+    flex-direction: column;
+  }
+
+  .card-wrapper.w50 {
+    width: 100%;
+  }
+
+  .card-wrapper.w100 {
+    width: 100%;
+  }
+
+  .m-hide {
+    display: none;
+  }
+}

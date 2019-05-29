@@ -64,8 +64,6 @@ THE SOFTWARE.
 
 @angular/material/dialog
 
-@angular/material/progress-spinner
-
 @angular/material/snack-bar
 
 @angular/platform-browser

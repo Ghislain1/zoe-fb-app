@@ -1,5 +1,5 @@
-<!--The content below is only a placeholder and can be replaced.-->
- <section>
+<!-- The content below is only a placeholder and can be replaced. -->
+<!-- <section>
   <app-navbar></app-navbar>
  </section>
 
@@ -15,23 +15,18 @@
 
  <section>
   <app-footer></app-footer>
- </section>
+ </section> -->
 
 
-  <!-- <div class="container-fluid">
-     <div class="row align-items-center  ">
-     <div class="col">
-     <router-outlet></router-outlet>
-    <div [hidden]="!loading" class="loader">
-      <div>
-        <mat-spinner diameter="735"></mat-spinner>
-      </div>
+
+<div id="main-wrapper">
+  <app-navside *ngIf='loggedIn'></app-navside>
+
+
+
+  <div id="content" [ngClass]="{'fullscreen':!loggedIn}">
+    <div id="content-inner">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
-</div> -->
-
- <!--   -->
-
-
-

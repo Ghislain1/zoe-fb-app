@@ -8,7 +8,6 @@
   "ossindex": {
     "resource": {
       "endpoint": "https://api.nuget.org/v3/index.json"
-
     }
   },
   "appBaseUrl": "https://api-v2v3search-0.nuget.org/query",

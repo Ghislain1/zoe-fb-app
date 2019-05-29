@@ -1,0 +1,50 @@
+div#sidenav-wrapper {
+  background: linear-gradient(to top right, #ffffff, #ffcfa32b);
+  color: #87868e;
+  height: 50%;
+}
+
+#sidenav ul {
+  list-style-type: none;
+  padding: 0px;
+  position: relative;
+  margin-top: 40px;
+}
+
+#sidenav-wrapper #userinfo {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+#sidenav-wrapper #userinfo span {
+  margin-top: 3px;
+}
+
+#sidenav-wrapper #userinfo .avatar {
+  height: 67px;
+  width: 67px;
+  border-radius: 50px;
+  margin-top: 22px;
+}
+
+#sidenav ul li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  cursor: pointer;
+  display: flex;
+}
+
+#sidenav ul li i {
+  top: -3px;
+  margin-right: 6px;
+  position: relative;
+}
+
+#sidenav ul li.active {
+  font-weight: bold;
+  color: black;
+}
