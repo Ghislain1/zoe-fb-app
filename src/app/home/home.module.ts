@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 
-import {
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
-  MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-
-  MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule
-
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -33,11 +36,11 @@ import { HttpClientModule } from '@angular/common/http';
 
     MatTableModule,
 
-   MatMenuModule,
+    MatMenuModule,
 
-   MatIconModule,
+    MatIconModule,
 
-   MatProgressSpinnerModule
+    MatProgressSpinnerModule
   ],
   exports: [
     HomeComponent
