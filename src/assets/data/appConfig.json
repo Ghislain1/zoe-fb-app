@@ -1,0 +1,17 @@
+{
+  "search": {
+    "endpoint": "http://localhost:8080/central/solrsearch/select"
+  },
+  "Api": {
+    "endpoint": "https://docs.microsoft.com/en-us/nuget/api/overview"
+  },
+  "ossindex": {
+    "resource": {
+      "endpoint": "https://api.nuget.org/v3/index.json"
+
+    }
+  },
+  "appBaseUrl": "https://api-v2v3search-0.nuget.org/query",
+  "repositoryBaseUrl": "https://github.com/Ghislain1/zoe-fb-app",
+  "appClassicLookUrl": "https://www.nuget.org/packages"
+}

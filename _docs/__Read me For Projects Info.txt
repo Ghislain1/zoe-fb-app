@@ -1,0 +1,9 @@
+-------------------------------------------------------------------
+-
+-		What do i discover ?
+-
+-------------------------------------------------------------------
+
+# GhislainOneApp
+  - TSlint has been used for clean a code
+  - Project can execute autosave 

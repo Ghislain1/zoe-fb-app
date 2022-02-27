@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+// @import "~font-awesome/css/font-awesome.css";
+
+
+/*@Ghislain: if you removed this line your could NOT see Montserrat font again */
+/*@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");*/
+
+
+/* === Allgemein ===
+
+
+/* Schriften */
+
+body,
+p {
+  font-family: 'Montserrat', 'Arial', 'Arial Black';
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-alt {
+  font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+
+/* Button */
+
+.btn-round {
+  border-radius: 30px;
+}
+
+
+/* Section */
+
+section {
+  padding: 40px 0;
+}
+
+
+/* Hilfsklassen */
+
+.d-relative {
+  position: relative;
+}
+
+
+/* === Navigation ===*/
+
+nav.navbar.navbar-dark button:hover,
+nav.navbar.navbar-dark button:focus,
+nav.navbar.navbar-dark .nav-link:hover {
+  color: #dc3545;
+}
+
+.navbar-nav .badge {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  padding-right: .5em;
+  padding-left: .5em;
+}
+
+.navbar-nav .icon-basket {
+  line-height: 0.8;
+  font-size: 1.5em;
+}
+
+/* === Admin ===*/
+.admin-bg {
+  background-image: url('/assets/img/butterfly.gif');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+}
+
+/* === Impressionen ===*/
+.impressionen-bg {
+  background-image: url('/assets/img/butterfly.gif');
+  background-position: 50% 50%;
+  background-attachment: fixed;
+}
+
+
+#content.fullscreen {
+  left: 0px !important;
+  width: 100% !important;
+}
+
+#content-inner {
+  padding-top: 18px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-bottom: 18px;
+  height: calc(100% - 36px);
+}
+
+sidenav {
+  height: 100%;
+  position: fixed;
+  width: 190px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

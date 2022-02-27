@@ -1,0 +1,88 @@
+#login-wrapper {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top right, green, #fba600);
+  color: white;
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+#login-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  background: transparent;
+  border: 0px;
+  box-shadow: none;
+  width: 100%;
+}
+
+input::placeholder {
+  color: white;
+  width: 13.32em;
+}
+
+.form-input {
+  border-bottom: 1px solid white;
+  width: 22.32em;
+  margin-bottom: 1em;
+  display: flex;
+}
+
+i {
+  position: relative;
+  top: 5px;
+}
+
+button {
+  box-shadow: none;
+  background-color: white;
+  color: black !important;
+  border-radius: 20px;
+  width: 18.8em;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+  font-size: 1.3em;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 672px) {
+  #login-inner {
+    width: 100%;
+    height: 100%;
+  }
+
+  form {
+    width: 95%;
+  }
+
+  .form-input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 30px;
+  }
+}

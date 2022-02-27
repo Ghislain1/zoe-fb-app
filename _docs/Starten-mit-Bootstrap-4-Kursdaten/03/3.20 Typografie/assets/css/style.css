@@ -1,0 +1,19 @@
+.container a h1 {
+	margin: 20px 0;
+	padding-bottom: 7px;
+	border-bottom: 2px solid #ffc107;
+	color: #000;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+h2 {
+	margin: 20px 0;
+	color: #000;
+}
+
+.container {
+	padding: 25px 0;
+}

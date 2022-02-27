@@ -1,0 +1,24 @@
+<div id="sidenav-wrapper">
+  <div class="bg-dark" id="userinfo">
+    <img [src]="user.avatar" class="avatar">
+    <span>
+      {{ user.firstname }} {{ user.lastname }}
+    </span>
+  </div>
+  <div id="sidenav">
+    <ul>
+      <li *ngFor="let route of navRoutes" (click)="navigate($event, route)" [class.active]="route.name==selected">
+        <span>{{ route.name }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<div id="mobile-tabs">
+  <ng-container *ngFor="let route of navRoutes">
+    <div class="tab-item" *ngIf='route.mobile' (click)="navigate($event, route)" [class.active]='route.name==selected'>
+      <!-- <i class="material-icons">{{ route.icon }}</i> -->
+      <span>{{ route.name }}</span>
+    </div>
+  </ng-container>
+
+</div>
