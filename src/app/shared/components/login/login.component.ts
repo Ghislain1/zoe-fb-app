@@ -18,9 +18,9 @@ export class LoginComponent {
   }
 
   login(): void {
+    this.router.navigate(['/packages']);
     this.auth.login(this.username, this.password).then(() => {
-      console.log('Logged in');
-      this.router.navigateByUrl('/package');
+
     });
   }
 }

@@ -16,7 +16,7 @@ const appRoutes: Routes = [
 
   },
   {
-    path: 'package',
+    path: 'packages',
     loadChildren: () => import('../package/package.module').then(m => m.PackageModule),
   },
   {
@@ -34,7 +34,8 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule, RouterModule.forRoot(appRoutes)],
+  imports: [CommonModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutineModule { }

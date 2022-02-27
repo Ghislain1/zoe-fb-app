@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppUser } from '../models/app-user';
+import { AppUser, User } from '../models/app-user';
 import { AppSession } from '../models/app-session';
 
 @Injectable({
@@ -9,7 +9,7 @@ export class AuthService {
   public user!: AppUser;
   public session!: AppSession;
   private setDefaultUser: Boolean = true;
-  private defaultUser!: AppUser;
+  private defaultUser!: User;
 
   private defaultSession: AppSession = new AppSession({
     id: 'sNUJfaCE7kGt6UGEuaUWIQ',
@@ -30,10 +30,10 @@ export class AuthService {
   public login(username: String, password: String): Promise<AppUser> {
     const that = this;
     return new Promise(function (resolve, reject) {
-      that.user = that.defaultUser;
+      // that.user = that.defaultUser;
       that.session = that.defaultSession;
       window.localStorage.setItem('session_id', 'session_no_000001');
-      // resolve(new AppUser({}));
+      // resolve(that.defaultUser );
     });
   }
 

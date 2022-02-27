@@ -4,11 +4,8 @@ import { AppComponent } from './app.component';
 import { AppRoutineModule } from './app-routine/app-routine.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { createTranslateModule } from './shared/services/translate';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppConfigurationService } from './shared/services/app-configuration.service';
 
 // @Ghislain: The factory in angular

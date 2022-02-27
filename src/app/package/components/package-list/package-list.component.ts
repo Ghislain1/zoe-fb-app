@@ -2,26 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { AppConfigurationService } from 'src/app/shared/services/app-configuration.service';
 import { PackageService } from 'src/app/shared/services/package.service';
 import { RootObject, Datum } from 'src/app/home/Models/package';
-import { Resource, RootResource } from 'src/app/home/Models/url-resource';
 
 @Component({
   selector: 'app-package-list',
   templateUrl: './package-list.component.html',
-  styleUrls: ['./package-list.component.css']
+  styleUrls: ['./package-list.component.scss']
 })
 export class PackageListComponent implements OnInit {
 
-list: Datum[] = [];
+  list: Datum[] = [];
 
 
   constructor(
-   private packageService: PackageService
+    private packageService: PackageService
   ) {
-   }
+  }
 
   ngOnInit() {
- this.packageService.GetPackges().subscribe( packageResult => this.initPackage(packageResult),
-     error => this.handlerError(error));
+    this.packageService.GetPackges().subscribe(packageResult => this.initPackage(packageResult),
+      error => this.handlerError(error));
   }
 
   private handlerError(error: any): void {
@@ -31,13 +30,13 @@ list: Datum[] = [];
   }
 
 
- private initPackage(packageResult:  RootObject): void {
-if (packageResult.data !== undefined) {
-  packageResult.data.forEach( pkg =>  this.list.push(pkg) );
+  private initPackage(packageResult: RootObject): void {
+    if (packageResult.data !== undefined) {
+      packageResult.data.forEach(pkg => this.list.push(pkg));
 
 
 
-}
+    }
 
 
   }

@@ -1,7 +1,11 @@
 export interface User {
   name: string;
   email: string;
+  firstname: String;
+  lastname: String;
+  id: Number;
   isAdmin: boolean;
+  generateAvatar(): string;
 }
 
 export class AppUser {
@@ -9,21 +13,21 @@ export class AppUser {
   public id: Number;
   public firstname: String;
   public lastname: String;
-  public avatar?: String;
+  public avatar?: string;
   public flags?: String[];
   public settings?: Object;
 
-  constructor(user: AppUser) {
+  constructor(user: User) {
     this.email = user['email'] || '';
     this.id = user['id'] || -1;
     this.firstname = user['firstname'] || '';
     this.lastname = user['lastname'] || '';
-    this.flags = user['flags'] || [];
-    this.settings = user['settings'] || {};
-    this.avatar = user['avatar'] || this.generateAvatar2();
+    this.flags = this.flags || [];
+    this.settings = this.settings || {};
+    this.avatar = this.generateAvatar() || '';
   }
 
-  public generateAvatar2(): String {
+  public generateAvatar(): string {
     const colors = [
       '#c62828',
       '#ad1457',
